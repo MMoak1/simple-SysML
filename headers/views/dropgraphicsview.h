@@ -3,10 +3,13 @@
 
 #include <QGraphicsView>
 #include <QGraphicsScene>
-#include "blockitem.h"
+#include <QPointF>
+#include <QString>
 
 class DropGraphicsView : public QGraphicsView
 {
+    Q_OBJECT
+
 public:
     DropGraphicsView(QGraphicsScene *scene, QWidget *parent = nullptr);
     virtual ~DropGraphicsView();
@@ -16,9 +19,11 @@ protected:
     void dragMoveEvent(QDragMoveEvent *event) override;
     void dropEvent(QDropEvent *event) override;
 
+signals:
+    void dropPerformed(const QString &text, const QPointF &position);
+
 private:
     QGraphicsScene *m_scene;
-    QColor getColorFromText(const QString &text);
 };
 
 #endif // DROPGRAPHICSVIEW_H

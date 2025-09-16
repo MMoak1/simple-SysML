@@ -389,12 +389,18 @@ CMakeFiles/Helloworld.dir/src/mainwindow.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QSplitter \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsplitter.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qframe.h \
- C:/summer_2025/lasttry/headers/blockmenu.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsView \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsview.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qpainter.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qtextoption.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qscrollarea.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsscene.h \
+ C:/summer_2025/lasttry/headers/views/blockmenuview.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QListWidget \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlistwidget.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlistview.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractitemview.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qabstractitemmodel.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qitemselectionmodel.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -408,24 +414,30 @@ CMakeFiles/Helloworld.dir/src/mainwindow.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyle.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtabbar.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qrubberband.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/QDrag \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qdrag.h \
- C:/summer_2025/lasttry/headers/dropgraphicsview.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsView \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsview.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qpainter.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qtextoption.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qscrollarea.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsscene.h \
- C:/summer_2025/lasttry/headers/blockitem.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsRectItem \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsitem.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qpainterpath.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/QColor \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qcolor.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QPoint \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qpoint.h \
+ C:/summer_2025/lasttry/headers/views/dropgraphicsview.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QPointF \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QString \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qstring.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/QPainter \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qpainter.h \
- C:/summer_2025/lasttry/headers/blockmenu.h \
- C:/summer_2025/lasttry/headers/dropgraphicsview.h
+ C:/summer_2025/lasttry/headers/models/blockmodel.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QObject \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qobject.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/QColor \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qcolor.h \
+ C:/summer_2025/lasttry/headers/controllers/dropcontroller.h \
+ C:/summer_2025/lasttry/headers/models/blockmodel.h \
+ C:/summer_2025/lasttry/headers/views/blockview.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsObject \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsitem.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qpainterpath.h \
+ C:/summer_2025/lasttry/headers/models/blockmodel.h \
+ C:/summer_2025/lasttry/headers/controllers/menucontroller.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/QDrag \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qdrag.h \
+ C:/summer_2025/lasttry/headers/views/blockmenuview.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QListWidgetItem \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/QPixmap \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qpixmap.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/QIcon \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qicon.h

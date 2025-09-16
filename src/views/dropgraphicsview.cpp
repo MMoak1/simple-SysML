@@ -1,8 +1,8 @@
-#include "../headers/dropgraphicsview.h"
+#include "../headers/views/dropgraphicsview.h"
 #include <QDragEnterEvent>
+#include <QDragMoveEvent>
 #include <QDropEvent>
 #include <QMimeData>
-#include <QMouseEvent>
 
 DropGraphicsView::DropGraphicsView(QGraphicsScene *scene, QWidget *parent)
     : QGraphicsView(scene, parent), m_scene(scene)
@@ -34,33 +34,10 @@ void DropGraphicsView::dropEvent(QDropEvent *event)
     }
 
     QString text = event->mimeData()->text();
-    QColor color = getColorFromText(text);
+    QPointF scenePos = mapToScene(event->position().toPoint());
 
-    if (color.isValid())
-    {
-        QPointF scenePos = mapToScene(event->position().toPoint());
-        BlockItem *item = new BlockItem(color, text, nullptr);
-        item->setPos(scenePos);
-        m_scene->addItem(item);
-        event->acceptProposedAction();
-    }
-}
-
-QColor DropGraphicsView::getColorFromText(const QString &text)
-{
-    if (text == "Red Block")
-    {
-        return Qt::red;
-    }
-    else if (text == "Blue Block")
-    {
-        return Qt::blue;
-    }
-    else if (text == "Green Block")
-    {
-        return Qt::green;
-    }
-    return QColor();
+    emit dropPerformed(text, scenePos);
+    event->acceptProposedAction();
 }
 
 DropGraphicsView::~DropGraphicsView()

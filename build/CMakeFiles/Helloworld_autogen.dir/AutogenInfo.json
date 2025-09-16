@@ -348,7 +348,45 @@
 	"CROSS_CONFIG" : false,
 	"DEP_FILE" : "C:/summer_2025/lasttry/build/Helloworld_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "Helloworld_autogen/timestamp",
-	"HEADERS" : [],
+	"HEADERS" : 
+	[
+		[
+			"C:/summer_2025/lasttry/headers/controllers/dropcontroller.h",
+			"MU",
+			"COIOAYLKOZ/moc_dropcontroller.cpp",
+			null
+		],
+		[
+			"C:/summer_2025/lasttry/headers/controllers/menucontroller.h",
+			"MU",
+			"COIOAYLKOZ/moc_menucontroller.cpp",
+			null
+		],
+		[
+			"C:/summer_2025/lasttry/headers/models/blockmodel.h",
+			"MU",
+			"5JQWYGIYPV/moc_blockmodel.cpp",
+			null
+		],
+		[
+			"C:/summer_2025/lasttry/headers/views/blockmenuview.h",
+			"MU",
+			"KH5PZA5WCU/moc_blockmenuview.cpp",
+			null
+		],
+		[
+			"C:/summer_2025/lasttry/headers/views/blockview.h",
+			"MU",
+			"KH5PZA5WCU/moc_blockview.cpp",
+			null
+		],
+		[
+			"C:/summer_2025/lasttry/headers/views/dropgraphicsview.h",
+			"MU",
+			"KH5PZA5WCU/moc_dropgraphicsview.cpp",
+			null
+		]
+	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "C:/summer_2025/lasttry/build/Helloworld_autogen/include",
 	"MOC_COMPILATION_FILE" : "C:/summer_2025/lasttry/build/Helloworld_autogen/mocs_compilation.cpp",
@@ -377,6 +415,7 @@
 	],
 	"MOC_INCLUDES" : 
 	[
+		"C:/summer_2025/lasttry/headers",
 		"C:/Qt/6.9.1/mingw_64/include/QtCore",
 		"C:/Qt/6.9.1/mingw_64/include",
 		"C:/Qt/6.9.1/mingw_64/mkspecs/win32-g++",
@@ -424,11 +463,22 @@
 	"SETTINGS_FILE" : "C:/summer_2025/lasttry/build/CMakeFiles/Helloworld_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "C:/summer_2025/lasttry/src/blockitem.cpp", "MU", null ],
-		[ "C:/summer_2025/lasttry/src/blockmenu.cpp", "MU", null ],
-		[ "C:/summer_2025/lasttry/src/dropgraphicsview.cpp", "MU", null ],
+		[
+			"C:/summer_2025/lasttry/src/controllers/dropcontroller.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/summer_2025/lasttry/src/controllers/menucontroller.cpp",
+			"MU",
+			null
+		],
 		[ "C:/summer_2025/lasttry/src/main.cpp", "MU", null ],
-		[ "C:/summer_2025/lasttry/src/mainwindow.cpp", "MU", null ]
+		[ "C:/summer_2025/lasttry/src/mainwindow.cpp", "MU", null ],
+		[ "C:/summer_2025/lasttry/src/models/blockmodel.cpp", "MU", null ],
+		[ "C:/summer_2025/lasttry/src/views/blockmenuview.cpp", "MU", null ],
+		[ "C:/summer_2025/lasttry/src/views/blockview.cpp", "MU", null ],
+		[ "C:/summer_2025/lasttry/src/views/dropgraphicsview.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

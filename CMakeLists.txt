@@ -24,10 +24,21 @@ qt_standard_project_setup()
 qt_add_executable(Helloworld
     src/main.cpp
     src/mainwindow.cpp
-    src/dropgraphicsview.cpp
-    src/blockmenu.cpp
-    src/blockitem.cpp
+    headers/views/dropgraphicsview.h
+    src/views/dropgraphicsview.cpp
+    headers/views/blockmenuview.h
+    src/views/blockmenuview.cpp
+    headers/models/blockmodel.h
+    src/models/blockmodel.cpp
+    headers/views/blockview.h
+    src/views/blockview.cpp
+    headers/controllers/dropcontroller.h
+    src/controllers/dropcontroller.cpp
+    headers/controllers/menucontroller.h
+    src/controllers/menucontroller.cpp
 )
+
+target_include_directories(Helloworld PRIVATE headers)
 
 set_target_properties(Helloworld PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com

@@ -223,77 +223,53 @@ Helloworld_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.s
 .PHONY : Helloworld_autogen/mocs_compilation.cpp.s
 
-src/blockitem.obj: src/blockitem.cpp.obj
-.PHONY : src/blockitem.obj
+src/controllers/dropcontroller.obj: src/controllers/dropcontroller.cpp.obj
+.PHONY : src/controllers/dropcontroller.obj
 
 # target to build an object file
-src/blockitem.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/blockitem.cpp.obj
-.PHONY : src/blockitem.cpp.obj
+src/controllers/dropcontroller.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/controllers/dropcontroller.cpp.obj
+.PHONY : src/controllers/dropcontroller.cpp.obj
 
-src/blockitem.i: src/blockitem.cpp.i
-.PHONY : src/blockitem.i
+src/controllers/dropcontroller.i: src/controllers/dropcontroller.cpp.i
+.PHONY : src/controllers/dropcontroller.i
 
 # target to preprocess a source file
-src/blockitem.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/blockitem.cpp.i
-.PHONY : src/blockitem.cpp.i
+src/controllers/dropcontroller.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/controllers/dropcontroller.cpp.i
+.PHONY : src/controllers/dropcontroller.cpp.i
 
-src/blockitem.s: src/blockitem.cpp.s
-.PHONY : src/blockitem.s
+src/controllers/dropcontroller.s: src/controllers/dropcontroller.cpp.s
+.PHONY : src/controllers/dropcontroller.s
 
 # target to generate assembly for a file
-src/blockitem.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/blockitem.cpp.s
-.PHONY : src/blockitem.cpp.s
+src/controllers/dropcontroller.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/controllers/dropcontroller.cpp.s
+.PHONY : src/controllers/dropcontroller.cpp.s
 
-src/blockmenu.obj: src/blockmenu.cpp.obj
-.PHONY : src/blockmenu.obj
+src/controllers/menucontroller.obj: src/controllers/menucontroller.cpp.obj
+.PHONY : src/controllers/menucontroller.obj
 
 # target to build an object file
-src/blockmenu.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/blockmenu.cpp.obj
-.PHONY : src/blockmenu.cpp.obj
+src/controllers/menucontroller.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/controllers/menucontroller.cpp.obj
+.PHONY : src/controllers/menucontroller.cpp.obj
 
-src/blockmenu.i: src/blockmenu.cpp.i
-.PHONY : src/blockmenu.i
-
-# target to preprocess a source file
-src/blockmenu.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/blockmenu.cpp.i
-.PHONY : src/blockmenu.cpp.i
-
-src/blockmenu.s: src/blockmenu.cpp.s
-.PHONY : src/blockmenu.s
-
-# target to generate assembly for a file
-src/blockmenu.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/blockmenu.cpp.s
-.PHONY : src/blockmenu.cpp.s
-
-src/dropgraphicsview.obj: src/dropgraphicsview.cpp.obj
-.PHONY : src/dropgraphicsview.obj
-
-# target to build an object file
-src/dropgraphicsview.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/dropgraphicsview.cpp.obj
-.PHONY : src/dropgraphicsview.cpp.obj
-
-src/dropgraphicsview.i: src/dropgraphicsview.cpp.i
-.PHONY : src/dropgraphicsview.i
+src/controllers/menucontroller.i: src/controllers/menucontroller.cpp.i
+.PHONY : src/controllers/menucontroller.i
 
 # target to preprocess a source file
-src/dropgraphicsview.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/dropgraphicsview.cpp.i
-.PHONY : src/dropgraphicsview.cpp.i
+src/controllers/menucontroller.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/controllers/menucontroller.cpp.i
+.PHONY : src/controllers/menucontroller.cpp.i
 
-src/dropgraphicsview.s: src/dropgraphicsview.cpp.s
-.PHONY : src/dropgraphicsview.s
+src/controllers/menucontroller.s: src/controllers/menucontroller.cpp.s
+.PHONY : src/controllers/menucontroller.s
 
 # target to generate assembly for a file
-src/dropgraphicsview.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/dropgraphicsview.cpp.s
-.PHONY : src/dropgraphicsview.cpp.s
+src/controllers/menucontroller.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/controllers/menucontroller.cpp.s
+.PHONY : src/controllers/menucontroller.cpp.s
 
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
@@ -343,6 +319,102 @@ src/mainwindow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/mainwindow.cpp.s
 .PHONY : src/mainwindow.cpp.s
 
+src/models/blockmodel.obj: src/models/blockmodel.cpp.obj
+.PHONY : src/models/blockmodel.obj
+
+# target to build an object file
+src/models/blockmodel.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/models/blockmodel.cpp.obj
+.PHONY : src/models/blockmodel.cpp.obj
+
+src/models/blockmodel.i: src/models/blockmodel.cpp.i
+.PHONY : src/models/blockmodel.i
+
+# target to preprocess a source file
+src/models/blockmodel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/models/blockmodel.cpp.i
+.PHONY : src/models/blockmodel.cpp.i
+
+src/models/blockmodel.s: src/models/blockmodel.cpp.s
+.PHONY : src/models/blockmodel.s
+
+# target to generate assembly for a file
+src/models/blockmodel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/models/blockmodel.cpp.s
+.PHONY : src/models/blockmodel.cpp.s
+
+src/views/blockmenuview.obj: src/views/blockmenuview.cpp.obj
+.PHONY : src/views/blockmenuview.obj
+
+# target to build an object file
+src/views/blockmenuview.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/blockmenuview.cpp.obj
+.PHONY : src/views/blockmenuview.cpp.obj
+
+src/views/blockmenuview.i: src/views/blockmenuview.cpp.i
+.PHONY : src/views/blockmenuview.i
+
+# target to preprocess a source file
+src/views/blockmenuview.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/blockmenuview.cpp.i
+.PHONY : src/views/blockmenuview.cpp.i
+
+src/views/blockmenuview.s: src/views/blockmenuview.cpp.s
+.PHONY : src/views/blockmenuview.s
+
+# target to generate assembly for a file
+src/views/blockmenuview.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/blockmenuview.cpp.s
+.PHONY : src/views/blockmenuview.cpp.s
+
+src/views/blockview.obj: src/views/blockview.cpp.obj
+.PHONY : src/views/blockview.obj
+
+# target to build an object file
+src/views/blockview.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/blockview.cpp.obj
+.PHONY : src/views/blockview.cpp.obj
+
+src/views/blockview.i: src/views/blockview.cpp.i
+.PHONY : src/views/blockview.i
+
+# target to preprocess a source file
+src/views/blockview.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/blockview.cpp.i
+.PHONY : src/views/blockview.cpp.i
+
+src/views/blockview.s: src/views/blockview.cpp.s
+.PHONY : src/views/blockview.s
+
+# target to generate assembly for a file
+src/views/blockview.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/blockview.cpp.s
+.PHONY : src/views/blockview.cpp.s
+
+src/views/dropgraphicsview.obj: src/views/dropgraphicsview.cpp.obj
+.PHONY : src/views/dropgraphicsview.obj
+
+# target to build an object file
+src/views/dropgraphicsview.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/dropgraphicsview.cpp.obj
+.PHONY : src/views/dropgraphicsview.cpp.obj
+
+src/views/dropgraphicsview.i: src/views/dropgraphicsview.cpp.i
+.PHONY : src/views/dropgraphicsview.i
+
+# target to preprocess a source file
+src/views/dropgraphicsview.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/dropgraphicsview.cpp.i
+.PHONY : src/views/dropgraphicsview.cpp.i
+
+src/views/dropgraphicsview.s: src/views/dropgraphicsview.cpp.s
+.PHONY : src/views/dropgraphicsview.s
+
+# target to generate assembly for a file
+src/views/dropgraphicsview.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/dropgraphicsview.cpp.s
+.PHONY : src/views/dropgraphicsview.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -361,21 +433,30 @@ help:
 	@echo ... Helloworld_autogen/mocs_compilation.obj
 	@echo ... Helloworld_autogen/mocs_compilation.i
 	@echo ... Helloworld_autogen/mocs_compilation.s
-	@echo ... src/blockitem.obj
-	@echo ... src/blockitem.i
-	@echo ... src/blockitem.s
-	@echo ... src/blockmenu.obj
-	@echo ... src/blockmenu.i
-	@echo ... src/blockmenu.s
-	@echo ... src/dropgraphicsview.obj
-	@echo ... src/dropgraphicsview.i
-	@echo ... src/dropgraphicsview.s
+	@echo ... src/controllers/dropcontroller.obj
+	@echo ... src/controllers/dropcontroller.i
+	@echo ... src/controllers/dropcontroller.s
+	@echo ... src/controllers/menucontroller.obj
+	@echo ... src/controllers/menucontroller.i
+	@echo ... src/controllers/menucontroller.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
 	@echo ... src/mainwindow.obj
 	@echo ... src/mainwindow.i
 	@echo ... src/mainwindow.s
+	@echo ... src/models/blockmodel.obj
+	@echo ... src/models/blockmodel.i
+	@echo ... src/models/blockmodel.s
+	@echo ... src/views/blockmenuview.obj
+	@echo ... src/views/blockmenuview.i
+	@echo ... src/views/blockmenuview.s
+	@echo ... src/views/blockview.obj
+	@echo ... src/views/blockview.i
+	@echo ... src/views/blockview.s
+	@echo ... src/views/dropgraphicsview.obj
+	@echo ... src/views/dropgraphicsview.i
+	@echo ... src/views/dropgraphicsview.s
 .PHONY : help
 
 
