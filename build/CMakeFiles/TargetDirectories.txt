@@ -1,0 +1,9 @@
+C:/summer_2025/lasttry/build/CMakeFiles/Helloworld.dir
+C:/summer_2025/lasttry/build/CMakeFiles/edit_cache.dir
+C:/summer_2025/lasttry/build/CMakeFiles/rebuild_cache.dir
+C:/summer_2025/lasttry/build/CMakeFiles/list_install_components.dir
+C:/summer_2025/lasttry/build/CMakeFiles/install.dir
+C:/summer_2025/lasttry/build/CMakeFiles/install/local.dir
+C:/summer_2025/lasttry/build/CMakeFiles/install/strip.dir
+C:/summer_2025/lasttry/build/CMakeFiles/Helloworld_autogen_timestamp_deps.dir
+C:/summer_2025/lasttry/build/CMakeFiles/Helloworld_autogen.dir

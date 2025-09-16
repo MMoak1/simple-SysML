@@ -1,0 +1,38 @@
+[
+{
+  "directory": "C:/summer_2025/lasttry/build",
+  "command": "C:\\Qt\\Tools\\mingw1310_64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_NETWORK_LIB -DQT_SVG_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Helloworld.dir/includes_CXX.rsp  -Wno-error -g -std=gnu++17 -o CMakeFiles\\Helloworld.dir\\Helloworld_autogen\\mocs_compilation.cpp.obj -c C:\\summer_2025\\lasttry\\build\\Helloworld_autogen\\mocs_compilation.cpp",
+  "file": "C:/summer_2025/lasttry/build/Helloworld_autogen/mocs_compilation.cpp",
+  "output": "CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj"
+},
+{
+  "directory": "C:/summer_2025/lasttry/build",
+  "command": "C:\\Qt\\Tools\\mingw1310_64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_NETWORK_LIB -DQT_SVG_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Helloworld.dir/includes_CXX.rsp  -Wno-error -g -std=gnu++17 -o CMakeFiles\\Helloworld.dir\\src\\main.cpp.obj -c C:\\summer_2025\\lasttry\\src\\main.cpp",
+  "file": "C:/summer_2025/lasttry/src/main.cpp",
+  "output": "CMakeFiles/Helloworld.dir/src/main.cpp.obj"
+},
+{
+  "directory": "C:/summer_2025/lasttry/build",
+  "command": "C:\\Qt\\Tools\\mingw1310_64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_NETWORK_LIB -DQT_SVG_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Helloworld.dir/includes_CXX.rsp  -Wno-error -g -std=gnu++17 -o CMakeFiles\\Helloworld.dir\\src\\mainwindow.cpp.obj -c C:\\summer_2025\\lasttry\\src\\mainwindow.cpp",
+  "file": "C:/summer_2025/lasttry/src/mainwindow.cpp",
+  "output": "CMakeFiles/Helloworld.dir/src/mainwindow.cpp.obj"
+},
+{
+  "directory": "C:/summer_2025/lasttry/build",
+  "command": "C:\\Qt\\Tools\\mingw1310_64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_NETWORK_LIB -DQT_SVG_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Helloworld.dir/includes_CXX.rsp  -Wno-error -g -std=gnu++17 -o CMakeFiles\\Helloworld.dir\\src\\dropgraphicsview.cpp.obj -c C:\\summer_2025\\lasttry\\src\\dropgraphicsview.cpp",
+  "file": "C:/summer_2025/lasttry/src/dropgraphicsview.cpp",
+  "output": "CMakeFiles/Helloworld.dir/src/dropgraphicsview.cpp.obj"
+},
+{
+  "directory": "C:/summer_2025/lasttry/build",
+  "command": "C:\\Qt\\Tools\\mingw1310_64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_NETWORK_LIB -DQT_SVG_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Helloworld.dir/includes_CXX.rsp  -Wno-error -g -std=gnu++17 -o CMakeFiles\\Helloworld.dir\\src\\blockmenu.cpp.obj -c C:\\summer_2025\\lasttry\\src\\blockmenu.cpp",
+  "file": "C:/summer_2025/lasttry/src/blockmenu.cpp",
+  "output": "CMakeFiles/Helloworld.dir/src/blockmenu.cpp.obj"
+},
+{
+  "directory": "C:/summer_2025/lasttry/build",
+  "command": "C:\\Qt\\Tools\\mingw1310_64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_NETWORK_LIB -DQT_SVG_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Helloworld.dir/includes_CXX.rsp  -Wno-error -g -std=gnu++17 -o CMakeFiles\\Helloworld.dir\\src\\blockitem.cpp.obj -c C:\\summer_2025\\lasttry\\src\\blockitem.cpp",
+  "file": "C:/summer_2025/lasttry/src/blockitem.cpp",
+  "output": "CMakeFiles/Helloworld.dir/src/blockitem.cpp.obj"
+}
+]
