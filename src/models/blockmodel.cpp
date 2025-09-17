@@ -1,8 +1,8 @@
 #include "../headers/models/blockmodel.h"
 #include <QUuid>
 
-BlockModel::BlockModel(const QColor &color, const QString &label, const QPointF &position, QObject *parent)
-    : QObject(parent), m_color(color), m_label(label), m_position(position)
+BlockModel::BlockModel(const QColor &color, const QString &label, const QPointF &position, const QSizeF &size, QObject *parent)
+    : QObject(parent), m_color(color), m_label(label), m_position(position), m_size(size)
 {
     m_id = QUuid::createUuid().toString();
 }
@@ -31,5 +31,14 @@ void BlockModel::setPosition(const QPointF &position)
     {
         m_position = position;
         emit positionChanged(position);
+    }
+}
+
+void BlockModel::setSize(const QSizeF &size)
+{
+    if (m_size != size)
+    {
+        m_size = size;
+        emit sizeChanged(size);
     }
 }

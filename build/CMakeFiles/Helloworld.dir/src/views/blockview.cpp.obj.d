@@ -373,6 +373,8 @@ CMakeFiles/Helloworld.dir/src/views/blockview.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qcolor.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QString \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qstring.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QSizeF \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qsize.h \
  C:/summer_2025/lasttry/headers/models/blockmodel.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QObject \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qobject.h \
@@ -389,4 +391,17 @@ CMakeFiles/Helloworld.dir/src/views/blockview.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qfontvariableaxis.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qfontmetrics.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QBrush \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qbrush.h
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qbrush.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsSceneMouseEvent \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicssceneevent.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qcoreevent.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qbasictimer.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qeventloop.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qdeadlinetimer.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qelapsedtimer.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/QPen \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qpen.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/QCursor \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qcursor.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qbitmap.h

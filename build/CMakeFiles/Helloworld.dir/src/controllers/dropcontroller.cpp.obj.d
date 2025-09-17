@@ -335,6 +335,9 @@ CMakeFiles/Helloworld.dir/src/controllers/dropcontroller.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qtguiexports.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qrgb.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qrgba64.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QSizeF \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qsize.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qmargins.h \
  C:/summer_2025/lasttry/headers/views/blockview.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsObject \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsitem.h \
@@ -361,7 +364,6 @@ CMakeFiles/Helloworld.dir/src/controllers/dropcontroller.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qhash.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qvarlengtharray.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qrect.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qmargins.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qsize.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qpoint.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qpainterpath.h \

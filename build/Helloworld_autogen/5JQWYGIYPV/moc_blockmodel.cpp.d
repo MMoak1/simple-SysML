@@ -2,6 +2,7 @@ C:/summer_2025/lasttry/build/Helloworld_autogen/5JQWYGIYPV/moc_blockmodel.cpp: C
   C:/summer_2025/lasttry/build/Helloworld_autogen/moc_predefs.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QObject \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QPointF \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/QSizeF \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QString \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q20functional.h \
@@ -52,6 +53,7 @@ C:/summer_2025/lasttry/build/Helloworld_autogen/5JQWYGIYPV/moc_blockmodel.cpp: C
   C:/Qt/6.9.1/mingw_64/include/QtCore/qlist.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qlogging.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qmalloc.h \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/qmargins.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qmath.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qmetacontainer.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qmetatype.h \
@@ -69,6 +71,7 @@ C:/summer_2025/lasttry/build/Helloworld_autogen/5JQWYGIYPV/moc_blockmodel.cpp: C
   C:/Qt/6.9.1/mingw_64/include/QtCore/qrefcount.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qscopedpointer.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qscopeguard.h \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/qsize.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qstdlibdetection.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qstring.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qstringalgorithms.h \

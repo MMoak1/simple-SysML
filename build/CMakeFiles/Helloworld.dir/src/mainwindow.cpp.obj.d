@@ -425,6 +425,8 @@ CMakeFiles/Helloworld.dir/src/mainwindow.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qobject.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QColor \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qcolor.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QSizeF \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qsize.h \
  C:/summer_2025/lasttry/headers/controllers/dropcontroller.h \
  C:/summer_2025/lasttry/headers/models/blockmodel.h \
  C:/summer_2025/lasttry/headers/views/blockview.h \

@@ -43,6 +43,7 @@ Helloworld_autogen/timestamp: C:/Program\ Files/CMake/bin/cmake.exe \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QObject \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QPoint \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QPointF \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/QSizeF \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QString \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q20functional.h \
@@ -688,6 +689,7 @@ CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj: Helloworl
   C:/Qt/6.9.1/mingw_64/include/QtCore/QObject \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QPoint \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QPointF \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/QSizeF \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QString \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q20algorithm.h \
@@ -1122,6 +1124,7 @@ CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj: Helloworl
 CMakeFiles/Helloworld.dir/src/controllers/dropcontroller.cpp.obj: C:/summer_2025/lasttry/src/controllers/dropcontroller.cpp \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QObject \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QPointF \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/QSizeF \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QString \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q20functional.h \
@@ -1916,6 +1919,7 @@ CMakeFiles/Helloworld.dir/src/main.cpp.obj: C:/summer_2025/lasttry/src/main.cpp 
   C:/Qt/6.9.1/mingw_64/include/QtCore/QObject \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QPoint \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QPointF \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/QSizeF \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QString \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q20functional.h \
@@ -2360,6 +2364,7 @@ CMakeFiles/Helloworld.dir/src/mainwindow.cpp.obj: C:/summer_2025/lasttry/src/mai
   C:/Qt/6.9.1/mingw_64/include/QtCore/QObject \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QPoint \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QPointF \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/QSizeF \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QString \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q20functional.h \
@@ -2792,6 +2797,7 @@ CMakeFiles/Helloworld.dir/src/mainwindow.cpp.obj: C:/summer_2025/lasttry/src/mai
 CMakeFiles/Helloworld.dir/src/models/blockmodel.cpp.obj: C:/summer_2025/lasttry/src/models/blockmodel.cpp \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QObject \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QPointF \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/QSizeF \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QString \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QUuid \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q17memory.h \
@@ -2844,6 +2850,7 @@ CMakeFiles/Helloworld.dir/src/models/blockmodel.cpp.obj: C:/summer_2025/lasttry/
   C:/Qt/6.9.1/mingw_64/include/QtCore/qlist.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qlogging.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qmalloc.h \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/qmargins.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qmath.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qmetacontainer.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qmetatype.h \
@@ -2861,6 +2868,7 @@ CMakeFiles/Helloworld.dir/src/models/blockmodel.cpp.obj: C:/summer_2025/lasttry/
   C:/Qt/6.9.1/mingw_64/include/QtCore/qrefcount.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qscopedpointer.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qscopeguard.h \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/qsize.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qstdlibdetection.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qstring.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qstringalgorithms.h \
@@ -3565,6 +3573,7 @@ CMakeFiles/Helloworld.dir/src/views/blockmenuview.cpp.obj: C:/summer_2025/lasttr
 CMakeFiles/Helloworld.dir/src/views/blockview.cpp.obj: C:/summer_2025/lasttry/src/views/blockview.cpp \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QObject \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QPointF \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/QSizeF \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QString \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q20functional.h \
@@ -3573,6 +3582,7 @@ CMakeFiles/Helloworld.dir/src/views/blockview.cpp.obj: C:/summer_2025/lasttry/sr
   C:/Qt/6.9.1/mingw_64/include/QtCore/q20type_traits.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q20utility.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q23utility.h \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qalgorithms.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qanystringview.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qarraydata.h \
@@ -3582,6 +3592,7 @@ CMakeFiles/Helloworld.dir/src/views/blockview.cpp.obj: C:/summer_2025/lasttry/sr
   C:/Qt/6.9.1/mingw_64/include/QtCore/qatomic.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qatomic_cxx11.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qbasicatomic.h \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/qbasictimer.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qbindingstorage.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qbytearray.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qbytearrayalgorithms.h \
@@ -3598,10 +3609,14 @@ CMakeFiles/Helloworld.dir/src/views/blockview.cpp.obj: C:/summer_2025/lasttry/sr
   C:/Qt/6.9.1/mingw_64/include/QtCore/qcontainerinfo.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qcontainertools_impl.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qcontiguouscache.h \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/qcoreevent.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qdarwinhelpers.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qdatastream.h \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/qdeadlinetimer.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qdebug.h \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/qelapsedtimer.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qendian.h \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/qeventloop.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qexceptionhandling.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qflags.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qfloat16.h \
@@ -3693,9 +3708,13 @@ CMakeFiles/Helloworld.dir/src/views/blockview.cpp.obj: C:/summer_2025/lasttry/sr
   C:/Qt/6.9.1/mingw_64/include/QtCore/qyieldcpu.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/QBrush \
   C:/Qt/6.9.1/mingw_64/include/QtGui/QColor \
+  C:/Qt/6.9.1/mingw_64/include/QtGui/QCursor \
   C:/Qt/6.9.1/mingw_64/include/QtGui/QPainter \
+  C:/Qt/6.9.1/mingw_64/include/QtGui/QPen \
+  C:/Qt/6.9.1/mingw_64/include/QtGui/qbitmap.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qbrush.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qcolor.h \
+  C:/Qt/6.9.1/mingw_64/include/QtGui/qcursor.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qfont.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qfontinfo.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qfontmetrics.h \
@@ -3719,7 +3738,9 @@ CMakeFiles/Helloworld.dir/src/views/blockview.cpp.obj: C:/summer_2025/lasttry/sr
   C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsObject \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsSceneMouseEvent \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsitem.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicssceneevent.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -4610,11 +4631,11 @@ C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginTargets-relwit
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qassert.h:
 
-C:/Qt/6.9.1/mingw_64/include/QtCore/qatomic.h:
-
 C:/Qt/6.9.1/mingw_64/include/QtCore/qcoreapplication.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qbytearraylist.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtCore/qatomic.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qbasicatomic.h:
 
@@ -4673,6 +4694,8 @@ C:/Qt/6.9.1/mingw_64/include/QtCore/qdatastream.h:
 C:/Qt/6.9.1/mingw_64/include/QtCore/qstringfwd.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qdebug.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicssceneevent.h:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/utility.h:
 
@@ -5498,6 +5521,8 @@ C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6WidgetsPrivate/Qt6WidgetsPrivateConfig.cmake:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/exception_defines.h:
 
+C:/Qt/6.9.1/mingw_64/include/QtGui/QPen:
+
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6WidgetsPrivate/Qt6WidgetsPrivateConfigVersion.cmake:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/hashtable.h:
@@ -5506,9 +5531,9 @@ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/climits:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6WidgetsPrivate/Qt6WidgetsPrivateConfigVersionImpl.cmake:
 
-C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6WidgetsPrivate/Qt6WidgetsPrivateTargets.cmake:
-
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algobase.h:
+
+C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6WidgetsPrivate/Qt6WidgetsPrivateTargets.cmake:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsTargets.cmake:
 
@@ -5561,6 +5586,8 @@ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/refw
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/specfun.h:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_bvector.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtGui/QCursor:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_construct.h:
 
@@ -5879,5 +5906,7 @@ C:/Qt/6.9.1/mingw_64/include/QtGui/qpointingdevice.h:
 C:/Qt/6.9.1/mingw_64/include/QtGui/qscreen.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtGui/QBrush:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsSceneMouseEvent:
 
 C:/Qt/6.9.1/mingw_64/include/QtGui/QDragEnterEvent:
