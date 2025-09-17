@@ -363,6 +363,12 @@
 			null
 		],
 		[
+			"C:/summer_2025/lasttry/headers/mainwindow.h",
+			"MU",
+			"K6S233IZAZ/moc_mainwindow.cpp",
+			null
+		],
+		[
 			"C:/summer_2025/lasttry/headers/models/blockmodel.h",
 			"MU",
 			"5JQWYGIYPV/moc_blockmodel.cpp",
@@ -384,6 +390,12 @@
 			"C:/summer_2025/lasttry/headers/views/dropgraphicsview.h",
 			"MU",
 			"KH5PZA5WCU/moc_dropgraphicsview.cpp",
+			null
+		],
+		[
+			"C:/summer_2025/lasttry/headers/views/startmenu.h",
+			"MU",
+			"KH5PZA5WCU/moc_startmenu.cpp",
 			null
 		]
 	],
@@ -478,7 +490,8 @@
 		[ "C:/summer_2025/lasttry/src/models/blockmodel.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/views/blockmenuview.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/views/blockview.cpp", "MU", null ],
-		[ "C:/summer_2025/lasttry/src/views/dropgraphicsview.cpp", "MU", null ]
+		[ "C:/summer_2025/lasttry/src/views/dropgraphicsview.cpp", "MU", null ],
+		[ "C:/summer_2025/lasttry/src/views/startmenu.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

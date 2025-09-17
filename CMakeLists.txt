@@ -24,6 +24,7 @@ qt_standard_project_setup()
 qt_add_executable(Helloworld
     src/main.cpp
     src/mainwindow.cpp
+    headers/mainwindow.h
     headers/views/dropgraphicsview.h
     src/views/dropgraphicsview.cpp
     headers/views/blockmenuview.h
@@ -32,6 +33,8 @@ qt_add_executable(Helloworld
     src/models/blockmodel.cpp
     headers/views/blockview.h
     src/views/blockview.cpp
+    headers/views/startmenu.h
+    src/views/startmenu.cpp
     headers/controllers/dropcontroller.h
     src/controllers/dropcontroller.cpp
     headers/controllers/menucontroller.h

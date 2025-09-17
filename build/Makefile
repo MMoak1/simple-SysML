@@ -415,6 +415,30 @@ src/views/dropgraphicsview.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/dropgraphicsview.cpp.s
 .PHONY : src/views/dropgraphicsview.cpp.s
 
+src/views/startmenu.obj: src/views/startmenu.cpp.obj
+.PHONY : src/views/startmenu.obj
+
+# target to build an object file
+src/views/startmenu.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/startmenu.cpp.obj
+.PHONY : src/views/startmenu.cpp.obj
+
+src/views/startmenu.i: src/views/startmenu.cpp.i
+.PHONY : src/views/startmenu.i
+
+# target to preprocess a source file
+src/views/startmenu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/startmenu.cpp.i
+.PHONY : src/views/startmenu.cpp.i
+
+src/views/startmenu.s: src/views/startmenu.cpp.s
+.PHONY : src/views/startmenu.s
+
+# target to generate assembly for a file
+src/views/startmenu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/startmenu.cpp.s
+.PHONY : src/views/startmenu.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -457,6 +481,9 @@ help:
 	@echo ... src/views/dropgraphicsview.obj
 	@echo ... src/views/dropgraphicsview.i
 	@echo ... src/views/dropgraphicsview.s
+	@echo ... src/views/startmenu.obj
+	@echo ... src/views/startmenu.i
+	@echo ... src/views/startmenu.s
 .PHONY : help
 
 
