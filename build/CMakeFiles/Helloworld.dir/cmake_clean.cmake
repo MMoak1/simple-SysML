@@ -20,6 +20,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Helloworld.dir/src/views/blockview.cpp.obj.d"
   "CMakeFiles/Helloworld.dir/src/views/dropgraphicsview.cpp.obj"
   "CMakeFiles/Helloworld.dir/src/views/dropgraphicsview.cpp.obj.d"
+  "CMakeFiles/Helloworld.dir/src/views/startmenu.cpp.obj"
+  "CMakeFiles/Helloworld.dir/src/views/startmenu.cpp.obj.d"
   "Helloworld.exe"
   "Helloworld.exe.manifest"
   "Helloworld.pdb"

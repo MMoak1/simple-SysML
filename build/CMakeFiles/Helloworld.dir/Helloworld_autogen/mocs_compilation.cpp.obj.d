@@ -427,6 +427,39 @@ CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtabwidget.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qrubberband.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QPoint \
+ C:\summer_2025\lasttry\build\Helloworld_autogen\K6S233IZAZ/moc_mainwindow.cpp \
+ C:/summer_2025/lasttry/headers/mainwindow.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMainWindow \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmainwindow.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsScene \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsscene.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qpen.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QSplitter \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsplitter.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsView \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsview.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qpainter.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qtextoption.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qscrollarea.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsscene.h \
+ C:/summer_2025/lasttry/headers/views/blockmenuview.h \
+ C:/summer_2025/lasttry/headers/views/dropgraphicsview.h \
+ C:/summer_2025/lasttry/headers/views/startmenu.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QWidget \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qwidget.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QPushButton \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qpushbutton.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractbutton.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QVBoxLayout \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayout.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayoutitem.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QHBoxLayout \
+ C:/summer_2025/lasttry/headers/models/blockmodel.h \
+ C:/summer_2025/lasttry/headers/controllers/dropcontroller.h \
+ C:/summer_2025/lasttry/headers/controllers/menucontroller.h \
  C:\summer_2025\lasttry\build\Helloworld_autogen\5JQWYGIYPV/moc_blockmodel.cpp \
  C:/summer_2025/lasttry/headers/models/blockmodel.h \
  C:\summer_2025\lasttry\build\Helloworld_autogen\KH5PZA5WCU/moc_blockmenuview.cpp \
@@ -435,12 +468,5 @@ CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj: \
  C:/summer_2025/lasttry/headers/views/blockview.h \
  C:\summer_2025\lasttry\build\Helloworld_autogen\KH5PZA5WCU/moc_dropgraphicsview.cpp \
  C:/summer_2025/lasttry/headers/views/dropgraphicsview.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsView \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsview.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qpainter.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qtextoption.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qpen.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qscrollarea.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsscene.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsScene \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsscene.h
+ C:\summer_2025\lasttry\build\Helloworld_autogen\KH5PZA5WCU/moc_startmenu.cpp \
+ C:/summer_2025/lasttry/headers/views/startmenu.h

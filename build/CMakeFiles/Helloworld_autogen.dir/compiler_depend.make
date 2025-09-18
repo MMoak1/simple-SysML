@@ -211,22 +211,36 @@ Helloworld_autogen/timestamp: C:/Program\ Files/CMake/bin/cmake.exe \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsObject \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsView \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QHBoxLayout \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QListWidget \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMainWindow \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QPushButton \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QSplitter \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QVBoxLayout \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QWidget \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractbutton.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractitemview.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractslider.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qframe.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsitem.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsscene.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsview.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayout.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayoutitem.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlistview.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlistwidget.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmainwindow.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qpushbutton.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qrubberband.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qscrollarea.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qslider.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsplitter.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyle.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyleoption.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtabbar.h \
@@ -672,10 +686,12 @@ Helloworld_autogen/timestamp: C:/Program\ Files/CMake/bin/cmake.exe \
   Helloworld_autogen/moc_predefs.h \
   C:/summer_2025/lasttry/headers/controllers/dropcontroller.h \
   C:/summer_2025/lasttry/headers/controllers/menucontroller.h \
+  C:/summer_2025/lasttry/headers/mainwindow.h \
   C:/summer_2025/lasttry/headers/models/blockmodel.h \
   C:/summer_2025/lasttry/headers/views/blockmenuview.h \
   C:/summer_2025/lasttry/headers/views/blockview.h \
   C:/summer_2025/lasttry/headers/views/dropgraphicsview.h \
+  C:/summer_2025/lasttry/headers/views/startmenu.h \
   C:/summer_2025/lasttry/src/controllers/dropcontroller.cpp \
   C:/summer_2025/lasttry/src/controllers/menucontroller.cpp \
   C:/summer_2025/lasttry/src/main.cpp \
@@ -683,7 +699,8 @@ Helloworld_autogen/timestamp: C:/Program\ Files/CMake/bin/cmake.exe \
   C:/summer_2025/lasttry/src/models/blockmodel.cpp \
   C:/summer_2025/lasttry/src/views/blockmenuview.cpp \
   C:/summer_2025/lasttry/src/views/blockview.cpp \
-  C:/summer_2025/lasttry/src/views/dropgraphicsview.cpp
+  C:/summer_2025/lasttry/src/views/dropgraphicsview.cpp \
+  C:/summer_2025/lasttry/src/views/startmenu.cpp
 
 
 C:/Program\ Files/CMake/bin/cmake.exe:
@@ -718,9 +735,11 @@ C:/Program\ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qcontiguouscache.h:
 
-C:/Program\ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake:
-
 C:/Qt/6.9.1/mingw_64/include/QtCore/q20type_traits.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayout.h:
+
+C:/Program\ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qiodevicebase.h:
 
@@ -773,6 +792,8 @@ C:/Qt/6.9.1/mingw_64/include/QtCore/q20iterator.h:
 C:/Program\ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginTargets-relwithdebinfo.cmake:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractbutton.h:
 
 C:/Program\ Files/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake:
 
@@ -876,8 +897,6 @@ C:/Qt/6.9.1/mingw_64/include/QtCore/q23utility.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/QString:
 
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_atomic.h:
-
 C:/Qt/6.9.1/mingw_64/include/QtCore/q20functional.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfigVersionImpl.cmake:
@@ -960,9 +979,9 @@ C:/Qt/6.9.1/mingw_64/include/QtCore/qcontainerinfo.h:
 
 C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/pthread_compat.h:
 
-C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake:
-
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/range_access.h:
+
+C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qcontainertools_impl.h:
 
@@ -1126,11 +1145,11 @@ C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qscopeguard.h:
 
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h:
+
 C:/Qt/6.9.1/mingw_64/include/QtCore/qshareddata.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qsize.h:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessAliasTargets.cmake:
 
@@ -1144,11 +1163,15 @@ C:/Qt/6.9.1/mingw_64/include/QtCore/qspan.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtGui/qpolygon.h:
 
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/QPushButton:
+
 C:/Qt/6.9.1/mingw_64/include/QtCore/qstdlibdetection.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6NetworkPrivate/Qt6NetworkPrivateConfig.cmake:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qstring.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/QVBoxLayout:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginTargets.cmake:
 
@@ -1156,11 +1179,11 @@ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/type_
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qstringbuilder.h:
 
-C:/Qt/6.9.1/mingw_64/include/QtCore/qstringconverter.h:
+C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginConfig.cmake:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_abs.h:
 
-C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginConfig.cmake:
+C:/Qt/6.9.1/mingw_64/include/QtCore/qstringconverter.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6WidgetsTools/Qt6WidgetsToolsConfig.cmake:
 
@@ -1200,11 +1223,11 @@ C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qtconfiginclude.h:
 
-C:/Qt/6.9.1/mingw_64/include/QtCore/qtconfigmacros.h:
+C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfigVersionImpl.cmake:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ptr_traits.h:
 
-C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfigVersionImpl.cmake:
+C:/Qt/6.9.1/mingw_64/include/QtCore/qtconfigmacros.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qtcore-config.h:
 
@@ -1238,10 +1261,6 @@ C:/Qt/6.9.1/mingw_64/include/QtCore/qttranslation.h:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/hash_bytes.h:
 
-C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/ctype.h:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr.h:
-
 C:/Qt/6.9.1/mingw_64/include/QtCore/qttypetraits.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qtversion.h:
@@ -1259,6 +1278,8 @@ C:/Qt/6.9.1/mingw_64/include/QtCore/qtypeinfo.h:
 C:/Qt/6.9.1/mingw_64/include/QtCore/qtypes.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qutf8stringview.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/QHBoxLayout:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qvariant.h:
 
@@ -1364,9 +1385,21 @@ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsView:
 
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/QListWidget:
 
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/concept_check.h:
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMainWindow:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/QSplitter:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/memory_resource.h:
+
+C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginAdditionalTargetInfo.cmake:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/QWidget:
+
+C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6/QtPublicSbomHelpers.cmake:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/postypes.h:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/concept_check.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h:
 
@@ -1376,13 +1409,15 @@ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractscrollarea.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractspinbox.h:
 
+C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfig.cmake:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h:
+
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qframe.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Svg/Qt6SvgConfig.cmake:
 
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsitem.h:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_base.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsscene.h:
 
@@ -1390,9 +1425,15 @@ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtabwidget.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsVersionlessTargets.cmake:
 
+C:/summer_2025/lasttry/src/views/startmenu.cpp:
+
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/system_error:
 
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsview.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayoutitem.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlistview.h:
 
@@ -1408,7 +1449,11 @@ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlistwidget.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6/QtPublicSbomLicenseHelpers.cmake:
 
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmainwindow.h:
+
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qrubberband.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qpushbutton.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qscrollarea.h:
 
@@ -1417,6 +1462,8 @@ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsizepolicy.h:
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array:
 
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qslider.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsplitter.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyle.h:
 
@@ -1500,8 +1547,6 @@ C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfigExtras.cmake:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6/QtPublicPluginHelpers_v2.cmake:
 
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/parse_numbers.h:
-
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/debug/assertions.h:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstddef:
@@ -1509,8 +1554,6 @@ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstddef:
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6/QtPublicSbomDepHelpers.cmake:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6/QtPublicSbomFileHelpers.cmake:
-
-C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6/QtPublicSbomHelpers.cmake:
 
 C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/_timeval.h:
 
@@ -1570,11 +1613,9 @@ C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointMinGW32Target.c
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateAdditionalTargetInfo.cmake:
 
-C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfig.cmake:
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_function.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfigVersion.cmake:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_function.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfigVersionImpl.cmake:
 
@@ -1629,10 +1670,6 @@ C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfigVersion.cmake:
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/exp_integral.tcc:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginTargets-relwithdebinfo.cmake:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/memory_resource.h:
-
-C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginAdditionalTargetInfo.cmake:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginConfig.cmake:
 
@@ -1730,9 +1767,9 @@ C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6SvgPrivate/Qt6SvgPrivateVersionlessAliasTarget
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/allocator.h:
 
-C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6WidgetsPrivate/Qt6WidgetsPrivateVersionlessAliasTargets.cmake:
-
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algo.h:
+
+C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6WidgetsPrivate/Qt6WidgetsPrivateVersionlessAliasTargets.cmake:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginTargets-relwithdebinfo.cmake:
 
@@ -1808,9 +1845,19 @@ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/nest
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/node_handle.h:
 
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/parse_numbers.h:
+
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/predefined_ops.h:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/refwrap.h:
+
+C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/ctype.h:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr.h:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_atomic.h:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/shared_ptr_base.h:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/specfun.h:
 
@@ -2036,6 +2083,8 @@ CMakeFiles/4.1.0/CMakeSystem.cmake:
 
 Helloworld_autogen/moc_predefs.h:
 
+C:/summer_2025/lasttry/headers/mainwindow.h:
+
 C:/summer_2025/lasttry/headers/models/blockmodel.h:
 
 C:/summer_2025/lasttry/headers/views/blockmenuview.h:
@@ -2043,6 +2092,8 @@ C:/summer_2025/lasttry/headers/views/blockmenuview.h:
 C:/summer_2025/lasttry/headers/views/blockview.h:
 
 C:/summer_2025/lasttry/headers/views/dropgraphicsview.h:
+
+C:/summer_2025/lasttry/headers/views/startmenu.h:
 
 C:/summer_2025/lasttry/src/main.cpp:
 

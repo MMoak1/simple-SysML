@@ -212,22 +212,36 @@ C:/summer_2025/lasttry/build/Helloworld_autogen/timestamp
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsObject
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsScene
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsView
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QHBoxLayout
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QListWidget
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMainWindow
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QPushButton
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QSplitter
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QVBoxLayout
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QWidget
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractbutton.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractitemview.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractscrollarea.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractslider.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractspinbox.h
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qframe.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsitem.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsscene.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsview.h
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayout.h
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayoutitem.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlistview.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlistwidget.h
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmainwindow.h
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qpushbutton.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qrubberband.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qscrollarea.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsizepolicy.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qslider.h
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsplitter.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyle.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyleoption.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtabbar.h
@@ -673,10 +687,12 @@ C:/summer_2025/lasttry/build/Helloworld_autogen/timestamp
  C:/summer_2025/lasttry/build/Helloworld_autogen/moc_predefs.h
  C:/summer_2025/lasttry/headers/controllers/dropcontroller.h
  C:/summer_2025/lasttry/headers/controllers/menucontroller.h
+ C:/summer_2025/lasttry/headers/mainwindow.h
  C:/summer_2025/lasttry/headers/models/blockmodel.h
  C:/summer_2025/lasttry/headers/views/blockmenuview.h
  C:/summer_2025/lasttry/headers/views/blockview.h
  C:/summer_2025/lasttry/headers/views/dropgraphicsview.h
+ C:/summer_2025/lasttry/headers/views/startmenu.h
  C:/summer_2025/lasttry/src/controllers/dropcontroller.cpp
  C:/summer_2025/lasttry/src/controllers/menucontroller.cpp
  C:/summer_2025/lasttry/src/main.cpp
@@ -685,4 +701,5 @@ C:/summer_2025/lasttry/build/Helloworld_autogen/timestamp
  C:/summer_2025/lasttry/src/views/blockmenuview.cpp
  C:/summer_2025/lasttry/src/views/blockview.cpp
  C:/summer_2025/lasttry/src/views/dropgraphicsview.cpp
+ C:/summer_2025/lasttry/src/views/startmenu.cpp
 

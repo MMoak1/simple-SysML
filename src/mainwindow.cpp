@@ -2,9 +2,57 @@
 #include <QListWidgetItem>
 #include <QPixmap>
 #include <QIcon>
+#include <QMenuBar>
+#include <QMenu>
+#include <QAction>
+#include "views/startmenu.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
+{
+    // Initialize members
+    scene = nullptr;
+    splitter = nullptr;
+    blockMenuView = nullptr;
+    dropGraphicsView = nullptr;
+    dropController = nullptr;
+    menuController = nullptr;
+    startMenu = nullptr;
+    m_menuBar = nullptr;
+    m_fileMenu = nullptr;
+    m_newAction = nullptr;
+
+    // Create start menu
+    startMenu = new StartMenu(this);
+    setCentralWidget(startMenu);
+    connect(startMenu, &StartMenu::beginDrawing, this, &MainWindow::newFile);
+
+    // Window configuration
+    setWindowTitle("Basic Modeling Tool");
+    resize(800, 600);
+
+    // Setup menu bar
+    m_menuBar = menuBar();
+    m_fileMenu = m_menuBar->addMenu("File");
+    m_newAction = m_fileMenu->addAction("New");
+    connect(m_newAction, &QAction::triggered, this, &MainWindow::newFile);
+}
+
+void MainWindow::newFile()
+{
+    if (startMenu)
+    {
+        delete startMenu;
+        startMenu = nullptr;
+        setupToolInterface();
+    }
+    else
+    {
+        scene->clear();
+    }
+}
+
+void MainWindow::setupToolInterface()
 {
     // Create the graphics scene
     scene = new QGraphicsScene(this);
@@ -52,10 +100,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Set the splitter as the central widget
     setCentralWidget(splitter);
-
-    // Window configuration
-    setWindowTitle("Basic Modeling Tool");
-    resize(800, 600);
 }
 
 MainWindow::~MainWindow()

@@ -43,6 +43,12 @@
 },
 {
   "directory": "C:/summer_2025/lasttry/build",
+  "command": "C:\\Qt\\Tools\\mingw1310_64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_NETWORK_LIB -DQT_SVG_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Helloworld.dir/includes_CXX.rsp  -Wno-error -g -std=gnu++17 -o CMakeFiles\\Helloworld.dir\\src\\views\\startmenu.cpp.obj -c C:\\summer_2025\\lasttry\\src\\views\\startmenu.cpp",
+  "file": "C:/summer_2025/lasttry/src/views/startmenu.cpp",
+  "output": "CMakeFiles/Helloworld.dir/src/views/startmenu.cpp.obj"
+},
+{
+  "directory": "C:/summer_2025/lasttry/build",
   "command": "C:\\Qt\\Tools\\mingw1310_64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_NETWORK_LIB -DQT_SVG_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Helloworld.dir/includes_CXX.rsp  -Wno-error -g -std=gnu++17 -o CMakeFiles\\Helloworld.dir\\src\\controllers\\dropcontroller.cpp.obj -c C:\\summer_2025\\lasttry\\src\\controllers\\dropcontroller.cpp",
   "file": "C:/summer_2025/lasttry/src/controllers/dropcontroller.cpp",
   "output": "CMakeFiles/Helloworld.dir/src/controllers/dropcontroller.cpp.obj"

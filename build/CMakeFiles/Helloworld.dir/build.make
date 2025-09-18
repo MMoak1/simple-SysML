@@ -183,11 +183,26 @@ CMakeFiles/Helloworld.dir/src/views/blockview.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Helloworld.dir/src/views/blockview.cpp.s"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\summer_2025\lasttry\src\views\blockview.cpp -o CMakeFiles\Helloworld.dir\src\views\blockview.cpp.s
 
+CMakeFiles/Helloworld.dir/src/views/startmenu.cpp.obj: CMakeFiles/Helloworld.dir/flags.make
+CMakeFiles/Helloworld.dir/src/views/startmenu.cpp.obj: CMakeFiles/Helloworld.dir/includes_CXX.rsp
+CMakeFiles/Helloworld.dir/src/views/startmenu.cpp.obj: C:/summer_2025/lasttry/src/views/startmenu.cpp
+CMakeFiles/Helloworld.dir/src/views/startmenu.cpp.obj: CMakeFiles/Helloworld.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\summer_2025\lasttry\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Helloworld.dir/src/views/startmenu.cpp.obj"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Helloworld.dir/src/views/startmenu.cpp.obj -MF CMakeFiles\Helloworld.dir\src\views\startmenu.cpp.obj.d -o CMakeFiles\Helloworld.dir\src\views\startmenu.cpp.obj -c C:\summer_2025\lasttry\src\views\startmenu.cpp
+
+CMakeFiles/Helloworld.dir/src/views/startmenu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Helloworld.dir/src/views/startmenu.cpp.i"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\summer_2025\lasttry\src\views\startmenu.cpp > CMakeFiles\Helloworld.dir\src\views\startmenu.cpp.i
+
+CMakeFiles/Helloworld.dir/src/views/startmenu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Helloworld.dir/src/views/startmenu.cpp.s"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\summer_2025\lasttry\src\views\startmenu.cpp -o CMakeFiles\Helloworld.dir\src\views\startmenu.cpp.s
+
 CMakeFiles/Helloworld.dir/src/controllers/dropcontroller.cpp.obj: CMakeFiles/Helloworld.dir/flags.make
 CMakeFiles/Helloworld.dir/src/controllers/dropcontroller.cpp.obj: CMakeFiles/Helloworld.dir/includes_CXX.rsp
 CMakeFiles/Helloworld.dir/src/controllers/dropcontroller.cpp.obj: C:/summer_2025/lasttry/src/controllers/dropcontroller.cpp
 CMakeFiles/Helloworld.dir/src/controllers/dropcontroller.cpp.obj: CMakeFiles/Helloworld.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\summer_2025\lasttry\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Helloworld.dir/src/controllers/dropcontroller.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\summer_2025\lasttry\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Helloworld.dir/src/controllers/dropcontroller.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Helloworld.dir/src/controllers/dropcontroller.cpp.obj -MF CMakeFiles\Helloworld.dir\src\controllers\dropcontroller.cpp.obj.d -o CMakeFiles\Helloworld.dir\src\controllers\dropcontroller.cpp.obj -c C:\summer_2025\lasttry\src\controllers\dropcontroller.cpp
 
 CMakeFiles/Helloworld.dir/src/controllers/dropcontroller.cpp.i: cmake_force
@@ -202,7 +217,7 @@ CMakeFiles/Helloworld.dir/src/controllers/menucontroller.cpp.obj: CMakeFiles/Hel
 CMakeFiles/Helloworld.dir/src/controllers/menucontroller.cpp.obj: CMakeFiles/Helloworld.dir/includes_CXX.rsp
 CMakeFiles/Helloworld.dir/src/controllers/menucontroller.cpp.obj: C:/summer_2025/lasttry/src/controllers/menucontroller.cpp
 CMakeFiles/Helloworld.dir/src/controllers/menucontroller.cpp.obj: CMakeFiles/Helloworld.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\summer_2025\lasttry\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Helloworld.dir/src/controllers/menucontroller.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\summer_2025\lasttry\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Helloworld.dir/src/controllers/menucontroller.cpp.obj"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Helloworld.dir/src/controllers/menucontroller.cpp.obj -MF CMakeFiles\Helloworld.dir\src\controllers\menucontroller.cpp.obj.d -o CMakeFiles\Helloworld.dir\src\controllers\menucontroller.cpp.obj -c C:\summer_2025\lasttry\src\controllers\menucontroller.cpp
 
 CMakeFiles/Helloworld.dir/src/controllers/menucontroller.cpp.i: cmake_force
@@ -222,6 +237,7 @@ Helloworld_OBJECTS = \
 "CMakeFiles/Helloworld.dir/src/views/blockmenuview.cpp.obj" \
 "CMakeFiles/Helloworld.dir/src/models/blockmodel.cpp.obj" \
 "CMakeFiles/Helloworld.dir/src/views/blockview.cpp.obj" \
+"CMakeFiles/Helloworld.dir/src/views/startmenu.cpp.obj" \
 "CMakeFiles/Helloworld.dir/src/controllers/dropcontroller.cpp.obj" \
 "CMakeFiles/Helloworld.dir/src/controllers/menucontroller.cpp.obj"
 
@@ -235,6 +251,7 @@ Helloworld.exe: CMakeFiles/Helloworld.dir/src/views/dropgraphicsview.cpp.obj
 Helloworld.exe: CMakeFiles/Helloworld.dir/src/views/blockmenuview.cpp.obj
 Helloworld.exe: CMakeFiles/Helloworld.dir/src/models/blockmodel.cpp.obj
 Helloworld.exe: CMakeFiles/Helloworld.dir/src/views/blockview.cpp.obj
+Helloworld.exe: CMakeFiles/Helloworld.dir/src/views/startmenu.cpp.obj
 Helloworld.exe: CMakeFiles/Helloworld.dir/src/controllers/dropcontroller.cpp.obj
 Helloworld.exe: CMakeFiles/Helloworld.dir/src/controllers/menucontroller.cpp.obj
 Helloworld.exe: CMakeFiles/Helloworld.dir/build.make
@@ -247,7 +264,7 @@ Helloworld.exe: C:/Qt/6.9.1/mingw_64/lib/libQt6EntryPoint.a
 Helloworld.exe: CMakeFiles/Helloworld.dir/linkLibs.rsp
 Helloworld.exe: CMakeFiles/Helloworld.dir/objects1.rsp
 Helloworld.exe: CMakeFiles/Helloworld.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\summer_2025\lasttry\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable Helloworld.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\summer_2025\lasttry\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable Helloworld.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Helloworld.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
