@@ -38,6 +38,11 @@ private:
     bool m_resizing = false;
     QPointF m_resizeStartPos;
     QSizeF m_originalSize;
+
+    // Title editing state
+    bool m_editingTitle = false;
+
+    void showTitleInputDialog();
 };
 
 #endif // BLOCKVIEW_H

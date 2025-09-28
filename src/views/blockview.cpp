@@ -4,6 +4,10 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QPen>
 #include <QCursor>
+#include <QFontMetrics>
+#include <QKeyEvent>
+#include <QApplication>
+#include <QInputDialog>
 
 BlockView::BlockView(BlockModel *model, QGraphicsItem *parent)
     : QGraphicsObject(parent), m_model(model)
@@ -34,6 +38,7 @@ QRectF BlockView::boundingRect() const
 void BlockView::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     QRectF localRect(-m_size.width() / 2, -m_size.height() / 2, m_size.width(), m_size.height());
+
     if (m_resizing)
     {
         // Draw resize border
@@ -44,13 +49,47 @@ void BlockView::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
         painter->drawRect(localRect);
         painter->restore();
     }
+
     // Draw the rectangle background
     painter->fillRect(localRect, QBrush(m_color));
 
-    // Draw the label text centered
+    // Draw title or editing indicator
     painter->save();
     painter->setPen(Qt::black);
-    painter->drawText(localRect, Qt::AlignCenter, m_label);
+
+    if (m_editingTitle)
+    {
+        // Draw editing indicator
+        QFont font = QApplication::font();
+        QFontMetrics fm(font);
+        QRectF textRect = fm.boundingRect("Editing: " + m_label);
+
+        // Draw a text input box background
+        QRectF editRect(
+            -textRect.width() / 2 - 15,
+            -m_size.height() / 2 + 5,
+            textRect.width() + 30,
+            textRect.height() + 10);
+
+        // Draw semi-transparent white background for edit box
+        painter->fillRect(editRect, QBrush(QColor(255, 255, 255, 200)));
+
+        // Draw border around edit area
+        QPen editPen(QColor(0, 0, 0, 150), 2);
+        painter->setPen(editPen);
+        painter->setBrush(Qt::NoBrush);
+        painter->drawRect(editRect);
+
+        // Draw "Editing:" text
+        painter->setPen(Qt::black);
+        painter->drawText(editRect, Qt::AlignCenter, "Editing: " + m_label);
+    }
+    else
+    {
+        // Draw normal title
+        painter->drawText(localRect, Qt::AlignCenter, m_label);
+    }
+
     painter->restore();
 
     // Draw resize handle - black dot
@@ -95,6 +134,8 @@ void BlockView::mousePressEvent(QGraphicsSceneMouseEvent *event)
         QPointF localPos = mapFromScene(event->scenePos());
         qreal handleSize = 10.0;
         QRectF bounding = boundingRect();
+
+        // Check if clicking on resize handle first
         if (localPos.x() > bounding.width() / 2 - handleSize &&
             localPos.y() > bounding.height() / 2 - handleSize)
         {
@@ -103,6 +144,32 @@ void BlockView::mousePressEvent(QGraphicsSceneMouseEvent *event)
             m_resizeStartPos = event->scenePos();
             event->accept();
             return;
+        }
+
+        // Check if clicking on title area (not resizing)
+        if (!m_resizing && !m_editingTitle)
+        {
+            // Calculate title area (center portion of the block)
+            QFont font = QApplication::font();
+            QFontMetrics fm(font);
+            QRectF textRect = fm.boundingRect(m_label);
+            qreal titleHeight = textRect.height();
+            qreal titleWidth = textRect.width();
+
+            // Title area is in the center horizontally and upper portion vertically
+            QRectF titleArea(
+                -titleWidth / 2 - 10, // Add some padding
+                -m_size.height() / 2 + 5,
+                titleWidth + 20,
+                titleHeight + 10);
+
+            if (titleArea.contains(localPos))
+            {
+                m_editingTitle = true;
+                showTitleInputDialog();
+                event->accept();
+                return;
+            }
         }
     }
     QGraphicsObject::mousePressEvent(event);
@@ -147,4 +214,24 @@ void BlockView::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
         return;
     }
     QGraphicsObject::mouseReleaseEvent(event);
+}
+
+void BlockView::showTitleInputDialog()
+{
+    bool ok;
+    QString newText = QInputDialog::getText(
+        nullptr, // No parent widget needed for graphics scene
+        "Edit Block Title",
+        "Enter new title:",
+        QLineEdit::Normal,
+        m_label,
+        &ok);
+
+    if (ok && !newText.isEmpty() && newText != m_label)
+    {
+        m_model->setLabel(newText);
+    }
+
+    m_editingTitle = false;
+    update();
 }
