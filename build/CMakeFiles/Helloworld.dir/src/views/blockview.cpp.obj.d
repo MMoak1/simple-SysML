@@ -400,6 +400,8 @@ CMakeFiles/Helloworld.dir/src/views/blockview.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qeventloop.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qdeadlinetimer.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qelapsedtimer.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsScene \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsscene.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QPen \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qpen.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QCursor \

@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     dropGraphicsView = nullptr;
     dropController = nullptr;
     menuController = nullptr;
+    connectionController = nullptr;
     startMenu = nullptr;
     m_menuBar = nullptr;
     m_fileMenu = nullptr;
@@ -85,11 +86,18 @@ void MainWindow::setupToolInterface()
     blockMenuView->addItem(greenItem);
 
     // Create controllers
-    dropController = new DropController(scene, dropGraphicsView, this);
+    connectionController = new ConnectionController(scene, this);
+    dropController = new DropController(scene, dropGraphicsView, connectionController, this);
     menuController = new MenuController(blockMenuView, this);
 
     // Connect drop signal to controller
     connect(dropGraphicsView, &DropGraphicsView::dropPerformed, dropController, &DropController::handleDrop);
+
+    // Enable connection mode by default
+    if (connectionController)
+    {
+        connectionController->setConnectionMode(true);
+    }
 
     // Create horizontal splitter for layout
     splitter = new QSplitter(Qt::Horizontal, this);

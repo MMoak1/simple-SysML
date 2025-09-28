@@ -17,6 +17,12 @@ public:
     QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
+    BlockModel *model() const { return m_model; }
+
+signals:
+    void connectionStarted(BlockView *startBlock);
+    void connectionCompleted(BlockView *startBlock, BlockView *endBlock);
+
 protected:
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
@@ -41,6 +47,10 @@ private:
 
     // Title editing state
     bool m_editingTitle = false;
+
+    // Connection drawing state
+    bool m_drawingConnection = false;
+    BlockView *m_connectionStartBlock = nullptr;
 
     void showTitleInputDialog();
 };

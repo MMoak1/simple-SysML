@@ -351,6 +351,12 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/summer_2025/lasttry/headers/controllers/connectioncontroller.h",
+			"MU",
+			"COIOAYLKOZ/moc_connectioncontroller.cpp",
+			null
+		],
+		[
 			"C:/summer_2025/lasttry/headers/controllers/dropcontroller.h",
 			"MU",
 			"COIOAYLKOZ/moc_dropcontroller.cpp",
@@ -375,6 +381,12 @@
 			null
 		],
 		[
+			"C:/summer_2025/lasttry/headers/models/connectionmodel.h",
+			"MU",
+			"5JQWYGIYPV/moc_connectionmodel.cpp",
+			null
+		],
+		[
 			"C:/summer_2025/lasttry/headers/views/blockmenuview.h",
 			"MU",
 			"KH5PZA5WCU/moc_blockmenuview.cpp",
@@ -384,6 +396,12 @@
 			"C:/summer_2025/lasttry/headers/views/blockview.h",
 			"MU",
 			"KH5PZA5WCU/moc_blockview.cpp",
+			null
+		],
+		[
+			"C:/summer_2025/lasttry/headers/views/connectionview.h",
+			"MU",
+			"KH5PZA5WCU/moc_connectionview.cpp",
 			null
 		],
 		[
@@ -476,6 +494,11 @@
 	"SOURCES" : 
 	[
 		[
+			"C:/summer_2025/lasttry/src/controllers/connectioncontroller.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/summer_2025/lasttry/src/controllers/dropcontroller.cpp",
 			"MU",
 			null
@@ -488,8 +511,10 @@
 		[ "C:/summer_2025/lasttry/src/main.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/mainwindow.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/models/blockmodel.cpp", "MU", null ],
+		[ "C:/summer_2025/lasttry/src/models/connectionmodel.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/views/blockmenuview.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/views/blockview.cpp", "MU", null ],
+		[ "C:/summer_2025/lasttry/src/views/connectionview.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/views/dropgraphicsview.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/views/startmenu.cpp", "MU", null ]
 	],

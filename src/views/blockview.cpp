@@ -1,7 +1,8 @@
-#include "../headers/views/blockview.h"
+#include "../../headers/views/blockview.h"
 #include <QPainter>
 #include <QBrush>
 #include <QGraphicsSceneMouseEvent>
+#include <QGraphicsScene>
 #include <QPen>
 #include <QCursor>
 #include <QFontMetrics>
@@ -146,7 +147,7 @@ void BlockView::mousePressEvent(QGraphicsSceneMouseEvent *event)
             return;
         }
 
-        // Check if clicking on title area (not resizing)
+        // Check if clicking on title area for editing
         if (!m_resizing && !m_editingTitle)
         {
             // Calculate title area (center portion of the block)
@@ -171,6 +172,14 @@ void BlockView::mousePressEvent(QGraphicsSceneMouseEvent *event)
                 return;
             }
         }
+
+        // Start connection drawing for any other click on the block
+        m_drawingConnection = true;
+        m_connectionStartBlock = this;
+        qDebug() << "Connection started from block:" << m_label;
+        emit connectionStarted(this);
+        event->accept();
+        return;
     }
     QGraphicsObject::mousePressEvent(event);
 }
@@ -213,6 +222,41 @@ void BlockView::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
         event->accept();
         return;
     }
+
+    // Handle connection completion
+    if (m_drawingConnection && m_connectionStartBlock)
+    {
+        // Find all items under the mouse cursor
+        QList<QGraphicsItem *> itemsUnderMouse = scene()->items(event->scenePos());
+
+        BlockView *endBlock = nullptr;
+
+        // Look for a BlockView item under the mouse
+        for (QGraphicsItem *item : itemsUnderMouse)
+        {
+            endBlock = dynamic_cast<BlockView *>(item);
+            if (endBlock)
+                break;
+        }
+
+        // Only create connection if we released over a different block
+        if (endBlock && endBlock != m_connectionStartBlock)
+        {
+            qDebug() << "Connection completed from" << m_connectionStartBlock->model()->label() << "to" << endBlock->model()->label();
+            emit connectionCompleted(m_connectionStartBlock, endBlock);
+        }
+        else
+        {
+            qDebug() << "No valid end block found for connection";
+        }
+
+        // Reset connection state
+        m_drawingConnection = false;
+        m_connectionStartBlock = nullptr;
+        event->accept();
+        return;
+    }
+
     QGraphicsObject::mouseReleaseEvent(event);
 }
 
