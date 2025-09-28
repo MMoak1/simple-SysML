@@ -168,7 +168,6 @@ Helloworld_autogen/timestamp: C:/Program\ Files/CMake/bin/cmake.exe \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qtversionchecks.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qtypeinfo.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qtypes.h \
-  C:/Qt/6.9.1/mingw_64/include/QtCore/qurl.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qutf8stringview.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qvariant.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qvarlengtharray.h \
@@ -201,9 +200,6 @@ Helloworld_autogen/timestamp: C:/Program\ Files/CMake/bin/cmake.exe \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qregion.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qrgb.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qrgba64.h \
-  C:/Qt/6.9.1/mingw_64/include/QtGui/qtextcursor.h \
-  C:/Qt/6.9.1/mingw_64/include/QtGui/qtextdocument.h \
-  C:/Qt/6.9.1/mingw_64/include/QtGui/qtextformat.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qtextoption.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qtgui-config.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qtguiexports.h \
@@ -216,7 +212,6 @@ Helloworld_autogen/timestamp: C:/Program\ Files/CMake/bin/cmake.exe \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsView \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QHBoxLayout \
-  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QLineEdit \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QListWidget \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QPushButton \
@@ -237,7 +232,6 @@ Helloworld_autogen/timestamp: C:/Program\ Files/CMake/bin/cmake.exe \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayout.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayoutitem.h \
-  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlineedit.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlistview.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlistwidget.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmainwindow.h \
@@ -885,8 +879,6 @@ C:/Qt/6.9.1/mingw_64/include/QtGui/qfontinfo.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qstringliteral.h:
 
-C:/Qt/6.9.1/mingw_64/include/QtWidgets/QLineEdit:
-
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginAdditionalTargetInfo.cmake:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/QPoint:
@@ -1219,9 +1211,9 @@ C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginConfig.cma
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qswap.h:
 
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/memoryfwd.h:
-
 C:/Qt/6.9.1/mingw_64/include/QtCore/qsysinfo.h:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/memoryfwd.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qtaggedpointer.h:
 
@@ -1245,11 +1237,13 @@ C:/summer_2025/lasttry/src/views/blockmenuview.cpp:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qtdeprecationdefinitions.h:
 
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/new_allocator.h:
-
 C:/Qt/6.9.1/mingw_64/include/QtCore/qtdeprecationmarkers.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Svg/Qt6SvgAdditionalTargetInfo.cmake:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/new_allocator.h:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream_insert.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qtenvironmentvariables.h:
 
@@ -1282,8 +1276,6 @@ C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets-relwithdebinfo.cmake:
 C:/Qt/6.9.1/mingw_64/include/QtCore/qtypeinfo.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qtypes.h:
-
-C:/Qt/6.9.1/mingw_64/include/QtCore/qurl.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qutf8stringview.h:
 
@@ -1365,22 +1357,6 @@ C:/Qt/6.9.1/mingw_64/include/QtGui/qrgb.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtGui/qrgba64.h:
 
-C:/Qt/6.9.1/mingw_64/include/QtGui/qtextcursor.h:
-
-C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6GuiPrivate/Qt6GuiPrivateConfig.cmake:
-
-C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsAdditionalTargetInfo.cmake:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/algorithmfwd.h:
-
-C:/Qt/6.9.1/mingw_64/include/QtGui/qtextdocument.h:
-
-C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsVersionlessTargets.cmake:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ios_base.h:
-
-C:/Qt/6.9.1/mingw_64/include/QtGui/qtextformat.h:
-
 C:/Qt/6.9.1/mingw_64/include/QtGui/qtextoption.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtGui/qtgui-config.h:
@@ -1458,8 +1434,6 @@ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsview.h:
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayoutitem.h:
-
-C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlineedit.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlistview.h:
 
@@ -1633,6 +1607,8 @@ C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsConfigVersionImpl.cmake:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsTargets.cmake:
 
+C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6CoreTools/Qt6CoreToolsVersionlessTargets.cmake:
+
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointMinGW32Target.cmake:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateAdditionalTargetInfo.cmake:
@@ -1714,6 +1690,12 @@ C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginTarget
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginAdditionalTargetInfo.cmake:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Svg/Qt6SvgConfigVersion.cmake:
+
+C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6GuiPrivate/Qt6GuiPrivateConfig.cmake:
+
+C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsAdditionalTargetInfo.cmake:
+
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/algorithmfwd.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6GuiPrivate/Qt6GuiPrivateDependencies.cmake:
 
@@ -1849,6 +1831,8 @@ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/func
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/hashtable_policy.h:
 
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ios_base.h:
+
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_classes.tcc:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/type_traits:
@@ -1860,8 +1844,6 @@ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/move
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/nested_exception.h:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/node_handle.h:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream_insert.h:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/parse_numbers.h:
 

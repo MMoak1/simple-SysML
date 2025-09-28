@@ -835,7 +835,6 @@ CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj: Helloworl
   C:/Qt/6.9.1/mingw_64/include/QtCore/qtversionchecks.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qtypeinfo.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qtypes.h \
-  C:/Qt/6.9.1/mingw_64/include/QtCore/qurl.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qutf8stringview.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qvariant.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qvarlengtharray.h \
@@ -868,9 +867,6 @@ CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj: Helloworl
   C:/Qt/6.9.1/mingw_64/include/QtGui/qregion.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qrgb.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qrgba64.h \
-  C:/Qt/6.9.1/mingw_64/include/QtGui/qtextcursor.h \
-  C:/Qt/6.9.1/mingw_64/include/QtGui/qtextdocument.h \
-  C:/Qt/6.9.1/mingw_64/include/QtGui/qtextformat.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qtextoption.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qtgui-config.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qtguiexports.h \
@@ -883,7 +879,6 @@ CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj: Helloworl
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsView \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QHBoxLayout \
-  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QLineEdit \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QListWidget \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QPushButton \
@@ -904,7 +899,6 @@ CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj: Helloworl
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayout.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayoutitem.h \
-  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlineedit.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlistview.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlistwidget.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmainwindow.h \
@@ -2113,7 +2107,6 @@ CMakeFiles/Helloworld.dir/src/main.cpp.obj: C:/summer_2025/lasttry/src/main.cpp 
   C:/Qt/6.9.1/mingw_64/include/QtCore/qtversionchecks.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qtypeinfo.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qtypes.h \
-  C:/Qt/6.9.1/mingw_64/include/QtCore/qurl.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qutf8stringview.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qvariant.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qvarlengtharray.h \
@@ -2149,9 +2142,6 @@ CMakeFiles/Helloworld.dir/src/main.cpp.obj: C:/summer_2025/lasttry/src/main.cpp 
   C:/Qt/6.9.1/mingw_64/include/QtGui/qregion.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qrgb.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qrgba64.h \
-  C:/Qt/6.9.1/mingw_64/include/QtGui/qtextcursor.h \
-  C:/Qt/6.9.1/mingw_64/include/QtGui/qtextdocument.h \
-  C:/Qt/6.9.1/mingw_64/include/QtGui/qtextformat.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qtextoption.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qtgui-config.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qtguiexports.h \
@@ -2165,7 +2155,6 @@ CMakeFiles/Helloworld.dir/src/main.cpp.obj: C:/summer_2025/lasttry/src/main.cpp 
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsView \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QHBoxLayout \
-  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QLineEdit \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QListWidget \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QPushButton \
@@ -2187,7 +2176,6 @@ CMakeFiles/Helloworld.dir/src/main.cpp.obj: C:/summer_2025/lasttry/src/main.cpp 
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayout.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayoutitem.h \
-  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlineedit.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlistview.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlistwidget.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmainwindow.h \
@@ -2566,7 +2554,6 @@ CMakeFiles/Helloworld.dir/src/mainwindow.cpp.obj: C:/summer_2025/lasttry/src/mai
   C:/Qt/6.9.1/mingw_64/include/QtCore/qtversionchecks.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qtypeinfo.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qtypes.h \
-  C:/Qt/6.9.1/mingw_64/include/QtCore/qurl.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qutf8stringview.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qvariant.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qvarlengtharray.h \
@@ -2602,9 +2589,6 @@ CMakeFiles/Helloworld.dir/src/mainwindow.cpp.obj: C:/summer_2025/lasttry/src/mai
   C:/Qt/6.9.1/mingw_64/include/QtGui/qregion.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qrgb.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qrgba64.h \
-  C:/Qt/6.9.1/mingw_64/include/QtGui/qtextcursor.h \
-  C:/Qt/6.9.1/mingw_64/include/QtGui/qtextdocument.h \
-  C:/Qt/6.9.1/mingw_64/include/QtGui/qtextformat.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qtextoption.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qtgui-config.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qtguiexports.h \
@@ -2617,7 +2601,6 @@ CMakeFiles/Helloworld.dir/src/mainwindow.cpp.obj: C:/summer_2025/lasttry/src/mai
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsView \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QHBoxLayout \
-  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QLineEdit \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QListWidget \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QListWidgetItem \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMainWindow \
@@ -2641,7 +2624,6 @@ CMakeFiles/Helloworld.dir/src/mainwindow.cpp.obj: C:/summer_2025/lasttry/src/mai
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayout.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayoutitem.h \
-  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlineedit.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlistview.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlistwidget.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmainwindow.h \
@@ -3868,14 +3850,14 @@ CMakeFiles/Helloworld.dir/src/views/blockview.cpp.obj: C:/summer_2025/lasttry/sr
   C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QApplication \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsObject \
-  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsSceneMouseEvent \
-  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QLineEdit \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QInputDialog \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qapplication.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qdialog.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qframe.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsitem.h \
-  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsscene.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicssceneevent.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qinputdialog.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlineedit.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
@@ -5621,6 +5603,8 @@ C:/Qt/6.9.1/mingw_64/include/QtGui/qtgui-config.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtGui/qtguiglobal.h:
 
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/QInputDialog:
+
 C:/Qt/6.9.1/mingw_64/include/QtGui/qtransform.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtGui/qvalidator.h:
@@ -6421,12 +6405,6 @@ C:/Qt/6.9.1/mingw_64/include/QtCore/q23type_traits.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qtmochelpers.h:
 
-C:/Qt/6.9.1/mingw_64/include/QtCore/qurl.h:
-
-C:/Qt/6.9.1/mingw_64/include/QtGui/qtextformat.h:
-
-C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlineedit.h:
-
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/pstl_config.h:
 
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mm_malloc.h:
@@ -6444,6 +6422,12 @@ Helloworld_autogen/COIOAYLKOZ/moc_menucontroller.cpp:
 Helloworld_autogen/KH5PZA5WCU/moc_blockmenuview.cpp:
 
 Helloworld_autogen/KH5PZA5WCU/moc_blockview.cpp:
+
+C:/Qt/6.9.1/mingw_64/include/QtCore/qurl.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtGui/qtextformat.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlineedit.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/QMimeData:
 
@@ -6490,5 +6474,9 @@ C:/Qt/6.9.1/mingw_64/include/QtGui/QBrush:
 C:/Qt/6.9.1/mingw_64/include/QtGui/QKeyEvent:
 
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsSceneMouseEvent:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qdialog.h:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/qinputdialog.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtGui/QDragEnterEvent:
