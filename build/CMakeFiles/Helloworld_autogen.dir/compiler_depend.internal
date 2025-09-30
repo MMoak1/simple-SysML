@@ -179,6 +179,7 @@ C:/summer_2025/lasttry/build/Helloworld_autogen/timestamp
  C:/Qt/6.9.1/mingw_64/include/QtCore/qyieldcpu.h
  C:/Qt/6.9.1/mingw_64/include/QtGui/QColor
  C:/Qt/6.9.1/mingw_64/include/QtGui/QDrag
+ C:/Qt/6.9.1/mingw_64/include/QtGui/QPainterPath
  C:/Qt/6.9.1/mingw_64/include/QtGui/qaction.h
  C:/Qt/6.9.1/mingw_64/include/QtGui/qbitmap.h
  C:/Qt/6.9.1/mingw_64/include/QtGui/qbrush.h
@@ -698,6 +699,7 @@ C:/summer_2025/lasttry/build/Helloworld_autogen/timestamp
  C:/summer_2025/lasttry/headers/views/connectionview.h
  C:/summer_2025/lasttry/headers/views/dropgraphicsview.h
  C:/summer_2025/lasttry/headers/views/startmenu.h
+ C:/summer_2025/lasttry/headers/views/temporaryconnectionline.h
  C:/summer_2025/lasttry/src/controllers/connectioncontroller.cpp
  C:/summer_2025/lasttry/src/controllers/dropcontroller.cpp
  C:/summer_2025/lasttry/src/controllers/menucontroller.cpp
@@ -710,4 +712,5 @@ C:/summer_2025/lasttry/build/Helloworld_autogen/timestamp
  C:/summer_2025/lasttry/src/views/connectionview.cpp
  C:/summer_2025/lasttry/src/views/dropgraphicsview.cpp
  C:/summer_2025/lasttry/src/views/startmenu.cpp
+ C:/summer_2025/lasttry/src/views/temporaryconnectionline.cpp
 

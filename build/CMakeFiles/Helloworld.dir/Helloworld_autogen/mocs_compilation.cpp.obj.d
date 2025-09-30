@@ -478,6 +478,8 @@ CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj: \
  C:/summer_2025/lasttry/headers/views/blockview.h \
  C:\summer_2025\lasttry\build\Helloworld_autogen\KH5PZA5WCU/moc_connectionview.cpp \
  C:/summer_2025/lasttry/headers/views/connectionview.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/QPainterPath \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qpainterpath.h \
  C:/summer_2025/lasttry/headers/models/connectionmodel.h \
  C:\summer_2025\lasttry\build\Helloworld_autogen\KH5PZA5WCU/moc_dropgraphicsview.cpp \
  C:/summer_2025/lasttry/headers/views/dropgraphicsview.h \

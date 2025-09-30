@@ -129,6 +129,7 @@ C:/summer_2025/lasttry/build/Helloworld_autogen/KH5PZA5WCU/moc_connectionview.cp
   C:/Qt/6.9.1/mingw_64/include/QtCore/qxptype_traits.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qyieldcpu.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/QColor \
+  C:/Qt/6.9.1/mingw_64/include/QtGui/QPainterPath \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qcolor.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qimage.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qpaintdevice.h \

@@ -22,6 +22,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/summer_2025/lasttry/src/views/connectionview.cpp" "CMakeFiles/Helloworld.dir/src/views/connectionview.cpp.obj" "gcc" "CMakeFiles/Helloworld.dir/src/views/connectionview.cpp.obj.d"
   "C:/summer_2025/lasttry/src/views/dropgraphicsview.cpp" "CMakeFiles/Helloworld.dir/src/views/dropgraphicsview.cpp.obj" "gcc" "CMakeFiles/Helloworld.dir/src/views/dropgraphicsview.cpp.obj.d"
   "C:/summer_2025/lasttry/src/views/startmenu.cpp" "CMakeFiles/Helloworld.dir/src/views/startmenu.cpp.obj" "gcc" "CMakeFiles/Helloworld.dir/src/views/startmenu.cpp.obj.d"
+  "C:/summer_2025/lasttry/src/views/temporaryconnectionline.cpp" "CMakeFiles/Helloworld.dir/src/views/temporaryconnectionline.cpp.obj" "gcc" "CMakeFiles/Helloworld.dir/src/views/temporaryconnectionline.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

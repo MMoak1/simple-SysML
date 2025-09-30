@@ -371,6 +371,8 @@ CMakeFiles/Helloworld.dir/src/views/connectionview.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qpixelformat.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QColor \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qcolor.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/QPainterPath \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qpainterpath.h \
  C:/summer_2025/lasttry/headers/models/connectionmodel.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QObject \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qobject.h \
@@ -394,4 +396,6 @@ CMakeFiles/Helloworld.dir/src/views/connectionview.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QPen \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qpen.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QBrush \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qbrush.h
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qbrush.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QtMath \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qmath.h

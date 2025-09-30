@@ -382,12 +382,14 @@ CMakeFiles/Helloworld.dir/src/controllers/connectioncontroller.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qstring.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QSizeF \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qsize.h \
- C:/summer_2025/lasttry/headers/models/blockmodel.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QPointF \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qpoint.h \
+ C:/summer_2025/lasttry/headers/models/blockmodel.h \
  C:/summer_2025/lasttry/headers/models/connectionmodel.h \
  C:/summer_2025/lasttry/headers/models/blockmodel.h \
  C:/summer_2025/lasttry/headers/views/connectionview.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/QPainterPath \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qpainterpath.h \
  C:/summer_2025/lasttry/headers/models/connectionmodel.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsScene \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsscene.h \

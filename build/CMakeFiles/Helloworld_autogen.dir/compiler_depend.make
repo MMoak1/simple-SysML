@@ -178,6 +178,7 @@ Helloworld_autogen/timestamp: C:/Program\ Files/CMake/bin/cmake.exe \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qyieldcpu.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/QColor \
   C:/Qt/6.9.1/mingw_64/include/QtGui/QDrag \
+  C:/Qt/6.9.1/mingw_64/include/QtGui/QPainterPath \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qaction.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qbitmap.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qbrush.h \
@@ -697,6 +698,7 @@ Helloworld_autogen/timestamp: C:/Program\ Files/CMake/bin/cmake.exe \
   C:/summer_2025/lasttry/headers/views/connectionview.h \
   C:/summer_2025/lasttry/headers/views/dropgraphicsview.h \
   C:/summer_2025/lasttry/headers/views/startmenu.h \
+  C:/summer_2025/lasttry/headers/views/temporaryconnectionline.h \
   C:/summer_2025/lasttry/src/controllers/connectioncontroller.cpp \
   C:/summer_2025/lasttry/src/controllers/dropcontroller.cpp \
   C:/summer_2025/lasttry/src/controllers/menucontroller.cpp \
@@ -708,7 +710,8 @@ Helloworld_autogen/timestamp: C:/Program\ Files/CMake/bin/cmake.exe \
   C:/summer_2025/lasttry/src/views/blockview.cpp \
   C:/summer_2025/lasttry/src/views/connectionview.cpp \
   C:/summer_2025/lasttry/src/views/dropgraphicsview.cpp \
-  C:/summer_2025/lasttry/src/views/startmenu.cpp
+  C:/summer_2025/lasttry/src/views/startmenu.cpp \
+  C:/summer_2025/lasttry/src/views/temporaryconnectionline.cpp
 
 
 C:/Program\ Files/CMake/bin/cmake.exe:
@@ -1071,6 +1074,8 @@ C:/Qt/6.9.1/mingw_64/include/QtCore/qtversionchecks.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qlatin1stringview.h:
 
+C:/summer_2025/lasttry/src/views/temporaryconnectionline.cpp:
+
 C:/Qt/6.9.1/mingw_64/include/QtCore/qlist.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyleoption.h:
@@ -1255,11 +1260,11 @@ C:/summer_2025/lasttry/src/views/blockmenuview.cpp:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qtdeprecationdefinitions.h:
 
+C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/new_allocator.h:
+
 C:/Qt/6.9.1/mingw_64/include/QtCore/qtdeprecationmarkers.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Svg/Qt6SvgAdditionalTargetInfo.cmake:
-
-C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/new_allocator.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qtenvironmentvariables.h:
 
@@ -1320,6 +1325,8 @@ C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6/QtPublicFindPackageHelpers.cmake:
 C:/summer_2025/lasttry/headers/controllers/menucontroller.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtGui/QDrag:
+
+C:/Qt/6.9.1/mingw_64/include/QtGui/QPainterPath:
 
 C:/Qt/6.9.1/mingw_64/include/QtGui/qbitmap.h:
 
@@ -1688,6 +1695,8 @@ C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6ZlibPrivate/Qt6ZlibPrivateConfigVersion.cmake:
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/exp_integral.tcc:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6QOffscreenIntegrationPluginTargets-relwithdebinfo.cmake:
+
+C:/summer_2025/lasttry/headers/views/temporaryconnectionline.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6QSvgIconPluginConfig.cmake:
 

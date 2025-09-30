@@ -355,4 +355,8 @@ CMakeFiles/Helloworld.dir/src/models/connectionmodel.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qshareddata_impl.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qset.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qhash.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qvarlengtharray.h
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qvarlengtharray.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QRectF \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qrect.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qsize.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qpoint.h

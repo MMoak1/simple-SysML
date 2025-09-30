@@ -415,6 +415,12 @@
 			"MU",
 			"KH5PZA5WCU/moc_startmenu.cpp",
 			null
+		],
+		[
+			"C:/summer_2025/lasttry/headers/views/temporaryconnectionline.h",
+			"MU",
+			"KH5PZA5WCU/moc_temporaryconnectionline.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -516,7 +522,12 @@
 		[ "C:/summer_2025/lasttry/src/views/blockview.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/views/connectionview.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/views/dropgraphicsview.cpp", "MU", null ],
-		[ "C:/summer_2025/lasttry/src/views/startmenu.cpp", "MU", null ]
+		[ "C:/summer_2025/lasttry/src/views/startmenu.cpp", "MU", null ],
+		[
+			"C:/summer_2025/lasttry/src/views/temporaryconnectionline.cpp",
+			"MU",
+			null
+		]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],
