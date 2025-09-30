@@ -6,22 +6,13 @@
 #include <QDebug>
 
 ConnectionController::ConnectionController(QGraphicsScene *scene, QObject *parent)
-    : QObject(parent), m_scene(scene), m_connectionMode(false)
+    : QObject(parent), m_scene(scene)
 {
 }
 
 ConnectionController::~ConnectionController()
 {
     clearAllConnections();
-}
-
-void ConnectionController::setConnectionMode(bool enabled)
-{
-    if (m_connectionMode != enabled)
-    {
-        m_connectionMode = enabled;
-        emit connectionModeChanged(enabled);
-    }
 }
 
 void ConnectionController::registerBlockView(BlockView *view)
@@ -60,24 +51,12 @@ void ConnectionController::clearAllConnections()
 
 void ConnectionController::onConnectionStarted(BlockView *startBlock)
 {
-    if (!m_connectionMode)
-    {
-        qDebug() << "Connection mode not enabled";
-        return;
-    }
-
     qDebug() << "Connection started from block:" << startBlock->model()->label();
 }
 
 void ConnectionController::onConnectionCompleted(BlockView *startBlock, BlockView *endBlock)
 {
-    if (!m_connectionMode || !startBlock)
-    {
-        qDebug() << "Connection mode not enabled or no start block";
-        return;
-    }
-
-    if (!endBlock)
+    if (!startBlock || !endBlock)
     {
         qDebug() << "No end block found";
         return;
@@ -143,10 +122,11 @@ void ConnectionController::onBlockViewDestroyed(QObject *obj)
 
 bool ConnectionController::connectionExists(BlockView *start, BlockView *end)
 {
+    // Only check directional connection (start->end), not bidirectional
     for (ConnectionModel *connection : m_connections)
     {
-        if ((connection->startBlock() == start->model() && connection->endBlock() == end->model()) ||
-            (connection->startBlock() == end->model() && connection->endBlock() == start->model()))
+        if (connection->startBlock() == start->model() &&
+            connection->endBlock() == end->model())
         {
             return true;
         }

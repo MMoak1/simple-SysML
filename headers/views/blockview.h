@@ -5,7 +5,10 @@
 #include <QColor>
 #include <QString>
 #include <QSizeF>
+#include <QPointF>
 #include "../models/blockmodel.h"
+
+class TemporaryConnectionLine;
 
 class BlockView : public QGraphicsObject
 {
@@ -51,8 +54,11 @@ private:
     // Connection drawing state
     bool m_drawingConnection = false;
     BlockView *m_connectionStartBlock = nullptr;
+    TemporaryConnectionLine *m_tempLine = nullptr;
 
     void showTitleInputDialog();
+    QPointF getNearestEdgePoint(const QPointF &targetPoint) const;
+    BlockView *findBlockAtPosition(const QPointF &scenePos) const;
 };
 
 #endif // BLOCKVIEW_H

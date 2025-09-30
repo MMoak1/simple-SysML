@@ -18,16 +18,10 @@ public:
     explicit ConnectionController(QGraphicsScene *scene, QObject *parent = nullptr);
     ~ConnectionController();
 
-    void setConnectionMode(bool enabled);
-    bool isConnectionModeEnabled() const { return m_connectionMode; }
-
     void registerBlockView(BlockView *view);
     void unregisterBlockView(BlockView *view);
 
     void clearAllConnections();
-
-signals:
-    void connectionModeChanged(bool enabled);
 
 private slots:
     void onConnectionStarted(BlockView *startBlock);
@@ -36,7 +30,6 @@ private slots:
 
 private:
     QGraphicsScene *m_scene;
-    bool m_connectionMode;
     QList<BlockView *> m_blockViews;
     QList<ConnectionModel *> m_connections;
     QHash<ConnectionModel *, ConnectionView *> m_connectionViews;

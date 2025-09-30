@@ -93,11 +93,7 @@ void MainWindow::setupToolInterface()
     // Connect drop signal to controller
     connect(dropGraphicsView, &DropGraphicsView::dropPerformed, dropController, &DropController::handleDrop);
 
-    // Enable connection mode by default
-    if (connectionController)
-    {
-        connectionController->setConnectionMode(true);
-    }
+    // Connection mode is no longer needed - Ctrl+Click now handles connections
 
     // Create horizontal splitter for layout
     splitter = new QSplitter(Qt::Horizontal, this);

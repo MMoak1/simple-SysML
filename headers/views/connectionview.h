@@ -3,6 +3,7 @@
 
 #include <QGraphicsObject>
 #include <QColor>
+#include <QPainterPath>
 #include "../models/connectionmodel.h"
 
 class ConnectionView : public QGraphicsObject
@@ -23,6 +24,10 @@ private slots:
 private:
     ConnectionModel *m_model;
     QColor m_color;
+
+    QPainterPath calculateOrthogonalPath(const QPointF &start, const QPointF &end) const;
+    void drawArrowHead(QPainter *painter, const QPainterPath &path, const QPointF &endPoint) const;
+    qreal calculateLastSegmentAngle(const QPainterPath &path) const;
 };
 
 #endif // CONNECTIONVIEW_H

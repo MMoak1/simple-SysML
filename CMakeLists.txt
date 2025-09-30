@@ -43,6 +43,8 @@ qt_add_executable(Helloworld
     src/models/connectionmodel.cpp
     headers/views/connectionview.h
     src/views/connectionview.cpp
+    headers/views/temporaryconnectionline.h
+    src/views/temporaryconnectionline.cpp
     headers/controllers/connectioncontroller.h
     src/controllers/connectioncontroller.cpp
 )

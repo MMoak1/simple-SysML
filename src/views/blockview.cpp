@@ -1,4 +1,5 @@
 #include "../../headers/views/blockview.h"
+#include "../../headers/views/temporaryconnectionline.h"
 #include <QPainter>
 #include <QBrush>
 #include <QGraphicsSceneMouseEvent>
@@ -9,6 +10,7 @@
 #include <QKeyEvent>
 #include <QApplication>
 #include <QInputDialog>
+#include <QDebug>
 
 BlockView::BlockView(BlockModel *model, QGraphicsItem *parent)
     : QGraphicsObject(parent), m_model(model)
@@ -136,7 +138,26 @@ void BlockView::mousePressEvent(QGraphicsSceneMouseEvent *event)
         qreal handleSize = 10.0;
         QRectF bounding = boundingRect();
 
-        // Check if clicking on resize handle first
+        // Check for Ctrl+Click to start connection drawing
+        if (event->modifiers() & Qt::ControlModifier)
+        {
+            m_drawingConnection = true;
+            m_connectionStartBlock = this;
+
+            // Calculate start point at nearest edge
+            QPointF startPoint = getNearestEdgePoint(event->scenePos());
+
+            // Create temporary line
+            m_tempLine = new TemporaryConnectionLine(startPoint);
+            scene()->addItem(m_tempLine);
+
+            qDebug() << "Connection started from block:" << m_label;
+            emit connectionStarted(this);
+            event->accept();
+            return;
+        }
+
+        // Check if clicking on resize handle
         if (localPos.x() > bounding.width() / 2 - handleSize &&
             localPos.y() > bounding.height() / 2 - handleSize)
         {
@@ -172,14 +193,6 @@ void BlockView::mousePressEvent(QGraphicsSceneMouseEvent *event)
                 return;
             }
         }
-
-        // Start connection drawing for any other click on the block
-        m_drawingConnection = true;
-        m_connectionStartBlock = this;
-        qDebug() << "Connection started from block:" << m_label;
-        emit connectionStarted(this);
-        event->accept();
-        return;
     }
     QGraphicsObject::mousePressEvent(event);
 }
@@ -198,6 +211,14 @@ void BlockView::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
         return;
     }
 
+    // Update temporary connection line if drawing
+    if (m_drawingConnection && m_tempLine)
+    {
+        m_tempLine->updateEndPoint(event->scenePos());
+        event->accept();
+        return;
+    }
+
     // Check for resize cursor
     QPointF localPos = mapFromScene(event->scenePos());
     QRectF bounding = boundingRect();
@@ -211,7 +232,14 @@ void BlockView::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
     {
         unsetCursor();
     }
+    // Call base class to handle normal dragging
     QGraphicsObject::mouseMoveEvent(event);
+
+    // Update model position when dragging (not resizing or drawing connection)
+    if (!m_resizing && !m_drawingConnection && (flags() & ItemIsMovable))
+    {
+        m_model->setPosition(pos());
+    }
 }
 
 void BlockView::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
@@ -226,18 +254,8 @@ void BlockView::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     // Handle connection completion
     if (m_drawingConnection && m_connectionStartBlock)
     {
-        // Find all items under the mouse cursor
-        QList<QGraphicsItem *> itemsUnderMouse = scene()->items(event->scenePos());
-
-        BlockView *endBlock = nullptr;
-
-        // Look for a BlockView item under the mouse
-        for (QGraphicsItem *item : itemsUnderMouse)
-        {
-            endBlock = dynamic_cast<BlockView *>(item);
-            if (endBlock)
-                break;
-        }
+        // Find block at release position
+        BlockView *endBlock = findBlockAtPosition(event->scenePos());
 
         // Only create connection if we released over a different block
         if (endBlock && endBlock != m_connectionStartBlock)
@@ -247,7 +265,15 @@ void BlockView::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
         }
         else
         {
-            qDebug() << "No valid end block found for connection";
+            qDebug() << "Connection cancelled - no valid target block";
+        }
+
+        // Clean up temporary line
+        if (m_tempLine)
+        {
+            scene()->removeItem(m_tempLine);
+            delete m_tempLine;
+            m_tempLine = nullptr;
         }
 
         // Reset connection state
@@ -255,6 +281,12 @@ void BlockView::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
         m_connectionStartBlock = nullptr;
         event->accept();
         return;
+    }
+
+    // Update model position after dragging
+    if (!m_resizing && !m_drawingConnection)
+    {
+        m_model->setPosition(pos());
     }
 
     QGraphicsObject::mouseReleaseEvent(event);
@@ -278,4 +310,65 @@ void BlockView::showTitleInputDialog()
 
     m_editingTitle = false;
     update();
+}
+
+QPointF BlockView::getNearestEdgePoint(const QPointF &targetPoint) const
+{
+    QRectF rect = sceneBoundingRect();
+    QPointF center = rect.center();
+
+    // Calculate vector from center to target
+    qreal dx = targetPoint.x() - center.x();
+    qreal dy = targetPoint.y() - center.y();
+
+    // Determine which edge to use based on dominant direction
+    if (qAbs(dx) > qAbs(dy))
+    {
+        // Horizontal dominant - use left or right edge
+        if (dx > 0)
+        {
+            // Right edge
+            return QPointF(rect.right(), center.y());
+        }
+        else
+        {
+            // Left edge
+            return QPointF(rect.left(), center.y());
+        }
+    }
+    else
+    {
+        // Vertical dominant - use top or bottom edge
+        if (dy > 0)
+        {
+            // Bottom edge
+            return QPointF(center.x(), rect.bottom());
+        }
+        else
+        {
+            // Top edge
+            return QPointF(center.x(), rect.top());
+        }
+    }
+}
+
+BlockView *BlockView::findBlockAtPosition(const QPointF &scenePos) const
+{
+    if (!scene())
+        return nullptr;
+
+    // Get all items at the position
+    QList<QGraphicsItem *> itemsAtPos = scene()->items(scenePos);
+
+    // Find the first BlockView that isn't this one
+    for (QGraphicsItem *item : itemsAtPos)
+    {
+        BlockView *blockView = dynamic_cast<BlockView *>(item);
+        if (blockView && blockView != this)
+        {
+            return blockView;
+        }
+    }
+
+    return nullptr;
 }

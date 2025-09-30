@@ -26,6 +26,9 @@ public:
     QPointF startPoint() const;
     QPointF endPoint() const;
 
+    QPointF startEdgePoint() const { return m_startEdgePoint; }
+    QPointF endEdgePoint() const { return m_endEdgePoint; }
+
     bool isValid() const { return !m_startBlockId.isEmpty() && !m_endBlockId.isEmpty(); }
 
 signals:
@@ -35,11 +38,16 @@ signals:
 
 private:
     void updateConnection();
+    void updateEdgePoints();
+    QPointF calculateNearestEdgePoint(const QRectF &rect, const QPointF &target) const;
+    QRectF getBlockRect(BlockModel *block) const;
 
     QString m_startBlockId;
     QString m_endBlockId;
     BlockModel *m_startBlock = nullptr;
     BlockModel *m_endBlock = nullptr;
+    QPointF m_startEdgePoint;
+    QPointF m_endEdgePoint;
 };
 
 #endif // CONNECTIONMODEL_H
