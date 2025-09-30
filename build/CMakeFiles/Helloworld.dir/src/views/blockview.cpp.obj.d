@@ -375,16 +375,20 @@ CMakeFiles/Helloworld.dir/src/views/blockview.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qstring.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QSizeF \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qsize.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QPointF \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qpoint.h \
  C:/summer_2025/lasttry/headers/models/blockmodel.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QObject \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qobject.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/QPointF \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qpoint.h \
+ C:/summer_2025/lasttry/headers/views/temporaryconnectionline.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsLineItem \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/QPen \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qpen.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qbrush.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QPainter \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qpainter.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qtextoption.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qpen.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qbrush.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qfontinfo.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qfont.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qendian.h \
@@ -400,8 +404,8 @@ CMakeFiles/Helloworld.dir/src/views/blockview.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qeventloop.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qdeadlinetimer.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qelapsedtimer.h \
- C:/Qt/6.9.1/mingw_64/include/QtGui/QPen \
- C:/Qt/6.9.1/mingw_64/include/QtGui/qpen.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsScene \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsscene.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QCursor \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qcursor.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qbitmap.h \
@@ -450,4 +454,6 @@ CMakeFiles/Helloworld.dir/src/views/blockview.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qtextcursor.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qtextdocument.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qtextformat.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qdialog.h
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qdialog.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QDebug \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qdebug.h

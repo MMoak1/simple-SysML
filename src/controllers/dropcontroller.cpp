@@ -1,9 +1,10 @@
 #include "../headers/controllers/dropcontroller.h"
 #include <QGraphicsScene>
 #include "views/blockview.h"
+#include "controllers/connectioncontroller.h"
 
-DropController::DropController(QGraphicsScene *scene, DropGraphicsView *view, QObject *parent)
-    : QObject(parent), m_scene(scene), m_view(view)
+DropController::DropController(QGraphicsScene *scene, DropGraphicsView *view, ConnectionController *connectionController, QObject *parent)
+    : QObject(parent), m_scene(scene), m_view(view), m_connectionController(connectionController)
 {
 }
 
@@ -16,6 +17,12 @@ void DropController::handleDrop(const QString &blockType, const QPointF &positio
 
         BlockView *view = new BlockView(model, nullptr);
         m_scene->addItem(view);
+
+        // Register the new block with the connection controller
+        if (m_connectionController)
+        {
+            m_connectionController->registerBlockView(view);
+        }
     }
 }
 

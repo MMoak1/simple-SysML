@@ -39,8 +39,13 @@ template <> constexpr inline auto BlockView::qt_create_metaobjectdata<qt_meta_ta
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
         "BlockView",
-        "updateColor",
+        "connectionStarted",
         "",
+        "BlockView*",
+        "startBlock",
+        "connectionCompleted",
+        "endBlock",
+        "updateColor",
         "color",
         "updateLabel",
         "label",
@@ -51,21 +56,29 @@ template <> constexpr inline auto BlockView::qt_create_metaobjectdata<qt_meta_ta
     };
 
     QtMocHelpers::UintData qt_methods {
+        // Signal 'connectionStarted'
+        QtMocHelpers::SignalData<void(BlockView *)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 3, 4 },
+        }}),
+        // Signal 'connectionCompleted'
+        QtMocHelpers::SignalData<void(BlockView *, BlockView *)>(5, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 3, 4 }, { 0x80000000 | 3, 6 },
+        }}),
         // Slot 'updateColor'
-        QtMocHelpers::SlotData<void(const QColor &)>(1, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::QColor, 3 },
+        QtMocHelpers::SlotData<void(const QColor &)>(7, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QColor, 8 },
         }}),
         // Slot 'updateLabel'
-        QtMocHelpers::SlotData<void(const QString &)>(4, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::QString, 5 },
+        QtMocHelpers::SlotData<void(const QString &)>(9, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 10 },
         }}),
         // Slot 'updatePosition'
-        QtMocHelpers::SlotData<void(const QPointF &)>(6, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::QPointF, 7 },
+        QtMocHelpers::SlotData<void(const QPointF &)>(11, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QPointF, 12 },
         }}),
         // Slot 'updateSize'
-        QtMocHelpers::SlotData<void(const QSizeF &)>(8, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::QSizeF, 9 },
+        QtMocHelpers::SlotData<void(const QSizeF &)>(13, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QSizeF, 14 },
         }}),
     };
     QtMocHelpers::UintData qt_properties {
@@ -90,12 +103,40 @@ void BlockView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
     auto *_t = static_cast<BlockView *>(_o);
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: _t->updateColor((*reinterpret_cast< std::add_pointer_t<QColor>>(_a[1]))); break;
-        case 1: _t->updateLabel((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 2: _t->updatePosition((*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[1]))); break;
-        case 3: _t->updateSize((*reinterpret_cast< std::add_pointer_t<QSizeF>>(_a[1]))); break;
+        case 0: _t->connectionStarted((*reinterpret_cast< std::add_pointer_t<BlockView*>>(_a[1]))); break;
+        case 1: _t->connectionCompleted((*reinterpret_cast< std::add_pointer_t<BlockView*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<BlockView*>>(_a[2]))); break;
+        case 2: _t->updateColor((*reinterpret_cast< std::add_pointer_t<QColor>>(_a[1]))); break;
+        case 3: _t->updateLabel((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 4: _t->updatePosition((*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[1]))); break;
+        case 5: _t->updateSize((*reinterpret_cast< std::add_pointer_t<QSizeF>>(_a[1]))); break;
         default: ;
         }
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+        case 0:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< BlockView* >(); break;
+            }
+            break;
+        case 1:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 1:
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< BlockView* >(); break;
+            }
+            break;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (BlockView::*)(BlockView * )>(_a, &BlockView::connectionStarted, 0))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (BlockView::*)(BlockView * , BlockView * )>(_a, &BlockView::connectionCompleted, 1))
+            return;
     }
 }
 
@@ -118,15 +159,27 @@ int BlockView::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 6;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
-            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        if (_id < 6)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 6;
     }
     return _id;
+}
+
+// SIGNAL 0
+void BlockView::connectionStarted(BlockView * _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1);
+}
+
+// SIGNAL 1
+void BlockView::connectionCompleted(BlockView * _t1, BlockView * _t2)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 1, nullptr, _t1, _t2);
 }
 QT_WARNING_POP

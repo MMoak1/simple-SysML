@@ -9,19 +9,21 @@
 
 class QGraphicsScene;
 class DropGraphicsView;
+class ConnectionController;
 
 class DropController : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit DropController(QGraphicsScene *scene, DropGraphicsView *view, QObject *parent = nullptr);
+    explicit DropController(QGraphicsScene *scene, DropGraphicsView *view, ConnectionController *connectionController, QObject *parent = nullptr);
 
     void handleDrop(const QString &blockType, const QPointF &position);
 
 private:
     QGraphicsScene *m_scene;
     DropGraphicsView *m_view;
+    ConnectionController *m_connectionController;
 
     BlockModel *createBlockModel(const QString &blockType);
     QColor getColorForType(const QString &blockType);

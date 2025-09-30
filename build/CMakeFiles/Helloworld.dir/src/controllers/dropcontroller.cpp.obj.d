@@ -388,4 +388,9 @@ CMakeFiles/Helloworld.dir/src/controllers/dropcontroller.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qfont.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qendian.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qpen.h \
- C:/summer_2025/lasttry/headers/views/blockview.h
+ C:/summer_2025/lasttry/headers/views/blockview.h \
+ C:/summer_2025/lasttry/headers/controllers/connectioncontroller.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QList \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qlist.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QHash \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qhash.h

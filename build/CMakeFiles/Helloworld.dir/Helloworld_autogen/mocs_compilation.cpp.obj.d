@@ -1,7 +1,7 @@
 CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj: \
  C:\summer_2025\lasttry\build\Helloworld_autogen\mocs_compilation.cpp \
- C:\summer_2025\lasttry\build\Helloworld_autogen\COIOAYLKOZ/moc_dropcontroller.cpp \
- C:/summer_2025/lasttry/headers/controllers/dropcontroller.h \
+ C:\summer_2025\lasttry\build\Helloworld_autogen\COIOAYLKOZ/moc_connectioncontroller.cpp \
+ C:/summer_2025/lasttry/headers/controllers/connectioncontroller.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QObject \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qobject.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qobjectdefs.h \
@@ -322,6 +322,16 @@ CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/chrono.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ratio \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ctime \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QList \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qlist.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QHash \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qhash.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qtmochelpers.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qtmocconstants.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/q20algorithm.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/q23type_traits.h \
+ C:\summer_2025\lasttry\build\Helloworld_autogen\COIOAYLKOZ/moc_dropcontroller.cpp \
+ C:/summer_2025/lasttry/headers/controllers/dropcontroller.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QPointF \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qpoint.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/q23utility.h \
@@ -383,10 +393,6 @@ CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qimage.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qpixelformat.h \
  C:/summer_2025/lasttry/headers/models/blockmodel.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qtmochelpers.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qtmocconstants.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/q20algorithm.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/q23type_traits.h \
  C:\summer_2025\lasttry\build\Helloworld_autogen\COIOAYLKOZ/moc_menucontroller.cpp \
  C:/summer_2025/lasttry/headers/controllers/menucontroller.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QDrag \
@@ -460,12 +466,21 @@ CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj: \
  C:/summer_2025/lasttry/headers/models/blockmodel.h \
  C:/summer_2025/lasttry/headers/controllers/dropcontroller.h \
  C:/summer_2025/lasttry/headers/controllers/menucontroller.h \
+ C:/summer_2025/lasttry/headers/controllers/connectioncontroller.h \
  C:\summer_2025\lasttry\build\Helloworld_autogen\5JQWYGIYPV/moc_blockmodel.cpp \
+ C:/summer_2025/lasttry/headers/models/blockmodel.h \
+ C:\summer_2025\lasttry\build\Helloworld_autogen\5JQWYGIYPV/moc_connectionmodel.cpp \
+ C:/summer_2025/lasttry/headers/models/connectionmodel.h \
  C:/summer_2025/lasttry/headers/models/blockmodel.h \
  C:\summer_2025\lasttry\build\Helloworld_autogen\KH5PZA5WCU/moc_blockmenuview.cpp \
  C:/summer_2025/lasttry/headers/views/blockmenuview.h \
  C:\summer_2025\lasttry\build\Helloworld_autogen\KH5PZA5WCU/moc_blockview.cpp \
  C:/summer_2025/lasttry/headers/views/blockview.h \
+ C:\summer_2025\lasttry\build\Helloworld_autogen\KH5PZA5WCU/moc_connectionview.cpp \
+ C:/summer_2025/lasttry/headers/views/connectionview.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/QPainterPath \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qpainterpath.h \
+ C:/summer_2025/lasttry/headers/models/connectionmodel.h \
  C:\summer_2025\lasttry\build\Helloworld_autogen\KH5PZA5WCU/moc_dropgraphicsview.cpp \
  C:/summer_2025/lasttry/headers/views/dropgraphicsview.h \
  C:\summer_2025\lasttry\build\Helloworld_autogen\KH5PZA5WCU/moc_startmenu.cpp \

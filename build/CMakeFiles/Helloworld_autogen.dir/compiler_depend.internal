@@ -41,6 +41,8 @@ C:/summer_2025/lasttry/build/Helloworld_autogen/timestamp
  C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-windres.cmake
  C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows.cmake
  C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QHash
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QList
  C:/Qt/6.9.1/mingw_64/include/QtCore/QObject
  C:/Qt/6.9.1/mingw_64/include/QtCore/QPoint
  C:/Qt/6.9.1/mingw_64/include/QtCore/QPointF
@@ -169,7 +171,6 @@ C:/summer_2025/lasttry/build/Helloworld_autogen/timestamp
  C:/Qt/6.9.1/mingw_64/include/QtCore/qtversionchecks.h
  C:/Qt/6.9.1/mingw_64/include/QtCore/qtypeinfo.h
  C:/Qt/6.9.1/mingw_64/include/QtCore/qtypes.h
- C:/Qt/6.9.1/mingw_64/include/QtCore/qurl.h
  C:/Qt/6.9.1/mingw_64/include/QtCore/qutf8stringview.h
  C:/Qt/6.9.1/mingw_64/include/QtCore/qvariant.h
  C:/Qt/6.9.1/mingw_64/include/QtCore/qvarlengtharray.h
@@ -178,6 +179,7 @@ C:/summer_2025/lasttry/build/Helloworld_autogen/timestamp
  C:/Qt/6.9.1/mingw_64/include/QtCore/qyieldcpu.h
  C:/Qt/6.9.1/mingw_64/include/QtGui/QColor
  C:/Qt/6.9.1/mingw_64/include/QtGui/QDrag
+ C:/Qt/6.9.1/mingw_64/include/QtGui/QPainterPath
  C:/Qt/6.9.1/mingw_64/include/QtGui/qaction.h
  C:/Qt/6.9.1/mingw_64/include/QtGui/qbitmap.h
  C:/Qt/6.9.1/mingw_64/include/QtGui/qbrush.h
@@ -202,9 +204,6 @@ C:/summer_2025/lasttry/build/Helloworld_autogen/timestamp
  C:/Qt/6.9.1/mingw_64/include/QtGui/qregion.h
  C:/Qt/6.9.1/mingw_64/include/QtGui/qrgb.h
  C:/Qt/6.9.1/mingw_64/include/QtGui/qrgba64.h
- C:/Qt/6.9.1/mingw_64/include/QtGui/qtextcursor.h
- C:/Qt/6.9.1/mingw_64/include/QtGui/qtextdocument.h
- C:/Qt/6.9.1/mingw_64/include/QtGui/qtextformat.h
  C:/Qt/6.9.1/mingw_64/include/QtGui/qtextoption.h
  C:/Qt/6.9.1/mingw_64/include/QtGui/qtgui-config.h
  C:/Qt/6.9.1/mingw_64/include/QtGui/qtguiexports.h
@@ -217,7 +216,6 @@ C:/summer_2025/lasttry/build/Helloworld_autogen/timestamp
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsScene
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsView
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QHBoxLayout
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/QLineEdit
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QListWidget
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMainWindow
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QPushButton
@@ -238,7 +236,6 @@ C:/summer_2025/lasttry/build/Helloworld_autogen/timestamp
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayout.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayoutitem.h
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlineedit.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlistview.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlistwidget.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmainwindow.h
@@ -691,21 +688,29 @@ C:/summer_2025/lasttry/build/Helloworld_autogen/timestamp
  C:/summer_2025/lasttry/build/CMakeFiles/4.1.0/CMakeRCCompiler.cmake
  C:/summer_2025/lasttry/build/CMakeFiles/4.1.0/CMakeSystem.cmake
  C:/summer_2025/lasttry/build/Helloworld_autogen/moc_predefs.h
+ C:/summer_2025/lasttry/headers/controllers/connectioncontroller.h
  C:/summer_2025/lasttry/headers/controllers/dropcontroller.h
  C:/summer_2025/lasttry/headers/controllers/menucontroller.h
  C:/summer_2025/lasttry/headers/mainwindow.h
  C:/summer_2025/lasttry/headers/models/blockmodel.h
+ C:/summer_2025/lasttry/headers/models/connectionmodel.h
  C:/summer_2025/lasttry/headers/views/blockmenuview.h
  C:/summer_2025/lasttry/headers/views/blockview.h
+ C:/summer_2025/lasttry/headers/views/connectionview.h
  C:/summer_2025/lasttry/headers/views/dropgraphicsview.h
  C:/summer_2025/lasttry/headers/views/startmenu.h
+ C:/summer_2025/lasttry/headers/views/temporaryconnectionline.h
+ C:/summer_2025/lasttry/src/controllers/connectioncontroller.cpp
  C:/summer_2025/lasttry/src/controllers/dropcontroller.cpp
  C:/summer_2025/lasttry/src/controllers/menucontroller.cpp
  C:/summer_2025/lasttry/src/main.cpp
  C:/summer_2025/lasttry/src/mainwindow.cpp
  C:/summer_2025/lasttry/src/models/blockmodel.cpp
+ C:/summer_2025/lasttry/src/models/connectionmodel.cpp
  C:/summer_2025/lasttry/src/views/blockmenuview.cpp
  C:/summer_2025/lasttry/src/views/blockview.cpp
+ C:/summer_2025/lasttry/src/views/connectionview.cpp
  C:/summer_2025/lasttry/src/views/dropgraphicsview.cpp
  C:/summer_2025/lasttry/src/views/startmenu.cpp
+ C:/summer_2025/lasttry/src/views/temporaryconnectionline.cpp
 

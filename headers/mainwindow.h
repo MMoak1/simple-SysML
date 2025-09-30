@@ -12,6 +12,7 @@
 #include "models/blockmodel.h"
 #include "controllers/dropcontroller.h"
 #include "controllers/menucontroller.h"
+#include "controllers/connectioncontroller.h"
 
 class MainWindow : public QMainWindow
 {
@@ -33,6 +34,7 @@ private:
     DropGraphicsView *dropGraphicsView;
     DropController *dropController;
     MenuController *menuController;
+    ConnectionController *connectionController;
     StartMenu *startMenu;
 
     // Menu bar members

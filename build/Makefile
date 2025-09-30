@@ -223,6 +223,30 @@ Helloworld_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.s
 .PHONY : Helloworld_autogen/mocs_compilation.cpp.s
 
+src/controllers/connectioncontroller.obj: src/controllers/connectioncontroller.cpp.obj
+.PHONY : src/controllers/connectioncontroller.obj
+
+# target to build an object file
+src/controllers/connectioncontroller.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/controllers/connectioncontroller.cpp.obj
+.PHONY : src/controllers/connectioncontroller.cpp.obj
+
+src/controllers/connectioncontroller.i: src/controllers/connectioncontroller.cpp.i
+.PHONY : src/controllers/connectioncontroller.i
+
+# target to preprocess a source file
+src/controllers/connectioncontroller.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/controllers/connectioncontroller.cpp.i
+.PHONY : src/controllers/connectioncontroller.cpp.i
+
+src/controllers/connectioncontroller.s: src/controllers/connectioncontroller.cpp.s
+.PHONY : src/controllers/connectioncontroller.s
+
+# target to generate assembly for a file
+src/controllers/connectioncontroller.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/controllers/connectioncontroller.cpp.s
+.PHONY : src/controllers/connectioncontroller.cpp.s
+
 src/controllers/dropcontroller.obj: src/controllers/dropcontroller.cpp.obj
 .PHONY : src/controllers/dropcontroller.obj
 
@@ -343,6 +367,30 @@ src/models/blockmodel.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/models/blockmodel.cpp.s
 .PHONY : src/models/blockmodel.cpp.s
 
+src/models/connectionmodel.obj: src/models/connectionmodel.cpp.obj
+.PHONY : src/models/connectionmodel.obj
+
+# target to build an object file
+src/models/connectionmodel.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/models/connectionmodel.cpp.obj
+.PHONY : src/models/connectionmodel.cpp.obj
+
+src/models/connectionmodel.i: src/models/connectionmodel.cpp.i
+.PHONY : src/models/connectionmodel.i
+
+# target to preprocess a source file
+src/models/connectionmodel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/models/connectionmodel.cpp.i
+.PHONY : src/models/connectionmodel.cpp.i
+
+src/models/connectionmodel.s: src/models/connectionmodel.cpp.s
+.PHONY : src/models/connectionmodel.s
+
+# target to generate assembly for a file
+src/models/connectionmodel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/models/connectionmodel.cpp.s
+.PHONY : src/models/connectionmodel.cpp.s
+
 src/views/blockmenuview.obj: src/views/blockmenuview.cpp.obj
 .PHONY : src/views/blockmenuview.obj
 
@@ -390,6 +438,30 @@ src/views/blockview.s: src/views/blockview.cpp.s
 src/views/blockview.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/blockview.cpp.s
 .PHONY : src/views/blockview.cpp.s
+
+src/views/connectionview.obj: src/views/connectionview.cpp.obj
+.PHONY : src/views/connectionview.obj
+
+# target to build an object file
+src/views/connectionview.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/connectionview.cpp.obj
+.PHONY : src/views/connectionview.cpp.obj
+
+src/views/connectionview.i: src/views/connectionview.cpp.i
+.PHONY : src/views/connectionview.i
+
+# target to preprocess a source file
+src/views/connectionview.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/connectionview.cpp.i
+.PHONY : src/views/connectionview.cpp.i
+
+src/views/connectionview.s: src/views/connectionview.cpp.s
+.PHONY : src/views/connectionview.s
+
+# target to generate assembly for a file
+src/views/connectionview.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/connectionview.cpp.s
+.PHONY : src/views/connectionview.cpp.s
 
 src/views/dropgraphicsview.obj: src/views/dropgraphicsview.cpp.obj
 .PHONY : src/views/dropgraphicsview.obj
@@ -439,6 +511,30 @@ src/views/startmenu.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/startmenu.cpp.s
 .PHONY : src/views/startmenu.cpp.s
 
+src/views/temporaryconnectionline.obj: src/views/temporaryconnectionline.cpp.obj
+.PHONY : src/views/temporaryconnectionline.obj
+
+# target to build an object file
+src/views/temporaryconnectionline.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/temporaryconnectionline.cpp.obj
+.PHONY : src/views/temporaryconnectionline.cpp.obj
+
+src/views/temporaryconnectionline.i: src/views/temporaryconnectionline.cpp.i
+.PHONY : src/views/temporaryconnectionline.i
+
+# target to preprocess a source file
+src/views/temporaryconnectionline.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/temporaryconnectionline.cpp.i
+.PHONY : src/views/temporaryconnectionline.cpp.i
+
+src/views/temporaryconnectionline.s: src/views/temporaryconnectionline.cpp.s
+.PHONY : src/views/temporaryconnectionline.s
+
+# target to generate assembly for a file
+src/views/temporaryconnectionline.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/temporaryconnectionline.cpp.s
+.PHONY : src/views/temporaryconnectionline.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -457,6 +553,9 @@ help:
 	@echo ... Helloworld_autogen/mocs_compilation.obj
 	@echo ... Helloworld_autogen/mocs_compilation.i
 	@echo ... Helloworld_autogen/mocs_compilation.s
+	@echo ... src/controllers/connectioncontroller.obj
+	@echo ... src/controllers/connectioncontroller.i
+	@echo ... src/controllers/connectioncontroller.s
 	@echo ... src/controllers/dropcontroller.obj
 	@echo ... src/controllers/dropcontroller.i
 	@echo ... src/controllers/dropcontroller.s
@@ -472,18 +571,27 @@ help:
 	@echo ... src/models/blockmodel.obj
 	@echo ... src/models/blockmodel.i
 	@echo ... src/models/blockmodel.s
+	@echo ... src/models/connectionmodel.obj
+	@echo ... src/models/connectionmodel.i
+	@echo ... src/models/connectionmodel.s
 	@echo ... src/views/blockmenuview.obj
 	@echo ... src/views/blockmenuview.i
 	@echo ... src/views/blockmenuview.s
 	@echo ... src/views/blockview.obj
 	@echo ... src/views/blockview.i
 	@echo ... src/views/blockview.s
+	@echo ... src/views/connectionview.obj
+	@echo ... src/views/connectionview.i
+	@echo ... src/views/connectionview.s
 	@echo ... src/views/dropgraphicsview.obj
 	@echo ... src/views/dropgraphicsview.i
 	@echo ... src/views/dropgraphicsview.s
 	@echo ... src/views/startmenu.obj
 	@echo ... src/views/startmenu.i
 	@echo ... src/views/startmenu.s
+	@echo ... src/views/temporaryconnectionline.obj
+	@echo ... src/views/temporaryconnectionline.i
+	@echo ... src/views/temporaryconnectionline.s
 .PHONY : help
 
 

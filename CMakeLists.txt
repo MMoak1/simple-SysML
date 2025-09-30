@@ -39,6 +39,12 @@ qt_add_executable(Helloworld
     src/controllers/dropcontroller.cpp
     headers/controllers/menucontroller.h
     src/controllers/menucontroller.cpp
+    headers/models/connectionmodel.h
+    src/models/connectionmodel.cpp
+    headers/views/connectionview.h
+    src/views/connectionview.cpp
+    headers/controllers/connectioncontroller.h
+    src/controllers/connectioncontroller.cpp
 )
 
 target_include_directories(Helloworld PRIVATE headers)

@@ -451,6 +451,11 @@ CMakeFiles/Helloworld.dir/src/mainwindow.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QDrag \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qdrag.h \
  C:/summer_2025/lasttry/headers/views/blockmenuview.h \
+ C:/summer_2025/lasttry/headers/controllers/connectioncontroller.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QList \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qlist.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QHash \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qhash.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QListWidgetItem \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QPixmap \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qpixmap.h \
