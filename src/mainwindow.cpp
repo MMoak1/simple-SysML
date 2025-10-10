@@ -115,12 +115,12 @@ void MainWindow::setupToolInterface()
 
     // Create horizontal splitter with THREE widgets for layout
     splitter = new QSplitter(Qt::Horizontal, this);
+    splitter->addWidget(hierarchyTreeView);
     splitter->addWidget(blockMenuView);
     splitter->addWidget(dropGraphicsView);
-    splitter->addWidget(hierarchyTreeView);
-    splitter->setStretchFactor(0, 1); // Block menu: 20%
-    splitter->setStretchFactor(1, 3); // Graphics view: 60%
-    splitter->setStretchFactor(2, 1); // Hierarchy tree: 20%
+    splitter->setStretchFactor(0, 1); // Hierarchy tree: 20%
+    splitter->setStretchFactor(1, 1); // Block menu: 20%
+    splitter->setStretchFactor(2, 3); // Graphics view: 60%
 
     // Set the splitter as the central widget
     setCentralWidget(splitter);
