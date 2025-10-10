@@ -85,6 +85,9 @@ void ConnectionController::onConnectionCompleted(BlockView *startBlock, BlockVie
         m_scene->addItem(connectionView);
 
         qDebug() << "Connection created successfully";
+
+        // Emit signal for hierarchy controller
+        emit connectionCreated(connection);
     }
 }
 
@@ -116,6 +119,10 @@ void ConnectionController::onBlockViewDestroyed(QObject *obj)
         }
 
         m_connections.removeOne(connection);
+
+        // Emit signal before deleting
+        emit connectionDeleted(connection);
+
         delete connection;
     }
 }

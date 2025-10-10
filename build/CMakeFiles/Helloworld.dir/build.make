@@ -288,6 +288,36 @@ CMakeFiles/Helloworld.dir/src/controllers/connectioncontroller.cpp.s: cmake_forc
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Helloworld.dir/src/controllers/connectioncontroller.cpp.s"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\summer_2025\lasttry\src\controllers\connectioncontroller.cpp -o CMakeFiles\Helloworld.dir\src\controllers\connectioncontroller.cpp.s
 
+CMakeFiles/Helloworld.dir/src/views/hierarchytreeview.cpp.obj: CMakeFiles/Helloworld.dir/flags.make
+CMakeFiles/Helloworld.dir/src/views/hierarchytreeview.cpp.obj: CMakeFiles/Helloworld.dir/includes_CXX.rsp
+CMakeFiles/Helloworld.dir/src/views/hierarchytreeview.cpp.obj: C:/summer_2025/lasttry/src/views/hierarchytreeview.cpp
+CMakeFiles/Helloworld.dir/src/views/hierarchytreeview.cpp.obj: CMakeFiles/Helloworld.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\summer_2025\lasttry\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/Helloworld.dir/src/views/hierarchytreeview.cpp.obj"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Helloworld.dir/src/views/hierarchytreeview.cpp.obj -MF CMakeFiles\Helloworld.dir\src\views\hierarchytreeview.cpp.obj.d -o CMakeFiles\Helloworld.dir\src\views\hierarchytreeview.cpp.obj -c C:\summer_2025\lasttry\src\views\hierarchytreeview.cpp
+
+CMakeFiles/Helloworld.dir/src/views/hierarchytreeview.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Helloworld.dir/src/views/hierarchytreeview.cpp.i"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\summer_2025\lasttry\src\views\hierarchytreeview.cpp > CMakeFiles\Helloworld.dir\src\views\hierarchytreeview.cpp.i
+
+CMakeFiles/Helloworld.dir/src/views/hierarchytreeview.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Helloworld.dir/src/views/hierarchytreeview.cpp.s"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\summer_2025\lasttry\src\views\hierarchytreeview.cpp -o CMakeFiles\Helloworld.dir\src\views\hierarchytreeview.cpp.s
+
+CMakeFiles/Helloworld.dir/src/controllers/hierarchycontroller.cpp.obj: CMakeFiles/Helloworld.dir/flags.make
+CMakeFiles/Helloworld.dir/src/controllers/hierarchycontroller.cpp.obj: CMakeFiles/Helloworld.dir/includes_CXX.rsp
+CMakeFiles/Helloworld.dir/src/controllers/hierarchycontroller.cpp.obj: C:/summer_2025/lasttry/src/controllers/hierarchycontroller.cpp
+CMakeFiles/Helloworld.dir/src/controllers/hierarchycontroller.cpp.obj: CMakeFiles/Helloworld.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\summer_2025\lasttry\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/Helloworld.dir/src/controllers/hierarchycontroller.cpp.obj"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Helloworld.dir/src/controllers/hierarchycontroller.cpp.obj -MF CMakeFiles\Helloworld.dir\src\controllers\hierarchycontroller.cpp.obj.d -o CMakeFiles\Helloworld.dir\src\controllers\hierarchycontroller.cpp.obj -c C:\summer_2025\lasttry\src\controllers\hierarchycontroller.cpp
+
+CMakeFiles/Helloworld.dir/src/controllers/hierarchycontroller.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Helloworld.dir/src/controllers/hierarchycontroller.cpp.i"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\summer_2025\lasttry\src\controllers\hierarchycontroller.cpp > CMakeFiles\Helloworld.dir\src\controllers\hierarchycontroller.cpp.i
+
+CMakeFiles/Helloworld.dir/src/controllers/hierarchycontroller.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Helloworld.dir/src/controllers/hierarchycontroller.cpp.s"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\summer_2025\lasttry\src\controllers\hierarchycontroller.cpp -o CMakeFiles\Helloworld.dir\src\controllers\hierarchycontroller.cpp.s
+
 # Object files for target Helloworld
 Helloworld_OBJECTS = \
 "CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj" \
@@ -303,7 +333,9 @@ Helloworld_OBJECTS = \
 "CMakeFiles/Helloworld.dir/src/models/connectionmodel.cpp.obj" \
 "CMakeFiles/Helloworld.dir/src/views/connectionview.cpp.obj" \
 "CMakeFiles/Helloworld.dir/src/views/temporaryconnectionline.cpp.obj" \
-"CMakeFiles/Helloworld.dir/src/controllers/connectioncontroller.cpp.obj"
+"CMakeFiles/Helloworld.dir/src/controllers/connectioncontroller.cpp.obj" \
+"CMakeFiles/Helloworld.dir/src/views/hierarchytreeview.cpp.obj" \
+"CMakeFiles/Helloworld.dir/src/controllers/hierarchycontroller.cpp.obj"
 
 # External object files for target Helloworld
 Helloworld_EXTERNAL_OBJECTS =
@@ -322,6 +354,8 @@ Helloworld.exe: CMakeFiles/Helloworld.dir/src/models/connectionmodel.cpp.obj
 Helloworld.exe: CMakeFiles/Helloworld.dir/src/views/connectionview.cpp.obj
 Helloworld.exe: CMakeFiles/Helloworld.dir/src/views/temporaryconnectionline.cpp.obj
 Helloworld.exe: CMakeFiles/Helloworld.dir/src/controllers/connectioncontroller.cpp.obj
+Helloworld.exe: CMakeFiles/Helloworld.dir/src/views/hierarchytreeview.cpp.obj
+Helloworld.exe: CMakeFiles/Helloworld.dir/src/controllers/hierarchycontroller.cpp.obj
 Helloworld.exe: CMakeFiles/Helloworld.dir/build.make
 Helloworld.exe: C:/Qt/6.9.1/mingw_64/lib/libQt6Widgets.a
 Helloworld.exe: C:/Qt/6.9.1/mingw_64/lib/libQt6Svg.a
@@ -332,7 +366,7 @@ Helloworld.exe: C:/Qt/6.9.1/mingw_64/lib/libQt6EntryPoint.a
 Helloworld.exe: CMakeFiles/Helloworld.dir/linkLibs.rsp
 Helloworld.exe: CMakeFiles/Helloworld.dir/objects1.rsp
 Helloworld.exe: CMakeFiles/Helloworld.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\summer_2025\lasttry\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable Helloworld.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\summer_2025\lasttry\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable Helloworld.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Helloworld.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

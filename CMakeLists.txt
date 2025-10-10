@@ -47,6 +47,10 @@ qt_add_executable(Helloworld
     src/views/temporaryconnectionline.cpp
     headers/controllers/connectioncontroller.h
     src/controllers/connectioncontroller.cpp
+    headers/views/hierarchytreeview.h
+    src/views/hierarchytreeview.cpp
+    headers/controllers/hierarchycontroller.h
+    src/controllers/hierarchycontroller.cpp
 )
 
 target_include_directories(Helloworld PRIVATE headers)

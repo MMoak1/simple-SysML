@@ -393,6 +393,12 @@ CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qimage.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qpixelformat.h \
  C:/summer_2025/lasttry/headers/models/blockmodel.h \
+ C:\summer_2025\lasttry\build\Helloworld_autogen\COIOAYLKOZ/moc_hierarchycontroller.cpp \
+ C:/summer_2025/lasttry/headers/controllers/hierarchycontroller.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QMap \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qmap.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QSet \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qset.h \
  C:\summer_2025\lasttry\build\Helloworld_autogen\COIOAYLKOZ/moc_menucontroller.cpp \
  C:/summer_2025/lasttry/headers/controllers/menucontroller.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QDrag \
@@ -463,10 +469,16 @@ CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgridlayout.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QHBoxLayout \
+ C:/summer_2025/lasttry/headers/views/hierarchytreeview.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QTreeWidget \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtreewidget.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtreeview.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtreewidgetitemiterator.h \
  C:/summer_2025/lasttry/headers/models/blockmodel.h \
  C:/summer_2025/lasttry/headers/controllers/dropcontroller.h \
  C:/summer_2025/lasttry/headers/controllers/menucontroller.h \
  C:/summer_2025/lasttry/headers/controllers/connectioncontroller.h \
+ C:/summer_2025/lasttry/headers/controllers/hierarchycontroller.h \
  C:\summer_2025\lasttry\build\Helloworld_autogen\5JQWYGIYPV/moc_blockmodel.cpp \
  C:/summer_2025/lasttry/headers/models/blockmodel.h \
  C:\summer_2025\lasttry\build\Helloworld_autogen\5JQWYGIYPV/moc_connectionmodel.cpp \
@@ -483,5 +495,7 @@ CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj: \
  C:/summer_2025/lasttry/headers/models/connectionmodel.h \
  C:\summer_2025\lasttry\build\Helloworld_autogen\KH5PZA5WCU/moc_dropgraphicsview.cpp \
  C:/summer_2025/lasttry/headers/views/dropgraphicsview.h \
+ C:\summer_2025\lasttry\build\Helloworld_autogen\KH5PZA5WCU/moc_hierarchytreeview.cpp \
+ C:/summer_2025/lasttry/headers/views/hierarchytreeview.h \
  C:\summer_2025\lasttry\build\Helloworld_autogen\KH5PZA5WCU/moc_startmenu.cpp \
  C:/summer_2025/lasttry/headers/views/startmenu.h

@@ -43,9 +43,11 @@ C:/summer_2025/lasttry/build/Helloworld_autogen/timestamp
  C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake
  C:/Qt/6.9.1/mingw_64/include/QtCore/QHash
  C:/Qt/6.9.1/mingw_64/include/QtCore/QList
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QMap
  C:/Qt/6.9.1/mingw_64/include/QtCore/QObject
  C:/Qt/6.9.1/mingw_64/include/QtCore/QPoint
  C:/Qt/6.9.1/mingw_64/include/QtCore/QPointF
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QSet
  C:/Qt/6.9.1/mingw_64/include/QtCore/QSizeF
  C:/Qt/6.9.1/mingw_64/include/QtCore/QString
  C:/Qt/6.9.1/mingw_64/include/QtCore/q17memory.h
@@ -220,6 +222,7 @@ C:/summer_2025/lasttry/build/Helloworld_autogen/timestamp
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMainWindow
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QPushButton
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QSplitter
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QTreeWidget
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QVBoxLayout
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QWidget
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractbutton.h
@@ -249,6 +252,9 @@ C:/summer_2025/lasttry/build/Helloworld_autogen/timestamp
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qstyleoption.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtabbar.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtabwidget.h
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtreeview.h
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtreewidget.h
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtreewidgetitemiterator.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgets-config.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgetsexports.h
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h
@@ -690,6 +696,7 @@ C:/summer_2025/lasttry/build/Helloworld_autogen/timestamp
  C:/summer_2025/lasttry/build/Helloworld_autogen/moc_predefs.h
  C:/summer_2025/lasttry/headers/controllers/connectioncontroller.h
  C:/summer_2025/lasttry/headers/controllers/dropcontroller.h
+ C:/summer_2025/lasttry/headers/controllers/hierarchycontroller.h
  C:/summer_2025/lasttry/headers/controllers/menucontroller.h
  C:/summer_2025/lasttry/headers/mainwindow.h
  C:/summer_2025/lasttry/headers/models/blockmodel.h
@@ -698,10 +705,12 @@ C:/summer_2025/lasttry/build/Helloworld_autogen/timestamp
  C:/summer_2025/lasttry/headers/views/blockview.h
  C:/summer_2025/lasttry/headers/views/connectionview.h
  C:/summer_2025/lasttry/headers/views/dropgraphicsview.h
+ C:/summer_2025/lasttry/headers/views/hierarchytreeview.h
  C:/summer_2025/lasttry/headers/views/startmenu.h
  C:/summer_2025/lasttry/headers/views/temporaryconnectionline.h
  C:/summer_2025/lasttry/src/controllers/connectioncontroller.cpp
  C:/summer_2025/lasttry/src/controllers/dropcontroller.cpp
+ C:/summer_2025/lasttry/src/controllers/hierarchycontroller.cpp
  C:/summer_2025/lasttry/src/controllers/menucontroller.cpp
  C:/summer_2025/lasttry/src/main.cpp
  C:/summer_2025/lasttry/src/mainwindow.cpp
@@ -711,6 +720,7 @@ C:/summer_2025/lasttry/build/Helloworld_autogen/timestamp
  C:/summer_2025/lasttry/src/views/blockview.cpp
  C:/summer_2025/lasttry/src/views/connectionview.cpp
  C:/summer_2025/lasttry/src/views/dropgraphicsview.cpp
+ C:/summer_2025/lasttry/src/views/hierarchytreeview.cpp
  C:/summer_2025/lasttry/src/views/startmenu.cpp
  C:/summer_2025/lasttry/src/views/temporaryconnectionline.cpp
 

@@ -15,9 +15,11 @@ MainWindow::MainWindow(QWidget *parent)
     splitter = nullptr;
     blockMenuView = nullptr;
     dropGraphicsView = nullptr;
+    hierarchyTreeView = nullptr;
     dropController = nullptr;
     menuController = nullptr;
     connectionController = nullptr;
+    hierarchyController = nullptr;
     startMenu = nullptr;
     m_menuBar = nullptr;
     m_fileMenu = nullptr;
@@ -66,6 +68,9 @@ void MainWindow::setupToolInterface()
     // Create the block menu view
     blockMenuView = new BlockMenuView(this);
 
+    // Create the hierarchy tree view
+    hierarchyTreeView = new HierarchyTreeView(this);
+
     // Add items with colored rectangle previews
     QListWidgetItem *redItem = new QListWidgetItem("Red Block");
     QPixmap redPixmap(50, 30);
@@ -90,17 +95,32 @@ void MainWindow::setupToolInterface()
     dropController = new DropController(scene, dropGraphicsView, connectionController, this);
     menuController = new MenuController(blockMenuView, this);
 
+    // Create hierarchy controller AFTER other controllers
+    hierarchyController = new HierarchyController(hierarchyTreeView, scene, dropGraphicsView, this);
+
     // Connect drop signal to controller
     connect(dropGraphicsView, &DropGraphicsView::dropPerformed, dropController, &DropController::handleDrop);
 
+    // Connect hierarchy controller to drop controller
+    connect(dropController, &DropController::blockCreated,
+            hierarchyController, &HierarchyController::onBlockCreated);
+
+    // Connect hierarchy controller to connection controller
+    connect(connectionController, &ConnectionController::connectionCreated,
+            hierarchyController, &HierarchyController::onConnectionCreated);
+    connect(connectionController, &ConnectionController::connectionDeleted,
+            hierarchyController, &HierarchyController::onConnectionDeleted);
+
     // Connection mode is no longer needed - Ctrl+Click now handles connections
 
-    // Create horizontal splitter for layout
+    // Create horizontal splitter with THREE widgets for layout
     splitter = new QSplitter(Qt::Horizontal, this);
+    splitter->addWidget(hierarchyTreeView);
     splitter->addWidget(blockMenuView);
     splitter->addWidget(dropGraphicsView);
-    splitter->setStretchFactor(0, 1);
-    splitter->setStretchFactor(1, 3);
+    splitter->setStretchFactor(0, 1); // Hierarchy tree: 20%
+    splitter->setStretchFactor(1, 1); // Block menu: 20%
+    splitter->setStretchFactor(2, 3); // Graphics view: 60%
 
     // Set the splitter as the central widget
     setCentralWidget(splitter);

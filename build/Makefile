@@ -271,6 +271,30 @@ src/controllers/dropcontroller.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/controllers/dropcontroller.cpp.s
 .PHONY : src/controllers/dropcontroller.cpp.s
 
+src/controllers/hierarchycontroller.obj: src/controllers/hierarchycontroller.cpp.obj
+.PHONY : src/controllers/hierarchycontroller.obj
+
+# target to build an object file
+src/controllers/hierarchycontroller.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/controllers/hierarchycontroller.cpp.obj
+.PHONY : src/controllers/hierarchycontroller.cpp.obj
+
+src/controllers/hierarchycontroller.i: src/controllers/hierarchycontroller.cpp.i
+.PHONY : src/controllers/hierarchycontroller.i
+
+# target to preprocess a source file
+src/controllers/hierarchycontroller.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/controllers/hierarchycontroller.cpp.i
+.PHONY : src/controllers/hierarchycontroller.cpp.i
+
+src/controllers/hierarchycontroller.s: src/controllers/hierarchycontroller.cpp.s
+.PHONY : src/controllers/hierarchycontroller.s
+
+# target to generate assembly for a file
+src/controllers/hierarchycontroller.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/controllers/hierarchycontroller.cpp.s
+.PHONY : src/controllers/hierarchycontroller.cpp.s
+
 src/controllers/menucontroller.obj: src/controllers/menucontroller.cpp.obj
 .PHONY : src/controllers/menucontroller.obj
 
@@ -487,6 +511,30 @@ src/views/dropgraphicsview.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/dropgraphicsview.cpp.s
 .PHONY : src/views/dropgraphicsview.cpp.s
 
+src/views/hierarchytreeview.obj: src/views/hierarchytreeview.cpp.obj
+.PHONY : src/views/hierarchytreeview.obj
+
+# target to build an object file
+src/views/hierarchytreeview.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/hierarchytreeview.cpp.obj
+.PHONY : src/views/hierarchytreeview.cpp.obj
+
+src/views/hierarchytreeview.i: src/views/hierarchytreeview.cpp.i
+.PHONY : src/views/hierarchytreeview.i
+
+# target to preprocess a source file
+src/views/hierarchytreeview.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/hierarchytreeview.cpp.i
+.PHONY : src/views/hierarchytreeview.cpp.i
+
+src/views/hierarchytreeview.s: src/views/hierarchytreeview.cpp.s
+.PHONY : src/views/hierarchytreeview.s
+
+# target to generate assembly for a file
+src/views/hierarchytreeview.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/hierarchytreeview.cpp.s
+.PHONY : src/views/hierarchytreeview.cpp.s
+
 src/views/startmenu.obj: src/views/startmenu.cpp.obj
 .PHONY : src/views/startmenu.obj
 
@@ -559,6 +607,9 @@ help:
 	@echo ... src/controllers/dropcontroller.obj
 	@echo ... src/controllers/dropcontroller.i
 	@echo ... src/controllers/dropcontroller.s
+	@echo ... src/controllers/hierarchycontroller.obj
+	@echo ... src/controllers/hierarchycontroller.i
+	@echo ... src/controllers/hierarchycontroller.s
 	@echo ... src/controllers/menucontroller.obj
 	@echo ... src/controllers/menucontroller.i
 	@echo ... src/controllers/menucontroller.s
@@ -586,6 +637,9 @@ help:
 	@echo ... src/views/dropgraphicsview.obj
 	@echo ... src/views/dropgraphicsview.i
 	@echo ... src/views/dropgraphicsview.s
+	@echo ... src/views/hierarchytreeview.obj
+	@echo ... src/views/hierarchytreeview.i
+	@echo ... src/views/hierarchytreeview.s
 	@echo ... src/views/startmenu.obj
 	@echo ... src/views/startmenu.i
 	@echo ... src/views/startmenu.s

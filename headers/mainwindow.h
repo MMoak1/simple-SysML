@@ -9,10 +9,12 @@
 #include "views/blockmenuview.h"
 #include "views/dropgraphicsview.h"
 #include "views/startmenu.h"
+#include "views/hierarchytreeview.h"
 #include "models/blockmodel.h"
 #include "controllers/dropcontroller.h"
 #include "controllers/menucontroller.h"
 #include "controllers/connectioncontroller.h"
+#include "controllers/hierarchycontroller.h"
 
 class MainWindow : public QMainWindow
 {
@@ -32,9 +34,11 @@ private:
     QSplitter *splitter;
     BlockMenuView *blockMenuView;
     DropGraphicsView *dropGraphicsView;
+    HierarchyTreeView *hierarchyTreeView;
     DropController *dropController;
     MenuController *menuController;
     ConnectionController *connectionController;
+    HierarchyController *hierarchyController;
     StartMenu *startMenu;
 
     // Menu bar members
