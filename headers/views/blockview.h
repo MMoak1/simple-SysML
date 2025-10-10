@@ -51,10 +51,10 @@ private:
     // Title editing state
     bool m_editingTitle = false;
 
-    // Connection drawing state
-    bool m_drawingConnection = false;
-    BlockView *m_connectionStartBlock = nullptr;
-    TemporaryConnectionLine *m_tempLine = nullptr;
+    // Connection drawing state (static to share across all BlockView instances)
+    static bool s_drawingConnection;
+    static BlockView *s_connectionStartBlock;
+    static TemporaryConnectionLine *s_tempLine;
 
     void showTitleInputDialog();
     QPointF getNearestEdgePoint(const QPointF &targetPoint) const;
