@@ -12,6 +12,11 @@
 #include <QInputDialog>
 #include <QDebug>
 
+// Initialize static members
+bool BlockView::s_drawingConnection = false;
+BlockView *BlockView::s_connectionStartBlock = nullptr;
+TemporaryConnectionLine *BlockView::s_tempLine = nullptr;
+
 BlockView::BlockView(BlockModel *model, QGraphicsItem *parent)
     : QGraphicsObject(parent), m_model(model)
 {
@@ -141,15 +146,15 @@ void BlockView::mousePressEvent(QGraphicsSceneMouseEvent *event)
         // Check for Ctrl+Click to start connection drawing
         if (event->modifiers() & Qt::ControlModifier)
         {
-            m_drawingConnection = true;
-            m_connectionStartBlock = this;
+            s_drawingConnection = true;
+            s_connectionStartBlock = this;
 
             // Calculate start point at nearest edge
             QPointF startPoint = getNearestEdgePoint(event->scenePos());
 
             // Create temporary line
-            m_tempLine = new TemporaryConnectionLine(startPoint);
-            scene()->addItem(m_tempLine);
+            s_tempLine = new TemporaryConnectionLine(startPoint);
+            scene()->addItem(s_tempLine);
 
             qDebug() << "Connection started from block:" << m_label;
             emit connectionStarted(this);
@@ -212,9 +217,9 @@ void BlockView::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
     }
 
     // Update temporary connection line if drawing
-    if (m_drawingConnection && m_tempLine)
+    if (s_drawingConnection && s_tempLine)
     {
-        m_tempLine->updateEndPoint(event->scenePos());
+        s_tempLine->updateEndPoint(event->scenePos());
         event->accept();
         return;
     }
@@ -236,7 +241,7 @@ void BlockView::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
     QGraphicsObject::mouseMoveEvent(event);
 
     // Update model position when dragging (not resizing or drawing connection)
-    if (!m_resizing && !m_drawingConnection && (flags() & ItemIsMovable))
+    if (!m_resizing && !s_drawingConnection && (flags() & ItemIsMovable))
     {
         m_model->setPosition(pos());
     }
@@ -252,16 +257,16 @@ void BlockView::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     }
 
     // Handle connection completion
-    if (m_drawingConnection && m_connectionStartBlock)
+    if (s_drawingConnection && s_connectionStartBlock)
     {
         // Find block at release position
         BlockView *endBlock = findBlockAtPosition(event->scenePos());
 
         // Only create connection if we released over a different block
-        if (endBlock && endBlock != m_connectionStartBlock)
+        if (endBlock && endBlock != s_connectionStartBlock)
         {
-            qDebug() << "Connection completed from" << m_connectionStartBlock->model()->label() << "to" << endBlock->model()->label();
-            emit connectionCompleted(m_connectionStartBlock, endBlock);
+            qDebug() << "Connection completed from" << s_connectionStartBlock->model()->label() << "to" << endBlock->model()->label();
+            emit connectionCompleted(s_connectionStartBlock, endBlock);
         }
         else
         {
@@ -269,22 +274,22 @@ void BlockView::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
         }
 
         // Clean up temporary line
-        if (m_tempLine)
+        if (s_tempLine)
         {
-            scene()->removeItem(m_tempLine);
-            delete m_tempLine;
-            m_tempLine = nullptr;
+            scene()->removeItem(s_tempLine);
+            delete s_tempLine;
+            s_tempLine = nullptr;
         }
 
         // Reset connection state
-        m_drawingConnection = false;
-        m_connectionStartBlock = nullptr;
+        s_drawingConnection = false;
+        s_connectionStartBlock = nullptr;
         event->accept();
         return;
     }
 
     // Update model position after dragging
-    if (!m_resizing && !m_drawingConnection)
+    if (!m_resizing && !s_drawingConnection)
     {
         m_model->setPosition(pos());
     }
