@@ -363,6 +363,12 @@
 			null
 		],
 		[
+			"C:/summer_2025/lasttry/headers/controllers/hierarchycontroller.h",
+			"MU",
+			"COIOAYLKOZ/moc_hierarchycontroller.cpp",
+			null
+		],
+		[
 			"C:/summer_2025/lasttry/headers/controllers/menucontroller.h",
 			"MU",
 			"COIOAYLKOZ/moc_menucontroller.cpp",
@@ -408,6 +414,12 @@
 			"C:/summer_2025/lasttry/headers/views/dropgraphicsview.h",
 			"MU",
 			"KH5PZA5WCU/moc_dropgraphicsview.cpp",
+			null
+		],
+		[
+			"C:/summer_2025/lasttry/headers/views/hierarchytreeview.h",
+			"MU",
+			"KH5PZA5WCU/moc_hierarchytreeview.cpp",
 			null
 		],
 		[
@@ -510,6 +522,11 @@
 			null
 		],
 		[
+			"C:/summer_2025/lasttry/src/controllers/hierarchycontroller.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/summer_2025/lasttry/src/controllers/menucontroller.cpp",
 			"MU",
 			null
@@ -522,6 +539,7 @@
 		[ "C:/summer_2025/lasttry/src/views/blockview.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/views/connectionview.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/views/dropgraphicsview.cpp", "MU", null ],
+		[ "C:/summer_2025/lasttry/src/views/hierarchytreeview.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/views/startmenu.cpp", "MU", null ],
 		[
 			"C:/summer_2025/lasttry/src/views/temporaryconnectionline.cpp",

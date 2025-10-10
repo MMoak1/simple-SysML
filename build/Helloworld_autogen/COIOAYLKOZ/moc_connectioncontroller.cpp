@@ -39,8 +39,12 @@ template <> constexpr inline auto ConnectionController::qt_create_metaobjectdata
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
         "ConnectionController",
-        "onConnectionStarted",
+        "connectionCreated",
         "",
+        "ConnectionModel*",
+        "connection",
+        "connectionDeleted",
+        "onConnectionStarted",
         "BlockView*",
         "startBlock",
         "onConnectionCompleted",
@@ -50,17 +54,25 @@ template <> constexpr inline auto ConnectionController::qt_create_metaobjectdata
     };
 
     QtMocHelpers::UintData qt_methods {
-        // Slot 'onConnectionStarted'
-        QtMocHelpers::SlotData<void(BlockView *)>(1, 2, QMC::AccessPrivate, QMetaType::Void, {{
+        // Signal 'connectionCreated'
+        QtMocHelpers::SignalData<void(ConnectionModel *)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
             { 0x80000000 | 3, 4 },
         }}),
+        // Signal 'connectionDeleted'
+        QtMocHelpers::SignalData<void(ConnectionModel *)>(5, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 3, 4 },
+        }}),
+        // Slot 'onConnectionStarted'
+        QtMocHelpers::SlotData<void(BlockView *)>(6, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 7, 8 },
+        }}),
         // Slot 'onConnectionCompleted'
-        QtMocHelpers::SlotData<void(BlockView *, BlockView *)>(5, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { 0x80000000 | 3, 4 }, { 0x80000000 | 3, 6 },
+        QtMocHelpers::SlotData<void(BlockView *, BlockView *)>(9, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 7, 8 }, { 0x80000000 | 7, 10 },
         }}),
         // Slot 'onBlockViewDestroyed'
-        QtMocHelpers::SlotData<void(QObject *)>(7, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::QObjectStar, 8 },
+        QtMocHelpers::SlotData<void(QObject *)>(11, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QObjectStar, 12 },
         }}),
     };
     QtMocHelpers::UintData qt_properties {
@@ -85,11 +97,19 @@ void ConnectionController::qt_static_metacall(QObject *_o, QMetaObject::Call _c,
     auto *_t = static_cast<ConnectionController *>(_o);
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: _t->onConnectionStarted((*reinterpret_cast< std::add_pointer_t<BlockView*>>(_a[1]))); break;
-        case 1: _t->onConnectionCompleted((*reinterpret_cast< std::add_pointer_t<BlockView*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<BlockView*>>(_a[2]))); break;
-        case 2: _t->onBlockViewDestroyed((*reinterpret_cast< std::add_pointer_t<QObject*>>(_a[1]))); break;
+        case 0: _t->connectionCreated((*reinterpret_cast< std::add_pointer_t<ConnectionModel*>>(_a[1]))); break;
+        case 1: _t->connectionDeleted((*reinterpret_cast< std::add_pointer_t<ConnectionModel*>>(_a[1]))); break;
+        case 2: _t->onConnectionStarted((*reinterpret_cast< std::add_pointer_t<BlockView*>>(_a[1]))); break;
+        case 3: _t->onConnectionCompleted((*reinterpret_cast< std::add_pointer_t<BlockView*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<BlockView*>>(_a[2]))); break;
+        case 4: _t->onBlockViewDestroyed((*reinterpret_cast< std::add_pointer_t<QObject*>>(_a[1]))); break;
         default: ;
         }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (ConnectionController::*)(ConnectionModel * )>(_a, &ConnectionController::connectionCreated, 0))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (ConnectionController::*)(ConnectionModel * )>(_a, &ConnectionController::connectionDeleted, 1))
+            return;
     }
 }
 
@@ -112,15 +132,27 @@ int ConnectionController::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 5;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 5)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 3;
+        _id -= 5;
     }
     return _id;
+}
+
+// SIGNAL 0
+void ConnectionController::connectionCreated(ConnectionModel * _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1);
+}
+
+// SIGNAL 1
+void ConnectionController::connectionDeleted(ConnectionModel * _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 1, nullptr, _t1);
 }
 QT_WARNING_POP

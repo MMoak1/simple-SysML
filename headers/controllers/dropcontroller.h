@@ -20,6 +20,9 @@ public:
 
     void handleDrop(const QString &blockType, const QPointF &position);
 
+signals:
+    void blockCreated(BlockModel *model, BlockView *view);
+
 private:
     QGraphicsScene *m_scene;
     DropGraphicsView *m_view;

@@ -23,6 +23,9 @@ void DropController::handleDrop(const QString &blockType, const QPointF &positio
         {
             m_connectionController->registerBlockView(view);
         }
+
+        // Emit signal for hierarchy controller
+        emit blockCreated(model, view);
     }
 }
 

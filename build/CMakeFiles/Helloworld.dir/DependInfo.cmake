@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/summer_2025/lasttry/build/Helloworld_autogen/mocs_compilation.cpp" "CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj" "gcc" "CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj.d"
   "C:/summer_2025/lasttry/src/controllers/connectioncontroller.cpp" "CMakeFiles/Helloworld.dir/src/controllers/connectioncontroller.cpp.obj" "gcc" "CMakeFiles/Helloworld.dir/src/controllers/connectioncontroller.cpp.obj.d"
   "C:/summer_2025/lasttry/src/controllers/dropcontroller.cpp" "CMakeFiles/Helloworld.dir/src/controllers/dropcontroller.cpp.obj" "gcc" "CMakeFiles/Helloworld.dir/src/controllers/dropcontroller.cpp.obj.d"
+  "C:/summer_2025/lasttry/src/controllers/hierarchycontroller.cpp" "CMakeFiles/Helloworld.dir/src/controllers/hierarchycontroller.cpp.obj" "gcc" "CMakeFiles/Helloworld.dir/src/controllers/hierarchycontroller.cpp.obj.d"
   "C:/summer_2025/lasttry/src/controllers/menucontroller.cpp" "CMakeFiles/Helloworld.dir/src/controllers/menucontroller.cpp.obj" "gcc" "CMakeFiles/Helloworld.dir/src/controllers/menucontroller.cpp.obj.d"
   "C:/summer_2025/lasttry/src/main.cpp" "CMakeFiles/Helloworld.dir/src/main.cpp.obj" "gcc" "CMakeFiles/Helloworld.dir/src/main.cpp.obj.d"
   "C:/summer_2025/lasttry/src/mainwindow.cpp" "CMakeFiles/Helloworld.dir/src/mainwindow.cpp.obj" "gcc" "CMakeFiles/Helloworld.dir/src/mainwindow.cpp.obj.d"
@@ -21,6 +22,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/summer_2025/lasttry/src/views/blockview.cpp" "CMakeFiles/Helloworld.dir/src/views/blockview.cpp.obj" "gcc" "CMakeFiles/Helloworld.dir/src/views/blockview.cpp.obj.d"
   "C:/summer_2025/lasttry/src/views/connectionview.cpp" "CMakeFiles/Helloworld.dir/src/views/connectionview.cpp.obj" "gcc" "CMakeFiles/Helloworld.dir/src/views/connectionview.cpp.obj.d"
   "C:/summer_2025/lasttry/src/views/dropgraphicsview.cpp" "CMakeFiles/Helloworld.dir/src/views/dropgraphicsview.cpp.obj" "gcc" "CMakeFiles/Helloworld.dir/src/views/dropgraphicsview.cpp.obj.d"
+  "C:/summer_2025/lasttry/src/views/hierarchytreeview.cpp" "CMakeFiles/Helloworld.dir/src/views/hierarchytreeview.cpp.obj" "gcc" "CMakeFiles/Helloworld.dir/src/views/hierarchytreeview.cpp.obj.d"
   "C:/summer_2025/lasttry/src/views/startmenu.cpp" "CMakeFiles/Helloworld.dir/src/views/startmenu.cpp.obj" "gcc" "CMakeFiles/Helloworld.dir/src/views/startmenu.cpp.obj.d"
   "C:/summer_2025/lasttry/src/views/temporaryconnectionline.cpp" "CMakeFiles/Helloworld.dir/src/views/temporaryconnectionline.cpp.obj" "gcc" "CMakeFiles/Helloworld.dir/src/views/temporaryconnectionline.cpp.obj.d"
   )

@@ -77,13 +77,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 71,
+				"line" : 75,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 62,
+				"line" : 66,
 				"parent" : 0
 			},
 			{
@@ -269,7 +269,7 @@
 			{
 				"command" : 11,
 				"file" : 1,
-				"line" : 52,
+				"line" : 56,
 				"parent" : 0
 			}
 		]
@@ -409,7 +409,9 @@
 				19,
 				21,
 				23,
-				25
+				25,
+				27,
+				29
 			]
 		}
 	],
@@ -546,7 +548,7 @@
 			"sourceIndexes" : 
 			[
 				0,
-				26
+				30
 			]
 		},
 		{
@@ -565,7 +567,9 @@
 				19,
 				21,
 				23,
-				25
+				25,
+				27,
+				29
 			]
 		},
 		{
@@ -583,14 +587,16 @@
 				18,
 				20,
 				22,
-				24
+				24,
+				26,
+				28
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				27
+				31
 			]
 		}
 	],
@@ -739,6 +745,28 @@
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
 			"path" : "src/controllers/connectioncontroller.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "headers/views/hierarchytreeview.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "src/views/hierarchytreeview.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "headers/controllers/hierarchycontroller.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "src/controllers/hierarchycontroller.cpp",
 			"sourceGroupIndex" : 1
 		},
 		{

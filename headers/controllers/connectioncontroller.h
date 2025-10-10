@@ -23,6 +23,10 @@ public:
 
     void clearAllConnections();
 
+signals:
+    void connectionCreated(ConnectionModel *connection);
+    void connectionDeleted(ConnectionModel *connection);
+
 private slots:
     void onConnectionStarted(BlockView *startBlock);
     void onConnectionCompleted(BlockView *startBlock, BlockView *endBlock);
