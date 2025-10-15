@@ -39,13 +39,25 @@ template <> constexpr inline auto ConnectionView::qt_create_metaobjectdata<qt_me
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
         "ConnectionView",
-        "updateConnection",
-        ""
+        "connectionSelected",
+        "",
+        "ConnectionView*",
+        "connection",
+        "connectionDeselected",
+        "updateConnection"
     };
 
     QtMocHelpers::UintData qt_methods {
+        // Signal 'connectionSelected'
+        QtMocHelpers::SignalData<void(ConnectionView *)>(1, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 3, 4 },
+        }}),
+        // Signal 'connectionDeselected'
+        QtMocHelpers::SignalData<void(ConnectionView *)>(5, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 3, 4 },
+        }}),
         // Slot 'updateConnection'
-        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -69,11 +81,37 @@ void ConnectionView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
     auto *_t = static_cast<ConnectionView *>(_o);
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: _t->updateConnection(); break;
+        case 0: _t->connectionSelected((*reinterpret_cast< std::add_pointer_t<ConnectionView*>>(_a[1]))); break;
+        case 1: _t->connectionDeselected((*reinterpret_cast< std::add_pointer_t<ConnectionView*>>(_a[1]))); break;
+        case 2: _t->updateConnection(); break;
         default: ;
         }
     }
-    (void)_a;
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+        case 0:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< ConnectionView* >(); break;
+            }
+            break;
+        case 1:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< ConnectionView* >(); break;
+            }
+            break;
+        }
+    }
+    if (_c == QMetaObject::IndexOfMethod) {
+        if (QtMocHelpers::indexOfMethod<void (ConnectionView::*)(ConnectionView * )>(_a, &ConnectionView::connectionSelected, 0))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (ConnectionView::*)(ConnectionView * )>(_a, &ConnectionView::connectionDeselected, 1))
+            return;
+    }
 }
 
 const QMetaObject *ConnectionView::metaObject() const
@@ -95,15 +133,27 @@ int ConnectionView::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 3;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
-            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 1;
+        if (_id < 3)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 3;
     }
     return _id;
+}
+
+// SIGNAL 0
+void ConnectionView::connectionSelected(ConnectionView * _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 0, nullptr, _t1);
+}
+
+// SIGNAL 1
+void ConnectionView::connectionDeselected(ConnectionView * _t1)
+{
+    QMetaObject::activate<void>(this, &staticMetaObject, 1, nullptr, _t1);
 }
 QT_WARNING_POP
