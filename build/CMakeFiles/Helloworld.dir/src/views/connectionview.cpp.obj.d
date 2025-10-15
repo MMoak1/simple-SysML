@@ -398,4 +398,12 @@ CMakeFiles/Helloworld.dir/src/views/connectionview.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QBrush \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qbrush.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QtMath \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qmath.h
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qmath.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsSceneMouseEvent \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicssceneevent.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qcoreevent.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qbasictimer.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qeventloop.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qdeadlinetimer.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qelapsedtimer.h
