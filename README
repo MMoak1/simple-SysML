@@ -5,4 +5,12 @@ The end goal of this project is to create a simple modeling tool Based off of Sy
 
 It is aptly called simple-SysML
 
-in the very basic stages of development,  I'm going to do more qt tutorials so that this works
+This tool is a work in progress right now it supports BDDS(Block definitional diagrams)
+
+
+user guide
+======================
+click a button and drag to create a block in the tool
+
+press ctrl+click will create a temp line that when in contact with onter block will form connection
+
