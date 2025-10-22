@@ -3421,6 +3421,7 @@ CMakeFiles/Helloworld.dir/src/mainwindow.cpp.obj: C:/summer_2025/lasttry/src/mai
   C:/Qt/6.9.1/mingw_64/include/QtGui/QColor \
   C:/Qt/6.9.1/mingw_64/include/QtGui/QDrag \
   C:/Qt/6.9.1/mingw_64/include/QtGui/QIcon \
+  C:/Qt/6.9.1/mingw_64/include/QtGui/QPainterPath \
   C:/Qt/6.9.1/mingw_64/include/QtGui/QPixmap \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qaction.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qbitmap.h \
@@ -3733,8 +3734,10 @@ CMakeFiles/Helloworld.dir/src/mainwindow.cpp.obj: C:/summer_2025/lasttry/src/mai
   C:/summer_2025/lasttry/headers/controllers/menucontroller.h \
   C:/summer_2025/lasttry/headers/mainwindow.h \
   C:/summer_2025/lasttry/headers/models/blockmodel.h \
+  C:/summer_2025/lasttry/headers/models/connectionmodel.h \
   C:/summer_2025/lasttry/headers/views/blockmenuview.h \
   C:/summer_2025/lasttry/headers/views/blockview.h \
+  C:/summer_2025/lasttry/headers/views/connectionview.h \
   C:/summer_2025/lasttry/headers/views/dropgraphicsview.h \
   C:/summer_2025/lasttry/headers/views/hierarchytreeview.h \
   C:/summer_2025/lasttry/headers/views/startmenu.h
@@ -5711,6 +5714,7 @@ CMakeFiles/Helloworld.dir/src/views/connectionview.cpp.obj: C:/summer_2025/lastt
   C:/summer_2025/lasttry/headers/views/connectionview.h
 
 CMakeFiles/Helloworld.dir/src/views/dropgraphicsview.cpp.obj: C:/summer_2025/lasttry/src/views/dropgraphicsview.cpp \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/QDebug \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QList \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QMimeData \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QObject \
@@ -5860,6 +5864,8 @@ CMakeFiles/Helloworld.dir/src/views/dropgraphicsview.cpp.obj: C:/summer_2025/las
   C:/Qt/6.9.1/mingw_64/include/QtGui/QDragEnterEvent \
   C:/Qt/6.9.1/mingw_64/include/QtGui/QDragMoveEvent \
   C:/Qt/6.9.1/mingw_64/include/QtGui/QDropEvent \
+  C:/Qt/6.9.1/mingw_64/include/QtGui/QKeyEvent \
+  C:/Qt/6.9.1/mingw_64/include/QtGui/QMouseEvent \
   C:/Qt/6.9.1/mingw_64/include/QtGui/QTransform \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qaction.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qbitmap.h \
@@ -5881,6 +5887,7 @@ CMakeFiles/Helloworld.dir/src/views/dropgraphicsview.cpp.obj: C:/summer_2025/las
   C:/Qt/6.9.1/mingw_64/include/QtGui/qkeysequence.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qpaintdevice.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qpainter.h \
+  C:/Qt/6.9.1/mingw_64/include/QtGui/qpainterpath.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qpalette.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qpen.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qpixelformat.h \
@@ -5901,10 +5908,12 @@ CMakeFiles/Helloworld.dir/src/views/dropgraphicsview.cpp.obj: C:/summer_2025/las
   C:/Qt/6.9.1/mingw_64/include/QtGui/qvectornd.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsItem \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsView \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qframe.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsitem.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsscene.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsview.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qscrollarea.h \
@@ -8953,3 +8962,5 @@ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qinputdialog.h:
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlineedit.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtGui/QDragEnterEvent:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsItem:

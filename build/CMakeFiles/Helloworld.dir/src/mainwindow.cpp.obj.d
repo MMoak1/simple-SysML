@@ -478,4 +478,10 @@ CMakeFiles/Helloworld.dir/src/mainwindow.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmenu.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QAction \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qaction.h \
- C:/summer_2025/lasttry/headers/views/startmenu.h
+ C:/summer_2025/lasttry/headers/views/startmenu.h \
+ C:/summer_2025/lasttry/headers/views/blockview.h \
+ C:/summer_2025/lasttry/headers/views/connectionview.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/QPainterPath \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qpainterpath.h \
+ C:/summer_2025/lasttry/headers/models/connectionmodel.h \
+ C:/summer_2025/lasttry/headers/models/blockmodel.h
