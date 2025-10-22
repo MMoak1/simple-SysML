@@ -5331,7 +5331,6 @@ CMakeFiles/Helloworld.dir/src/views/connectionview.cpp.obj: C:/summer_2025/lastt
   C:/Qt/6.9.1/mingw_64/include/QtCore/q20type_traits.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q20utility.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q23utility.h \
-  C:/Qt/6.9.1/mingw_64/include/QtCore/qabstracteventdispatcher.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qalgorithms.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qanystringview.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qarraydata.h \
@@ -5341,7 +5340,6 @@ CMakeFiles/Helloworld.dir/src/views/connectionview.cpp.obj: C:/summer_2025/lastt
   C:/Qt/6.9.1/mingw_64/include/QtCore/qatomic.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qatomic_cxx11.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qbasicatomic.h \
-  C:/Qt/6.9.1/mingw_64/include/QtCore/qbasictimer.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qbindingstorage.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qbytearray.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qbytearrayalgorithms.h \
@@ -5358,14 +5356,10 @@ CMakeFiles/Helloworld.dir/src/views/connectionview.cpp.obj: C:/summer_2025/lastt
   C:/Qt/6.9.1/mingw_64/include/QtCore/qcontainerinfo.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qcontainertools_impl.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qcontiguouscache.h \
-  C:/Qt/6.9.1/mingw_64/include/QtCore/qcoreevent.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qdarwinhelpers.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qdatastream.h \
-  C:/Qt/6.9.1/mingw_64/include/QtCore/qdeadlinetimer.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qdebug.h \
-  C:/Qt/6.9.1/mingw_64/include/QtCore/qelapsedtimer.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qendian.h \
-  C:/Qt/6.9.1/mingw_64/include/QtCore/qeventloop.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qexceptionhandling.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qflags.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qfloat16.h \
@@ -5485,9 +5479,7 @@ CMakeFiles/Helloworld.dir/src/views/connectionview.cpp.obj: C:/summer_2025/lastt
   C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsObject \
-  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsSceneMouseEvent \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsitem.h \
-  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicssceneevent.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
