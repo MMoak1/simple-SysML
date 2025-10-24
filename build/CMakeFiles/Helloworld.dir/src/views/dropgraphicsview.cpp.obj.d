@@ -433,4 +433,11 @@ CMakeFiles/Helloworld.dir/src/views/dropgraphicsview.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QDragMoveEvent \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QDropEvent \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QMimeData \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qmimedata.h
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qmimedata.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/QMouseEvent \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/QKeyEvent \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsItem \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsitem.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qpainterpath.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QDebug \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qdebug.h
