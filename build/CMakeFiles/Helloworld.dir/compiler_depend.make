@@ -5711,10 +5711,12 @@ CMakeFiles/Helloworld.dir/src/views/connectionview.cpp.obj: C:/summer_2025/lastt
   C:/summer_2025/lasttry/headers/views/connectionview.h
 
 CMakeFiles/Helloworld.dir/src/views/dropgraphicsview.cpp.obj: C:/summer_2025/lasttry/src/views/dropgraphicsview.cpp \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/QDebug \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QList \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QMimeData \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QObject \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QPointF \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/QPointer \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QRect \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QSize \
   C:/Qt/6.9.1/mingw_64/include/QtCore/QSizeF \
@@ -5801,6 +5803,7 @@ CMakeFiles/Helloworld.dir/src/views/dropgraphicsview.cpp.obj: C:/summer_2025/las
   C:/Qt/6.9.1/mingw_64/include/QtCore/qoverload.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qpair.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qpoint.h \
+  C:/Qt/6.9.1/mingw_64/include/QtCore/qpointer.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qprocessordetection.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qrect.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/qrefcount.h \
@@ -5881,6 +5884,7 @@ CMakeFiles/Helloworld.dir/src/views/dropgraphicsview.cpp.obj: C:/summer_2025/las
   C:/Qt/6.9.1/mingw_64/include/QtGui/qkeysequence.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qpaintdevice.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qpainter.h \
+  C:/Qt/6.9.1/mingw_64/include/QtGui/qpainterpath.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qpalette.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qpen.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qpixelformat.h \
@@ -5901,10 +5905,12 @@ CMakeFiles/Helloworld.dir/src/views/dropgraphicsview.cpp.obj: C:/summer_2025/las
   C:/Qt/6.9.1/mingw_64/include/QtGui/qvectornd.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.9.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsItem \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsView \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qframe.h \
+  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsitem.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsscene.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsview.h \
   C:/Qt/6.9.1/mingw_64/include/QtWidgets/qscrollarea.h \
@@ -7664,6 +7670,8 @@ C:/Qt/6.9.1/mingw_64/include/QtCore/qforeach.h:
 
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginConfig.cmake:
 
+C:/Qt/6.9.1/mingw_64/include/QtCore/qpointer.h:
+
 C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/string_conversions.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qfunctionpointer.h:
@@ -8952,4 +8960,8 @@ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qinputdialog.h:
 
 C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlineedit.h:
 
+C:/Qt/6.9.1/mingw_64/include/QtCore/QPointer:
+
 C:/Qt/6.9.1/mingw_64/include/QtGui/QDragEnterEvent:
+
+C:/Qt/6.9.1/mingw_64/include/QtWidgets/QGraphicsItem:
