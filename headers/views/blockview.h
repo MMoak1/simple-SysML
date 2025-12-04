@@ -25,11 +25,13 @@ public:
 signals:
     void connectionStarted(BlockView *startBlock);
     void connectionCompleted(BlockView *startBlock, BlockView *endBlock);
+    void enterStateMachineRequested(BlockView *block);
 
 protected:
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
+    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override;
 
 private slots:
     void updateColor(const QColor &color);

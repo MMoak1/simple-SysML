@@ -51,6 +51,23 @@ qt_add_executable(Helloworld
     src/views/hierarchytreeview.cpp
     headers/controllers/hierarchycontroller.h
     src/controllers/hierarchycontroller.cpp
+    # State Machine Models
+    headers/models/statemodel.h
+    src/models/statemodel.cpp
+    headers/models/transitionmodel.h
+    src/models/transitionmodel.cpp
+    headers/models/statemachinemodel.h
+    src/models/statemachinemodel.cpp
+    # State Machine Views
+    headers/views/stateview.h
+    src/views/stateview.cpp
+    headers/views/transitionview.h
+    src/views/transitionview.cpp
+    # Navigation Controllers
+    headers/controllers/diagramviewcontroller.h
+    src/controllers/diagramviewcontroller.cpp
+    headers/controllers/statemachinecontroller.h
+    src/controllers/statemachinecontroller.cpp
 )
 
 target_include_directories(Helloworld PRIVATE headers)

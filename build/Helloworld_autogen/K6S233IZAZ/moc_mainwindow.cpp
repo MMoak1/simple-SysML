@@ -46,7 +46,10 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         "BlockView*",
         "blockView",
         "onNavigateBack",
-        "onViewChanged"
+        "onViewChanged",
+        "onDropPerformed",
+        "itemType",
+        "position"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -60,6 +63,10 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'onViewChanged'
         QtMocHelpers::SlotData<void()>(7, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'onDropPerformed'
+        QtMocHelpers::SlotData<void(const QString &, const QPointF &)>(8, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::QString, 9 }, { QMetaType::QPointF, 10 },
+        }}),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -87,6 +94,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 1: _t->onEnterStateMachine((*reinterpret_cast< std::add_pointer_t<BlockView*>>(_a[1]))); break;
         case 2: _t->onNavigateBack(); break;
         case 3: _t->onViewChanged(); break;
+        case 4: _t->onDropPerformed((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[2]))); break;
         default: ;
         }
     }
@@ -123,14 +131,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 5;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 5;
     }
     return _id;
 }

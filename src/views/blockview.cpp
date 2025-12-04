@@ -45,6 +45,9 @@ QRectF BlockView::boundingRect() const
 
 void BlockView::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
+    Q_UNUSED(option);
+    Q_UNUSED(widget);
+    
     QRectF localRect(-m_size.width() / 2, -m_size.height() / 2, m_size.width(), m_size.height());
 
     if (m_resizing)
@@ -295,6 +298,18 @@ void BlockView::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     }
 
     QGraphicsObject::mouseReleaseEvent(event);
+}
+
+void BlockView::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton)
+    {
+        qDebug() << "Double-click on block:" << m_label << "- requesting state machine view";
+        emit enterStateMachineRequested(this);
+        event->accept();
+        return;
+    }
+    QGraphicsObject::mouseDoubleClickEvent(event);
 }
 
 void BlockView::showTitleInputDialog()
