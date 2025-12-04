@@ -337,6 +337,9 @@ CMakeFiles/Helloworld.dir/src/models/blockmodel.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QSizeF \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qsize.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qmargins.h \
+ C:/summer_2025/lasttry/headers/models/statemachinemodel.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QList \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qlist.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QUuid \
  C:/Qt/6.9.1/mingw_64/include/QtCore/quuid.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qendian.h

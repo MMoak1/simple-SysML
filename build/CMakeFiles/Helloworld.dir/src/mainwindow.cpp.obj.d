@@ -396,6 +396,15 @@ CMakeFiles/Helloworld.dir/src/mainwindow.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qscrollarea.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsscene.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QToolButton \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtoolbutton.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractbutton.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QLabel \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlabel.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qpicture.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qiodevice.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qtextdocument.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qurl.h \
  C:/summer_2025/lasttry/headers/views/blockmenuview.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QListWidget \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlistwidget.h \
@@ -425,7 +434,6 @@ CMakeFiles/Helloworld.dir/src/mainwindow.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qwidget.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QPushButton \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qpushbutton.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractbutton.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QVBoxLayout \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayout.h \
@@ -466,6 +474,10 @@ CMakeFiles/Helloworld.dir/src/mainwindow.cpp.obj: \
  C:/summer_2025/lasttry/headers/controllers/hierarchycontroller.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QSet \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qset.h \
+ C:/summer_2025/lasttry/headers/controllers/diagramviewcontroller.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QStack \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qstack.h \
+ C:/summer_2025/lasttry/headers/controllers/statemachinecontroller.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QListWidgetItem \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QPixmap \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qpixmap.h \
@@ -478,4 +490,9 @@ CMakeFiles/Helloworld.dir/src/mainwindow.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qmenu.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QAction \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qaction.h \
- C:/summer_2025/lasttry/headers/views/startmenu.h
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QToolBar \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtoolbar.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QDebug \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qdebug.h \
+ C:/summer_2025/lasttry/headers/views/startmenu.h \
+ C:/summer_2025/lasttry/headers/models/statemachinemodel.h
