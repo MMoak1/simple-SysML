@@ -68,6 +68,9 @@ qt_add_executable(Helloworld
     src/controllers/diagramviewcontroller.cpp
     headers/controllers/statemachinecontroller.h
     src/controllers/statemachinecontroller.cpp
+    # IO
+    headers/io/modelserializer.h
+    src/io/modelserializer.cpp
 )
 
 target_include_directories(Helloworld PRIVATE headers)

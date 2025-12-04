@@ -387,6 +387,12 @@
 			null
 		],
 		[
+			"C:/summer_2025/lasttry/headers/io/modelserializer.h",
+			"MU",
+			"DFEG2MNFQI/moc_modelserializer.cpp",
+			null
+		],
+		[
 			"C:/summer_2025/lasttry/headers/mainwindow.h",
 			"MU",
 			"K6S233IZAZ/moc_mainwindow.cpp",
@@ -583,6 +589,7 @@
 			"MU",
 			null
 		],
+		[ "C:/summer_2025/lasttry/src/io/modelserializer.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/main.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/mainwindow.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/models/blockmodel.cpp", "MU", null ],

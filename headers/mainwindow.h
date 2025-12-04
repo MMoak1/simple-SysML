@@ -30,6 +30,8 @@ public:
 
 private slots:
     void newFile();
+    void openFile();
+    void saveFile();
     void onEnterStateMachine(BlockView *blockView);
     void onNavigateBack();
     void onViewChanged();
@@ -37,6 +39,7 @@ private slots:
 
 private:
     void setupToolInterface();
+    void setupStateMachineInterface();
     void switchToBDDView();
     void switchToStateMachineView(BlockModel *block);
 
@@ -66,6 +69,8 @@ private:
     QMenuBar *m_menuBar;
     QMenu *m_fileMenu;
     QAction *m_newAction;
+    QAction *m_openAction;
+    QAction *m_saveAction;
 };
 
 #endif // MAINWINDOW_H

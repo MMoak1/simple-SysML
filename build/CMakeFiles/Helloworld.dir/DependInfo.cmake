@@ -16,6 +16,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/summer_2025/lasttry/src/controllers/hierarchycontroller.cpp" "CMakeFiles/Helloworld.dir/src/controllers/hierarchycontroller.cpp.obj" "gcc" "CMakeFiles/Helloworld.dir/src/controllers/hierarchycontroller.cpp.obj.d"
   "C:/summer_2025/lasttry/src/controllers/menucontroller.cpp" "CMakeFiles/Helloworld.dir/src/controllers/menucontroller.cpp.obj" "gcc" "CMakeFiles/Helloworld.dir/src/controllers/menucontroller.cpp.obj.d"
   "C:/summer_2025/lasttry/src/controllers/statemachinecontroller.cpp" "CMakeFiles/Helloworld.dir/src/controllers/statemachinecontroller.cpp.obj" "gcc" "CMakeFiles/Helloworld.dir/src/controllers/statemachinecontroller.cpp.obj.d"
+  "C:/summer_2025/lasttry/src/io/modelserializer.cpp" "CMakeFiles/Helloworld.dir/src/io/modelserializer.cpp.obj" "gcc" "CMakeFiles/Helloworld.dir/src/io/modelserializer.cpp.obj.d"
   "C:/summer_2025/lasttry/src/main.cpp" "CMakeFiles/Helloworld.dir/src/main.cpp.obj" "gcc" "CMakeFiles/Helloworld.dir/src/main.cpp.obj.d"
   "C:/summer_2025/lasttry/src/mainwindow.cpp" "CMakeFiles/Helloworld.dir/src/mainwindow.cpp.obj" "gcc" "CMakeFiles/Helloworld.dir/src/mainwindow.cpp.obj.d"
   "C:/summer_2025/lasttry/src/models/blockmodel.cpp" "CMakeFiles/Helloworld.dir/src/models/blockmodel.cpp.obj" "gcc" "CMakeFiles/Helloworld.dir/src/models/blockmodel.cpp.obj.d"

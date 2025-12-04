@@ -19,6 +19,7 @@ public:
     explicit DropController(QGraphicsScene *scene, DropGraphicsView *view, ConnectionController *connectionController, QObject *parent = nullptr);
 
     void handleDrop(const QString &blockType, const QPointF &position);
+    void addBlock(BlockModel *model);
 
 signals:
     void blockCreated(BlockModel *model, BlockView *view);

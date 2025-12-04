@@ -5,6 +5,9 @@
 #include <QMenuBar>
 #include <QMenu>
 #include <QAction>
+#include <QFileDialog>
+#include <QMessageBox>
+#include "../headers/io/modelserializer.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QToolBar>
@@ -40,34 +43,7 @@ MainWindow::MainWindow(QWidget *parent)
     startMenu = new StartMenu(this);
     setCentralWidget(startMenu);
     connect(startMenu, &StartMenu::beginDrawing, this, &MainWindow::newFile);
-
-    // Window configuration
-    setWindowTitle("Basic Modeling Tool");
-    resize(800, 600);
-
-    // Setup menu bar
-    m_menuBar = menuBar();
-    m_fileMenu = m_menuBar->addMenu("File");
-    m_newAction = m_fileMenu->addAction("New");
-    connect(m_newAction, &QAction::triggered, this, &MainWindow::newFile);
-}
-
-void MainWindow::newFile()
-{
-    if (startMenu)
-    {
-        delete startMenu;
-        startMenu = nullptr;
-        setupToolInterface();
-    }
-    else
-    {
-        scene->clear();
-        if (m_stateMachineScene)
-        {
-            m_stateMachineScene->clear();
-        }
-    }
+    setupToolInterface();
 }
 
 void MainWindow::setupToolInterface()

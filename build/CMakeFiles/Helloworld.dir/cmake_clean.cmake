@@ -16,6 +16,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Helloworld.dir/src/controllers/menucontroller.cpp.obj.d"
   "CMakeFiles/Helloworld.dir/src/controllers/statemachinecontroller.cpp.obj"
   "CMakeFiles/Helloworld.dir/src/controllers/statemachinecontroller.cpp.obj.d"
+  "CMakeFiles/Helloworld.dir/src/io/modelserializer.cpp.obj"
+  "CMakeFiles/Helloworld.dir/src/io/modelserializer.cpp.obj.d"
   "CMakeFiles/Helloworld.dir/src/main.cpp.obj"
   "CMakeFiles/Helloworld.dir/src/main.cpp.obj.d"
   "CMakeFiles/Helloworld.dir/src/mainwindow.cpp.obj"

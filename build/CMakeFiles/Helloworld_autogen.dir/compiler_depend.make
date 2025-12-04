@@ -711,6 +711,7 @@ Helloworld_autogen/timestamp: C:/Program\ Files/CMake/bin/cmake.exe \
   C:/summer_2025/lasttry/headers/controllers/hierarchycontroller.h \
   C:/summer_2025/lasttry/headers/controllers/menucontroller.h \
   C:/summer_2025/lasttry/headers/controllers/statemachinecontroller.h \
+  C:/summer_2025/lasttry/headers/io/modelserializer.h \
   C:/summer_2025/lasttry/headers/mainwindow.h \
   C:/summer_2025/lasttry/headers/models/blockmodel.h \
   C:/summer_2025/lasttry/headers/models/connectionmodel.h \
@@ -732,6 +733,7 @@ Helloworld_autogen/timestamp: C:/Program\ Files/CMake/bin/cmake.exe \
   C:/summer_2025/lasttry/src/controllers/hierarchycontroller.cpp \
   C:/summer_2025/lasttry/src/controllers/menucontroller.cpp \
   C:/summer_2025/lasttry/src/controllers/statemachinecontroller.cpp \
+  C:/summer_2025/lasttry/src/io/modelserializer.cpp \
   C:/summer_2025/lasttry/src/main.cpp \
   C:/summer_2025/lasttry/src/mainwindow.cpp \
   C:/summer_2025/lasttry/src/models/blockmodel.cpp \
@@ -809,6 +811,8 @@ C:/Program\ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.c
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginTargets.cmake:
 
 C:/Program\ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake:
+
+C:/summer_2025/lasttry/headers/io/modelserializer.h:
 
 C:/Program\ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake:
 
@@ -1121,6 +1125,8 @@ C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginAdditi
 C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6Gui/Qt6QWindowsDirect2DIntegrationPluginTargets.cmake:
 
 C:/Qt/6.9.1/mingw_64/include/QtCore/qitemselectionmodel.h:
+
+C:/summer_2025/lasttry/src/io/modelserializer.cpp:
 
 C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h:
 

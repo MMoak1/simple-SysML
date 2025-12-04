@@ -708,6 +708,7 @@ Helloworld_autogen/timestamp: \
 	C:/summer_2025/lasttry/headers/controllers/hierarchycontroller.h \
 	C:/summer_2025/lasttry/headers/controllers/menucontroller.h \
 	C:/summer_2025/lasttry/headers/controllers/statemachinecontroller.h \
+	C:/summer_2025/lasttry/headers/io/modelserializer.h \
 	C:/summer_2025/lasttry/headers/mainwindow.h \
 	C:/summer_2025/lasttry/headers/models/blockmodel.h \
 	C:/summer_2025/lasttry/headers/models/connectionmodel.h \
@@ -729,6 +730,7 @@ Helloworld_autogen/timestamp: \
 	C:/summer_2025/lasttry/src/controllers/hierarchycontroller.cpp \
 	C:/summer_2025/lasttry/src/controllers/menucontroller.cpp \
 	C:/summer_2025/lasttry/src/controllers/statemachinecontroller.cpp \
+	C:/summer_2025/lasttry/src/io/modelserializer.cpp \
 	C:/summer_2025/lasttry/src/main.cpp \
 	C:/summer_2025/lasttry/src/mainwindow.cpp \
 	C:/summer_2025/lasttry/src/models/blockmodel.cpp \

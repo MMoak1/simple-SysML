@@ -27,6 +27,7 @@ public:
 
     // Getters
     QString id() const { return m_id; }
+    void setId(const QString &id) { m_id = id; }
     QString label() const { return m_label; }
     StateType stateType() const { return m_stateType; }
     QPointF position() const { return m_position; }

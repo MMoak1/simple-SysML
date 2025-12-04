@@ -20,6 +20,7 @@ public:
 
     // Getters
     QString id() const { return m_id; }
+    void setId(const QString &id) { m_id = id; }
     QString startStateId() const { return m_startStateId; }
     QString endStateId() const { return m_endStateId; }
     StateModel *startState() const { return m_startState; }

@@ -30,6 +30,7 @@ public:
 
     // For identification or future use
     QString id() const { return m_id; }
+    void setId(const QString &id) { m_id = id; }
 
     // State machine association
     StateMachineModel *stateMachine() const { return m_stateMachine; }

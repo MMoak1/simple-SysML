@@ -367,6 +367,30 @@ src/controllers/statemachinecontroller.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/controllers/statemachinecontroller.cpp.s
 .PHONY : src/controllers/statemachinecontroller.cpp.s
 
+src/io/modelserializer.obj: src/io/modelserializer.cpp.obj
+.PHONY : src/io/modelserializer.obj
+
+# target to build an object file
+src/io/modelserializer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/io/modelserializer.cpp.obj
+.PHONY : src/io/modelserializer.cpp.obj
+
+src/io/modelserializer.i: src/io/modelserializer.cpp.i
+.PHONY : src/io/modelserializer.i
+
+# target to preprocess a source file
+src/io/modelserializer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/io/modelserializer.cpp.i
+.PHONY : src/io/modelserializer.cpp.i
+
+src/io/modelserializer.s: src/io/modelserializer.cpp.s
+.PHONY : src/io/modelserializer.s
+
+# target to generate assembly for a file
+src/io/modelserializer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/io/modelserializer.cpp.s
+.PHONY : src/io/modelserializer.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -787,6 +811,9 @@ help:
 	@echo ... src/controllers/statemachinecontroller.obj
 	@echo ... src/controllers/statemachinecontroller.i
 	@echo ... src/controllers/statemachinecontroller.s
+	@echo ... src/io/modelserializer.obj
+	@echo ... src/io/modelserializer.i
+	@echo ... src/io/modelserializer.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
