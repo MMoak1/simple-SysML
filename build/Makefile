@@ -247,6 +247,30 @@ src/controllers/connectioncontroller.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/controllers/connectioncontroller.cpp.s
 .PHONY : src/controllers/connectioncontroller.cpp.s
 
+src/controllers/diagramviewcontroller.obj: src/controllers/diagramviewcontroller.cpp.obj
+.PHONY : src/controllers/diagramviewcontroller.obj
+
+# target to build an object file
+src/controllers/diagramviewcontroller.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/controllers/diagramviewcontroller.cpp.obj
+.PHONY : src/controllers/diagramviewcontroller.cpp.obj
+
+src/controllers/diagramviewcontroller.i: src/controllers/diagramviewcontroller.cpp.i
+.PHONY : src/controllers/diagramviewcontroller.i
+
+# target to preprocess a source file
+src/controllers/diagramviewcontroller.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/controllers/diagramviewcontroller.cpp.i
+.PHONY : src/controllers/diagramviewcontroller.cpp.i
+
+src/controllers/diagramviewcontroller.s: src/controllers/diagramviewcontroller.cpp.s
+.PHONY : src/controllers/diagramviewcontroller.s
+
+# target to generate assembly for a file
+src/controllers/diagramviewcontroller.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/controllers/diagramviewcontroller.cpp.s
+.PHONY : src/controllers/diagramviewcontroller.cpp.s
+
 src/controllers/dropcontroller.obj: src/controllers/dropcontroller.cpp.obj
 .PHONY : src/controllers/dropcontroller.obj
 
@@ -318,6 +342,30 @@ src/controllers/menucontroller.s: src/controllers/menucontroller.cpp.s
 src/controllers/menucontroller.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/controllers/menucontroller.cpp.s
 .PHONY : src/controllers/menucontroller.cpp.s
+
+src/controllers/statemachinecontroller.obj: src/controllers/statemachinecontroller.cpp.obj
+.PHONY : src/controllers/statemachinecontroller.obj
+
+# target to build an object file
+src/controllers/statemachinecontroller.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/controllers/statemachinecontroller.cpp.obj
+.PHONY : src/controllers/statemachinecontroller.cpp.obj
+
+src/controllers/statemachinecontroller.i: src/controllers/statemachinecontroller.cpp.i
+.PHONY : src/controllers/statemachinecontroller.i
+
+# target to preprocess a source file
+src/controllers/statemachinecontroller.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/controllers/statemachinecontroller.cpp.i
+.PHONY : src/controllers/statemachinecontroller.cpp.i
+
+src/controllers/statemachinecontroller.s: src/controllers/statemachinecontroller.cpp.s
+.PHONY : src/controllers/statemachinecontroller.s
+
+# target to generate assembly for a file
+src/controllers/statemachinecontroller.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/controllers/statemachinecontroller.cpp.s
+.PHONY : src/controllers/statemachinecontroller.cpp.s
 
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
@@ -414,6 +462,78 @@ src/models/connectionmodel.s: src/models/connectionmodel.cpp.s
 src/models/connectionmodel.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/models/connectionmodel.cpp.s
 .PHONY : src/models/connectionmodel.cpp.s
+
+src/models/statemachinemodel.obj: src/models/statemachinemodel.cpp.obj
+.PHONY : src/models/statemachinemodel.obj
+
+# target to build an object file
+src/models/statemachinemodel.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/models/statemachinemodel.cpp.obj
+.PHONY : src/models/statemachinemodel.cpp.obj
+
+src/models/statemachinemodel.i: src/models/statemachinemodel.cpp.i
+.PHONY : src/models/statemachinemodel.i
+
+# target to preprocess a source file
+src/models/statemachinemodel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/models/statemachinemodel.cpp.i
+.PHONY : src/models/statemachinemodel.cpp.i
+
+src/models/statemachinemodel.s: src/models/statemachinemodel.cpp.s
+.PHONY : src/models/statemachinemodel.s
+
+# target to generate assembly for a file
+src/models/statemachinemodel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/models/statemachinemodel.cpp.s
+.PHONY : src/models/statemachinemodel.cpp.s
+
+src/models/statemodel.obj: src/models/statemodel.cpp.obj
+.PHONY : src/models/statemodel.obj
+
+# target to build an object file
+src/models/statemodel.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/models/statemodel.cpp.obj
+.PHONY : src/models/statemodel.cpp.obj
+
+src/models/statemodel.i: src/models/statemodel.cpp.i
+.PHONY : src/models/statemodel.i
+
+# target to preprocess a source file
+src/models/statemodel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/models/statemodel.cpp.i
+.PHONY : src/models/statemodel.cpp.i
+
+src/models/statemodel.s: src/models/statemodel.cpp.s
+.PHONY : src/models/statemodel.s
+
+# target to generate assembly for a file
+src/models/statemodel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/models/statemodel.cpp.s
+.PHONY : src/models/statemodel.cpp.s
+
+src/models/transitionmodel.obj: src/models/transitionmodel.cpp.obj
+.PHONY : src/models/transitionmodel.obj
+
+# target to build an object file
+src/models/transitionmodel.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/models/transitionmodel.cpp.obj
+.PHONY : src/models/transitionmodel.cpp.obj
+
+src/models/transitionmodel.i: src/models/transitionmodel.cpp.i
+.PHONY : src/models/transitionmodel.i
+
+# target to preprocess a source file
+src/models/transitionmodel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/models/transitionmodel.cpp.i
+.PHONY : src/models/transitionmodel.cpp.i
+
+src/models/transitionmodel.s: src/models/transitionmodel.cpp.s
+.PHONY : src/models/transitionmodel.s
+
+# target to generate assembly for a file
+src/models/transitionmodel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/models/transitionmodel.cpp.s
+.PHONY : src/models/transitionmodel.cpp.s
 
 src/views/blockmenuview.obj: src/views/blockmenuview.cpp.obj
 .PHONY : src/views/blockmenuview.obj
@@ -559,6 +679,30 @@ src/views/startmenu.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/startmenu.cpp.s
 .PHONY : src/views/startmenu.cpp.s
 
+src/views/stateview.obj: src/views/stateview.cpp.obj
+.PHONY : src/views/stateview.obj
+
+# target to build an object file
+src/views/stateview.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/stateview.cpp.obj
+.PHONY : src/views/stateview.cpp.obj
+
+src/views/stateview.i: src/views/stateview.cpp.i
+.PHONY : src/views/stateview.i
+
+# target to preprocess a source file
+src/views/stateview.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/stateview.cpp.i
+.PHONY : src/views/stateview.cpp.i
+
+src/views/stateview.s: src/views/stateview.cpp.s
+.PHONY : src/views/stateview.s
+
+# target to generate assembly for a file
+src/views/stateview.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/stateview.cpp.s
+.PHONY : src/views/stateview.cpp.s
+
 src/views/temporaryconnectionline.obj: src/views/temporaryconnectionline.cpp.obj
 .PHONY : src/views/temporaryconnectionline.obj
 
@@ -583,6 +727,30 @@ src/views/temporaryconnectionline.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/temporaryconnectionline.cpp.s
 .PHONY : src/views/temporaryconnectionline.cpp.s
 
+src/views/transitionview.obj: src/views/transitionview.cpp.obj
+.PHONY : src/views/transitionview.obj
+
+# target to build an object file
+src/views/transitionview.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/transitionview.cpp.obj
+.PHONY : src/views/transitionview.cpp.obj
+
+src/views/transitionview.i: src/views/transitionview.cpp.i
+.PHONY : src/views/transitionview.i
+
+# target to preprocess a source file
+src/views/transitionview.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/transitionview.cpp.i
+.PHONY : src/views/transitionview.cpp.i
+
+src/views/transitionview.s: src/views/transitionview.cpp.s
+.PHONY : src/views/transitionview.s
+
+# target to generate assembly for a file
+src/views/transitionview.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Helloworld.dir\build.make CMakeFiles/Helloworld.dir/src/views/transitionview.cpp.s
+.PHONY : src/views/transitionview.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -604,6 +772,9 @@ help:
 	@echo ... src/controllers/connectioncontroller.obj
 	@echo ... src/controllers/connectioncontroller.i
 	@echo ... src/controllers/connectioncontroller.s
+	@echo ... src/controllers/diagramviewcontroller.obj
+	@echo ... src/controllers/diagramviewcontroller.i
+	@echo ... src/controllers/diagramviewcontroller.s
 	@echo ... src/controllers/dropcontroller.obj
 	@echo ... src/controllers/dropcontroller.i
 	@echo ... src/controllers/dropcontroller.s
@@ -613,6 +784,9 @@ help:
 	@echo ... src/controllers/menucontroller.obj
 	@echo ... src/controllers/menucontroller.i
 	@echo ... src/controllers/menucontroller.s
+	@echo ... src/controllers/statemachinecontroller.obj
+	@echo ... src/controllers/statemachinecontroller.i
+	@echo ... src/controllers/statemachinecontroller.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
@@ -625,6 +799,15 @@ help:
 	@echo ... src/models/connectionmodel.obj
 	@echo ... src/models/connectionmodel.i
 	@echo ... src/models/connectionmodel.s
+	@echo ... src/models/statemachinemodel.obj
+	@echo ... src/models/statemachinemodel.i
+	@echo ... src/models/statemachinemodel.s
+	@echo ... src/models/statemodel.obj
+	@echo ... src/models/statemodel.i
+	@echo ... src/models/statemodel.s
+	@echo ... src/models/transitionmodel.obj
+	@echo ... src/models/transitionmodel.i
+	@echo ... src/models/transitionmodel.s
 	@echo ... src/views/blockmenuview.obj
 	@echo ... src/views/blockmenuview.i
 	@echo ... src/views/blockmenuview.s
@@ -643,9 +826,15 @@ help:
 	@echo ... src/views/startmenu.obj
 	@echo ... src/views/startmenu.i
 	@echo ... src/views/startmenu.s
+	@echo ... src/views/stateview.obj
+	@echo ... src/views/stateview.i
+	@echo ... src/views/stateview.s
 	@echo ... src/views/temporaryconnectionline.obj
 	@echo ... src/views/temporaryconnectionline.i
 	@echo ... src/views/temporaryconnectionline.s
+	@echo ... src/views/transitionview.obj
+	@echo ... src/views/transitionview.i
+	@echo ... src/views/transitionview.s
 .PHONY : help
 
 

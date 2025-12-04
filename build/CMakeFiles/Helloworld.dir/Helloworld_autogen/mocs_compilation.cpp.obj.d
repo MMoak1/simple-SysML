@@ -330,14 +330,18 @@ CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qtmocconstants.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/q20algorithm.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/q23type_traits.h \
+ C:\summer_2025\lasttry\build\Helloworld_autogen\COIOAYLKOZ/moc_diagramviewcontroller.cpp \
+ C:/summer_2025/lasttry/headers/controllers/diagramviewcontroller.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QStack \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qstack.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QString \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qstring.h \
  C:\summer_2025\lasttry\build\Helloworld_autogen\COIOAYLKOZ/moc_dropcontroller.cpp \
  C:/summer_2025/lasttry/headers/controllers/dropcontroller.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QPointF \
  C:/Qt/6.9.1/mingw_64/include/QtCore/qpoint.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/q23utility.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/q20utility.h \
- C:/Qt/6.9.1/mingw_64/include/QtCore/QString \
- C:/Qt/6.9.1/mingw_64/include/QtCore/qstring.h \
  C:/summer_2025/lasttry/headers/models/blockmodel.h \
  C:/Qt/6.9.1/mingw_64/include/QtGui/QColor \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qcolor.h \
@@ -439,6 +443,8 @@ CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtabwidget.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qrubberband.h \
  C:/Qt/6.9.1/mingw_64/include/QtCore/QPoint \
+ C:\summer_2025\lasttry\build\Helloworld_autogen\COIOAYLKOZ/moc_statemachinecontroller.cpp \
+ C:/summer_2025/lasttry/headers/controllers/statemachinecontroller.h \
  C:\summer_2025\lasttry\build\Helloworld_autogen\K6S233IZAZ/moc_mainwindow.cpp \
  C:/summer_2025/lasttry/headers/mainwindow.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QMainWindow \
@@ -454,6 +460,15 @@ CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtGui/qtextoption.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qscrollarea.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qgraphicsscene.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QToolButton \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qtoolbutton.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractbutton.h \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/QLabel \
+ C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlabel.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qpicture.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qiodevice.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qtextdocument.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/qurl.h \
  C:/summer_2025/lasttry/headers/views/blockmenuview.h \
  C:/summer_2025/lasttry/headers/views/dropgraphicsview.h \
  C:/summer_2025/lasttry/headers/views/startmenu.h \
@@ -461,7 +476,6 @@ CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qwidget.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QPushButton \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qpushbutton.h \
- C:/Qt/6.9.1/mingw_64/include/QtWidgets/qabstractbutton.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/QVBoxLayout \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qboxlayout.h \
  C:/Qt/6.9.1/mingw_64/include/QtWidgets/qlayout.h \
@@ -479,11 +493,23 @@ CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj: \
  C:/summer_2025/lasttry/headers/controllers/menucontroller.h \
  C:/summer_2025/lasttry/headers/controllers/connectioncontroller.h \
  C:/summer_2025/lasttry/headers/controllers/hierarchycontroller.h \
+ C:/summer_2025/lasttry/headers/controllers/diagramviewcontroller.h \
+ C:/summer_2025/lasttry/headers/controllers/statemachinecontroller.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qtextcursor.h \
+ C:/Qt/6.9.1/mingw_64/include/QtGui/qtextformat.h \
  C:\summer_2025\lasttry\build\Helloworld_autogen\5JQWYGIYPV/moc_blockmodel.cpp \
  C:/summer_2025/lasttry/headers/models/blockmodel.h \
  C:\summer_2025\lasttry\build\Helloworld_autogen\5JQWYGIYPV/moc_connectionmodel.cpp \
  C:/summer_2025/lasttry/headers/models/connectionmodel.h \
  C:/summer_2025/lasttry/headers/models/blockmodel.h \
+ C:\summer_2025\lasttry\build\Helloworld_autogen\5JQWYGIYPV/moc_statemachinemodel.cpp \
+ C:/summer_2025/lasttry/headers/models/statemachinemodel.h \
+ C:\summer_2025\lasttry\build\Helloworld_autogen\5JQWYGIYPV/moc_statemodel.cpp \
+ C:/summer_2025/lasttry/headers/models/statemodel.h \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/QUuid \
+ C:/Qt/6.9.1/mingw_64/include/QtCore/quuid.h \
+ C:\summer_2025\lasttry\build\Helloworld_autogen\5JQWYGIYPV/moc_transitionmodel.cpp \
+ C:/summer_2025/lasttry/headers/models/transitionmodel.h \
  C:\summer_2025\lasttry\build\Helloworld_autogen\KH5PZA5WCU/moc_blockmenuview.cpp \
  C:/summer_2025/lasttry/headers/views/blockmenuview.h \
  C:\summer_2025\lasttry\build\Helloworld_autogen\KH5PZA5WCU/moc_blockview.cpp \
@@ -498,4 +524,8 @@ CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj: \
  C:\summer_2025\lasttry\build\Helloworld_autogen\KH5PZA5WCU/moc_hierarchytreeview.cpp \
  C:/summer_2025/lasttry/headers/views/hierarchytreeview.h \
  C:\summer_2025\lasttry\build\Helloworld_autogen\KH5PZA5WCU/moc_startmenu.cpp \
- C:/summer_2025/lasttry/headers/views/startmenu.h
+ C:/summer_2025/lasttry/headers/views/startmenu.h \
+ C:\summer_2025\lasttry\build\Helloworld_autogen\KH5PZA5WCU/moc_stateview.cpp \
+ C:/summer_2025/lasttry/headers/views/stateview.h \
+ C:\summer_2025\lasttry\build\Helloworld_autogen\KH5PZA5WCU/moc_transitionview.cpp \
+ C:/summer_2025/lasttry/headers/views/transitionview.h

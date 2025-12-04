@@ -1,4 +1,5 @@
 #include "../headers/models/blockmodel.h"
+#include "../headers/models/statemachinemodel.h"
 #include <QUuid>
 
 BlockModel::BlockModel(const QColor &color, const QString &label, const QPointF &position, const QSizeF &size, QObject *parent)
@@ -41,4 +42,23 @@ void BlockModel::setSize(const QSizeF &size)
         m_size = size;
         emit sizeChanged(size);
     }
+}
+
+void BlockModel::setStateMachine(StateMachineModel *sm)
+{
+    if (m_stateMachine != sm)
+    {
+        m_stateMachine = sm;
+        emit stateMachineChanged();
+    }
+}
+
+StateMachineModel *BlockModel::getOrCreateStateMachine()
+{
+    if (!m_stateMachine)
+    {
+        m_stateMachine = new StateMachineModel(this, this);
+        emit stateMachineChanged();
+    }
+    return m_stateMachine;
 }

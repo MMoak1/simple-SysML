@@ -5,7 +5,12 @@
 #include <QMenuBar>
 #include <QMenu>
 #include <QAction>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QToolBar>
+#include <QDebug>
 #include "views/startmenu.h"
+#include "models/statemachinemodel.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -24,6 +29,12 @@ MainWindow::MainWindow(QWidget *parent)
     m_menuBar = nullptr;
     m_fileMenu = nullptr;
     m_newAction = nullptr;
+    m_stateMachineScene = nullptr;
+    m_stateMachineController = nullptr;
+    m_diagramViewController = nullptr;
+    m_backButton = nullptr;
+    m_viewTitleLabel = nullptr;
+    m_navigationBar = nullptr;
 
     // Create start menu
     startMenu = new StartMenu(this);
@@ -52,14 +63,27 @@ void MainWindow::newFile()
     else
     {
         scene->clear();
+        if (m_stateMachineScene)
+        {
+            m_stateMachineScene->clear();
+        }
     }
 }
 
 void MainWindow::setupToolInterface()
 {
-    // Create the graphics scene
+    // Create diagram view controller for navigation
+    m_diagramViewController = new DiagramViewController(this);
+    connect(m_diagramViewController, &DiagramViewController::viewChanged, 
+            this, &MainWindow::onViewChanged);
+
+    // Create the BDD graphics scene
     scene = new QGraphicsScene(this);
     scene->setBackgroundBrush(Qt::lightGray);
+
+    // Create the state machine scene
+    m_stateMachineScene = new QGraphicsScene(this);
+    m_stateMachineScene->setBackgroundBrush(QColor(245, 245, 250)); // Slightly different background
 
     // Create the graphics view
     dropGraphicsView = new DropGraphicsView(scene, this);
@@ -95,11 +119,14 @@ void MainWindow::setupToolInterface()
     dropController = new DropController(scene, dropGraphicsView, connectionController, this);
     menuController = new MenuController(blockMenuView, this);
 
+    // Create state machine controller
+    m_stateMachineController = new StateMachineController(m_stateMachineScene, this);
+
     // Create hierarchy controller AFTER other controllers
     hierarchyController = new HierarchyController(hierarchyTreeView, scene, dropGraphicsView, this);
 
-    // Connect drop signal to controller
-    connect(dropGraphicsView, &DropGraphicsView::dropPerformed, dropController, &DropController::handleDrop);
+    // Connect drop signal to MainWindow for routing based on current view
+    connect(dropGraphicsView, &DropGraphicsView::dropPerformed, this, &MainWindow::onDropPerformed);
 
     // Connect hierarchy controller to drop controller
     connect(dropController, &DropController::blockCreated,
@@ -111,7 +138,40 @@ void MainWindow::setupToolInterface()
     connect(connectionController, &ConnectionController::connectionDeleted,
             hierarchyController, &HierarchyController::onConnectionDeleted);
 
-    // Connection mode is no longer needed - Ctrl+Click now handles connections
+    // Connect block creation to state machine entry signal
+    connect(dropController, &DropController::blockCreated, this, [this](BlockModel *model, BlockView *view) {
+        // Connect each new block view's double-click to enter state machine
+        connect(view, &BlockView::enterStateMachineRequested, this, &MainWindow::onEnterStateMachine);
+    });
+
+    // Create navigation bar
+    m_navigationBar = new QWidget(this);
+    QHBoxLayout *navLayout = new QHBoxLayout(m_navigationBar);
+    navLayout->setContentsMargins(5, 5, 5, 5);
+    
+    m_backButton = new QToolButton(this);
+    m_backButton->setText("← Back");
+    m_backButton->setToolTip("Return to Block Definition Diagram");
+    m_backButton->setVisible(false); // Hidden initially
+    connect(m_backButton, &QToolButton::clicked, this, &MainWindow::onNavigateBack);
+    
+    m_viewTitleLabel = new QLabel("Block Definition Diagram", this);
+    QFont titleFont = m_viewTitleLabel->font();
+    titleFont.setBold(true);
+    titleFont.setPointSize(12);
+    m_viewTitleLabel->setFont(titleFont);
+    
+    navLayout->addWidget(m_backButton);
+    navLayout->addWidget(m_viewTitleLabel);
+    navLayout->addStretch();
+
+    // Create main layout with navigation bar
+    QWidget *mainWidget = new QWidget(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout(mainWidget);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setSpacing(0);
+    
+    mainLayout->addWidget(m_navigationBar);
 
     // Create horizontal splitter with THREE widgets for layout
     splitter = new QSplitter(Qt::Horizontal, this);
@@ -122,8 +182,95 @@ void MainWindow::setupToolInterface()
     splitter->setStretchFactor(1, 1); // Block menu: 20%
     splitter->setStretchFactor(2, 3); // Graphics view: 60%
 
-    // Set the splitter as the central widget
-    setCentralWidget(splitter);
+    mainLayout->addWidget(splitter);
+
+    // Set the main widget as the central widget
+    setCentralWidget(mainWidget);
+}
+
+void MainWindow::onEnterStateMachine(BlockView *blockView)
+{
+    if (!blockView || !blockView->model())
+        return;
+
+    BlockModel *block = blockView->model();
+    qDebug() << "MainWindow: Entering state machine for block:" << block->label();
+    
+    // Navigate to state machine view
+    m_diagramViewController->enterStateMachine(block);
+    switchToStateMachineView(block);
+}
+
+void MainWindow::onNavigateBack()
+{
+    qDebug() << "MainWindow: Navigating back";
+    m_diagramViewController->goBack();
+    
+    if (m_diagramViewController->currentViewType() == DiagramContext::Type::BDD)
+    {
+        switchToBDDView();
+    }
+}
+
+void MainWindow::onViewChanged()
+{
+    // Update the title label
+    m_viewTitleLabel->setText(m_diagramViewController->currentTitle());
+    
+    // Update back button visibility
+    m_backButton->setVisible(m_diagramViewController->canGoBack());
+}
+
+void MainWindow::switchToBDDView()
+{
+    qDebug() << "Switching to BDD view";
+    
+    // Switch the scene in the graphics view
+    dropGraphicsView->setScene(scene);
+    
+    // Show block menu (for creating blocks in BDD)
+    blockMenuView->setVisible(true);
+    
+    // Update UI
+    onViewChanged();
+}
+
+void MainWindow::switchToStateMachineView(BlockModel *block)
+{
+    qDebug() << "Switching to State Machine view for:" << block->label();
+    
+    // Get or create the state machine for this block
+    StateMachineModel *stateMachine = block->getOrCreateStateMachine();
+    
+    // Set up the state machine controller with this state machine
+    m_stateMachineController->setStateMachine(stateMachine);
+    
+    // Switch the scene in the graphics view
+    dropGraphicsView->setScene(m_stateMachineScene);
+    
+    // Hide regular block menu (state machine has different elements)
+    // For now, we'll keep it visible but could replace with state menu later
+    blockMenuView->setVisible(true);
+    
+    // Update UI
+    onViewChanged();
+}
+
+void MainWindow::onDropPerformed(const QString &itemType, const QPointF &position)
+{
+    // Route drops to the appropriate controller based on current view
+    if (m_diagramViewController->currentViewType() == DiagramContext::Type::StateMachine)
+    {
+        // In state machine view - create states
+        qDebug() << "MainWindow: Routing drop to StateMachineController";
+        m_stateMachineController->handleDrop(itemType, position);
+    }
+    else
+    {
+        // In BDD view - create blocks
+        qDebug() << "MainWindow: Routing drop to DropController";
+        dropController->handleDrop(itemType, position);
+    }
 }
 
 MainWindow::~MainWindow()

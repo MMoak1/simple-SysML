@@ -318,6 +318,111 @@ CMakeFiles/Helloworld.dir/src/controllers/hierarchycontroller.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Helloworld.dir/src/controllers/hierarchycontroller.cpp.s"
 	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\summer_2025\lasttry\src\controllers\hierarchycontroller.cpp -o CMakeFiles\Helloworld.dir\src\controllers\hierarchycontroller.cpp.s
 
+CMakeFiles/Helloworld.dir/src/models/statemodel.cpp.obj: CMakeFiles/Helloworld.dir/flags.make
+CMakeFiles/Helloworld.dir/src/models/statemodel.cpp.obj: CMakeFiles/Helloworld.dir/includes_CXX.rsp
+CMakeFiles/Helloworld.dir/src/models/statemodel.cpp.obj: C:/summer_2025/lasttry/src/models/statemodel.cpp
+CMakeFiles/Helloworld.dir/src/models/statemodel.cpp.obj: CMakeFiles/Helloworld.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\summer_2025\lasttry\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/Helloworld.dir/src/models/statemodel.cpp.obj"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Helloworld.dir/src/models/statemodel.cpp.obj -MF CMakeFiles\Helloworld.dir\src\models\statemodel.cpp.obj.d -o CMakeFiles\Helloworld.dir\src\models\statemodel.cpp.obj -c C:\summer_2025\lasttry\src\models\statemodel.cpp
+
+CMakeFiles/Helloworld.dir/src/models/statemodel.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Helloworld.dir/src/models/statemodel.cpp.i"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\summer_2025\lasttry\src\models\statemodel.cpp > CMakeFiles\Helloworld.dir\src\models\statemodel.cpp.i
+
+CMakeFiles/Helloworld.dir/src/models/statemodel.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Helloworld.dir/src/models/statemodel.cpp.s"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\summer_2025\lasttry\src\models\statemodel.cpp -o CMakeFiles\Helloworld.dir\src\models\statemodel.cpp.s
+
+CMakeFiles/Helloworld.dir/src/models/transitionmodel.cpp.obj: CMakeFiles/Helloworld.dir/flags.make
+CMakeFiles/Helloworld.dir/src/models/transitionmodel.cpp.obj: CMakeFiles/Helloworld.dir/includes_CXX.rsp
+CMakeFiles/Helloworld.dir/src/models/transitionmodel.cpp.obj: C:/summer_2025/lasttry/src/models/transitionmodel.cpp
+CMakeFiles/Helloworld.dir/src/models/transitionmodel.cpp.obj: CMakeFiles/Helloworld.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\summer_2025\lasttry\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/Helloworld.dir/src/models/transitionmodel.cpp.obj"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Helloworld.dir/src/models/transitionmodel.cpp.obj -MF CMakeFiles\Helloworld.dir\src\models\transitionmodel.cpp.obj.d -o CMakeFiles\Helloworld.dir\src\models\transitionmodel.cpp.obj -c C:\summer_2025\lasttry\src\models\transitionmodel.cpp
+
+CMakeFiles/Helloworld.dir/src/models/transitionmodel.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Helloworld.dir/src/models/transitionmodel.cpp.i"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\summer_2025\lasttry\src\models\transitionmodel.cpp > CMakeFiles\Helloworld.dir\src\models\transitionmodel.cpp.i
+
+CMakeFiles/Helloworld.dir/src/models/transitionmodel.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Helloworld.dir/src/models/transitionmodel.cpp.s"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\summer_2025\lasttry\src\models\transitionmodel.cpp -o CMakeFiles\Helloworld.dir\src\models\transitionmodel.cpp.s
+
+CMakeFiles/Helloworld.dir/src/models/statemachinemodel.cpp.obj: CMakeFiles/Helloworld.dir/flags.make
+CMakeFiles/Helloworld.dir/src/models/statemachinemodel.cpp.obj: CMakeFiles/Helloworld.dir/includes_CXX.rsp
+CMakeFiles/Helloworld.dir/src/models/statemachinemodel.cpp.obj: C:/summer_2025/lasttry/src/models/statemachinemodel.cpp
+CMakeFiles/Helloworld.dir/src/models/statemachinemodel.cpp.obj: CMakeFiles/Helloworld.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\summer_2025\lasttry\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/Helloworld.dir/src/models/statemachinemodel.cpp.obj"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Helloworld.dir/src/models/statemachinemodel.cpp.obj -MF CMakeFiles\Helloworld.dir\src\models\statemachinemodel.cpp.obj.d -o CMakeFiles\Helloworld.dir\src\models\statemachinemodel.cpp.obj -c C:\summer_2025\lasttry\src\models\statemachinemodel.cpp
+
+CMakeFiles/Helloworld.dir/src/models/statemachinemodel.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Helloworld.dir/src/models/statemachinemodel.cpp.i"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\summer_2025\lasttry\src\models\statemachinemodel.cpp > CMakeFiles\Helloworld.dir\src\models\statemachinemodel.cpp.i
+
+CMakeFiles/Helloworld.dir/src/models/statemachinemodel.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Helloworld.dir/src/models/statemachinemodel.cpp.s"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\summer_2025\lasttry\src\models\statemachinemodel.cpp -o CMakeFiles\Helloworld.dir\src\models\statemachinemodel.cpp.s
+
+CMakeFiles/Helloworld.dir/src/views/stateview.cpp.obj: CMakeFiles/Helloworld.dir/flags.make
+CMakeFiles/Helloworld.dir/src/views/stateview.cpp.obj: CMakeFiles/Helloworld.dir/includes_CXX.rsp
+CMakeFiles/Helloworld.dir/src/views/stateview.cpp.obj: C:/summer_2025/lasttry/src/views/stateview.cpp
+CMakeFiles/Helloworld.dir/src/views/stateview.cpp.obj: CMakeFiles/Helloworld.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\summer_2025\lasttry\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/Helloworld.dir/src/views/stateview.cpp.obj"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Helloworld.dir/src/views/stateview.cpp.obj -MF CMakeFiles\Helloworld.dir\src\views\stateview.cpp.obj.d -o CMakeFiles\Helloworld.dir\src\views\stateview.cpp.obj -c C:\summer_2025\lasttry\src\views\stateview.cpp
+
+CMakeFiles/Helloworld.dir/src/views/stateview.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Helloworld.dir/src/views/stateview.cpp.i"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\summer_2025\lasttry\src\views\stateview.cpp > CMakeFiles\Helloworld.dir\src\views\stateview.cpp.i
+
+CMakeFiles/Helloworld.dir/src/views/stateview.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Helloworld.dir/src/views/stateview.cpp.s"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\summer_2025\lasttry\src\views\stateview.cpp -o CMakeFiles\Helloworld.dir\src\views\stateview.cpp.s
+
+CMakeFiles/Helloworld.dir/src/views/transitionview.cpp.obj: CMakeFiles/Helloworld.dir/flags.make
+CMakeFiles/Helloworld.dir/src/views/transitionview.cpp.obj: CMakeFiles/Helloworld.dir/includes_CXX.rsp
+CMakeFiles/Helloworld.dir/src/views/transitionview.cpp.obj: C:/summer_2025/lasttry/src/views/transitionview.cpp
+CMakeFiles/Helloworld.dir/src/views/transitionview.cpp.obj: CMakeFiles/Helloworld.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\summer_2025\lasttry\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/Helloworld.dir/src/views/transitionview.cpp.obj"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Helloworld.dir/src/views/transitionview.cpp.obj -MF CMakeFiles\Helloworld.dir\src\views\transitionview.cpp.obj.d -o CMakeFiles\Helloworld.dir\src\views\transitionview.cpp.obj -c C:\summer_2025\lasttry\src\views\transitionview.cpp
+
+CMakeFiles/Helloworld.dir/src/views/transitionview.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Helloworld.dir/src/views/transitionview.cpp.i"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\summer_2025\lasttry\src\views\transitionview.cpp > CMakeFiles\Helloworld.dir\src\views\transitionview.cpp.i
+
+CMakeFiles/Helloworld.dir/src/views/transitionview.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Helloworld.dir/src/views/transitionview.cpp.s"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\summer_2025\lasttry\src\views\transitionview.cpp -o CMakeFiles\Helloworld.dir\src\views\transitionview.cpp.s
+
+CMakeFiles/Helloworld.dir/src/controllers/diagramviewcontroller.cpp.obj: CMakeFiles/Helloworld.dir/flags.make
+CMakeFiles/Helloworld.dir/src/controllers/diagramviewcontroller.cpp.obj: CMakeFiles/Helloworld.dir/includes_CXX.rsp
+CMakeFiles/Helloworld.dir/src/controllers/diagramviewcontroller.cpp.obj: C:/summer_2025/lasttry/src/controllers/diagramviewcontroller.cpp
+CMakeFiles/Helloworld.dir/src/controllers/diagramviewcontroller.cpp.obj: CMakeFiles/Helloworld.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\summer_2025\lasttry\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/Helloworld.dir/src/controllers/diagramviewcontroller.cpp.obj"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Helloworld.dir/src/controllers/diagramviewcontroller.cpp.obj -MF CMakeFiles\Helloworld.dir\src\controllers\diagramviewcontroller.cpp.obj.d -o CMakeFiles\Helloworld.dir\src\controllers\diagramviewcontroller.cpp.obj -c C:\summer_2025\lasttry\src\controllers\diagramviewcontroller.cpp
+
+CMakeFiles/Helloworld.dir/src/controllers/diagramviewcontroller.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Helloworld.dir/src/controllers/diagramviewcontroller.cpp.i"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\summer_2025\lasttry\src\controllers\diagramviewcontroller.cpp > CMakeFiles\Helloworld.dir\src\controllers\diagramviewcontroller.cpp.i
+
+CMakeFiles/Helloworld.dir/src/controllers/diagramviewcontroller.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Helloworld.dir/src/controllers/diagramviewcontroller.cpp.s"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\summer_2025\lasttry\src\controllers\diagramviewcontroller.cpp -o CMakeFiles\Helloworld.dir\src\controllers\diagramviewcontroller.cpp.s
+
+CMakeFiles/Helloworld.dir/src/controllers/statemachinecontroller.cpp.obj: CMakeFiles/Helloworld.dir/flags.make
+CMakeFiles/Helloworld.dir/src/controllers/statemachinecontroller.cpp.obj: CMakeFiles/Helloworld.dir/includes_CXX.rsp
+CMakeFiles/Helloworld.dir/src/controllers/statemachinecontroller.cpp.obj: C:/summer_2025/lasttry/src/controllers/statemachinecontroller.cpp
+CMakeFiles/Helloworld.dir/src/controllers/statemachinecontroller.cpp.obj: CMakeFiles/Helloworld.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\summer_2025\lasttry\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/Helloworld.dir/src/controllers/statemachinecontroller.cpp.obj"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Helloworld.dir/src/controllers/statemachinecontroller.cpp.obj -MF CMakeFiles\Helloworld.dir\src\controllers\statemachinecontroller.cpp.obj.d -o CMakeFiles\Helloworld.dir\src\controllers\statemachinecontroller.cpp.obj -c C:\summer_2025\lasttry\src\controllers\statemachinecontroller.cpp
+
+CMakeFiles/Helloworld.dir/src/controllers/statemachinecontroller.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Helloworld.dir/src/controllers/statemachinecontroller.cpp.i"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\summer_2025\lasttry\src\controllers\statemachinecontroller.cpp > CMakeFiles\Helloworld.dir\src\controllers\statemachinecontroller.cpp.i
+
+CMakeFiles/Helloworld.dir/src/controllers/statemachinecontroller.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Helloworld.dir/src/controllers/statemachinecontroller.cpp.s"
+	C:\Qt\Tools\mingw1310_64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\summer_2025\lasttry\src\controllers\statemachinecontroller.cpp -o CMakeFiles\Helloworld.dir\src\controllers\statemachinecontroller.cpp.s
+
 # Object files for target Helloworld
 Helloworld_OBJECTS = \
 "CMakeFiles/Helloworld.dir/Helloworld_autogen/mocs_compilation.cpp.obj" \
@@ -335,7 +440,14 @@ Helloworld_OBJECTS = \
 "CMakeFiles/Helloworld.dir/src/views/temporaryconnectionline.cpp.obj" \
 "CMakeFiles/Helloworld.dir/src/controllers/connectioncontroller.cpp.obj" \
 "CMakeFiles/Helloworld.dir/src/views/hierarchytreeview.cpp.obj" \
-"CMakeFiles/Helloworld.dir/src/controllers/hierarchycontroller.cpp.obj"
+"CMakeFiles/Helloworld.dir/src/controllers/hierarchycontroller.cpp.obj" \
+"CMakeFiles/Helloworld.dir/src/models/statemodel.cpp.obj" \
+"CMakeFiles/Helloworld.dir/src/models/transitionmodel.cpp.obj" \
+"CMakeFiles/Helloworld.dir/src/models/statemachinemodel.cpp.obj" \
+"CMakeFiles/Helloworld.dir/src/views/stateview.cpp.obj" \
+"CMakeFiles/Helloworld.dir/src/views/transitionview.cpp.obj" \
+"CMakeFiles/Helloworld.dir/src/controllers/diagramviewcontroller.cpp.obj" \
+"CMakeFiles/Helloworld.dir/src/controllers/statemachinecontroller.cpp.obj"
 
 # External object files for target Helloworld
 Helloworld_EXTERNAL_OBJECTS =
@@ -356,6 +468,13 @@ Helloworld.exe: CMakeFiles/Helloworld.dir/src/views/temporaryconnectionline.cpp.
 Helloworld.exe: CMakeFiles/Helloworld.dir/src/controllers/connectioncontroller.cpp.obj
 Helloworld.exe: CMakeFiles/Helloworld.dir/src/views/hierarchytreeview.cpp.obj
 Helloworld.exe: CMakeFiles/Helloworld.dir/src/controllers/hierarchycontroller.cpp.obj
+Helloworld.exe: CMakeFiles/Helloworld.dir/src/models/statemodel.cpp.obj
+Helloworld.exe: CMakeFiles/Helloworld.dir/src/models/transitionmodel.cpp.obj
+Helloworld.exe: CMakeFiles/Helloworld.dir/src/models/statemachinemodel.cpp.obj
+Helloworld.exe: CMakeFiles/Helloworld.dir/src/views/stateview.cpp.obj
+Helloworld.exe: CMakeFiles/Helloworld.dir/src/views/transitionview.cpp.obj
+Helloworld.exe: CMakeFiles/Helloworld.dir/src/controllers/diagramviewcontroller.cpp.obj
+Helloworld.exe: CMakeFiles/Helloworld.dir/src/controllers/statemachinecontroller.cpp.obj
 Helloworld.exe: CMakeFiles/Helloworld.dir/build.make
 Helloworld.exe: C:/Qt/6.9.1/mingw_64/lib/libQt6Widgets.a
 Helloworld.exe: C:/Qt/6.9.1/mingw_64/lib/libQt6Svg.a
@@ -366,7 +485,7 @@ Helloworld.exe: C:/Qt/6.9.1/mingw_64/lib/libQt6EntryPoint.a
 Helloworld.exe: CMakeFiles/Helloworld.dir/linkLibs.rsp
 Helloworld.exe: CMakeFiles/Helloworld.dir/objects1.rsp
 Helloworld.exe: CMakeFiles/Helloworld.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\summer_2025\lasttry\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable Helloworld.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\summer_2025\lasttry\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Linking CXX executable Helloworld.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Helloworld.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

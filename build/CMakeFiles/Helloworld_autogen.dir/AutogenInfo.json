@@ -8,64 +8,9 @@
 	"CMAKE_LIST_FILES" : 
 	[
 		"C:/summer_2025/lasttry/CMakeLists.txt",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineSystem.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeSystem.cmake.in",
 		"C:/summer_2025/lasttry/build/CMakeFiles/4.1.0/CMakeSystem.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeMinGWFindMake.cmake",
 		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake",
 		"C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Initialize.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Determine-CXX.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCompilerIdDetection.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/ADSP-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/ARMCC-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/ARMClang-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/AppleClang-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/Clang-DetermineCompilerInternal.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/Borland-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/Clang-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/Clang-DetermineCompilerInternal.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/Cray-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/CrayClang-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/Diab-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/Embarcadero-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/Fujitsu-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/GHS-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/HP-CXX-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/IAR-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/Intel-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/MSVC-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/NVHPC-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/NVIDIA-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/OrangeC-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/PGI-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/PathScale-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/Renesas-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/SCO-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/TI-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/TIClang-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/Tasking-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/Watcom-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/XL-CXX-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-FindBinUtils.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompiler.cmake.in",
 		"C:/summer_2025/lasttry/build/CMakeFiles/4.1.0/CMakeCXXCompiler.cmake",
 		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake",
 		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake",
@@ -79,36 +24,17 @@
 		"C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
 		"C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX.cmake",
 		"C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineRCCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeRCCompiler.cmake.in",
 		"C:/summer_2025/lasttry/build/CMakeFiles/4.1.0/CMakeRCCompiler.cmake",
 		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeRCInformation.cmake",
 		"C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-windres.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeTestRCCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeTestCompilerCommon.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CMakeDetermineLinkerId.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeParseImplicitIncludeInfo.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeParseImplicitLinkInfo.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeParseLibraryArchitecture.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeTestCompilerCommon.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerSupport.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/FeatureTesting.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompiler.cmake.in",
-		"C:/summer_2025/lasttry/build/CMakeFiles/4.1.0/CMakeCXXCompiler.cmake",
 		"C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX-ABI.cmake",
+		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake",
 		"C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake",
 		"C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Linker/GNU-CXX.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Linker/GNU.cmake",
+		"C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-CXX.cmake",
 		"C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-CXX.cmake",
 		"C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake",
 		"C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Linker/GNU.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CMakeInspectCXXLinker.cmake",
-		"C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompiler.cmake.in",
 		"C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6/Qt6ConfigVersion.cmake",
 		"C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6/Qt6ConfigVersionImpl.cmake",
 		"C:/Qt/6.9.1/mingw_64/lib/cmake/Qt6/Qt6Config.cmake",
@@ -431,6 +357,12 @@
 			null
 		],
 		[
+			"C:/summer_2025/lasttry/headers/controllers/diagramviewcontroller.h",
+			"MU",
+			"COIOAYLKOZ/moc_diagramviewcontroller.cpp",
+			null
+		],
+		[
 			"C:/summer_2025/lasttry/headers/controllers/dropcontroller.h",
 			"MU",
 			"COIOAYLKOZ/moc_dropcontroller.cpp",
@@ -449,6 +381,12 @@
 			null
 		],
 		[
+			"C:/summer_2025/lasttry/headers/controllers/statemachinecontroller.h",
+			"MU",
+			"COIOAYLKOZ/moc_statemachinecontroller.cpp",
+			null
+		],
+		[
 			"C:/summer_2025/lasttry/headers/mainwindow.h",
 			"MU",
 			"K6S233IZAZ/moc_mainwindow.cpp",
@@ -464,6 +402,24 @@
 			"C:/summer_2025/lasttry/headers/models/connectionmodel.h",
 			"MU",
 			"5JQWYGIYPV/moc_connectionmodel.cpp",
+			null
+		],
+		[
+			"C:/summer_2025/lasttry/headers/models/statemachinemodel.h",
+			"MU",
+			"5JQWYGIYPV/moc_statemachinemodel.cpp",
+			null
+		],
+		[
+			"C:/summer_2025/lasttry/headers/models/statemodel.h",
+			"MU",
+			"5JQWYGIYPV/moc_statemodel.cpp",
+			null
+		],
+		[
+			"C:/summer_2025/lasttry/headers/models/transitionmodel.h",
+			"MU",
+			"5JQWYGIYPV/moc_transitionmodel.cpp",
 			null
 		],
 		[
@@ -503,9 +459,21 @@
 			null
 		],
 		[
+			"C:/summer_2025/lasttry/headers/views/stateview.h",
+			"MU",
+			"KH5PZA5WCU/moc_stateview.cpp",
+			null
+		],
+		[
 			"C:/summer_2025/lasttry/headers/views/temporaryconnectionline.h",
 			"MU",
 			"KH5PZA5WCU/moc_temporaryconnectionline.cpp",
+			null
+		],
+		[
+			"C:/summer_2025/lasttry/headers/views/transitionview.h",
+			"MU",
+			"KH5PZA5WCU/moc_transitionview.cpp",
 			null
 		]
 	],
@@ -545,12 +513,12 @@
 		"C:/Qt/6.9.1/mingw_64/include/QtWidgets",
 		"C:/Qt/6.9.1/mingw_64/include/QtSvg",
 		"C:/Qt/6.9.1/mingw_64/include/QtNetwork",
-		"C:/Program Files/CodeBlocks/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++",
-		"C:/Program Files/CodeBlocks/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32",
-		"C:/Program Files/CodeBlocks/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward",
-		"C:/Program Files/CodeBlocks/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include",
-		"C:/Program Files/CodeBlocks/MinGW/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed",
-		"C:/Program Files/CodeBlocks/MinGW/x86_64-w64-mingw32/include"
+		"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++",
+		"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32",
+		"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward",
+		"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include",
+		"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed",
+		"C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include"
 	],
 	"MOC_MACRO_NAMES" : 
 	[
@@ -565,7 +533,7 @@
 	"MOC_PATH_PREFIX" : false,
 	"MOC_PREDEFS_CMD" : 
 	[
-		"C:/Program Files/CodeBlocks/MinGW/bin/c++.exe",
+		"c:/Qt/Tools/mingw1310_64/bin/g++.exe",
 		"-std=gnu++17",
 		"-w",
 		"-dM",
@@ -591,6 +559,11 @@
 			null
 		],
 		[
+			"C:/summer_2025/lasttry/src/controllers/diagramviewcontroller.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/summer_2025/lasttry/src/controllers/dropcontroller.cpp",
 			"MU",
 			null
@@ -605,21 +578,31 @@
 			"MU",
 			null
 		],
+		[
+			"C:/summer_2025/lasttry/src/controllers/statemachinecontroller.cpp",
+			"MU",
+			null
+		],
 		[ "C:/summer_2025/lasttry/src/main.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/mainwindow.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/models/blockmodel.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/models/connectionmodel.cpp", "MU", null ],
+		[ "C:/summer_2025/lasttry/src/models/statemachinemodel.cpp", "MU", null ],
+		[ "C:/summer_2025/lasttry/src/models/statemodel.cpp", "MU", null ],
+		[ "C:/summer_2025/lasttry/src/models/transitionmodel.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/views/blockmenuview.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/views/blockview.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/views/connectionview.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/views/dropgraphicsview.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/views/hierarchytreeview.cpp", "MU", null ],
 		[ "C:/summer_2025/lasttry/src/views/startmenu.cpp", "MU", null ],
+		[ "C:/summer_2025/lasttry/src/views/stateview.cpp", "MU", null ],
 		[
 			"C:/summer_2025/lasttry/src/views/temporaryconnectionline.cpp",
 			"MU",
 			null
-		]
+		],
+		[ "C:/summer_2025/lasttry/src/views/transitionview.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

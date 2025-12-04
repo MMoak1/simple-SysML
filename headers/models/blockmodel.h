@@ -7,6 +7,8 @@
 #include <QPointF>
 #include <QSizeF>
 
+class StateMachineModel;
+
 class BlockModel : public QObject
 {
     Q_OBJECT
@@ -29,11 +31,18 @@ public:
     // For identification or future use
     QString id() const { return m_id; }
 
+    // State machine association
+    StateMachineModel *stateMachine() const { return m_stateMachine; }
+    void setStateMachine(StateMachineModel *sm);
+    bool hasStateMachine() const { return m_stateMachine != nullptr; }
+    StateMachineModel *getOrCreateStateMachine();
+
 signals:
     void colorChanged(const QColor &color);
     void labelChanged(const QString &label);
     void positionChanged(const QPointF &position);
     void sizeChanged(const QSizeF &size);
+    void stateMachineChanged();
 
 private:
     QColor m_color;
@@ -41,6 +50,7 @@ private:
     QPointF m_position;
     QSizeF m_size;
     QString m_id; // Unique ID for the block
+    StateMachineModel *m_stateMachine = nullptr;
 };
 
 #endif // BLOCKMODEL_H

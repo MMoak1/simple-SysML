@@ -47,7 +47,8 @@ template <> constexpr inline auto BlockModel::qt_create_metaobjectdata<qt_meta_t
         "positionChanged",
         "position",
         "sizeChanged",
-        "size"
+        "size",
+        "stateMachineChanged"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -67,6 +68,8 @@ template <> constexpr inline auto BlockModel::qt_create_metaobjectdata<qt_meta_t
         QtMocHelpers::SignalData<void(const QSizeF &)>(8, 2, QMC::AccessPublic, QMetaType::Void, {{
             { QMetaType::QSizeF, 9 },
         }}),
+        // Signal 'stateMachineChanged'
+        QtMocHelpers::SignalData<void()>(10, 2, QMC::AccessPublic, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -94,6 +97,7 @@ void BlockModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 1: _t->labelChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 2: _t->positionChanged((*reinterpret_cast< std::add_pointer_t<QPointF>>(_a[1]))); break;
         case 3: _t->sizeChanged((*reinterpret_cast< std::add_pointer_t<QSizeF>>(_a[1]))); break;
+        case 4: _t->stateMachineChanged(); break;
         default: ;
         }
     }
@@ -105,6 +109,8 @@ void BlockModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         if (QtMocHelpers::indexOfMethod<void (BlockModel::*)(const QPointF & )>(_a, &BlockModel::positionChanged, 2))
             return;
         if (QtMocHelpers::indexOfMethod<void (BlockModel::*)(const QSizeF & )>(_a, &BlockModel::sizeChanged, 3))
+            return;
+        if (QtMocHelpers::indexOfMethod<void (BlockModel::*)()>(_a, &BlockModel::stateMachineChanged, 4))
             return;
     }
 }
@@ -128,14 +134,14 @@ int BlockModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 5;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 5)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        _id -= 5;
     }
     return _id;
 }
@@ -162,5 +168,11 @@ void BlockModel::positionChanged(const QPointF & _t1)
 void BlockModel::sizeChanged(const QSizeF & _t1)
 {
     QMetaObject::activate<void>(this, &staticMetaObject, 3, nullptr, _t1);
+}
+
+// SIGNAL 4
+void BlockModel::stateMachineChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 4, nullptr);
 }
 QT_WARNING_POP
