@@ -50,8 +50,7 @@ template <> constexpr inline auto ConnectionController::qt_create_metaobjectdata
         "onConnectionCompleted",
         "endBlock",
         "onBlockViewDestroyed",
-        "obj",
-        "onConnectionViewDestroyed"
+        "obj"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -73,10 +72,6 @@ template <> constexpr inline auto ConnectionController::qt_create_metaobjectdata
         }}),
         // Slot 'onBlockViewDestroyed'
         QtMocHelpers::SlotData<void(QObject *)>(11, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::QObjectStar, 12 },
-        }}),
-        // Slot 'onConnectionViewDestroyed'
-        QtMocHelpers::SlotData<void(QObject *)>(13, 2, QMC::AccessPrivate, QMetaType::Void, {{
             { QMetaType::QObjectStar, 12 },
         }}),
     };
@@ -107,7 +102,6 @@ void ConnectionController::qt_static_metacall(QObject *_o, QMetaObject::Call _c,
         case 2: _t->onConnectionStarted((*reinterpret_cast< std::add_pointer_t<BlockView*>>(_a[1]))); break;
         case 3: _t->onConnectionCompleted((*reinterpret_cast< std::add_pointer_t<BlockView*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<BlockView*>>(_a[2]))); break;
         case 4: _t->onBlockViewDestroyed((*reinterpret_cast< std::add_pointer_t<QObject*>>(_a[1]))); break;
-        case 5: _t->onConnectionViewDestroyed((*reinterpret_cast< std::add_pointer_t<QObject*>>(_a[1]))); break;
         default: ;
         }
     }
@@ -138,14 +132,14 @@ int ConnectionController::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 5;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 5)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 6;
+        _id -= 5;
     }
     return _id;
 }
