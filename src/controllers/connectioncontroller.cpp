@@ -72,21 +72,22 @@ void ConnectionController::deleteConnection(ConnectionModel *connection)
     if (!connection)
         return;
     
-    // Remove view from scene
+    // Step 1: Remove from our tracking lists FIRST (before any signals or deletions)
+    m_connections.removeOne(connection);
     ConnectionView *view = m_connectionViews.take(connection);
+    
+    // Step 2: Remove view from scene and delete it
     if (view)
     {
         m_scene->removeItem(view);
         delete view;
+        view = nullptr;
     }
     
-    // Remove from list
-    m_connections.removeOne(connection);
-    
-    // Emit signal for hierarchy controller
+    // Step 3: Emit signal for hierarchy controller (connection is still valid here)
     emit connectionDeleted(connection);
     
-    // Delete model
+    // Step 4: Finally delete model (LAST)
     delete connection;
 }
 
@@ -99,16 +100,21 @@ void ConnectionController::deleteConnectionsForBlock(BlockModel *block)
     QList<ConnectionModel *> connectionsToRemove;
     for (ConnectionModel *connection : m_connections)
     {
+        // Safety check
+        if (!connection)
+            continue;
+            
         if (connection->startBlock() == block || connection->endBlock() == block)
         {
             connectionsToRemove.append(connection);
         }
     }
     
-    // Delete each connection
+    // Delete each connection (check null in case of concurrent modification)
     for (ConnectionModel *connection : connectionsToRemove)
     {
-        deleteConnection(connection);
+        if (connection)
+            deleteConnection(connection);
     }
 }
 

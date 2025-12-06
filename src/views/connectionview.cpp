@@ -3,11 +3,15 @@
 #include <QPen>
 #include <QBrush>
 #include <QPainterPath>
+#include <QPainterPathStroker>
 #include <QtMath>
 
 ConnectionView::ConnectionView(ConnectionModel *model, QGraphicsItem *parent)
     : QGraphicsObject(parent), m_model(model), m_color(Qt::black)
 {
+    // Make connection selectable
+    setFlags(ItemIsSelectable);
+    
     connect(model, &ConnectionModel::connectionChanged, this, &ConnectionView::updateConnection);
 }
 
@@ -33,6 +37,26 @@ QRectF ConnectionView::boundingRect() const
     return QRectF(QPointF(left, top), QPointF(right, bottom));
 }
 
+QPainterPath ConnectionView::shape() const
+{
+    // Create a wider hit area for easier clicking on thin lines
+    if (!m_model || !m_model->isValid())
+    {
+        return QPainterPath();
+    }
+
+    QPointF start = m_model->startEdgePoint();
+    QPointF end = m_model->endEdgePoint();
+    
+    QPainterPath linePath = calculateOrthogonalPath(start, end);
+    
+    // Create a stroker to make a wider hit area
+    QPainterPathStroker stroker;
+    stroker.setWidth(12.0);  // Wide hit area for easy clicking
+    
+    return stroker.createStroke(linePath);
+}
+
 void ConnectionView::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     Q_UNUSED(option);
@@ -51,13 +75,30 @@ void ConnectionView::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
 
     // Draw the connection line
     painter->save();
-    QPen pen(m_color, 2.0);
+    
+    // Change color and thickness when selected
+    QColor lineColor = m_color;
+    qreal lineWidth = 2.0;
+    
+    if (isSelected())
+    {
+        lineColor = QColor(255, 200, 0);  // Yellow/orange when selected
+        lineWidth = 3.0;
+    }
+    
+    QPen pen(lineColor, lineWidth);
     painter->setPen(pen);
     painter->setRenderHint(QPainter::Antialiasing);
     painter->drawPath(path);
 
     // Draw arrow head at end point
+    QColor savedColor = m_color;
+    if (isSelected())
+    {
+        m_color = lineColor;  // Temporarily change for arrow
+    }
     drawArrowHead(painter, path, end);
+    m_color = savedColor;
 
     painter->restore();
 }

@@ -1,0 +1,141 @@
+{
+    "blocks": [
+        {
+            "color": "#ff0000",
+            "id": "{c15708e6-db0d-4a52-9cb0-aec92946c4b5}",
+            "label": "car",
+            "position": {
+                "x": -202,
+                "y": -224
+            },
+            "size": {
+                "height": 60,
+                "width": 100
+            },
+            "stateMachine": {
+                "states": [
+                ],
+                "transitions": [
+                ]
+            }
+        },
+        {
+            "color": "#00ff00",
+            "id": "{45e97b1c-2730-400c-8b85-f8a4d49f618b}",
+            "label": "wheel",
+            "position": {
+                "x": 86,
+                "y": -43
+            },
+            "size": {
+                "height": 60,
+                "width": 100
+            }
+        },
+        {
+            "color": "#0000ff",
+            "id": "{51c10728-d159-4854-8e76-8b4515adc8e0}",
+            "label": "axel",
+            "position": {
+                "x": -52,
+                "y": -161
+            },
+            "size": {
+                "height": 60,
+                "width": 100
+            },
+            "stateMachine": {
+                "states": [
+                ],
+                "transitions": [
+                ]
+            }
+        },
+        {
+            "color": "#00ff00",
+            "id": "{7ffcf9df-05c1-4f2c-8d67-cd7d3a27d1bd}",
+            "label": "wheel",
+            "position": {
+                "x": -107,
+                "y": -23
+            },
+            "size": {
+                "height": 60,
+                "width": 100
+            }
+        },
+        {
+            "color": "#0000ff",
+            "id": "{d071de8d-68e9-4843-8094-e59f7b0876e2}",
+            "label": "axel",
+            "position": {
+                "x": -364,
+                "y": -180
+            },
+            "size": {
+                "height": 60,
+                "width": 100
+            },
+            "stateMachine": {
+                "states": [
+                ],
+                "transitions": [
+                ]
+            }
+        },
+        {
+            "color": "#00ff00",
+            "id": "{af604034-6b32-4ade-99e7-aceed0411b81}",
+            "label": "wheel",
+            "position": {
+                "x": -445,
+                "y": -12
+            },
+            "size": {
+                "height": 60,
+                "width": 100
+            }
+        },
+        {
+            "color": "#00ff00",
+            "id": "{6ac166dd-ea5a-491e-b5f7-d2203f4183ac}",
+            "label": "wheel",
+            "position": {
+                "x": -258,
+                "y": -19
+            },
+            "size": {
+                "height": 60,
+                "width": 100
+            }
+        }
+    ],
+    "connections": [
+        {
+            "endBlockId": "{51c10728-d159-4854-8e76-8b4515adc8e0}",
+            "startBlockId": "{c15708e6-db0d-4a52-9cb0-aec92946c4b5}"
+        },
+        {
+            "endBlockId": "{45e97b1c-2730-400c-8b85-f8a4d49f618b}",
+            "startBlockId": "{51c10728-d159-4854-8e76-8b4515adc8e0}"
+        },
+        {
+            "endBlockId": "{7ffcf9df-05c1-4f2c-8d67-cd7d3a27d1bd}",
+            "startBlockId": "{51c10728-d159-4854-8e76-8b4515adc8e0}"
+        },
+        {
+            "endBlockId": "{d071de8d-68e9-4843-8094-e59f7b0876e2}",
+            "startBlockId": "{c15708e6-db0d-4a52-9cb0-aec92946c4b5}"
+        },
+        {
+            "endBlockId": "{af604034-6b32-4ade-99e7-aceed0411b81}",
+            "startBlockId": "{d071de8d-68e9-4843-8094-e59f7b0876e2}"
+        },
+        {
+            "endBlockId": "{6ac166dd-ea5a-491e-b5f7-d2203f4183ac}",
+            "startBlockId": "{d071de8d-68e9-4843-8094-e59f7b0876e2}"
+        }
+    ],
+    "name": "SysML Model",
+    "version": "1.0"
+}
