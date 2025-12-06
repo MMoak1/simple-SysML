@@ -96,3 +96,14 @@ install(TARGETS Helloworld
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
+
+# Auto-run windeployqt on Windows after build
+if(WIN32)
+    find_program(WINDEPLOYQT_EXECUTABLE windeployqt HINTS "${CMAKE_PREFIX_PATH}/bin")
+    if(WINDEPLOYQT_EXECUTABLE)
+        add_custom_command(TARGET Helloworld POST_BUILD
+            COMMAND "${WINDEPLOYQT_EXECUTABLE}" "$<TARGET_FILE:Helloworld>"
+            COMMENT "Running windeployqt to deploy Qt runtime..."
+        )
+    endif()
+endif()
