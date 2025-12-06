@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QPointF>
 #include <QString>
+#include <QList>
 #include "../models/blockmodel.h"
 #include "../views/blockview.h"
 
@@ -20,6 +21,9 @@ public:
 
     void handleDrop(const QString &blockType, const QPointF &position);
     void addBlock(BlockModel *model);
+    void clear();
+    
+    QList<BlockModel*> blocks() const { return m_blocks; }
 
 signals:
     void blockCreated(BlockModel *model, BlockView *view);
@@ -28,6 +32,7 @@ private:
     QGraphicsScene *m_scene;
     DropGraphicsView *m_view;
     ConnectionController *m_connectionController;
+    QList<BlockModel*> m_blocks;
 
     BlockModel *createBlockModel(const QString &blockType);
     QColor getColorForType(const QString &blockType);

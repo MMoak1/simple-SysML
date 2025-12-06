@@ -1,0 +1,124 @@
+{
+    "blocks": [
+        {
+            "color": "#ff0000",
+            "id": "{49149b40-c354-4daf-88a9-582427584722}",
+            "label": "Red Block",
+            "position": {
+                "x": -446,
+                "y": -243
+            },
+            "size": {
+                "height": 60,
+                "width": 100
+            },
+            "stateMachine": {
+                "states": [
+                    {
+                        "id": "3bed33fc-d717-43ab-ad4b-8383aeeb2821",
+                        "label": "Red State",
+                        "position": {
+                            "x": -368,
+                            "y": -236
+                        },
+                        "size": {
+                            "height": 60,
+                            "width": 100
+                        },
+                        "type": 1
+                    },
+                    {
+                        "id": "c2f4db6c-ca45-4ea2-b667-20fab0df5d5a",
+                        "label": "Blue State",
+                        "position": {
+                            "x": -169,
+                            "y": -208
+                        },
+                        "size": {
+                            "height": 60,
+                            "width": 100
+                        },
+                        "type": 1
+                    },
+                    {
+                        "id": "a48db83e-269f-40d8-8663-b465593b1dcf",
+                        "label": "Green State",
+                        "position": {
+                            "x": -397,
+                            "y": -145
+                        },
+                        "size": {
+                            "height": 60,
+                            "width": 100
+                        },
+                        "type": 1
+                    }
+                ],
+                "transitions": [
+                    {
+                        "endStateId": "c2f4db6c-ca45-4ea2-b667-20fab0df5d5a",
+                        "id": "415b21f7-eaa6-4578-90dc-af62e05117a2",
+                        "label": "",
+                        "startStateId": "3bed33fc-d717-43ab-ad4b-8383aeeb2821"
+                    },
+                    {
+                        "endStateId": "a48db83e-269f-40d8-8663-b465593b1dcf",
+                        "id": "fa33d0dc-1fe8-4ff3-ab03-e1264d8b47cd",
+                        "label": "",
+                        "startStateId": "c2f4db6c-ca45-4ea2-b667-20fab0df5d5a"
+                    },
+                    {
+                        "endStateId": "3bed33fc-d717-43ab-ad4b-8383aeeb2821",
+                        "id": "5cdbad44-e837-4ccf-92a2-a77019a93da7",
+                        "label": "",
+                        "startStateId": "a48db83e-269f-40d8-8663-b465593b1dcf"
+                    }
+                ]
+            }
+        },
+        {
+            "color": "#0000ff",
+            "id": "{cb634dfd-4947-4224-9dec-591ac0648de7}",
+            "label": "Blue Block",
+            "position": {
+                "x": -146,
+                "y": -151
+            },
+            "size": {
+                "height": 60,
+                "width": 100
+            },
+            "stateMachine": {
+                "states": [
+                ],
+                "transitions": [
+                ]
+            }
+        },
+        {
+            "color": "#00ff00",
+            "id": "{d596d364-7da5-4504-801d-06bef038dbd1}",
+            "label": "Green Block",
+            "position": {
+                "x": -348,
+                "y": -66
+            },
+            "size": {
+                "height": 60,
+                "width": 100
+            }
+        }
+    ],
+    "connections": [
+        {
+            "endBlockId": "{cb634dfd-4947-4224-9dec-591ac0648de7}",
+            "startBlockId": "{49149b40-c354-4daf-88a9-582427584722}"
+        },
+        {
+            "endBlockId": "{d596d364-7da5-4504-801d-06bef038dbd1}",
+            "startBlockId": "{cb634dfd-4947-4224-9dec-591ac0648de7}"
+        }
+    ],
+    "name": "SysML Model",
+    "version": "1.0"
+}

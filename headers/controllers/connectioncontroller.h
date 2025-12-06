@@ -21,7 +21,10 @@ public:
     void registerBlockView(BlockView *view);
     void unregisterBlockView(BlockView *view);
 
+    void addConnection(ConnectionModel *connection);
     void clearAllConnections();
+    
+    QList<ConnectionModel*> connections() const { return m_connections; }
 
 signals:
     void connectionCreated(ConnectionModel *connection);
