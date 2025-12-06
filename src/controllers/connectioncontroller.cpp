@@ -4,6 +4,8 @@
 #include "../headers/views/connectionview.h"
 #include <QGraphicsScene>
 #include <QDebug>
+#include <QSet>
+#include <QMessageBox>
 
 ConnectionController::ConnectionController(QGraphicsScene *scene, QObject *parent)
     : QObject(parent), m_scene(scene)
@@ -65,6 +67,51 @@ void ConnectionController::addConnection(ConnectionModel *connection)
     emit connectionCreated(connection);
 }
 
+void ConnectionController::deleteConnection(ConnectionModel *connection)
+{
+    if (!connection)
+        return;
+    
+    // Remove view from scene
+    ConnectionView *view = m_connectionViews.take(connection);
+    if (view)
+    {
+        m_scene->removeItem(view);
+        delete view;
+    }
+    
+    // Remove from list
+    m_connections.removeOne(connection);
+    
+    // Emit signal for hierarchy controller
+    emit connectionDeleted(connection);
+    
+    // Delete model
+    delete connection;
+}
+
+void ConnectionController::deleteConnectionsForBlock(BlockModel *block)
+{
+    if (!block)
+        return;
+    
+    // Find all connections involving this block
+    QList<ConnectionModel *> connectionsToRemove;
+    for (ConnectionModel *connection : m_connections)
+    {
+        if (connection->startBlock() == block || connection->endBlock() == block)
+        {
+            connectionsToRemove.append(connection);
+        }
+    }
+    
+    // Delete each connection
+    for (ConnectionModel *connection : connectionsToRemove)
+    {
+        deleteConnection(connection);
+    }
+}
+
 void ConnectionController::onConnectionStarted(BlockView *startBlock)
 {
     qDebug() << "Connection started from block:" << startBlock->model()->label();
@@ -93,6 +140,16 @@ void ConnectionController::onConnectionCompleted(BlockView *startBlock, BlockVie
 
     if (startModel && endModel)
     {
+        // Check if this connection would create a cycle
+        if (wouldCreateCycle(startModel, endModel))
+        {
+            qDebug() << "Connection rejected: would create a cycle in the hierarchy";
+            QMessageBox::warning(nullptr, "Cyclic Dependency",
+                "Cannot create this connection.\n\n"
+                "It would create a cyclic dependency in the hierarchy.");
+            return;
+        }
+        
         ConnectionModel *connection = new ConnectionModel(startModel, endModel, this);
         ConnectionView *connectionView = new ConnectionView(connection, nullptr);
 
@@ -154,5 +211,52 @@ bool ConnectionController::connectionExists(BlockView *start, BlockView *end)
             return true;
         }
     }
+    return false;
+}
+
+bool ConnectionController::wouldCreateCycle(BlockModel *fromBlock, BlockModel *toBlock)
+{
+    // Adding a connection from fromBlock to toBlock creates a cycle if
+    // toBlock can already reach fromBlock through existing connections.
+    // In other words: if there's a path from toBlock to fromBlock,
+    // then adding fromBlock -> toBlock would complete a cycle.
+    return canReach(toBlock, fromBlock);
+}
+
+bool ConnectionController::canReach(BlockModel *fromBlock, BlockModel *targetBlock)
+{
+    if (!fromBlock || !targetBlock)
+        return false;
+    
+    if (fromBlock == targetBlock)
+        return true;
+    
+    // DFS to check if we can reach targetBlock from fromBlock
+    QSet<BlockModel*> visited;
+    QList<BlockModel*> stack;
+    stack.append(fromBlock);
+    
+    while (!stack.isEmpty())
+    {
+        BlockModel *current = stack.takeLast();
+        
+        if (current == targetBlock)
+            return true;
+        
+        if (visited.contains(current))
+            continue;
+        
+        visited.insert(current);
+        
+        // Find all blocks that can be reached from current (its children via connections)
+        for (ConnectionModel *conn : m_connections)
+        {
+            if (conn->startBlock() == current && !visited.contains(conn->endBlock()))
+            {
+                stack.append(conn->endBlock());
+            }
+        }
+    }
+    
     return false;
 }

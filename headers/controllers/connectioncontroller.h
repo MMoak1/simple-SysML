@@ -7,6 +7,7 @@
 
 class QGraphicsScene;
 class BlockView;
+class BlockModel;
 class ConnectionModel;
 class ConnectionView;
 
@@ -22,6 +23,8 @@ public:
     void unregisterBlockView(BlockView *view);
 
     void addConnection(ConnectionModel *connection);
+    void deleteConnection(ConnectionModel *connection);
+    void deleteConnectionsForBlock(BlockModel *block);
     void clearAllConnections();
     
     QList<ConnectionModel*> connections() const { return m_connections; }
@@ -42,6 +45,8 @@ private:
     QHash<ConnectionModel *, ConnectionView *> m_connectionViews;
 
     bool connectionExists(BlockView *start, BlockView *end);
+    bool wouldCreateCycle(BlockModel *fromBlock, BlockModel *toBlock);
+    bool canReach(BlockModel *fromBlock, BlockModel *targetBlock);
 };
 
 #endif // CONNECTIONCONTROLLER_H

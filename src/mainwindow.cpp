@@ -14,6 +14,10 @@
 #include <QDebug>
 #include "views/startmenu.h"
 #include "models/statemachinemodel.h"
+#include "../headers/models/statemodel.h"
+#include "../headers/views/stateview.h"
+#include "../headers/views/connectionview.h"
+#include "../headers/views/transitionview.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -107,6 +111,8 @@ void MainWindow::setupToolInterface()
     // Connect hierarchy controller to drop controller
     connect(dropController, &DropController::blockCreated,
             hierarchyController, &HierarchyController::onBlockCreated);
+    connect(dropController, &DropController::blockDeleted,
+            hierarchyController, &HierarchyController::onBlockDeleted);
 
     // Connect hierarchy controller to connection controller
     connect(connectionController, &ConnectionController::connectionCreated,
@@ -178,6 +184,10 @@ void MainWindow::setupToolInterface()
     m_saveAction->setShortcut(QKeySequence::Save);
     connect(m_saveAction, &QAction::triggered, this, &MainWindow::saveFile);
     m_fileMenu->addAction(m_saveAction);
+
+    // Setup delete shortcut
+    QShortcut *deleteShortcut = new QShortcut(QKeySequence(Qt::Key_Delete), this);
+    connect(deleteShortcut, &QShortcut::activated, this, &MainWindow::deleteSelectedItems);
 
     // Set the main widget as the central widget
     setCentralWidget(mainWidget);
@@ -370,6 +380,69 @@ void MainWindow::onDropPerformed(const QString &itemType, const QPointF &positio
         // In BDD view - create blocks
         qDebug() << "MainWindow: Routing drop to DropController";
         dropController->handleDrop(itemType, position);
+    }
+}
+
+void MainWindow::deleteSelectedItems()
+{
+    // Get the current scene based on view type
+    QGraphicsScene *currentScene = nullptr;
+    if (m_diagramViewController->currentViewType() == DiagramContext::Type::StateMachine)
+    {
+        currentScene = m_stateMachineScene;
+    }
+    else
+    {
+        currentScene = scene;
+    }
+    
+    if (!currentScene)
+        return;
+    
+    QList<QGraphicsItem*> selected = currentScene->selectedItems();
+    if (selected.isEmpty())
+    {
+        qDebug() << "MainWindow: No items selected for deletion";
+        return;
+    }
+    
+    qDebug() << "MainWindow: Deleting" << selected.size() << "selected items";
+    
+    // Process each selected item
+    for (QGraphicsItem* item : selected)
+    {
+        // Check item type and route to appropriate controller
+        if (BlockView* blockView = dynamic_cast<BlockView*>(item))
+        {
+            BlockModel* block = blockView->model();
+            qDebug() << "MainWindow: Deleting block:" << block->label();
+            
+            // If this block has a state machine and it's currently being shown,
+            // clear the state machine controller reference first
+            if (block->hasStateMachine() && 
+                m_stateMachineController->currentStateMachine() == block->stateMachine())
+            {
+                qDebug() << "MainWindow: Clearing state machine controller before deletion";
+                m_stateMachineController->setStateMachine(nullptr);
+            }
+            
+            dropController->deleteBlock(block);
+        }
+        else if (StateView* stateView = dynamic_cast<StateView*>(item))
+        {
+            qDebug() << "MainWindow: Deleting state:" << stateView->model()->label();
+            m_stateMachineController->deleteState(stateView->model());
+        }
+        else if (ConnectionView* connView = dynamic_cast<ConnectionView*>(item))
+        {
+            qDebug() << "MainWindow: Deleting connection";
+            connectionController->deleteConnection(connView->model());
+        }
+        else if (TransitionView* transView = dynamic_cast<TransitionView*>(item))
+        {
+            qDebug() << "MainWindow: Deleting transition";
+            m_stateMachineController->deleteTransition(transView->model());
+        }
     }
 }
 

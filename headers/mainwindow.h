@@ -7,6 +7,7 @@
 #include <QGraphicsView>
 #include <QToolButton>
 #include <QLabel>
+#include <QShortcut>
 
 #include "views/blockmenuview.h"
 #include "views/dropgraphicsview.h"
@@ -36,6 +37,7 @@ private slots:
     void onNavigateBack();
     void onViewChanged();
     void onDropPerformed(const QString &itemType, const QPointF &position);
+    void deleteSelectedItems();
 
 private:
     void setupToolInterface();
