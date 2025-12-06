@@ -34,7 +34,8 @@ void ConnectionModel::setStartBlock(BlockModel *block)
         // Disconnect previous block
         if (m_startBlock)
         {
-            disconnect(m_startBlock, &BlockModel::positionChanged, this, &ConnectionModel::connectionChanged);
+            disconnect(m_startBlock, &BlockModel::positionChanged, this, &ConnectionModel::updateEdgePoints);
+            disconnect(m_startBlock, &BlockModel::sizeChanged, this, &ConnectionModel::updateEdgePoints);
         }
 
         m_startBlock = block;
@@ -59,7 +60,8 @@ void ConnectionModel::setEndBlock(BlockModel *block)
         // Disconnect previous block
         if (m_endBlock)
         {
-            disconnect(m_endBlock, &BlockModel::positionChanged, this, &ConnectionModel::connectionChanged);
+            disconnect(m_endBlock, &BlockModel::positionChanged, this, &ConnectionModel::updateEdgePoints);
+            disconnect(m_endBlock, &BlockModel::sizeChanged, this, &ConnectionModel::updateEdgePoints);
         }
 
         m_endBlock = block;

@@ -314,6 +314,21 @@ void BlockView::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     QGraphicsObject::mouseReleaseEvent(event);
 }
 
+QVariant BlockView::itemChange(GraphicsItemChange change, const QVariant &value)
+{
+    if (change == ItemPositionHasChanged && m_model)
+    {
+        // Sync model position whenever the view position changes
+        // This handles the case where multiple items are selected and moved together
+        QPointF newPos = value.toPointF();
+        if (m_model->position() != newPos)
+        {
+            m_model->setPosition(newPos);
+        }
+    }
+    return QGraphicsObject::itemChange(change, value);
+}
+
 void BlockView::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton)

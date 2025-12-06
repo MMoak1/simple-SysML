@@ -122,7 +122,8 @@ void HierarchyController::buildHierarchyMaps()
 
     for (ConnectionModel *conn : m_connections)
     {
-        if (!conn->isValid())
+        // Safety check - connection may have been deleted
+        if (!conn || !conn->isValid())
             continue;
 
         QString startId = conn->startBlockId();
@@ -145,6 +146,10 @@ QList<BlockModel *> HierarchyController::getRootBlocks()
 
     for (BlockModel *block : m_blocks.values())
     {
+        // Safety check - block may have been deleted during batch operations
+        if (!block)
+            continue;
+            
         if (!hasIncomingConnections(block))
         {
             roots.append(block);

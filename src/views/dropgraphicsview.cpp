@@ -3,6 +3,8 @@
 #include <QDragMoveEvent>
 #include <QDropEvent>
 #include <QMimeData>
+#include <QMouseEvent>
+#include <QGraphicsItem>
 
 DropGraphicsView::DropGraphicsView(QGraphicsScene *scene, QWidget *parent)
     : QGraphicsView(scene, parent), m_scene(scene)
@@ -42,6 +44,39 @@ void DropGraphicsView::dropEvent(QDropEvent *event)
 
     emit dropPerformed(text, scenePos);
     event->acceptProposedAction();
+}
+
+void DropGraphicsView::mousePressEvent(QMouseEvent *event)
+{
+    // Solution A: Toggle drag mode based on what we're clicking on
+    QGraphicsItem *item = itemAt(event->pos());
+    
+    if (item && item->isSelected())
+    {
+        // Clicking on an already-selected item - disable rubber band for dragging
+        setDragMode(QGraphicsView::NoDrag);
+    }
+    else if (item && (item->flags() & QGraphicsItem::ItemIsSelectable))
+    {
+        // Clicking on a selectable but unselected item - also disable rubber band
+        // (user is clicking to select this item, not starting a rubber band)
+        setDragMode(QGraphicsView::NoDrag);
+    }
+    else
+    {
+        // Clicking on empty space - enable rubber band selection
+        setDragMode(QGraphicsView::RubberBandDrag);
+    }
+    
+    QGraphicsView::mousePressEvent(event);
+}
+
+void DropGraphicsView::mouseReleaseEvent(QMouseEvent *event)
+{
+    QGraphicsView::mouseReleaseEvent(event);
+    
+    // Always restore rubber band mode after mouse release
+    setDragMode(QGraphicsView::RubberBandDrag);
 }
 
 DropGraphicsView::~DropGraphicsView()

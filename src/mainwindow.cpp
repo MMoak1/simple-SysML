@@ -12,6 +12,7 @@
 #include <QHBoxLayout>
 #include <QToolBar>
 #include <QDebug>
+#include <QPointer>
 #include "views/startmenu.h"
 #include "models/statemachinemodel.h"
 #include "../headers/models/statemodel.h"
@@ -408,17 +409,64 @@ void MainWindow::deleteSelectedItems()
     
     qDebug() << "MainWindow: Deleting" << selected.size() << "selected items";
     
-    // Process each selected item
+    // Solution D: Use QPointer for safe deletion tracking
+    // QPointer automatically becomes null when the QObject is deleted,
+    // preventing crashes from cascade deletes
+    QList<QPointer<ConnectionView>> connectionsToDelete;
+    QList<QPointer<TransitionView>> transitionsToDelete;
+    QList<QPointer<BlockView>> blocksToDelete;
+    QList<QPointer<StateView>> statesToDelete;
+    
+    // Separate items by type
     for (QGraphicsItem* item : selected)
     {
-        // Check item type and route to appropriate controller
         if (BlockView* blockView = dynamic_cast<BlockView*>(item))
+        {
+            blocksToDelete.append(QPointer<BlockView>(blockView));
+        }
+        else if (StateView* stateView = dynamic_cast<StateView*>(item))
+        {
+            statesToDelete.append(QPointer<StateView>(stateView));
+        }
+        else if (ConnectionView* connView = dynamic_cast<ConnectionView*>(item))
+        {
+            connectionsToDelete.append(QPointer<ConnectionView>(connView));
+        }
+        else if (TransitionView* transView = dynamic_cast<TransitionView*>(item))
+        {
+            transitionsToDelete.append(QPointer<TransitionView>(transView));
+        }
+    }
+    
+    // Delete connections first (QPointer will become null if cascade-deleted by blocks)
+    for (const QPointer<ConnectionView>& connView : connectionsToDelete)
+    {
+        if (connView && connView->model())
+        {
+            qDebug() << "MainWindow: Deleting connection";
+            connectionController->deleteConnection(connView->model());
+        }
+    }
+    
+    // Delete transitions
+    for (const QPointer<TransitionView>& transView : transitionsToDelete)
+    {
+        if (transView && transView->model())
+        {
+            qDebug() << "MainWindow: Deleting transition";
+            m_stateMachineController->deleteTransition(transView->model());
+        }
+    }
+    
+    // Delete blocks (may cascade-delete remaining connections - QPointers handle this safely)
+    for (const QPointer<BlockView>& blockView : blocksToDelete)
+    {
+        if (blockView && blockView->model())
         {
             BlockModel* block = blockView->model();
             qDebug() << "MainWindow: Deleting block:" << block->label();
             
-            // If this block has a state machine and it's currently being shown,
-            // clear the state machine controller reference first
+            // Clear state machine controller if needed
             if (block->hasStateMachine() && 
                 m_stateMachineController->currentStateMachine() == block->stateMachine())
             {
@@ -428,20 +476,15 @@ void MainWindow::deleteSelectedItems()
             
             dropController->deleteBlock(block);
         }
-        else if (StateView* stateView = dynamic_cast<StateView*>(item))
+    }
+    
+    // Delete states
+    for (const QPointer<StateView>& stateView : statesToDelete)
+    {
+        if (stateView && stateView->model())
         {
             qDebug() << "MainWindow: Deleting state:" << stateView->model()->label();
             m_stateMachineController->deleteState(stateView->model());
-        }
-        else if (ConnectionView* connView = dynamic_cast<ConnectionView*>(item))
-        {
-            qDebug() << "MainWindow: Deleting connection";
-            connectionController->deleteConnection(connView->model());
-        }
-        else if (TransitionView* transView = dynamic_cast<TransitionView*>(item))
-        {
-            qDebug() << "MainWindow: Deleting transition";
-            m_stateMachineController->deleteTransition(transView->model());
         }
     }
 }

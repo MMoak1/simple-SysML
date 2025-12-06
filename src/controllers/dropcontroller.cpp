@@ -48,10 +48,11 @@ void DropController::deleteBlock(BlockModel *block)
     if (!block)
         return;
 
-    // Get the associated view
+    // Step 1: Remove from our tracking FIRST (before any signals or deletions)
+    m_blocks.removeOne(block);
     BlockView *view = m_blockViews.take(block);
     
-    // Delete all connections involving this block first (cascading delete)
+    // Step 2: Delete all connections involving this block (cascading delete)
     if (m_connectionController)
     {
         m_connectionController->deleteConnectionsForBlock(block);
@@ -63,20 +64,18 @@ void DropController::deleteBlock(BlockModel *block)
         }
     }
     
-    // Remove from scene
+    // Step 3: Remove view from scene and delete it
     if (view)
     {
         m_scene->removeItem(view);
         delete view;
+        view = nullptr;
     }
     
-    // Remove from blocks list
-    m_blocks.removeOne(block);
-    
-    // Emit signal for hierarchy controller
+    // Step 4: Emit signal for hierarchy controller (block is still valid here)
     emit blockDeleted(block);
     
-    // Delete the model
+    // Step 5: Finally delete the model (LAST)
     delete block;
 }
 
