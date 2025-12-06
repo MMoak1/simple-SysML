@@ -1,4 +1,6 @@
 #include "../../headers/views/hierarchytreeview.h"
+#include "../../headers/models/blockdefinition.h"
+#include "../../headers/models/partproperty.h"
 #include <QPixmap>
 #include <QPainter>
 #include <QHeaderView>
@@ -13,7 +15,7 @@ void HierarchyTreeView::setupTreeWidget()
 {
     // Column configuration
     setColumnCount(1);
-    setHeaderLabel("Block Hierarchy");
+    setHeaderLabel("System Hierarchy");
 
     // Visual styling
     setAlternatingRowColors(true);
@@ -34,156 +36,123 @@ void HierarchyTreeView::setupTreeWidget()
     connect(this, &QTreeWidget::itemDoubleClicked, this, &HierarchyTreeView::onItemDoubleClicked);
 }
 
-void HierarchyTreeView::addBlock(BlockModel *block)
+void HierarchyTreeView::addDefinition(BlockDefinition *definition)
 {
-    if (!block || m_blockItems.contains(block->id()))
+    if (!definition || m_definitionItems.contains(definition->id()))
     {
         return;
     }
 
     // Create tree item
     QTreeWidgetItem *item = new QTreeWidgetItem();
-    item->setText(0, block->label());
-    item->setIcon(0, createColorIcon(block->color()));
+    item->setText(0, definition->typeName());
+    item->setIcon(0, createColorIcon(definition->color()));
+    // Store pointer for easy retrieval (variant cast)
+    item->setData(0, Qt::UserRole, QVariant::fromValue(static_cast<void*>(definition)));
+
+    // Add to root level
+    addTopLevelItem(item);
 
     // Store mappings
-    m_blockItems[block->id()] = item;
-    m_itemToBlock[item] = block;
+    m_definitionItems[definition->id()] = item;
+    m_itemToDefinition[item] = definition;
 
     // Connect to model updates
-    connect(block, &BlockModel::labelChanged, this, &HierarchyTreeView::onBlockLabelChanged);
-    connect(block, &BlockModel::colorChanged, this, &HierarchyTreeView::onBlockColorChanged);
+    connect(definition, &BlockDefinition::typeNameChanged, this, &HierarchyTreeView::onDefinitionTypeNameChanged);
+    // connect(definition, &BlockDefinition::colorChanged, this, &HierarchyTreeView::onColorChanged); // Assuming colorChanged exists now or will exist
 }
 
-void HierarchyTreeView::removeBlock(BlockModel *block)
+void HierarchyTreeView::removeDefinition(BlockDefinition *definition)
 {
-    if (!block)
+    if (!definition)
         return;
 
-    QTreeWidgetItem *item = m_blockItems.value(block->id());
+    QTreeWidgetItem *item = m_definitionItems.value(definition->id());
     if (item)
     {
         // Disconnect signals
-        disconnect(block, &BlockModel::labelChanged, this, &HierarchyTreeView::onBlockLabelChanged);
-        disconnect(block, &BlockModel::colorChanged, this, &HierarchyTreeView::onBlockColorChanged);
+        disconnect(definition, &BlockDefinition::typeNameChanged, this, &HierarchyTreeView::onDefinitionTypeNameChanged);
+        // disconnect definition colorChanged
 
-        // Remove from parent or root
-        QTreeWidgetItem *parent = item->parent();
-        if (parent)
+        // Remove from tree
+        int index = indexOfTopLevelItem(item);
+        if (index >= 0)
         {
-            parent->removeChild(item);
-        }
-        else
-        {
-            int index = indexOfTopLevelItem(item);
-            if (index >= 0)
-            {
-                takeTopLevelItem(index);
-            }
+            takeTopLevelItem(index);
         }
 
         // Clean up mappings
-        m_blockItems.remove(block->id());
-        m_itemToBlock.remove(item);
+        m_definitionItems.remove(definition->id());
+        m_itemToDefinition.remove(item);
 
         delete item;
     }
 }
 
-QTreeWidgetItem *HierarchyTreeView::findBlockItem(BlockModel *block)
+QTreeWidgetItem *HierarchyTreeView::findDefinitionItem(BlockDefinition *definition)
 {
-    if (!block)
+    if (!definition)
         return nullptr;
 
-    return m_blockItems.value(block->id(), nullptr);
+    return m_definitionItems.value(definition->id(), nullptr);
+}
+
+void HierarchyTreeView::updatePart(PartProperty *part)
+{
+    if (!part || !part->owner())
+        return;
+
+    // Find custom item for owner
+    QTreeWidgetItem *ownerItem = findDefinitionItem(part->owner());
+    if (!ownerItem)
+        return; // Owner not in tree (maybe filtered out?)
+
+    // Find existing item for this part
+    QTreeWidgetItem *partItem = nullptr;
+    for (int i = 0; i < ownerItem->childCount(); ++i)
+    {
+        QTreeWidgetItem *child = ownerItem->child(i);
+        // Check ID stored in item data
+        QString storedId = child->data(0, Qt::UserRole + 1).toString();
+        if (storedId == part->id())
+        {
+            partItem = child;
+            break;
+        }
+    }
+
+    // Format text: [mult] name : Type
+    QString text = part->displayText();
+
+    if (!partItem)
+    {
+        // Create new item
+        partItem = new QTreeWidgetItem(ownerItem);
+        partItem->setData(0, Qt::UserRole + 1, part->id()); // Store Part ID
+        // Maybe store pointer too?
+    }
+
+    partItem->setText(0, text);
+    // Icon? Maybe a small "part" icon or dot
+    // partItem->setIcon(0, ...);
+    
+    // Expand owner to show new part
+    ownerItem->setExpanded(true);
 }
 
 void HierarchyTreeView::clearHierarchy()
 {
-    // Remove all items from tree without deleting them
-    // We need to keep the QTreeWidgetItem objects alive for re-adding
-    while (topLevelItemCount() > 0)
-    {
-        QTreeWidgetItem *item = takeTopLevelItem(0);
-        // Don't delete the item, just remove it from the tree
-        // The item is still referenced in m_blockItems
-    }
-
-    // Reset item-to-block mapping but keep block-to-item mapping
-    m_itemToBlock.clear();
+    clear();
+    m_definitionItems.clear();
+    m_itemToDefinition.clear();
 }
 
-void HierarchyTreeView::setBlockAsRoot(BlockModel *block)
+void HierarchyTreeView::selectDefinition(BlockDefinition *definition)
 {
-    if (!block)
+    if (!definition)
         return;
 
-    QTreeWidgetItem *item = m_blockItems.value(block->id());
-    if (!item)
-        return;
-
-    // Remove from current parent if any
-    QTreeWidgetItem *parent = item->parent();
-    if (parent)
-    {
-        parent->removeChild(item);
-    }
-    else
-    {
-        // Already at root, just ensure it's not in the tree yet
-        int index = indexOfTopLevelItem(item);
-        if (index >= 0)
-        {
-            return; // Already at root
-        }
-    }
-
-    // Add to root level
-    addTopLevelItem(item);
-    m_itemToBlock[item] = block;
-}
-
-void HierarchyTreeView::setBlockAsChild(BlockModel *parent, BlockModel *child)
-{
-    if (!parent || !child)
-        return;
-
-    QTreeWidgetItem *parentItem = m_blockItems.value(parent->id());
-    QTreeWidgetItem *childItem = m_blockItems.value(child->id());
-
-    if (!parentItem || !childItem)
-        return;
-
-    // Remove child from current parent if any
-    QTreeWidgetItem *currentParent = childItem->parent();
-    if (currentParent)
-    {
-        currentParent->removeChild(childItem);
-    }
-    else
-    {
-        // Remove from root level
-        int index = indexOfTopLevelItem(childItem);
-        if (index >= 0)
-        {
-            takeTopLevelItem(index);
-        }
-    }
-
-    // Add as child of new parent
-    parentItem->addChild(childItem);
-    m_itemToBlock[childItem] = child;
-
-    // Expand parent to show the new child
-    parentItem->setExpanded(true);
-}
-
-void HierarchyTreeView::selectBlock(BlockModel *block)
-{
-    if (!block)
-        return;
-
-    QTreeWidgetItem *item = m_blockItems.value(block->id());
+    QTreeWidgetItem *item = m_definitionItems.value(definition->id());
     if (item)
     {
         setCurrentItem(item);
@@ -191,9 +160,9 @@ void HierarchyTreeView::selectBlock(BlockModel *block)
     }
 }
 
-void HierarchyTreeView::clearBlockSelection()
+void HierarchyTreeView::clearSelection()
 {
-    clearSelection();
+    QTreeWidget::clearSelection();
     setCurrentItem(nullptr);
 }
 
@@ -201,48 +170,46 @@ void HierarchyTreeView::onItemClicked(QTreeWidgetItem *item, int column)
 {
     Q_UNUSED(column);
 
-    BlockModel *block = m_itemToBlock.value(item);
-    if (block)
+    // Check if it's a definition
+    BlockDefinition *def = m_itemToDefinition.value(item);
+    if (def)
     {
-        emit blockItemClicked(block);
+        emit definitionItemClicked(def);
+        return;
     }
+    
+    // If it's a part, maybe select the part?
+    // For now we only have definition selection logic in main window diagram view.
 }
 
 void HierarchyTreeView::onItemDoubleClicked(QTreeWidgetItem *item, int column)
 {
     Q_UNUSED(column);
 
-    BlockModel *block = m_itemToBlock.value(item);
-    if (block)
+    BlockDefinition *def = m_itemToDefinition.value(item);
+    if (def)
     {
-        emit blockItemDoubleClicked(block);
+        emit definitionItemDoubleClicked(def);
     }
 }
 
-void HierarchyTreeView::onBlockLabelChanged(const QString &label)
+void HierarchyTreeView::onDefinitionTypeNameChanged(const QString &typeName)
 {
-    BlockModel *block = qobject_cast<BlockModel *>(sender());
-    if (!block)
+    BlockDefinition *def = qobject_cast<BlockDefinition *>(sender());
+    if (!def)
         return;
 
-    QTreeWidgetItem *item = m_blockItems.value(block->id());
+    QTreeWidgetItem *item = m_definitionItems.value(def->id());
     if (item)
     {
-        item->setText(0, label);
+        item->setText(0, typeName);
     }
 }
 
-void HierarchyTreeView::onBlockColorChanged(const QColor &color)
+void HierarchyTreeView::onColorChanged(const QColor &color)
 {
-    BlockModel *block = qobject_cast<BlockModel *>(sender());
-    if (!block)
-        return;
-
-    QTreeWidgetItem *item = m_blockItems.value(block->id());
-    if (item)
-    {
-        item->setIcon(0, createColorIcon(color));
-    }
+    // Implementation pending BlockDefinition signal
+    Q_UNUSED(color);
 }
 
 QIcon HierarchyTreeView::createColorIcon(const QColor &color)

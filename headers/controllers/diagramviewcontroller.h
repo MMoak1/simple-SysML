@@ -5,7 +5,7 @@
 #include <QStack>
 #include <QString>
 
-class BlockModel;
+class BlockDefinition;
 class QGraphicsScene;
 
 // Represents a diagram context in the navigation stack
@@ -18,7 +18,7 @@ struct DiagramContext
     
     Type type;
     QString title;
-    BlockModel *ownerBlock = nullptr;  // For state machines, the parent block
+    BlockDefinition *ownerDefinition = nullptr;  // For state machines, the parent block definition
 };
 
 class DiagramViewController : public QObject
@@ -29,7 +29,7 @@ public:
     explicit DiagramViewController(QObject *parent = nullptr);
     
     // Navigation methods
-    void enterStateMachine(BlockModel *block);
+    void enterStateMachine(BlockDefinition *definition);
     void goBack();
     
     // Query methods
@@ -39,12 +39,12 @@ public:
     DiagramContext::Type currentViewType() const;
     
     // Get the block whose state machine is currently shown (nullptr if at BDD level)
-    BlockModel *currentStateMachineOwner() const;
+    BlockDefinition *currentStateMachineOwner() const;
     
 signals:
     void viewChanged(const DiagramContext &context);
     void canGoBackChanged(bool canGoBack);
-    void enteringStateMachine(BlockModel *block);
+    void enteringStateMachine(BlockDefinition *definition);
     void returningToBDD();
 
 private:

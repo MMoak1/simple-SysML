@@ -4,7 +4,8 @@
 #include <QTreeWidget>
 #include <QMap>
 #include <QColor>
-#include "../models/blockmodel.h"
+class BlockDefinition;
+class PartProperty;
 
 class HierarchyTreeView : public QTreeWidget
 {
@@ -13,33 +14,40 @@ class HierarchyTreeView : public QTreeWidget
 public:
     explicit HierarchyTreeView(QWidget *parent = nullptr);
 
-    // Block management
-    void addBlock(BlockModel *block);
-    void removeBlock(BlockModel *block);
-    QTreeWidgetItem *findBlockItem(BlockModel *block);
-
+    // Definition management
+    void addDefinition(BlockDefinition *definition);
+    void removeDefinition(BlockDefinition *definition);
+    QTreeWidgetItem *findDefinitionItem(BlockDefinition *definition);
+    
+    // Part management
+    void updatePart(PartProperty *part); // Add or update part under its owner definition
+    // Note: Parts are usually children of Definitions. 
+    // If we want recursive (parts of parts' types), we need more complex logic.
+    // For now, let's assume root items are Definitions, and children are Parts.
+    
     // Hierarchy management
     void clearHierarchy();
-    void setBlockAsRoot(BlockModel *block);
-    void setBlockAsChild(BlockModel *parent, BlockModel *child);
 
     // Selection and highlighting
-    void selectBlock(BlockModel *block);
-    void clearBlockSelection();
+    void selectDefinition(BlockDefinition *definition);
+    void clearSelection();
 
 signals:
-    void blockItemClicked(BlockModel *block);
-    void blockItemDoubleClicked(BlockModel *block);
+    void definitionItemClicked(BlockDefinition *definition);
+    void definitionItemDoubleClicked(BlockDefinition *definition);
+    // Maybe signal for part clicked?
 
 private slots:
     void onItemClicked(QTreeWidgetItem *item, int column);
     void onItemDoubleClicked(QTreeWidgetItem *item, int column);
-    void onBlockLabelChanged(const QString &label);
-    void onBlockColorChanged(const QColor &color);
+    void onDefinitionTypeNameChanged(const QString &typeName);
+    void onColorChanged(const QColor &color); // If we assume definition has color
 
 private:
-    QMap<QString, QTreeWidgetItem *> m_blockItems;       // blockId -> tree item
-    QMap<QTreeWidgetItem *, BlockModel *> m_itemToBlock; // tree item -> block
+    QMap<QString, QTreeWidgetItem *> m_definitionItems;       // definitionId -> tree item
+    QMap<QTreeWidgetItem *, BlockDefinition *> m_itemToDefinition; // tree item -> definition
+    // For parts, we might need a map if we want to update them individually
+    // QMap<PartProperty*, QTreeWidgetItem*> m_partItems;
 
     void setupTreeWidget();
     QIcon createColorIcon(const QColor &color);

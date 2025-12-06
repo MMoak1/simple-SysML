@@ -1,29 +1,73 @@
 #include "../../headers/views/connectionview.h"
+#include "../../headers/models/connectionmodel.h" // Explicitly include full definition
+#include "../../headers/models/partproperty.h"
+#include "../../headers/models/blockdefinition.h" // For PartProperty owner/type access
 #include <QPainter>
 #include <QPen>
 #include <QBrush>
 #include <QPainterPath>
 #include <QPainterPathStroker>
 #include <QtMath>
+#include <QInputDialog>
+#include <QLineEdit>
+#include <QGraphicsSceneMouseEvent>
+#include <QFontMetrics>
+#include <QMessageBox> // For error dialogs
 
 ConnectionView::ConnectionView(ConnectionModel *model, QGraphicsItem *parent)
-    : QGraphicsObject(parent), m_model(model), m_color(Qt::black)
+    : QGraphicsObject(parent), m_model(model), m_partProperty(nullptr), m_color(Qt::black)
 {
     // Make connection selectable
     setFlags(ItemIsSelectable);
     
-    connect(model, &ConnectionModel::connectionChanged, this, &ConnectionView::updateConnection);
+    if (m_model) {
+        connect(m_model, &ConnectionModel::connectionChanged, this, &ConnectionView::updateConnection);
+    }
+}
+
+ConnectionView::ConnectionView(PartProperty *partProperty, QGraphicsItem *parent)
+    : QGraphicsObject(parent), m_model(nullptr), m_partProperty(partProperty), m_color(Qt::black)
+{
+    setFlags(ItemIsSelectable);
+    
+    if (m_partProperty) {
+        connect(m_partProperty, &PartProperty::multiplicityChanged, this, &ConnectionView::updateConnection);
+        connect(m_partProperty, &PartProperty::nameChanged, this, &ConnectionView::updateConnection);
+        connect(m_partProperty, &PartProperty::typeChanged, this, &ConnectionView::updateConnection);
+        
+        // Also need to update when owner or type moves/resizes
+        if (m_partProperty->owner()) {
+            connect(m_partProperty->owner(), &BlockDefinition::positionChanged, this, &ConnectionView::updateConnection);
+            connect(m_partProperty->owner(), &BlockDefinition::sizeChanged, this, &ConnectionView::updateConnection);
+        }
+        
+        // Connect to type signals if type exists
+        if (m_partProperty->type()) {
+            connect(m_partProperty->type(), &BlockDefinition::positionChanged, this, &ConnectionView::updateConnection);
+            connect(m_partProperty->type(), &BlockDefinition::sizeChanged, this, &ConnectionView::updateConnection);
+        }
+        
+        // Handle dynamic type changes
+        connect(m_partProperty, &PartProperty::typeChanged, [this](BlockDefinition *newType) {
+            if (newType) {
+                // Connect to new type signals
+                connect(newType, &BlockDefinition::positionChanged, this, &ConnectionView::updateConnection);
+                connect(newType, &BlockDefinition::sizeChanged, this, &ConnectionView::updateConnection);
+            }
+            updateConnection();
+        });
+    }
 }
 
 QRectF ConnectionView::boundingRect() const
 {
-    if (!m_model || !m_model->isValid())
-    {
-        return QRectF();
-    }
+    // Basic validation
+    if (m_model && !m_model->isValid()) return QRectF();
+    if (m_partProperty && (!m_partProperty->owner() || !m_partProperty->type())) return QRectF();
+    if (!m_model && !m_partProperty) return QRectF();
 
-    QPointF start = m_model->startEdgePoint();
-    QPointF end = m_model->endEdgePoint();
+    QPointF start = getStartPosition();
+    QPointF end = getEndPosition();
 
     // Calculate bounding rect for orthogonal path with padding for arrow
     qreal padding = 15.0;
@@ -39,14 +83,13 @@ QRectF ConnectionView::boundingRect() const
 
 QPainterPath ConnectionView::shape() const
 {
-    // Create a wider hit area for easier clicking on thin lines
-    if (!m_model || !m_model->isValid())
-    {
-        return QPainterPath();
-    }
+    // Basic validation
+    if (m_model && !m_model->isValid()) return QPainterPath();
+    if (m_partProperty && (!m_partProperty->owner() || !m_partProperty->type())) return QPainterPath();
+    if (!m_model && !m_partProperty) return QPainterPath();
 
-    QPointF start = m_model->startEdgePoint();
-    QPointF end = m_model->endEdgePoint();
+    QPointF start = getStartPosition();
+    QPointF end = getEndPosition();
     
     QPainterPath linePath = calculateOrthogonalPath(start, end);
     
@@ -62,13 +105,13 @@ void ConnectionView::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
     Q_UNUSED(option);
     Q_UNUSED(widget);
 
-    if (!m_model || !m_model->isValid())
-    {
-        return;
-    }
+    // Basic validation
+    if (m_model && !m_model->isValid()) return;
+    if (m_partProperty && (!m_partProperty->owner() || !m_partProperty->type())) return;
+    if (!m_model && !m_partProperty) return;
 
-    QPointF start = m_model->startEdgePoint();
-    QPointF end = m_model->endEdgePoint();
+    QPointF start = getStartPosition();
+    QPointF end = getEndPosition();
 
     // Calculate orthogonal path
     QPainterPath path = calculateOrthogonalPath(start, end);
@@ -77,7 +120,7 @@ void ConnectionView::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
     painter->save();
     
     // Change color and thickness when selected
-    QColor lineColor = m_color;
+    QColor lineColor = getConnectionColor();
     qreal lineWidth = 2.0;
     
     if (isSelected())
@@ -99,6 +142,9 @@ void ConnectionView::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
     }
     drawArrowHead(painter, path, end);
     m_color = savedColor;
+    
+    // Draw label if present
+    drawLabel(painter, path);
 
     painter->restore();
 }
@@ -174,4 +220,236 @@ qreal ConnectionView::calculateLastSegmentAngle(const QPainterPath &path) const
     qreal dy = lastPoint.y() - secondLastPoint.y();
 
     return atan2(dy, dx);
+}
+
+void ConnectionView::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
+{
+    Q_UNUSED(event);
+    showLabelInputDialog();
+}
+
+void ConnectionView::showLabelInputDialog()
+{
+    QString currentLabel;
+    QString currentMult;
+    
+    if (m_model) {
+        currentLabel = m_model->label();
+        currentMult = m_model->multiplicity();
+    } else if (m_partProperty) {
+        currentLabel = m_partProperty->name();
+        currentMult = m_partProperty->multiplicity();
+    } else {
+        return;
+    }
+    
+    bool ok;
+    
+    // First dialog: Label (free text)
+    // Note: For PartProperty, "label" is "name".
+    QString promptTtile = m_partProperty ? "Edit Part Name" : "Edit Connection Label";
+    QString promptMsg = m_partProperty ? "Enter part name (unique in block):" : "Enter label:";
+    
+    QString newLabel = QInputDialog::getText(
+        nullptr,
+        promptTtile,
+        promptMsg,
+        QLineEdit::Normal,
+        currentLabel,
+        &ok);
+    
+    if (!ok)
+        return;
+
+    // Validation for PartProperty name uniqueness
+    if (m_partProperty && newLabel != currentLabel) {
+        if (m_partProperty->owner() && !m_partProperty->owner()->validatePartName(newLabel, m_partProperty)) {
+             QMessageBox::warning(nullptr, "Invalid Name",
+                QString("A part named '%1' already exists in %2.")
+                    .arg(newLabel, m_partProperty->owner()->typeName()));
+             return;
+        }
+    }
+    
+    // Second dialog: Multiplicity (dropdown with predefined options)
+    QStringList multiplicityOptions;
+    multiplicityOptions << "" << "1" << "0..1" << "*" << "1..*" << "0..*" << "2" << "3" << "4";
+    
+    int currentIndex = multiplicityOptions.indexOf(currentMult);
+    if (currentIndex < 0) currentIndex = 0;  // Default to empty if not found
+    
+    QString newMult = QInputDialog::getItem(
+        nullptr,
+        "Edit Multiplicity",
+        "Select multiplicity:",
+        multiplicityOptions,
+        currentIndex,
+        false,  // Not editable (constrained to list)
+        &ok);
+    
+    if (!ok)
+        return;
+    
+    // Apply changes
+    if (m_model) {
+        m_model->setLabel(newLabel);
+        m_model->setMultiplicity(newMult);
+    } else if (m_partProperty) {
+        m_partProperty->setName(newLabel);
+        m_partProperty->setMultiplicity(newMult);
+    }
+}
+
+QString ConnectionView::formatLabel() const
+{
+    QString label;
+    QString mult;
+    
+    if (m_model) {
+        label = m_model->label();
+        mult = m_model->multiplicity();
+    } else if (m_partProperty) {
+        label = m_partProperty->name();
+        mult = m_partProperty->multiplicity();
+    } else {
+        return QString();
+    }
+    
+    if (label.isEmpty() && mult.isEmpty())
+        return QString();
+    
+    // Format: [multiplicity] label  (PartProperty style: [4] wheels : Wheel)
+    // For now we just show [mult] name
+    // Optionally we could add type name like the tree view does.
+    // The user said: "Should we also update the connection label display on the canvas to match? Yes"
+    // So we should show: [mult] name : TypeName
+    
+    QString result;
+    if (!mult.isEmpty())
+    {
+        result = "[" + mult + "]";
+    }
+    if (!label.isEmpty())
+    {
+        if (!result.isEmpty())
+            result += " ";
+        result += label;
+    }
+    
+    if (m_partProperty && m_partProperty->type()) {
+        result += " : " + m_partProperty->type()->typeName();
+    }
+    
+    return result;
+}
+
+void ConnectionView::drawLabel(QPainter *painter, const QPainterPath &path) const
+{
+    QString labelText = formatLabel();
+    if (labelText.isEmpty())
+        return;
+    
+    // Find the midpoint of the path for label placement
+    qreal pathLength = path.length();
+    if (pathLength < 1.0)
+        return;
+    
+    qreal midPercent = 0.5;
+    QPointF midPoint = path.pointAtPercent(midPercent);
+    
+    // Draw label with background
+    QFont font = painter->font();
+    font.setPointSize(9);
+    painter->setFont(font);
+    
+    QFontMetrics fm(font);
+    QRectF textRect = fm.boundingRect(labelText);
+    textRect.moveCenter(midPoint);
+    textRect.adjust(-4, -2, 4, 2);  // Padding
+    
+    // Draw background rectangle
+    painter->setBrush(QColor(255, 255, 255, 220));  // Semi-transparent white
+    painter->setPen(Qt::NoPen);
+    painter->drawRoundedRect(textRect, 3, 3);
+    
+    // Draw text
+    painter->setPen(Qt::black);
+    painter->drawText(textRect, Qt::AlignCenter, labelText);
+}
+
+// Geometry Helpers
+QPointF ConnectionView::getStartPosition() const {
+    if (m_model) return m_model->startEdgePoint();
+    if (m_partProperty && m_partProperty->owner() && m_partProperty->type()) {
+        // Calculate edge point on owner towards type
+        return m_partProperty->owner()->position(); // Approximation - see below
+        
+        // Better: Reuse edge calculation logic.
+        // Copying calculateEdgePoint logic here (since it was in TransitionModel/ConnectionModel)
+        QPointF center = m_partProperty->owner()->position();
+        QSizeF size = m_partProperty->owner()->size();
+        QPointF targetCenter = m_partProperty->type()->position();
+        
+        qreal dx = targetCenter.x() - center.x();
+        qreal dy = targetCenter.y() - center.y();
+
+        if (qAbs(dx) < 0.001 && qAbs(dy) < 0.001) return center;
+
+        qreal halfWidth = size.width() / 2.0;
+        qreal halfHeight = size.height() / 2.0;
+
+        if (qAbs(dx) > qAbs(dy)) {
+            if (dx > 0) return QPointF(center.x() + halfWidth, center.y() + dy * halfWidth / dx);
+            return QPointF(center.x() - halfWidth, center.y() - dy * halfWidth / dx);
+        } else {
+            if (dy > 0) return QPointF(center.x() + dx * halfHeight / dy, center.y() + halfHeight);
+            return QPointF(center.x() - dx * halfHeight / dy, center.y() - halfHeight);
+        }
+    }
+    return QPointF();
+}
+
+QPointF ConnectionView::getEndPosition() const {
+    if (m_model) return m_model->endEdgePoint();
+    if (m_partProperty && m_partProperty->owner() && m_partProperty->type()) {
+        // Calculate edge point on type towards owner
+        QPointF center = m_partProperty->type()->position();
+        QSizeF size = m_partProperty->type()->size();
+        QPointF targetCenter = m_partProperty->owner()->position();
+        
+        qreal dx = targetCenter.x() - center.x();
+        qreal dy = targetCenter.y() - center.y();
+
+        if (qAbs(dx) < 0.001 && qAbs(dy) < 0.001) return center;
+
+        qreal halfWidth = size.width() / 2.0;
+        qreal halfHeight = size.height() / 2.0;
+
+        if (qAbs(dx) > qAbs(dy)) {
+            if (dx > 0) return QPointF(center.x() + halfWidth, center.y() + dy * halfWidth / dx);
+            return QPointF(center.x() - halfWidth, center.y() - dy * halfWidth / dx);
+        } else {
+            if (dy > 0) return QPointF(center.x() + dx * halfHeight / dy, center.y() + halfHeight);
+            return QPointF(center.x() - dx * halfHeight / dy, center.y() - halfHeight);
+        }
+    }
+    return QPointF();
+}
+
+QSizeF ConnectionView::getStartSize() const {
+    if (m_model) return QSizeF(100, 80); // Fallback? ConnectionModel doesn't expose size easily
+    if (m_partProperty && m_partProperty->owner()) return m_partProperty->owner()->size();
+    return QSizeF(100, 80);
+}
+
+QSizeF ConnectionView::getEndSize() const {
+    if (m_model) return QSizeF(100, 80);
+    if (m_partProperty && m_partProperty->type()) return m_partProperty->type()->size();
+    return QSizeF(100, 80);
+}
+
+QColor ConnectionView::getConnectionColor() const {
+    if (m_model) return m_color;
+    if (m_partProperty) return Qt::black; // PartProperty doesn't implement color yet?
+    return Qt::black;
 }

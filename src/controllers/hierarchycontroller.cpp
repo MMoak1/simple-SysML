@@ -1,9 +1,9 @@
 #include "../../headers/controllers/hierarchycontroller.h"
 #include "../../headers/views/hierarchytreeview.h"
-#include "../../headers/views/blockview.h"
+#include "../../headers/views/blockdefinitionview.h"
 #include "../../headers/views/dropgraphicsview.h"
-#include "../../headers/models/blockmodel.h"
-#include "../../headers/models/connectionmodel.h"
+#include "../../headers/models/blockdefinition.h"
+#include "../../headers/models/partproperty.h"
 #include <QGraphicsScene>
 #include <QDebug>
 
@@ -18,78 +18,84 @@ HierarchyController::HierarchyController(
       m_graphicsView(graphicsView)
 {
     // Connect tree view signals
-    connect(m_treeView, &HierarchyTreeView::blockItemClicked,
+    connect(m_treeView, &HierarchyTreeView::definitionItemClicked,
             this, &HierarchyController::onTreeItemClicked);
-    connect(m_treeView, &HierarchyTreeView::blockItemDoubleClicked,
+    connect(m_treeView, &HierarchyTreeView::definitionItemDoubleClicked,
             this, &HierarchyController::onTreeItemDoubleClicked);
 }
 
-void HierarchyController::registerBlock(BlockModel *block, BlockView *view)
+void HierarchyController::registerBlock(BlockDefinition *definition, BlockDefinitionView *view)
 {
-    if (!block || !view)
+    if (!definition || !view)
         return;
 
-    QString blockId = block->id();
+    QString id = definition->id();
 
-    // Store block and view
-    m_blocks[blockId] = block;
-    m_blockViews[blockId] = view;
+    // Store definition and view
+    m_definitions[id] = definition;
+    m_definitionViews[id] = view;
 
     // Add to tree view
-    m_treeView->addBlock(block);
+    m_treeView->addDefinition(definition);
 
-    // Initially add as root (will be reorganized when connections are made)
-    m_treeView->setBlockAsRoot(block);
+    // Also verify if there are existing parts to show?
+    // When a block is dropped, it has no parts initially.
+    // But if loaded from file, it might.
+    for (PartProperty *part : definition->partProperties())
+    {
+        m_treeView->updatePart(part);
+        
+        // Also track parts as connections if not already?
+        if (!m_connections.contains(part)) {
+             m_connections.append(part);
+        }
+    }
 
-    qDebug() << "Registered block:" << block->label() << "with ID:" << blockId;
+    qDebug() << "Registered block definition:" << definition->typeName() << "with ID:" << id;
 }
 
-void HierarchyController::unregisterBlock(BlockModel *block)
+void HierarchyController::unregisterBlock(BlockDefinition *definition)
 {
-    if (!block)
+    if (!definition)
         return;
 
-    QString blockId = block->id();
+    QString id = definition->id();
 
     // Remove from tree view
-    m_treeView->removeBlock(block);
+    m_treeView->removeDefinition(definition);
 
     // Remove from maps
-    m_blocks.remove(blockId);
-    m_blockViews.remove(blockId);
+    m_definitions.remove(id);
+    m_definitionViews.remove(id);
 
-    // Remove from hierarchy maps
-    m_childrenMap.remove(blockId);
-    m_parentsMap.remove(blockId);
-
-    // Remove this block from other blocks' children/parents
-    for (auto it = m_childrenMap.begin(); it != m_childrenMap.end(); ++it)
-    {
-        it.value().remove(blockId);
-    }
-    for (auto it = m_parentsMap.begin(); it != m_parentsMap.end(); ++it)
-    {
-        it.value().remove(blockId);
-    }
-
-    qDebug() << "Unregistered block:" << blockId;
+    qDebug() << "Unregistered block definition:" << id;
 }
 
-void HierarchyController::addConnection(ConnectionModel *connection)
+void HierarchyController::addConnection(PartProperty *partProperty)
 {
-    if (!connection || m_connections.contains(connection))
+    if (!partProperty || m_connections.contains(partProperty))
         return;
 
-    m_connections.append(connection);
-    rebuildHierarchy();
+    m_connections.append(partProperty);
+    
+    // Update tree view to show this part under its owner
+    if (partProperty->owner()) {
+        m_treeView->updatePart(partProperty);
+    }
 }
 
-void HierarchyController::removeConnection(ConnectionModel *connection)
+void HierarchyController::removeConnection(PartProperty *partProperty)
 {
-    if (!connection)
+    if (!partProperty)
         return;
 
-    m_connections.removeOne(connection);
+    m_connections.removeOne(partProperty);
+    
+    // To remove from tree, we might need to refresh the owner node
+    // HierarchyTreeView::updatePart adds or updates. It doesn't explicit remove.
+    // If we want to remove, we might need a removePart method on view, or just clear and rebuild owner.
+    // For now, let's trigger a full rebuild or add removePart to View API.
+    // Or we can rebuild hierarchy for simplicity.
     rebuildHierarchy();
 }
 
@@ -100,126 +106,44 @@ void HierarchyController::rebuildHierarchy()
     // Clear existing tree structure
     m_treeView->clearHierarchy();
 
-    // Rebuild parent-child maps from connections
-    buildHierarchyMaps();
-
-    // Get root blocks (blocks with no incoming connections)
-    QList<BlockModel *> rootBlocks = getRootBlocks();
-
-    qDebug() << "Found" << rootBlocks.size() << "root blocks";
-
-    // Add root blocks to tree
-    for (BlockModel *block : rootBlocks)
+    // Add all definitions
+    for (BlockDefinition *def : m_definitions.values())
     {
-        addBlockToTree(block, nullptr);
-    }
-}
-
-void HierarchyController::buildHierarchyMaps()
-{
-    m_childrenMap.clear();
-    m_parentsMap.clear();
-
-    for (ConnectionModel *conn : m_connections)
-    {
-        // Safety check - connection may have been deleted
-        if (!conn || !conn->isValid())
-            continue;
-
-        QString startId = conn->startBlockId();
-        QString endId = conn->endBlockId();
-
-        // Add to children map (parent -> children)
-        m_childrenMap[startId].insert(endId);
-
-        // Add to parents map (child -> parents)
-        m_parentsMap[endId].insert(startId);
-    }
-
-    qDebug() << "Built hierarchy maps - Parents:" << m_parentsMap.size()
-             << "Children:" << m_childrenMap.size();
-}
-
-QList<BlockModel *> HierarchyController::getRootBlocks()
-{
-    QList<BlockModel *> roots;
-
-    for (BlockModel *block : m_blocks.values())
-    {
-        // Safety check - block may have been deleted during batch operations
-        if (!block)
-            continue;
-            
-        if (!hasIncomingConnections(block))
+        m_treeView->addDefinition(def);
+        
+        // Add all parts for this definition
+        for (PartProperty *part : def->partProperties())
         {
-            roots.append(block);
+            m_treeView->updatePart(part);
         }
     }
-
-    return roots;
 }
 
-QList<BlockModel *> HierarchyController::getChildBlocks(BlockModel *parent)
+void HierarchyController::buildHierarchy()
 {
-    QList<BlockModel *> children;
+    rebuildHierarchy();
+}
 
-    if (!parent)
-        return children;
+QList<BlockDefinition *> HierarchyController::getRootDefinitions()
+{
+    return m_definitions.values(); // All are roots
+}
 
-    QSet<QString> childIds = m_childrenMap.value(parent->id());
-    for (const QString &childId : childIds)
+void HierarchyController::addDefinitionToTree(BlockDefinition *definition)
+{
+    m_treeView->addDefinition(definition);
+    for (PartProperty *part : definition->partProperties())
     {
-        BlockModel *child = m_blocks.value(childId);
-        if (child)
-        {
-            children.append(child);
-        }
+        m_treeView->updatePart(part);
     }
-
-    return children;
 }
 
-bool HierarchyController::hasIncomingConnections(BlockModel *block)
+void HierarchyController::highlightDefinitionInScene(BlockDefinition *definition)
 {
-    if (!block)
-        return false;
-
-    return m_parentsMap.contains(block->id()) &&
-           !m_parentsMap[block->id()].isEmpty();
-}
-
-void HierarchyController::addBlockToTree(BlockModel *block, BlockModel *parentBlock)
-{
-    if (!block)
+    if (!definition)
         return;
 
-    if (parentBlock)
-    {
-        // Add as child
-        m_treeView->setBlockAsChild(parentBlock, block);
-        qDebug() << "Added" << block->label() << "as child of" << parentBlock->label();
-    }
-    else
-    {
-        // Add as root
-        m_treeView->setBlockAsRoot(block);
-        qDebug() << "Added" << block->label() << "as root";
-    }
-
-    // Recursively add children
-    QList<BlockModel *> children = getChildBlocks(block);
-    for (BlockModel *child : children)
-    {
-        addBlockToTree(child, block);
-    }
-}
-
-void HierarchyController::highlightBlockInScene(BlockModel *block)
-{
-    if (!block)
-        return;
-
-    BlockView *view = m_blockViews.value(block->id());
+    BlockDefinitionView *view = m_definitionViews.value(definition->id());
     if (!view)
         return;
 
@@ -229,58 +153,58 @@ void HierarchyController::highlightBlockInScene(BlockModel *block)
     // Select the block
     view->setSelected(true);
 
-    qDebug() << "Highlighted block:" << block->label();
+    qDebug() << "Highlighted block:" << definition->typeName();
 }
 
-void HierarchyController::centerViewOnBlock(BlockModel *block)
+void HierarchyController::centerViewOnDefinition(BlockDefinition *definition)
 {
-    if (!block || !m_graphicsView)
+    if (!definition || !m_graphicsView)
         return;
 
-    BlockView *view = m_blockViews.value(block->id());
+    BlockDefinitionView *view = m_definitionViews.value(definition->id());
     if (!view)
         return;
 
     // Center the view on the block
     m_graphicsView->centerOn(view);
 
-    qDebug() << "Centered view on block:" << block->label();
+    qDebug() << "Centered view on block:" << definition->typeName();
 }
 
-void HierarchyController::onBlockCreated(BlockModel *block, BlockView *view)
+void HierarchyController::onBlockCreated(BlockDefinition *definition, BlockDefinitionView *view)
 {
-    qDebug() << "HierarchyController: Block created -" << block->label();
-    registerBlock(block, view);
+    qDebug() << "HierarchyController: Block Created -" << definition->typeName();
+    registerBlock(definition, view);
 }
 
-void HierarchyController::onBlockDeleted(BlockModel *block)
+void HierarchyController::onBlockDeleted(BlockDefinition *definition)
 {
-    qDebug() << "HierarchyController: Block deleted";
-    unregisterBlock(block);
+    qDebug() << "HierarchyController: Block Deleted";
+    unregisterBlock(definition);
 }
 
-void HierarchyController::onConnectionCreated(ConnectionModel *connection)
+void HierarchyController::onConnectionCreated(PartProperty *partProperty)
 {
-    qDebug() << "HierarchyController: Connection created";
-    addConnection(connection);
+    qDebug() << "HierarchyController: Part Property Created";
+    addConnection(partProperty);
 }
 
-void HierarchyController::onConnectionDeleted(ConnectionModel *connection)
+void HierarchyController::onConnectionDeleted(PartProperty *partProperty)
 {
-    qDebug() << "HierarchyController: Connection deleted";
-    removeConnection(connection);
+    qDebug() << "HierarchyController: Part Property Deleted";
+    removeConnection(partProperty);
 }
 
-void HierarchyController::onTreeItemClicked(BlockModel *block)
+void HierarchyController::onTreeItemClicked(BlockDefinition *definition)
 {
-    qDebug() << "HierarchyController: Tree item clicked -" << block->label();
-    highlightBlockInScene(block);
-    centerViewOnBlock(block);
+    qDebug() << "HierarchyController: Tree item clicked -" << definition->typeName();
+    highlightDefinitionInScene(definition);
+    centerViewOnDefinition(definition);
 }
 
-void HierarchyController::onTreeItemDoubleClicked(BlockModel *block)
+void HierarchyController::onTreeItemDoubleClicked(BlockDefinition *definition)
 {
-    qDebug() << "HierarchyController: Tree item double-clicked -" << block->label();
-    highlightBlockInScene(block);
-    centerViewOnBlock(block);
+    qDebug() << "HierarchyController: Tree item double-clicked -" << definition->typeName();
+    highlightDefinitionInScene(definition);
+    centerViewOnDefinition(definition);
 }

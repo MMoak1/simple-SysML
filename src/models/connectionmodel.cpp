@@ -101,6 +101,25 @@ QPointF ConnectionModel::endPoint() const
     return QPointF(0, 0);
 }
 
+void ConnectionModel::setLabel(const QString &label)
+{
+    if (m_label != label)
+    {
+        m_label = label;
+        emit labelChanged(label);
+        emit connectionChanged();  // Trigger visual update
+    }
+}
+
+void ConnectionModel::setMultiplicity(const QString &multiplicity)
+{
+    if (m_multiplicity != multiplicity)
+    {
+        m_multiplicity = multiplicity;
+        emit connectionChanged();  // Trigger visual update
+    }
+}
+
 void ConnectionModel::updateConnection()
 {
     emit connectionChanged();

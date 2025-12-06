@@ -6,9 +6,9 @@
 #include <QHash>
 
 class QGraphicsScene;
-class BlockView;
-class BlockModel;
-class ConnectionModel;
+class BlockDefinitionView;
+class BlockDefinition;
+class PartProperty;
 class ConnectionView;
 
 class ConnectionController : public QObject
@@ -19,34 +19,36 @@ public:
     explicit ConnectionController(QGraphicsScene *scene, QObject *parent = nullptr);
     ~ConnectionController();
 
-    void registerBlockView(BlockView *view);
-    void unregisterBlockView(BlockView *view);
+    void registerBlockView(BlockDefinitionView *view);
+    void unregisterBlockView(BlockDefinitionView *view);
 
-    void addConnection(ConnectionModel *connection);
-    void deleteConnection(ConnectionModel *connection);
-    void deleteConnectionsForBlock(BlockModel *block);
+    void addConnection(PartProperty *partProperty);
+    void deleteConnection(PartProperty *partProperty);
+    // Recursively delete connections logic might be handled differently with PartProperty
+    // void deleteConnectionsForBlock(BlockDefinition *definition); 
     void clearAllConnections();
     
-    QList<ConnectionModel*> connections() const { return m_connections; }
+    QList<PartProperty*> connections() const { return m_connections; }
 
 signals:
-    void connectionCreated(ConnectionModel *connection);
-    void connectionDeleted(ConnectionModel *connection);
+    void connectionCreated(PartProperty *partProperty);
+    void connectionDeleted(PartProperty *partProperty);
 
 private slots:
-    void onConnectionStarted(BlockView *startBlock);
-    void onConnectionCompleted(BlockView *startBlock, BlockView *endBlock);
+    void onConnectionStarted(BlockDefinitionView *startBlock);
+    void onConnectionCompleted(BlockDefinitionView *startBlock, BlockDefinitionView *endBlock);
     void onBlockViewDestroyed(QObject *obj);
 
 private:
     QGraphicsScene *m_scene;
-    QList<BlockView *> m_blockViews;
-    QList<ConnectionModel *> m_connections;
-    QHash<ConnectionModel *, ConnectionView *> m_connectionViews;
+    QList<BlockDefinitionView *> m_blockViews;
+    QList<PartProperty *> m_connections;
+    QHash<PartProperty *, ConnectionView *> m_connectionViews;
 
-    bool connectionExists(BlockView *start, BlockView *end);
-    bool wouldCreateCycle(BlockModel *fromBlock, BlockModel *toBlock);
-    bool canReach(BlockModel *fromBlock, BlockModel *targetBlock);
+    bool connectionExists(BlockDefinitionView *start, BlockDefinitionView *end);
+    // Cycle detection might be less relevant for composition, but still good to have
+    bool wouldCreateCycle(BlockDefinition *fromBlock, BlockDefinition *toBlock);
+    bool canReach(BlockDefinition *fromBlock, BlockDefinition *targetBlock);
 };
 
 #endif // CONNECTIONCONTROLLER_H

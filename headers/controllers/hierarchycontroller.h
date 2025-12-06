@@ -8,9 +8,9 @@
 
 class HierarchyTreeView;
 class QGraphicsScene;
-class BlockModel;
-class BlockView;
-class ConnectionModel;
+class BlockDefinition;
+class BlockDefinitionView;
+class PartProperty;
 class DropGraphicsView;
 
 class HierarchyController : public QObject
@@ -25,23 +25,23 @@ public:
         QObject *parent = nullptr);
 
     // Block registration
-    void registerBlock(BlockModel *block, BlockView *view);
-    void unregisterBlock(BlockModel *block);
+    void registerBlock(BlockDefinition *definition, BlockDefinitionView *view);
+    void unregisterBlock(BlockDefinition *definition);
 
-    // Connection tracking
-    void addConnection(ConnectionModel *connection);
-    void removeConnection(ConnectionModel *connection);
+    // Connection tracking (PartProperties)
+    void addConnection(PartProperty *partProperty);
+    void removeConnection(PartProperty *partProperty);
 
     // Hierarchy management
     void rebuildHierarchy();
 
 public slots:
-    void onBlockCreated(BlockModel *block, BlockView *view);
-    void onBlockDeleted(BlockModel *block);
-    void onConnectionCreated(ConnectionModel *connection);
-    void onConnectionDeleted(ConnectionModel *connection);
-    void onTreeItemClicked(BlockModel *block);
-    void onTreeItemDoubleClicked(BlockModel *block);
+    void onBlockCreated(BlockDefinition *definition, BlockDefinitionView *view);
+    void onBlockDeleted(BlockDefinition *definition);
+    void onConnectionCreated(PartProperty *partProperty);
+    void onConnectionDeleted(PartProperty *partProperty);
+    void onTreeItemClicked(BlockDefinition *definition);
+    void onTreeItemDoubleClicked(BlockDefinition *definition);
 
 private:
     HierarchyTreeView *m_treeView;
@@ -49,22 +49,17 @@ private:
     DropGraphicsView *m_graphicsView;
 
     // Data structures
-    QMap<QString, BlockModel *> m_blocks;    // blockId -> BlockModel
-    QMap<QString, BlockView *> m_blockViews; // blockId -> BlockView
-    QList<ConnectionModel *> m_connections;
-
-    // Hierarchy tracking
-    QMap<QString, QSet<QString>> m_childrenMap; // parentId -> set of childIds
-    QMap<QString, QSet<QString>> m_parentsMap;  // childId -> set of parentIds
+    // definitions are typically unique by pointer, but we might want ID lookups
+    QMap<QString, BlockDefinition *> m_definitions;    // id -> BlockDefinition
+    QMap<QString, BlockDefinitionView *> m_definitionViews; // id -> BlockDefinitionView
+    QList<PartProperty *> m_connections;
 
     // Helper methods
-    void buildHierarchyMaps();
-    QList<BlockModel *> getRootBlocks();
-    QList<BlockModel *> getChildBlocks(BlockModel *parent);
-    bool hasIncomingConnections(BlockModel *block);
-    void addBlockToTree(BlockModel *block, BlockModel *parentBlock = nullptr);
-    void highlightBlockInScene(BlockModel *block);
-    void centerViewOnBlock(BlockModel *block);
+    void buildHierarchy(); // Simplified from buildHierarchyMaps
+    QList<BlockDefinition *> getRootDefinitions();
+    void addDefinitionToTree(BlockDefinition *definition);
+    void highlightDefinitionInScene(BlockDefinition *definition);
+    void centerViewOnDefinition(BlockDefinition *definition);
 };
 
 #endif // HIERARCHYCONTROLLER_H

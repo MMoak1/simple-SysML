@@ -39,6 +39,9 @@ public:
     QPointF startEdgePoint() const { return m_startEdgePoint; }
     QPointF endEdgePoint() const { return m_endEdgePoint; }
 
+    // Clone method for instance creation
+    TransitionModel *clone(const QList<StateModel *> &newStates) const;
+
 signals:
     void labelChanged(const QString &label);
     void transitionChanged();

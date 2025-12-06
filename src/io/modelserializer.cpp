@@ -1,6 +1,6 @@
 #include "../../headers/io/modelserializer.h"
-#include "../../headers/models/blockmodel.h"
-#include "../../headers/models/connectionmodel.h"
+#include "../../headers/models/blockdefinition.h"
+#include "../../headers/models/partproperty.h"
 #include "../../headers/models/statemachinemodel.h"
 #include "../../headers/models/statemodel.h"
 #include "../../headers/models/transitionmodel.h"
@@ -9,30 +9,22 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QDebug>
+#include <QMap>
 
 bool ModelSerializer::saveToFile(const QString &filePath, 
-                                const QList<BlockModel*> &blocks, 
-                                const QList<ConnectionModel*> &connections)
+                                const QList<BlockDefinition*> &definitions)
 {
     QJsonObject rootObject;
-    rootObject["version"] = "1.0";
-    rootObject["name"] = "SysML Model"; // Could be parameterized
+    rootObject["version"] = "2.0"; // Semantic version
+    rootObject["name"] = "SysML Model";
 
-    // Serialize blocks
-    QJsonArray blocksArray;
-    for (BlockModel *block : blocks)
+    // Serialize definitions (blocks)
+    QJsonArray definitionsArray;
+    for (BlockDefinition *def : definitions)
     {
-        blocksArray.append(serializeBlock(block));
+        definitionsArray.append(serializeDefinition(def));
     }
-    rootObject["blocks"] = blocksArray;
-
-    // Serialize connections
-    QJsonArray connectionsArray;
-    for (ConnectionModel *connection : connections)
-    {
-        connectionsArray.append(serializeConnection(connection));
-    }
-    rootObject["connections"] = connectionsArray;
+    rootObject["definitions"] = definitionsArray;
 
     // Write to file
     QFile file(filePath);
@@ -48,8 +40,7 @@ bool ModelSerializer::saveToFile(const QString &filePath,
 }
 
 bool ModelSerializer::loadFromFile(const QString &filePath, 
-                                  QList<BlockModel*> &outBlocks, 
-                                  QList<ConnectionModel*> &outConnections)
+                                  QList<BlockDefinition*> &outDefinitions)
 {
     QFile file(filePath);
     if (!file.open(QIODevice::ReadOnly))
@@ -62,69 +53,105 @@ bool ModelSerializer::loadFromFile(const QString &filePath,
     QJsonDocument loadDoc(QJsonDocument::fromJson(saveData));
     QJsonObject rootObject = loadDoc.object();
 
-    if (rootObject["version"].toString() != "1.0")
+    QString version = rootObject["version"].toString();
+    if (version != "2.0")
     {
-        qWarning() << "Unknown file version";
+        qWarning() << "Unknown or legacy file version:" << version;
+        // Logic for upgrading legacy (1.0) could go here if needed
         return false;
     }
 
-    // Load blocks
-    QJsonArray blocksArray = rootObject["blocks"].toArray();
-    for (const QJsonValue &blockValue : blocksArray)
+    QJsonArray definitionsArray = rootObject["definitions"].toArray();
+    QMap<QString, BlockDefinition*> definitionMap;
+
+    // Pass 1: Create Definition objects
+    for (const QJsonValue &defValue : definitionsArray)
     {
-        BlockModel *block = deserializeBlock(blockValue.toObject());
-        if (block)
+        BlockDefinition *def = deserializeDefinition(defValue.toObject());
+        if (def)
         {
-            outBlocks.append(block);
+            outDefinitions.append(def);
+            definitionMap[def->id()] = def;
         }
     }
 
-    // Load connections
-    QJsonArray connectionsArray = rootObject["connections"].toArray();
-    for (const QJsonValue &connValue : connectionsArray)
+    // Pass 2: Deserialize Parts (Connections) and State Machines
+    // We iterate the JSON array again because we need the map fully populated to resolve types
+    for (const QJsonValue &defValue : definitionsArray)
     {
-        ConnectionModel *conn = deserializeConnection(connValue.toObject(), outBlocks);
-        if (conn)
+        QJsonObject defJson = defValue.toObject();
+        QString id = defJson["id"].toString();
+        
+        BlockDefinition *def = definitionMap.value(id);
+        if (def)
         {
-            outConnections.append(conn);
+            // Deserialize Parts
+            if (defJson.contains("parts"))
+            {
+                QJsonArray partsArray = defJson["parts"].toArray();
+                for (const QJsonValue &partValue : partsArray)
+                {
+                    deserializePart(partValue.toObject(), def, definitionMap);
+                }
+            }
+            
+            // Deserialize State Machine
+            if (defJson.contains("stateMachine"))
+            {
+                deserializeStateMachine(defJson["stateMachine"].toObject(), def);
+            }
         }
     }
 
     return true;
 }
 
-QJsonObject ModelSerializer::serializeBlock(BlockModel *block)
+QJsonObject ModelSerializer::serializeDefinition(BlockDefinition *def)
 {
     QJsonObject json;
-    json["id"] = block->id();
-    json["label"] = block->label();
-    json["color"] = block->color().name();
+    json["id"] = def->id();
+    json["typeName"] = def->typeName();
+    json["color"] = def->color().name();
     
     QJsonObject posJson;
-    posJson["x"] = block->position().x();
-    posJson["y"] = block->position().y();
+    posJson["x"] = def->position().x();
+    posJson["y"] = def->position().y();
     json["position"] = posJson;
 
     QJsonObject sizeJson;
-    sizeJson["width"] = block->size().width();
-    sizeJson["height"] = block->size().height();
+    sizeJson["width"] = def->size().width();
+    sizeJson["height"] = def->size().height();
     json["size"] = sizeJson;
 
-    if (block->hasStateMachine())
+    // Serialize Parts
+    QJsonArray partsArray;
+    for (PartProperty *part : def->partProperties())
     {
-        json["stateMachine"] = serializeStateMachine(block->stateMachine());
+        partsArray.append(serializePart(part));
+    }
+    json["parts"] = partsArray;
+
+    // Serialize State Machine
+    if (def->hasStateMachine())
+    {
+        json["stateMachine"] = serializeStateMachine(def->stateMachine());
     }
 
     return json;
 }
 
-QJsonObject ModelSerializer::serializeConnection(ConnectionModel *connection)
+QJsonObject ModelSerializer::serializePart(PartProperty *part)
 {
     QJsonObject json;
-    // Assuming ConnectionModel has an ID, if not we might need to rely on start/end
-    // But for now let's just save start and end block IDs
-    json["startBlockId"] = connection->startBlockId();
-    json["endBlockId"] = connection->endBlockId();
+    json["id"] = part->id();
+    json["name"] = part->name();
+    json["multiplicity"] = part->multiplicity();
+    
+    if (part->type())
+    {
+        json["typeId"] = part->type()->id();
+    }
+    
     return json;
 }
 
@@ -179,52 +206,56 @@ QJsonObject ModelSerializer::serializeTransition(TransitionModel *transition)
     return json;
 }
 
-BlockModel* ModelSerializer::deserializeBlock(const QJsonObject &json)
+BlockDefinition* ModelSerializer::deserializeDefinition(const QJsonObject &json)
 {
-    QString label = json["label"].toString();
+    QString typeName = json["typeName"].toString();
     QColor color(json["color"].toString());
     
     QJsonObject posJson = json["position"].toObject();
     QPointF position(posJson["x"].toDouble(), posJson["y"].toDouble());
     
-    QJsonObject sizeJson = json["size"].toObject();
-    QSizeF size(sizeJson["width"].toDouble(), sizeJson["height"].toDouble());
-
-    BlockModel *block = new BlockModel(color, label, position, size);
+    // Create definition
+    BlockDefinition *def = new BlockDefinition(typeName, color, position);
     
-    // We need to set the ID to match the saved one
+    // Set ID
     if (json.contains("id"))
     {
-        block->setId(json["id"].toString());
+        def->setId(json["id"].toString());
     }
     
-    if (json.contains("stateMachine"))
-    {
-        deserializeStateMachine(json["stateMachine"].toObject(), block);
-    }
+    // Set Size
+    QJsonObject sizeJson = json["size"].toObject();
+    QSizeF size(sizeJson["width"].toDouble(), sizeJson["height"].toDouble());
+    def->setSize(size);
 
-    return block;
+    return def;
 }
 
-ConnectionModel* ModelSerializer::deserializeConnection(const QJsonObject &json, const QList<BlockModel*> &blocks)
+void ModelSerializer::deserializePart(const QJsonObject &json, BlockDefinition *owner, const QMap<QString, BlockDefinition*> &definitionMap)
 {
-    QString startId = json["startBlockId"].toString();
-    QString endId = json["endBlockId"].toString();
+    QString name = json["name"].toString();
+    QString typeId = json["typeId"].toString();
+    QString multiplicity = json["multiplicity"].toString();
     
-    BlockModel *startBlock = findBlockById(startId, blocks);
-    BlockModel *endBlock = findBlockById(endId, blocks);
-    
-    if (startBlock && endBlock)
+    BlockDefinition *type = definitionMap.value(typeId);
+    if (!type)
     {
-        return new ConnectionModel(startBlock, endBlock);
+        qWarning() << "Part" << name << "refers to missing type ID:" << typeId;
+        return;
     }
     
-    return nullptr;
+    PartProperty *part = owner->addPartProperty(name, type, multiplicity);
+    
+    // Set Part ID if present
+    if (json.contains("id"))
+    {
+        part->setId(json["id"].toString());
+    }
 }
 
-void ModelSerializer::deserializeStateMachine(const QJsonObject &json, BlockModel *block)
+void ModelSerializer::deserializeStateMachine(const QJsonObject &json, BlockDefinition *def)
 {
-    StateMachineModel *sm = block->getOrCreateStateMachine();
+    StateMachineModel *sm = def->getOrCreateStateMachine();
     
     QJsonArray statesArray = json["states"].toArray();
     for (const QJsonValue &stateValue : statesArray)
@@ -280,21 +311,21 @@ TransitionModel* ModelSerializer::deserializeTransition(const QJsonObject &json,
     if (startState && endState)
     {
         TransitionModel *transition = new TransitionModel(startState, endState, label);
-        // ID is generated in constructor, but we should probably set it if we want to preserve it
-        // transition->setId(json["id"].toString()); 
+        // Set ID
+        // transition->setId(json["id"].toString()); // Assuming setters exist or ID logic preserved
         return transition;
     }
     
     return nullptr;
 }
 
-BlockModel* ModelSerializer::findBlockById(const QString &id, const QList<BlockModel*> &blocks)
+BlockDefinition* ModelSerializer::findDefinitionById(const QString &id, const QList<BlockDefinition*> &definitions)
 {
-    for (BlockModel *block : blocks)
+    for (BlockDefinition *def : definitions)
     {
-        if (block->id() == id)
+        if (def->id() == id)
         {
-            return block;
+            return def;
         }
     }
     return nullptr;
