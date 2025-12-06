@@ -25,8 +25,8 @@ BlockView::BlockView(BlockModel *model, QGraphicsItem *parent)
     m_label = model->label();
     m_size = model->size();
 
-    // Make selectable and movable
-    setFlags(ItemIsSelectable | ItemIsMovable);
+    // Make selectable and movable, and notify scene of geometry changes
+    setFlags(ItemIsSelectable | ItemIsMovable | ItemSendsGeometryChanges);
 
     // Connect to model signals
     connect(model, &BlockModel::colorChanged, this, &BlockView::updateColor);
@@ -40,7 +40,10 @@ BlockView::BlockView(BlockModel *model, QGraphicsItem *parent)
 
 QRectF BlockView::boundingRect() const
 {
-    return QRectF(-m_size.width() / 2, -m_size.height() / 2, m_size.width(), m_size.height());
+    // Include extra space for selection border (3px) plus margin
+    const qreal margin = 5.0;
+    return QRectF(-m_size.width() / 2 - margin, -m_size.height() / 2 - margin, 
+                  m_size.width() + margin * 2, m_size.height() + margin * 2);
 }
 
 void BlockView::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -112,6 +115,17 @@ void BlockView::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
     painter->setPen(Qt::NoPen);
     painter->drawEllipse(handleCenter, radius, radius);
     painter->restore();
+    
+    // Draw selection border (light yellow)
+    if (isSelected())
+    {
+        painter->save();
+        QPen selectionPen(QColor(255, 255, 0), 3); // Yellow border
+        painter->setPen(selectionPen);
+        painter->setBrush(Qt::NoBrush);
+        painter->drawRect(localRect.adjusted(-2, -2, 2, 2));
+        painter->restore();
+    }
 }
 
 void BlockView::updateColor(const QColor &color)

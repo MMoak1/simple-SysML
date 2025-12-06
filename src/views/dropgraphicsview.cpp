@@ -8,6 +8,10 @@ DropGraphicsView::DropGraphicsView(QGraphicsScene *scene, QWidget *parent)
     : QGraphicsView(scene, parent), m_scene(scene)
 {
     setAcceptDrops(true);
+    
+    // Enable rubber band selection for multi-select
+    setDragMode(QGraphicsView::RubberBandDrag);
+    setRubberBandSelectionMode(Qt::IntersectsItemShape);
 }
 
 void DropGraphicsView::dragEnterEvent(QDragEnterEvent *event)
