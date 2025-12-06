@@ -49,6 +49,22 @@ void ConnectionController::clearAllConnections()
     m_connections.clear();
 }
 
+void ConnectionController::addConnection(ConnectionModel *connection)
+{
+    if (!connection)
+        return;
+    
+    // Create view for the connection
+    ConnectionView *connectionView = new ConnectionView(connection, nullptr);
+    
+    m_connections.append(connection);
+    m_connectionViews[connection] = connectionView;
+    m_scene->addItem(connectionView);
+    
+    // Emit signal for hierarchy controller
+    emit connectionCreated(connection);
+}
+
 void ConnectionController::onConnectionStarted(BlockView *startBlock)
 {
     qDebug() << "Connection started from block:" << startBlock->model()->label();

@@ -14,19 +14,36 @@ void DropController::handleDrop(const QString &blockType, const QPointF &positio
     if (model)
     {
         model->setPosition(position);
-
-        BlockView *view = new BlockView(model, nullptr);
-        m_scene->addItem(view);
-
-        // Register the new block with the connection controller
-        if (m_connectionController)
-        {
-            m_connectionController->registerBlockView(view);
-        }
-
-        // Emit signal for hierarchy controller
-        emit blockCreated(model, view);
+        addBlock(model);
     }
+}
+
+void DropController::addBlock(BlockModel *model)
+{
+    if (!model)
+        return;
+
+    // Track the block
+    m_blocks.append(model);
+
+    // Create view for the block
+    BlockView *view = new BlockView(model, nullptr);
+    m_scene->addItem(view);
+
+    // Register the new block with the connection controller
+    if (m_connectionController)
+    {
+        m_connectionController->registerBlockView(view);
+    }
+
+    // Emit signal for hierarchy controller
+    emit blockCreated(model, view);
+}
+
+void DropController::clear()
+{
+    // Clear tracked blocks (scene->clear() will delete the views)
+    m_blocks.clear();
 }
 
 BlockModel *DropController::createBlockModel(const QString &blockType)

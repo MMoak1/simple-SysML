@@ -160,6 +160,25 @@ void MainWindow::setupToolInterface()
 
     mainLayout->addWidget(splitter);
 
+    // Setup menu bar
+    m_menuBar = menuBar();
+    m_fileMenu = m_menuBar->addMenu(tr("&File"));
+    
+    m_newAction = new QAction(tr("&New"), this);
+    m_newAction->setShortcut(QKeySequence::New);
+    connect(m_newAction, &QAction::triggered, this, &MainWindow::newFile);
+    m_fileMenu->addAction(m_newAction);
+    
+    m_openAction = new QAction(tr("&Open..."), this);
+    m_openAction->setShortcut(QKeySequence::Open);
+    connect(m_openAction, &QAction::triggered, this, &MainWindow::openFile);
+    m_fileMenu->addAction(m_openAction);
+    
+    m_saveAction = new QAction(tr("&Save..."), this);
+    m_saveAction->setShortcut(QKeySequence::Save);
+    connect(m_saveAction, &QAction::triggered, this, &MainWindow::saveFile);
+    m_fileMenu->addAction(m_saveAction);
+
     // Set the main widget as the central widget
     setCentralWidget(mainWidget);
 }
@@ -192,27 +211,81 @@ void MainWindow::newFile()
 void MainWindow::openFile()
 {
     QString filePath = QFileDialog::getOpenFileName(this,
-        tr("Open SysML Model"), QString(), tr("SysML Files (*.sysml);;JSON Files (*.json);;All Files (*)"));
+        tr("Open SysML Model"), QString(), tr("JSON Files (*.json);;All Files (*)"));
     
     if (filePath.isEmpty()) {
         return;
     }
     
-    // TODO: Implement full load functionality
-    QMessageBox::information(this, tr("Open"), tr("Open functionality - file selected: ") + filePath);
+    // Clear existing model first
+    if (scene) {
+        scene->clear();
+    }
+    if (m_stateMachineScene) {
+        m_stateMachineScene->clear();
+    }
+    if (dropController) {
+        dropController->clear();
+    }
+    if (connectionController) {
+        connectionController->clearAllConnections();
+    }
+    
+    // Reset navigation to BDD
+    if (m_diagramViewController) {
+        while (m_diagramViewController->canGoBack()) {
+            m_diagramViewController->goBack();
+        }
+    }
+    
+    // Load from file
+    QList<BlockModel*> blocks;
+    QList<ConnectionModel*> connections;
+    
+    if (ModelSerializer::loadFromFile(filePath, blocks, connections)) {
+        // Add loaded blocks
+        for (BlockModel *block : blocks) {
+            dropController->addBlock(block);
+        }
+        
+        // Add loaded connections
+        for (ConnectionModel *conn : connections) {
+            connectionController->addConnection(conn);
+        }
+        
+        qDebug() << "Loaded" << blocks.size() << "blocks and" << connections.size() << "connections from" << filePath;
+        QMessageBox::information(this, tr("Success"), 
+            tr("Model loaded successfully!\n%1 blocks, %2 connections").arg(blocks.size()).arg(connections.size()));
+    } else {
+        QMessageBox::warning(this, tr("Error"), tr("Failed to load model from file."));
+    }
 }
 
 void MainWindow::saveFile()
 {
     QString filePath = QFileDialog::getSaveFileName(this,
-        tr("Save SysML Model"), QString(), tr("SysML Files (*.sysml);;JSON Files (*.json);;All Files (*)"));
+        tr("Save SysML Model"), QString(), tr("JSON Files (*.json);;All Files (*)"));
     
     if (filePath.isEmpty()) {
         return;
     }
     
-    // TODO: Implement full save functionality
-    QMessageBox::information(this, tr("Save"), tr("Save functionality - file selected: ") + filePath);
+    // Ensure .json extension
+    if (!filePath.endsWith(".json", Qt::CaseInsensitive)) {
+        filePath += ".json";
+    }
+    
+    // Get blocks and connections from controllers
+    QList<BlockModel*> blocks = dropController->blocks();
+    QList<ConnectionModel*> connections = connectionController->connections();
+    
+    if (ModelSerializer::saveToFile(filePath, blocks, connections)) {
+        qDebug() << "Saved" << blocks.size() << "blocks and" << connections.size() << "connections to" << filePath;
+        QMessageBox::information(this, tr("Success"), 
+            tr("Model saved successfully!\n%1 blocks, %2 connections").arg(blocks.size()).arg(connections.size()));
+    } else {
+        QMessageBox::warning(this, tr("Error"), tr("Failed to save model to file."));
+    }
 }
 
 void MainWindow::onEnterStateMachine(BlockView *blockView)
