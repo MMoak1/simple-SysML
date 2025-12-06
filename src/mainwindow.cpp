@@ -164,6 +164,57 @@ void MainWindow::setupToolInterface()
     setCentralWidget(mainWidget);
 }
 
+void MainWindow::newFile()
+{
+    // Clear existing scene and start fresh
+    if (scene) {
+        scene->clear();
+    }
+    if (m_stateMachineScene) {
+        m_stateMachineScene->clear();
+    }
+    
+    // Reset to BDD view
+    if (m_diagramViewController) {
+        while (m_diagramViewController->canGoBack()) {
+            m_diagramViewController->goBack();
+        }
+    }
+    switchToBDDView();
+    
+    // Hide start menu and show tool interface
+    if (startMenu) {
+        startMenu->hide();
+    }
+    setupToolInterface();
+}
+
+void MainWindow::openFile()
+{
+    QString filePath = QFileDialog::getOpenFileName(this,
+        tr("Open SysML Model"), QString(), tr("SysML Files (*.sysml);;JSON Files (*.json);;All Files (*)"));
+    
+    if (filePath.isEmpty()) {
+        return;
+    }
+    
+    // TODO: Implement full load functionality
+    QMessageBox::information(this, tr("Open"), tr("Open functionality - file selected: ") + filePath);
+}
+
+void MainWindow::saveFile()
+{
+    QString filePath = QFileDialog::getSaveFileName(this,
+        tr("Save SysML Model"), QString(), tr("SysML Files (*.sysml);;JSON Files (*.json);;All Files (*)"));
+    
+    if (filePath.isEmpty()) {
+        return;
+    }
+    
+    // TODO: Implement full save functionality
+    QMessageBox::information(this, tr("Save"), tr("Save functionality - file selected: ") + filePath);
+}
+
 void MainWindow::onEnterStateMachine(BlockView *blockView)
 {
     if (!blockView || !blockView->model())
