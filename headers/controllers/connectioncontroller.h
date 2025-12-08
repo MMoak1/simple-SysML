@@ -24,8 +24,14 @@ public:
 
     void addConnection(PartProperty *partProperty);
     void deleteConnection(PartProperty *partProperty);
-    // Recursively delete connections logic might be handled differently with PartProperty
-    // void deleteConnectionsForBlock(BlockDefinition *definition); 
+    
+    // Remove all connections involving a block (call BEFORE deleting the block)
+    // This handles the cascade delete scenario properly
+    void deleteConnectionsForBlock(BlockDefinition *definition);
+    
+    // Remove view only (for cascade deletes where PartProperty is deleted by BlockDefinition)
+    void removeConnectionView(PartProperty *partProperty);
+    
     void clearAllConnections();
     
     QList<PartProperty*> connections() const { return m_connections; }

@@ -78,6 +78,36 @@ QRectF ConnectionView::boundingRect() const
     qreal right = qMax(qMax(start.x(), end.x()), midX) + padding;
     qreal bottom = qMax(start.y(), end.y()) + padding;
 
+    // Account for label text area - labels can extend beyond the path
+    QString labelText = formatLabel();
+    if (!labelText.isEmpty()) {
+        QFont font;
+        font.setPointSize(9);
+        QFontMetrics fm(font);
+        QRectF textRect = fm.boundingRect(labelText);
+        
+        // Calculate midpoint of path for label positioning
+        QPainterPath path;
+        path.moveTo(start);
+        path.lineTo(midX, start.y());
+        path.lineTo(midX, end.y());
+        path.lineTo(end);
+        
+        qreal pathLength = path.length();
+        if (pathLength >= 1.0) {
+            QPointF midPoint = path.pointAtPercent(0.5);
+            QRectF labelRect = textRect;
+            labelRect.moveCenter(midPoint);
+            labelRect.adjust(-8, -6, 8, 6);  // Add more padding for the background rect
+            
+            // Expand bounding rect to include label
+            left = qMin(left, labelRect.left());
+            top = qMin(top, labelRect.top());
+            right = qMax(right, labelRect.right());
+            bottom = qMax(bottom, labelRect.bottom());
+        }
+    }
+
     return QRectF(QPointF(left, top), QPointF(right, bottom));
 }
 
@@ -382,10 +412,6 @@ QPointF ConnectionView::getStartPosition() const {
     if (m_model) return m_model->startEdgePoint();
     if (m_partProperty && m_partProperty->owner() && m_partProperty->type()) {
         // Calculate edge point on owner towards type
-        return m_partProperty->owner()->position(); // Approximation - see below
-        
-        // Better: Reuse edge calculation logic.
-        // Copying calculateEdgePoint logic here (since it was in TransitionModel/ConnectionModel)
         QPointF center = m_partProperty->owner()->position();
         QSizeF size = m_partProperty->owner()->size();
         QPointF targetCenter = m_partProperty->type()->position();

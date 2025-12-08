@@ -102,18 +102,76 @@ void ConnectionController::deleteConnection(PartProperty *partProperty)
         view = nullptr;
     }
     
-    // Step 3: Emit signal 
+    // Step 3: Emit signal (while partProperty is still valid)
     emit connectionDeleted(partProperty);
     
-    // Step 4: Remove from owner BlockDefinition
+    // Step 4: Remove from owner BlockDefinition (this will delete the PartProperty)
     if (partProperty->owner())
     {
         partProperty->owner()->removePartProperty(partProperty);
     }
-    // Note: removePartProperty might delete the object?
-    // BlockDefinition implementation: 
-    // void removePartProperty(PartProperty *part) { if contains, removeOne, delete part; }
-    // So yes, it deletes it. We don't need to delete it manually if we call removePartProperty.
+    // Note: removePartProperty calls deleteLater() on the part, so it's scheduled for deletion.
+}
+
+void ConnectionController::removeConnectionView(PartProperty *partProperty)
+{
+    // This method ONLY removes the view, it does NOT delete the PartProperty.
+    // Use this when PartProperty will be deleted by BlockDefinition (cascade delete).
+    if (!partProperty)
+        return;
+    
+    m_connections.removeOne(partProperty);
+    ConnectionView *view = m_connectionViews.take(partProperty);
+    
+    if (view)
+    {
+        m_scene->removeItem(view);
+        delete view;
+    }
+    
+    // Emit signal - the PartProperty object is still valid but being deleted
+    emit connectionDeleted(partProperty);
+}
+
+void ConnectionController::deleteConnectionsForBlock(BlockDefinition *definition)
+{
+    if (!definition)
+        return;
+    
+    qDebug() << "ConnectionController: Deleting all connections for block:" << definition->typeName();
+    
+    // Collect connections to remove (connections where this block is owner or type)
+    QList<PartProperty *> connectionsToRemove;
+    
+    for (PartProperty *conn : m_connections)
+    {
+        if (conn->owner() == definition || conn->type() == definition)
+        {
+            connectionsToRemove.append(conn);
+        }
+    }
+    
+    // For connections WHERE this block is the OWNER:
+    // The PartProperty will be deleted when BlockDefinition is deleted (qDeleteAll in destructor)
+    // So we just remove the views.
+    
+    // For connections WHERE this block is the TYPE (target):
+    // We need to fully delete those connections (remove from their owner too)
+    
+    for (PartProperty *conn : connectionsToRemove)
+    {
+        if (conn->owner() == definition)
+        {
+            // Owner is being deleted, PartProperty will be deleted by ~BlockDefinition
+            // Just clean up our view
+            removeConnectionView(conn);
+        }
+        else if (conn->type() == definition)
+        {
+            // This block is the target type, remove the connection from its owner
+            deleteConnection(conn);
+        }
+    }
 }
 
 void ConnectionController::onConnectionStarted(BlockDefinitionView *startBlock)
@@ -167,25 +225,19 @@ void ConnectionController::onConnectionCompleted(BlockDefinitionView *startBlock
 
 void ConnectionController::onBlockViewDestroyed(QObject *obj)
 {
+    // Note: When this is called, the BlockDefinitionView is being destroyed.
+    // The BlockDefinition might already be deleted or in the process of deletion.
+    // We should NOT try to access the definition's data or delete PartProperties here.
+    // Just clean up our tracking of the view.
+    
     BlockDefinitionView *view = static_cast<BlockDefinitionView *>(obj);
-    unregisterBlockView(view);
-
-    // Remove any connections involving this block
-    QList<PartProperty *> connectionsToRemove;
-
-    for (PartProperty *conn : m_connections)
-    {
-        if (conn->owner() == view->definition() ||
-            conn->type() == view->definition())
-        {
-            connectionsToRemove.append(conn);
-        }
-    }
-
-    for (PartProperty *conn : connectionsToRemove)
-    {
-        deleteConnection(conn);
-    }
+    
+    // Just unregister the view - don't try to delete connections
+    // Connection cleanup should be handled by deleteConnectionsForBlock() which is called
+    // BEFORE the block is deleted (by DropController::deleteBlock)
+    m_blockViews.removeOne(view);
+    
+    // Don't disconnect signals - the object is being destroyed anyway
 }
 
 bool ConnectionController::connectionExists(BlockDefinitionView *start, BlockDefinitionView *end)

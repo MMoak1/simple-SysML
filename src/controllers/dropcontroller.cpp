@@ -48,15 +48,18 @@ void DropController::deleteBlock(BlockDefinition *definition)
     if (!definition)
         return;
 
-    // Step 1: Remove from our tracking FIRST (before any signals or deletions)
-    m_definitions.removeOne(definition);
-    BlockDefinitionView *view = m_definitionViews.take(definition);
-    
-    // Step 2: Delete all connections involving this block (cascading delete)
+    // Step 1: Remove all connections involving this block FIRST (before any deletions)
+    // This properly handles cascade deletes for:
+    //   - Parts owned by this block (removes views only, BlockDefinition destructor deletes PartProperties)
+    //   - Parts where this block is the type (fully removes those connections from their owners)
     if (m_connectionController)
     {
-        // m_connectionController->deleteConnectionsForBlock(definition);
+        m_connectionController->deleteConnectionsForBlock(definition);
     }
+    
+    // Step 2: Remove from our tracking
+    m_definitions.removeOne(definition);
+    BlockDefinitionView *view = m_definitionViews.take(definition);
     
     // Step 3: Remove view from scene and delete it
     if (view)
@@ -70,6 +73,7 @@ void DropController::deleteBlock(BlockDefinition *definition)
     emit blockDeleted(definition);
     
     // Step 5: Finally delete the definition (LAST)
+    // This will also delete all owned PartProperties via ~BlockDefinition()
     delete definition;
 }
 
