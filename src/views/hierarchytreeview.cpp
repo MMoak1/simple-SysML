@@ -4,6 +4,9 @@
 #include <QPixmap>
 #include <QPainter>
 #include <QHeaderView>
+#include <QMimeData>
+#include <QDataStream>
+#include <QIODevice>
 
 HierarchyTreeView::HierarchyTreeView(QWidget *parent)
     : QTreeWidget(parent)
@@ -27,8 +30,9 @@ void HierarchyTreeView::setupTreeWidget()
     setSelectionMode(QAbstractItemView::SingleSelection);
     setSelectionBehavior(QAbstractItemView::SelectRows);
 
-    // Disable drag-drop for now
-    setDragEnabled(false);
+    // Enable drag
+    setDragEnabled(true);
+    setDragDropMode(QAbstractItemView::DragOnly);
     setAcceptDrops(false);
 
     // Connect signals
@@ -223,4 +227,36 @@ QIcon HierarchyTreeView::createColorIcon(const QColor &color)
     painter.drawRect(0, 0, 15, 15);
 
     return QIcon(pixmap);
+}
+
+QMimeData *HierarchyTreeView::mimeData(const QList<QTreeWidgetItem *> &items) const
+{
+    QMimeData *mimeData = new QMimeData;
+    QByteArray encodedData;
+    QDataStream stream(&encodedData, QIODevice::WriteOnly);
+
+    bool hasValidDefinition = false;
+
+    for (QTreeWidgetItem *item : items)
+    {
+        // Check if item is a definition
+        BlockDefinition *def = m_itemToDefinition.value(item);
+        if (def)
+        {
+            QString id = def->id();
+            stream << id;
+            hasValidDefinition = true;
+            // Only handle one item for now? Or list? 
+            // Let's support first one for now, or all.
+            // DropController handles one drop.
+            break; // Just take the first valid one
+        }
+    }
+
+    if (hasValidDefinition)
+    {
+        mimeData->setData("application/x-sysml-blockdefinition", encodedData);
+    }
+
+    return mimeData;
 }

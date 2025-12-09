@@ -111,6 +111,7 @@ void MainWindow::setupToolInterface()
 
     // Connect drop signal to MainWindow for routing based on current view
     connect(dropGraphicsView, &DropGraphicsView::dropPerformed, this, &MainWindow::onDropPerformed);
+    connect(dropGraphicsView, &DropGraphicsView::blockDefinitionDropped, this, &MainWindow::onBlockDefinitionDropped);
 
     // Connect hierarchy controller to drop controller
     connect(dropController, &DropController::blockCreated,
@@ -384,6 +385,20 @@ void MainWindow::onDropPerformed(const QString &itemType, const QPointF &positio
         // In BDD view - create blocks
         qDebug() << "MainWindow: Routing drop to DropController";
         dropController->handleDrop(itemType, position);
+    }
+}
+
+void MainWindow::onBlockDefinitionDropped(const QString &definitionId, const QPointF &position)
+{
+    // Route drop to DropController only if in BDD view
+    if (m_diagramViewController->currentViewType() == DiagramContext::Type::BDD)
+    {
+        qDebug() << "MainWindow: Routing definition drop to DropController";
+        dropController->handleDefinitionDrop(definitionId, position);
+    }
+    else
+    {
+        qDebug() << "MainWindow: Ignoring block definition drop in non-BDD view";
     }
 }
 

@@ -75,7 +75,8 @@ BlockDefinition *DiagramViewController::currentStateMachineOwner() const
     DiagramContext ctx = currentContext();
     if (ctx.type == DiagramContext::Type::StateMachine)
     {
-        return ctx.ownerDefinition;
+        // QPointer will be null if block was deleted
+        return ctx.ownerDefinition.data();
     }
     return nullptr;
 }

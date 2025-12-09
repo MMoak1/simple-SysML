@@ -18,6 +18,37 @@ void DropController::handleDrop(const QString &blockType, const QPointF &positio
     }
 }
 
+void DropController::handleDefinitionDrop(const QString &definitionId, const QPointF &position)
+{
+    // Find the source definition by ID
+    BlockDefinition *sourceDef = nullptr;
+    for (BlockDefinition *def : m_definitions)
+    {
+        if (def->id() == definitionId)
+        {
+            sourceDef = def;
+            break;
+        }
+    }
+
+    if (!sourceDef)
+    {
+        qDebug() << "DropController: Could not find source definition with ID:" << definitionId;
+        return;
+    }
+
+    // Clone it
+    BlockDefinition *newDef = sourceDef->clone();
+    
+    // Set new position
+    newDef->setPosition(position);
+    
+    // Add to project
+    addBlock(newDef);
+    
+    qDebug() << "DropController: Created instance copy of" << sourceDef->typeName();
+}
+
 void DropController::addBlock(BlockDefinition *definition)
 {
     if (!definition)
@@ -61,20 +92,19 @@ void DropController::deleteBlock(BlockDefinition *definition)
     m_definitions.removeOne(definition);
     BlockDefinitionView *view = m_definitionViews.take(definition);
     
-    // Step 3: Remove view from scene and delete it
+    // Step 3: Remove view from scene and defer deletion
     if (view)
     {
         m_scene->removeItem(view);
-        delete view;
-        view = nullptr;
+        view->deleteLater();  // SAFE: defers to event loop
     }
     
     // Step 4: Emit signal for hierarchy controller (block is still valid here)
     emit blockDeleted(definition);
     
-    // Step 5: Finally delete the definition (LAST)
-    // This will also delete all owned PartProperties via ~BlockDefinition()
-    delete definition;
+    // Step 5: Finally delete the definition using deleteLater
+    // This ensures all signal handlers complete before destruction
+    definition->deleteLater();
 }
 
 BlockDefinitionView* DropController::getViewForDefinition(BlockDefinition *definition) const

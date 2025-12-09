@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QStack>
 #include <QString>
+#include <QPointer>
 
 class BlockDefinition;
 class QGraphicsScene;
@@ -18,7 +19,7 @@ struct DiagramContext
     
     Type type;
     QString title;
-    BlockDefinition *ownerDefinition = nullptr;  // For state machines, the parent block definition
+    QPointer<BlockDefinition> ownerDefinition;  // QPointer auto-nulls when block deleted
 };
 
 class DiagramViewController : public QObject

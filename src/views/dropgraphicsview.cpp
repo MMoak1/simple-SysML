@@ -5,6 +5,8 @@
 #include <QMimeData>
 #include <QMouseEvent>
 #include <QGraphicsItem>
+#include <QDataStream>
+#include <QIODevice>
 
 DropGraphicsView::DropGraphicsView(QGraphicsScene *scene, QWidget *parent)
     : QGraphicsView(scene, parent), m_scene(scene)
@@ -18,7 +20,8 @@ DropGraphicsView::DropGraphicsView(QGraphicsScene *scene, QWidget *parent)
 
 void DropGraphicsView::dragEnterEvent(QDragEnterEvent *event)
 {
-    if (event->mimeData()->hasFormat("text/plain"))
+    if (event->mimeData()->hasFormat("text/plain") || 
+        event->mimeData()->hasFormat("application/x-sysml-blockdefinition"))
     {
         event->acceptProposedAction();
     }
@@ -26,7 +29,8 @@ void DropGraphicsView::dragEnterEvent(QDragEnterEvent *event)
 
 void DropGraphicsView::dragMoveEvent(QDragMoveEvent *event)
 {
-    if (event->mimeData()->hasFormat("text/plain"))
+    if (event->mimeData()->hasFormat("text/plain") || 
+        event->mimeData()->hasFormat("application/x-sysml-blockdefinition"))
     {
         event->acceptProposedAction();
     }
@@ -34,16 +38,25 @@ void DropGraphicsView::dragMoveEvent(QDragMoveEvent *event)
 
 void DropGraphicsView::dropEvent(QDropEvent *event)
 {
-    if (!event->mimeData()->hasFormat("text/plain"))
+    if (event->mimeData()->hasFormat("text/plain"))
     {
-        return;
+        QString text = event->mimeData()->text();
+        QPointF scenePos = mapToScene(event->position().toPoint());
+
+        emit dropPerformed(text, scenePos);
+        event->acceptProposedAction();
     }
-
-    QString text = event->mimeData()->text();
-    QPointF scenePos = mapToScene(event->position().toPoint());
-
-    emit dropPerformed(text, scenePos);
-    event->acceptProposedAction();
+    else if (event->mimeData()->hasFormat("application/x-sysml-blockdefinition"))
+    {
+        QByteArray encoded = event->mimeData()->data("application/x-sysml-blockdefinition");
+        QDataStream stream(&encoded, QIODevice::ReadOnly);
+        QString id;
+        stream >> id;
+        
+        QPointF scenePos = mapToScene(event->position().toPoint());
+        emit blockDefinitionDropped(id, scenePos);
+        event->acceptProposedAction();
+    }
 }
 
 void DropGraphicsView::mousePressEvent(QMouseEvent *event)

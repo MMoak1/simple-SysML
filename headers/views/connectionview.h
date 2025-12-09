@@ -4,8 +4,11 @@
 #include <QGraphicsObject>
 #include <QColor>
 #include <QPainterPath>
+#include <QPointer>
 #include "../models/connectionmodel.h"
 #include "../models/partproperty.h"
+
+class BlockDefinition;
 
 class ConnectionView : public QGraphicsObject
 {
@@ -27,11 +30,16 @@ protected:
 
 private slots:
     void updateConnection();
+    void onBlockDestroyed();  // Handle when connected block is deleted
 
 private:
     ConnectionModel *m_model = nullptr;
     PartProperty *m_partProperty = nullptr;
     QColor m_color;
+    
+    // Safe pointers to track connected blocks (auto-null when deleted)
+    QPointer<BlockDefinition> m_ownerBlock;
+    QPointer<BlockDefinition> m_typeBlock;
     
     // Cached path for shape() calculation
     mutable QPainterPath m_cachedPath;

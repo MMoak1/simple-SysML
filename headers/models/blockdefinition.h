@@ -24,6 +24,9 @@ public:
     QString id() const { return m_id; }
     void setId(const QString &id);
     
+    // Create a deep copy of this definition
+    BlockDefinition *clone() const;
+    
     // Type name (e.g., "Car", "Wheel")
     QString typeName() const { return m_typeName; }
     void setTypeName(const QString &name);

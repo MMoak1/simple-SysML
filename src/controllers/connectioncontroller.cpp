@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QSet>
 #include <QMessageBox>
+#include <QPointer>
 
 ConnectionController::ConnectionController(QGraphicsScene *scene, QObject *parent)
     : QObject(parent), m_scene(scene)
@@ -94,23 +95,26 @@ void ConnectionController::deleteConnection(PartProperty *partProperty)
     m_connections.removeOne(partProperty);
     ConnectionView *view = m_connectionViews.take(partProperty);
     
-    // Step 2: Remove view from scene and delete it
+    // Step 2: Remove view from scene and defer deletion
+    // Using deleteLater() to ensure signals complete before destruction
     if (view)
     {
         m_scene->removeItem(view);
-        delete view;
-        view = nullptr;
+        view->deleteLater();  // SAFE: defers to event loop
     }
     
-    // Step 3: Emit signal (while partProperty is still valid)
-    emit connectionDeleted(partProperty);
-    
-    // Step 4: Remove from owner BlockDefinition (this will delete the PartProperty)
-    if (partProperty->owner())
+    // Step 3: Remove from owner BlockDefinition BEFORE emitting signal
+    // This ensures hierarchy rebuild sees correct state
+    BlockDefinition *owner = partProperty->owner();
+    if (owner)
     {
-        partProperty->owner()->removePartProperty(partProperty);
+        owner->removePartProperty(partProperty);
     }
     // Note: removePartProperty calls deleteLater() on the part, so it's scheduled for deletion.
+    // partProperty is still valid for signal emission but no longer in owner's list.
+    
+    // Step 4: Emit signal AFTER removal so listeners see correct state
+    emit connectionDeleted(partProperty);
 }
 
 void ConnectionController::removeConnectionView(PartProperty *partProperty)
@@ -126,7 +130,7 @@ void ConnectionController::removeConnectionView(PartProperty *partProperty)
     if (view)
     {
         m_scene->removeItem(view);
-        delete view;
+        view->deleteLater();  // SAFE: defers to event loop
     }
     
     // Emit signal - the PartProperty object is still valid but being deleted
@@ -140,26 +144,37 @@ void ConnectionController::deleteConnectionsForBlock(BlockDefinition *definition
     
     qDebug() << "ConnectionController: Deleting all connections for block:" << definition->typeName();
     
-    // Collect connections to remove (connections where this block is owner or type)
-    QList<PartProperty *> connectionsToRemove;
+    // Use QPointer to safely track connections during deletion
+    // (in case cascade deletions remove entries from m_connections)
+    QList<QPointer<PartProperty>> connectionsToRemove;
     
     for (PartProperty *conn : m_connections)
     {
         if (conn->owner() == definition || conn->type() == definition)
         {
-            connectionsToRemove.append(conn);
+            connectionsToRemove.append(QPointer<PartProperty>(conn));
         }
     }
     
     // For connections WHERE this block is the OWNER:
-    // The PartProperty will be deleted when BlockDefinition is deleted (qDeleteAll in destructor)
+    // The PartProperty will be deleted when BlockDefinition is deleted
     // So we just remove the views.
     
     // For connections WHERE this block is the TYPE (target):
     // We need to fully delete those connections (remove from their owner too)
     
-    for (PartProperty *conn : connectionsToRemove)
+    for (const QPointer<PartProperty> &connPtr : connectionsToRemove)
     {
+        // Check if still valid (might have been deleted in cascade)
+        if (!connPtr)
+            continue;
+        
+        PartProperty *conn = connPtr.data();
+        
+        // Also verify it's still in our tracking list
+        if (!m_connections.contains(conn))
+            continue;
+        
         if (conn->owner() == definition)
         {
             // Owner is being deleted, PartProperty will be deleted by ~BlockDefinition

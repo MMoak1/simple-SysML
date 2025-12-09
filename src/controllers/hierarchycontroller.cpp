@@ -82,6 +82,14 @@ void HierarchyController::addConnection(PartProperty *partProperty)
     if (partProperty->owner()) {
         m_treeView->updatePart(partProperty);
     }
+    
+    // Connect to PartProperty signals for live updates
+    connect(partProperty, &PartProperty::nameChanged, this, [this, partProperty]() {
+        m_treeView->updatePart(partProperty);
+    });
+    connect(partProperty, &PartProperty::multiplicityChanged, this, [this, partProperty]() {
+        m_treeView->updatePart(partProperty);
+    });
 }
 
 void HierarchyController::removeConnection(PartProperty *partProperty)

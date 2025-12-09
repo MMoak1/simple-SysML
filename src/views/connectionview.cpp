@@ -35,24 +35,37 @@ ConnectionView::ConnectionView(PartProperty *partProperty, QGraphicsItem *parent
         connect(m_partProperty, &PartProperty::nameChanged, this, &ConnectionView::updateConnection);
         connect(m_partProperty, &PartProperty::typeChanged, this, &ConnectionView::updateConnection);
         
-        // Also need to update when owner or type moves/resizes
-        if (m_partProperty->owner()) {
-            connect(m_partProperty->owner(), &BlockDefinition::positionChanged, this, &ConnectionView::updateConnection);
-            connect(m_partProperty->owner(), &BlockDefinition::sizeChanged, this, &ConnectionView::updateConnection);
+        // Store pointers in QPointer for safe tracking
+        m_ownerBlock = m_partProperty->owner();
+        m_typeBlock = m_partProperty->type();
+        
+        // Connect to owner block signals if it exists
+        if (m_ownerBlock) {
+            connect(m_ownerBlock.data(), &BlockDefinition::positionChanged, this, &ConnectionView::updateConnection);
+            connect(m_ownerBlock.data(), &BlockDefinition::sizeChanged, this, &ConnectionView::updateConnection);
+            connect(m_ownerBlock.data(), &QObject::destroyed, this, &ConnectionView::onBlockDestroyed);
         }
         
-        // Connect to type signals if type exists
-        if (m_partProperty->type()) {
-            connect(m_partProperty->type(), &BlockDefinition::positionChanged, this, &ConnectionView::updateConnection);
-            connect(m_partProperty->type(), &BlockDefinition::sizeChanged, this, &ConnectionView::updateConnection);
+        // Connect to type block signals if it exists
+        if (m_typeBlock) {
+            connect(m_typeBlock.data(), &BlockDefinition::positionChanged, this, &ConnectionView::updateConnection);
+            connect(m_typeBlock.data(), &BlockDefinition::sizeChanged, this, &ConnectionView::updateConnection);
+            connect(m_typeBlock.data(), &QObject::destroyed, this, &ConnectionView::onBlockDestroyed);
         }
         
-        // Handle dynamic type changes
-        connect(m_partProperty, &PartProperty::typeChanged, [this](BlockDefinition *newType) {
-            if (newType) {
-                // Connect to new type signals
-                connect(newType, &BlockDefinition::positionChanged, this, &ConnectionView::updateConnection);
-                connect(newType, &BlockDefinition::sizeChanged, this, &ConnectionView::updateConnection);
+        // Handle dynamic type changes - reconnect signals to new type
+        connect(m_partProperty, &PartProperty::typeChanged, this, [this](BlockDefinition *newType) {
+            // Disconnect from old type if still valid
+            if (m_typeBlock) {
+                disconnect(m_typeBlock.data(), nullptr, this, nullptr);
+            }
+            
+            // Store and connect to new type
+            m_typeBlock = newType;
+            if (m_typeBlock) {
+                connect(m_typeBlock.data(), &BlockDefinition::positionChanged, this, &ConnectionView::updateConnection);
+                connect(m_typeBlock.data(), &BlockDefinition::sizeChanged, this, &ConnectionView::updateConnection);
+                connect(m_typeBlock.data(), &QObject::destroyed, this, &ConnectionView::onBlockDestroyed);
             }
             updateConnection();
         });
@@ -181,6 +194,15 @@ void ConnectionView::paint(QPainter *painter, const QStyleOptionGraphicsItem *op
 
 void ConnectionView::updateConnection()
 {
+    prepareGeometryChange();
+    update();
+}
+
+void ConnectionView::onBlockDestroyed()
+{
+    // One of the connected blocks was destroyed
+    // The QPointers (m_ownerBlock, m_typeBlock) will auto-null
+    // Just trigger an update - paint() and boundingRect() already check for null
     prepareGeometryChange();
     update();
 }

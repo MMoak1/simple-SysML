@@ -21,6 +21,7 @@ public:
     explicit DropController(QGraphicsScene *scene, DropGraphicsView *view, ConnectionController *connectionController, QObject *parent = nullptr);
 
     void handleDrop(const QString &blockType, const QPointF &position);
+    void handleDefinitionDrop(const QString &definitionId, const QPointF &position);
     void addBlock(BlockDefinition *definition);
     void deleteBlock(BlockDefinition *block);
     void clear();

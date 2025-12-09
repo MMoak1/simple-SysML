@@ -14,11 +14,9 @@ click a button and drag to create a block in the tool
 
 press ctrl+click will create a temp line that when in contact with onter block will form connection
 
-click on a blocks name to change it
 
-click double click on a block to enter state machine mode   
 
-in state machine mode click a button and drag to create a state
 
-press ctrl+click will create a temp line that when in contact with onter state will form connection
+Selecting a block will allow you to edit it's name double clicking on it will allow you to enter state machine mode
+
 

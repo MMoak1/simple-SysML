@@ -37,6 +37,9 @@ signals:
     void definitionItemDoubleClicked(BlockDefinition *definition);
     // Maybe signal for part clicked?
 
+protected:
+    QMimeData *mimeData(const QList<QTreeWidgetItem *> &items) const override;
+
 private slots:
     void onItemClicked(QTreeWidgetItem *item, int column);
     void onItemDoubleClicked(QTreeWidgetItem *item, int column);

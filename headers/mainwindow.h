@@ -39,6 +39,7 @@ private slots:
     void onNavigateBack();
     void onViewChanged();
     void onDropPerformed(const QString &itemType, const QPointF &position);
+    void onBlockDefinitionDropped(const QString &definitionId, const QPointF &position);
     void deleteSelectedItems();
 
 private:

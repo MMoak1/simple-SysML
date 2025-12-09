@@ -12,11 +12,44 @@ BlockDefinition::BlockDefinition(const QString &typeName, const QColor &color,
 
 BlockDefinition::~BlockDefinition()
 {
-    qDeleteAll(m_partProperties);
+    // Emit signals BEFORE deletion so listeners can react
+    // Don't use qDeleteAll - it doesn't emit signals
+    while (!m_partProperties.isEmpty())
+    {
+        PartProperty *part = m_partProperties.takeLast();
+        emit partPropertyRemoved(part);
+        delete part;
+    }
+    
     if (m_stateMachine)
     {
         delete m_stateMachine;
     }
+}
+
+BlockDefinition *BlockDefinition::clone() const
+{
+    // Create new definition with basic properties
+    // Position will typically be updated by the caller (drop logic)
+    BlockDefinition *newDef = new BlockDefinition(m_typeName, m_color, m_position);
+    newDef->setSize(m_size);
+    
+    // Clone State Machine if present
+    if (m_stateMachine)
+    {
+        StateMachineModel *newSM = m_stateMachine->clone();
+        newDef->m_stateMachine = newSM;
+        newSM->setParent(newDef);
+    }
+    
+    // Clone Part Properties (Composition structure)
+    // We copy the structural definition, creating new PartProperties that point to the SAME types
+    for (PartProperty *part : m_partProperties)
+    {
+        newDef->addPartProperty(part->name(), part->type(), part->multiplicity());
+    }
+    
+    return newDef;
 }
 
 void BlockDefinition::setId(const QString &id)

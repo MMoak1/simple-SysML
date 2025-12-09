@@ -196,7 +196,7 @@ void StateMachineController::onStateRemoved(StateModel *state)
     {
         unregisterStateView(view);
         m_scene->removeItem(view);
-        delete view;
+        view->deleteLater();  // SAFE: defers to event loop
     }
 }
 
@@ -221,7 +221,7 @@ void StateMachineController::onTransitionRemoved(TransitionModel *transition)
     if (view)
     {
         m_scene->removeItem(view);
-        delete view;
+        view->deleteLater();  // SAFE: defers to event loop
     }
 }
 
