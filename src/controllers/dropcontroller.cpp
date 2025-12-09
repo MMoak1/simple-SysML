@@ -18,6 +18,17 @@ void DropController::handleDrop(const QString &blockType, const QPointF &positio
     }
 }
 
+void DropController::handleDrop(const QString &blockType, const QPointF &position, const QString &customName)
+{
+    BlockDefinition *definition = createBlockDefinition(blockType);
+    if (definition)
+    {
+        definition->setTypeName(customName);
+        definition->setPosition(position);
+        addBlock(definition);
+    }
+}
+
 void DropController::handleDefinitionDrop(const QString &definitionId, const QPointF &position)
 {
     // Find the source definition by ID

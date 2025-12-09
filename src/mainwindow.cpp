@@ -7,6 +7,8 @@
 #include <QAction>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QInputDialog>
+#include <QLineEdit>
 #include "../headers/io/modelserializer.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -382,9 +384,25 @@ void MainWindow::onDropPerformed(const QString &itemType, const QPointF &positio
     }
     else
     {
-        // In BDD view - create blocks
+        // In BDD view - create blocks with a name prompt
         qDebug() << "MainWindow: Routing drop to DropController";
-        dropController->handleDrop(itemType, position);
+        
+        bool ok;
+        QString blockName = QInputDialog::getText(this, 
+            tr("New Block"),
+            tr("Enter block name:"),
+            QLineEdit::Normal,
+            QString(),  // Empty default so user must enter a name
+            &ok);
+        
+        if (ok && !blockName.trimmed().isEmpty())
+        {
+            dropController->handleDrop(itemType, position, blockName.trimmed());
+        }
+        else
+        {
+            qDebug() << "MainWindow: Block creation cancelled - no name provided";
+        }
     }
 }
 
