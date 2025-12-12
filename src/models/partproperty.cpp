@@ -9,8 +9,8 @@ PartProperty::PartProperty(const QString &name, BlockDefinition *type,
     
     if (m_type)
     {
-        connect(m_type, &BlockDefinition::typeNameChanged, this, [this](const QString &) {
-            emit typeChanged(m_type);
+        connect(m_type.data(), &BlockDefinition::typeNameChanged, this, [this](const QString &) {
+            emit typeChanged(m_type.data());
         });
     }
 }
@@ -59,8 +59,8 @@ void PartProperty::setType(BlockDefinition *type)
         
         if (m_type)
         {
-            connect(m_type, &BlockDefinition::typeNameChanged, [this](const QString &) {
-                emit typeChanged(m_type);
+            connect(m_type.data(), &BlockDefinition::typeNameChanged, this, [this](const QString &) {
+                emit typeChanged(m_type.data());
             });
         }
         

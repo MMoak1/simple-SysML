@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QString>
+#include <QPointer>
 #include "blockdefinition.h"
 #include "statemachinemodel.h"
 
@@ -28,7 +29,7 @@ public:
     void setMultiplicity(const QString &mult);
     
     // Type reference (what type does this part hold?)
-    BlockDefinition* type() const { return m_type; }
+    BlockDefinition* type() const { return m_type.data(); }
     void setType(BlockDefinition *type);
     
     // Owner (which BlockDefinition owns this part?)
@@ -54,7 +55,7 @@ private:
     QString m_id;
     QString m_name;
     QString m_multiplicity;
-    BlockDefinition *m_type;
+    QPointer<BlockDefinition> m_type;
     BlockDefinition *m_owner = nullptr;
     StateMachineModel *m_stateMachineInstance = nullptr;
 };
