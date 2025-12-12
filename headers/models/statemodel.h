@@ -39,6 +39,9 @@ public:
     void setPosition(const QPointF &position);
     void setSize(const QSizeF &size);
 
+    // Clone method for instance creation
+    StateModel *clone() const;
+
 signals:
     void labelChanged(const QString &label);
     void stateTypeChanged(StateType type);

@@ -1,31 +1,31 @@
-#ifndef BLOCKVIEW_H
-#define BLOCKVIEW_H
+#ifndef BLOCKDEFINITIONVIEW_H
+#define BLOCKDEFINITIONVIEW_H
 
 #include <QGraphicsObject>
 #include <QColor>
 #include <QString>
 #include <QSizeF>
 #include <QPointF>
-#include "../models/blockmodel.h"
+#include "../models/blockdefinition.h"
 
 class TemporaryConnectionLine;
 
-class BlockView : public QGraphicsObject
+class BlockDefinitionView : public QGraphicsObject
 {
     Q_OBJECT
 
 public:
-    explicit BlockView(BlockModel *model, QGraphicsItem *parent = nullptr);
+    explicit BlockDefinitionView(BlockDefinition *definition, QGraphicsItem *parent = nullptr);
 
     QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
-    BlockModel *model() const { return m_model; }
+    BlockDefinition *definition() const { return m_definition; }
 
 signals:
-    void connectionStarted(BlockView *startBlock);
-    void connectionCompleted(BlockView *startBlock, BlockView *endBlock);
-    void enterStateMachineRequested(BlockView *block);
+    void connectionStarted(BlockDefinitionView *startBlock);
+    void connectionCompleted(BlockDefinitionView *startBlock, BlockDefinitionView *endBlock);
+    void enterStateMachineRequested(BlockDefinitionView *block);
 
 protected:
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
@@ -36,13 +36,13 @@ protected:
 
 private slots:
     void updateColor(const QColor &color);
-    void updateLabel(const QString &label);
+    void updateTypeName(const QString &name);
     void updatePosition(const QPointF &position);
     void updateSize(const QSizeF &size);
 
 private:
-    BlockModel *m_model;
-    QString m_label;
+    BlockDefinition *m_definition;
+    QString m_typeName;
     QColor m_color;
     QSizeF m_size;
 
@@ -54,14 +54,14 @@ private:
     // Title editing state
     bool m_editingTitle = false;
 
-    // Connection drawing state (static to share across all BlockView instances)
+    // Connection drawing state (static to share across all BlockDefinitionView instances)
     static bool s_drawingConnection;
-    static BlockView *s_connectionStartBlock;
+    static BlockDefinitionView *s_connectionStartBlock;
     static TemporaryConnectionLine *s_tempLine;
 
     void showTitleInputDialog();
     QPointF getNearestEdgePoint(const QPointF &targetPoint) const;
-    BlockView *findBlockAtPosition(const QPointF &scenePos) const;
+    BlockDefinitionView *findBlockAtPosition(const QPointF &scenePos) const;
 };
 
-#endif // BLOCKVIEW_H
+#endif // BLOCKDEFINITIONVIEW_H

@@ -133,3 +133,27 @@ QPointF TransitionModel::calculateEdgePoint(StateModel *state, const QPointF &ta
         }
     }
 }
+
+TransitionModel *TransitionModel::clone(const QList<StateModel *> &newStates) const
+{
+    StateModel *newStart = nullptr;
+    StateModel *newEnd = nullptr;
+
+    // Find the corresponding new states by ID
+    for (StateModel *state : newStates)
+    {
+        if (state->id() == m_startStateId)
+            newStart = state;
+        if (state->id() == m_endStateId)
+            newEnd = state;
+    }
+
+    if (newStart && newEnd)
+    {
+        TransitionModel *newTransition = new TransitionModel(newStart, newEnd, m_label);
+        newTransition->setId(m_id); // Preserve ID
+        return newTransition;
+    }
+
+    return nullptr;
+}

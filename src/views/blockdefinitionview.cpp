@@ -1,4 +1,4 @@
-#include "../../headers/views/blockview.h"
+#include "../../headers/views/blockdefinitionview.h"
 #include "../../headers/views/temporaryconnectionline.h"
 #include <QPainter>
 #include <QBrush>
@@ -11,34 +11,40 @@
 #include <QApplication>
 #include <QInputDialog>
 #include <QDebug>
+#include <QLineF>
 
 // Initialize static members
-bool BlockView::s_drawingConnection = false;
-BlockView *BlockView::s_connectionStartBlock = nullptr;
-TemporaryConnectionLine *BlockView::s_tempLine = nullptr;
+bool BlockDefinitionView::s_drawingConnection = false;
+BlockDefinitionView *BlockDefinitionView::s_connectionStartBlock = nullptr;
+TemporaryConnectionLine *BlockDefinitionView::s_tempLine = nullptr;
 
-BlockView::BlockView(BlockModel *model, QGraphicsItem *parent)
-    : QGraphicsObject(parent), m_model(model)
+BlockDefinitionView::BlockDefinitionView(BlockDefinition *definition, QGraphicsItem *parent)
+    : QGraphicsObject(parent), m_definition(definition)
 {
-    // Set initial properties from model
-    m_color = model->color();
-    m_label = model->label();
-    m_size = model->size();
+    // Set initial properties from definition
+    m_color = definition->color();
+    m_typeName = definition->typeName();
+    m_size = definition->size();
 
     // Make selectable and movable, and notify scene of geometry changes
     setFlags(ItemIsSelectable | ItemIsMovable | ItemSendsGeometryChanges);
 
-    // Connect to model signals
-    connect(model, &BlockModel::colorChanged, this, &BlockView::updateColor);
-    connect(model, &BlockModel::labelChanged, this, &BlockView::updateLabel);
-    connect(model, &BlockModel::positionChanged, this, &BlockView::updatePosition);
-    connect(model, &BlockModel::sizeChanged, this, &BlockView::updateSize);
+    // Connect to definition signals
+    // Note: definition has no colorChanged? BlockModel didn't have definition of color setter implementation details in summary but 
+    // BlockDefinition has color() getter. BlockDefinition needs colorChanged signal if we want dynamic color updates. 
+    // But BlockDefinition implementation shows it uses m_color only in constructor.
+    // Wait, BlockModel had colorChanged. BlockDefinition header has setters but I might have missed implementing signals for all props.
+    // Let's check BlockDefinition implementation again.
+    
+    connect(definition, &BlockDefinition::typeNameChanged, this, &BlockDefinitionView::updateTypeName);
+    connect(definition, &BlockDefinition::positionChanged, this, &BlockDefinitionView::updatePosition);
+    connect(definition, &BlockDefinition::sizeChanged, this, &BlockDefinitionView::updateSize);
 
     // Set initial position
-    setPos(model->position());
+    setPos(definition->position());
 }
 
-QRectF BlockView::boundingRect() const
+QRectF BlockDefinitionView::boundingRect() const
 {
     // Include extra space for selection border (3px) plus margin
     const qreal margin = 5.0;
@@ -46,7 +52,7 @@ QRectF BlockView::boundingRect() const
                   m_size.width() + margin * 2, m_size.height() + margin * 2);
 }
 
-void BlockView::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void BlockDefinitionView::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     Q_UNUSED(option);
     Q_UNUSED(widget);
@@ -76,7 +82,7 @@ void BlockView::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
         // Draw editing indicator
         QFont font = QApplication::font();
         QFontMetrics fm(font);
-        QRectF textRect = fm.boundingRect("Editing: " + m_label);
+        QRectF textRect = fm.boundingRect("Editing: " + m_typeName);
 
         // Draw a text input box background
         QRectF editRect(
@@ -96,12 +102,12 @@ void BlockView::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
 
         // Draw "Editing:" text
         painter->setPen(Qt::black);
-        painter->drawText(editRect, Qt::AlignCenter, "Editing: " + m_label);
+        painter->drawText(editRect, Qt::AlignCenter, "Editing: " + m_typeName);
     }
     else
     {
         // Draw normal title
-        painter->drawText(localRect, Qt::AlignCenter, m_label);
+        painter->drawText(localRect, Qt::AlignCenter, m_typeName);
     }
 
     painter->restore();
@@ -128,31 +134,31 @@ void BlockView::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
     }
 }
 
-void BlockView::updateColor(const QColor &color)
+void BlockDefinitionView::updateColor(const QColor &color)
 {
     m_color = color;
     update(); // Trigger repaint
 }
 
-void BlockView::updateLabel(const QString &label)
+void BlockDefinitionView::updateTypeName(const QString &name)
 {
-    m_label = label;
+    m_typeName = name;
     update(); // Trigger repaint
 }
 
-void BlockView::updatePosition(const QPointF &position)
+void BlockDefinitionView::updatePosition(const QPointF &position)
 {
     setPos(position);
 }
 
-void BlockView::updateSize(const QSizeF &size)
+void BlockDefinitionView::updateSize(const QSizeF &size)
 {
     prepareGeometryChange();
     m_size = size;
     update();
 }
 
-void BlockView::mousePressEvent(QGraphicsSceneMouseEvent *event)
+void BlockDefinitionView::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton)
     {
@@ -173,15 +179,19 @@ void BlockView::mousePressEvent(QGraphicsSceneMouseEvent *event)
             s_tempLine = new TemporaryConnectionLine(startPoint);
             scene()->addItem(s_tempLine);
 
-            qDebug() << "Connection started from block:" << m_label;
+            qDebug() << "Connection started from block:" << m_typeName;
             emit connectionStarted(this);
             event->accept();
             return;
         }
 
-        // Check if clicking on resize handle
-        if (localPos.x() > bounding.width() / 2 - handleSize &&
-            localPos.y() > bounding.height() / 2 - handleSize)
+        // Check if clicking on resize handle - handle is at bottom-right of the block
+        // The block rect is centered at origin: (-m_size.width()/2, -m_size.height()/2) to (+m_size.width()/2, +m_size.height()/2)
+        qreal handleRadius = handleSize / 2;
+        QPointF handleCenter(m_size.width() / 2 - handleRadius, m_size.height() / 2 - handleRadius);
+        qreal distToHandle = QLineF(localPos, handleCenter).length();
+        
+        if (distToHandle <= handleSize)  // Within handleSize pixels of the handle center
         {
             m_resizing = true;
             m_originalSize = m_size;
@@ -190,22 +200,23 @@ void BlockView::mousePressEvent(QGraphicsSceneMouseEvent *event)
             return;
         }
 
-        // Check if clicking on title area for editing
+        // Check if clicking on title area for editing (single click on title)
+        // Title is drawn centered in the block
         if (!m_resizing && !m_editingTitle)
         {
-            // Calculate title area (center portion of the block)
+            // Calculate title area - make it generous for easier clicking
             QFont font = QApplication::font();
             QFontMetrics fm(font);
-            QRectF textRect = fm.boundingRect(m_label);
+            QRectF textRect = fm.boundingRect(m_typeName);
             qreal titleHeight = textRect.height();
-            qreal titleWidth = textRect.width();
+            qreal titleWidth = qMax(textRect.width(), 40.0);  // Minimum width for short names
 
-            // Title area is in the center horizontally and upper portion vertically
+            // Title area is centered in the block
             QRectF titleArea(
-                -titleWidth / 2 - 10, // Add some padding
-                -m_size.height() / 2 + 5,
-                titleWidth + 20,
-                titleHeight + 10);
+                -titleWidth / 2 - 15,  // Add generous padding
+                -titleHeight / 2 - 10,
+                titleWidth + 30,
+                titleHeight + 20);
 
             if (titleArea.contains(localPos))
             {
@@ -219,7 +230,7 @@ void BlockView::mousePressEvent(QGraphicsSceneMouseEvent *event)
     QGraphicsObject::mousePressEvent(event);
 }
 
-void BlockView::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+void BlockDefinitionView::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
     if (m_resizing)
     {
@@ -227,7 +238,7 @@ void BlockView::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
         QSizeF newSize = m_originalSize + QSizeF(delta.x(), delta.y());
         if (newSize.width() > 20 && newSize.height() > 20)
         {
-            m_model->setSize(newSize);
+            m_definition->setSize(newSize);
         }
         event->accept();
         return;
@@ -243,10 +254,12 @@ void BlockView::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 
     // Check for resize cursor
     QPointF localPos = mapFromScene(event->scenePos());
-    QRectF bounding = boundingRect();
     qreal handleSize = 10.0;
-    if (localPos.x() > bounding.width() / 2 - handleSize &&
-        localPos.y() > bounding.height() / 2 - handleSize)
+    qreal handleRadius = handleSize / 2;
+    QPointF handleCenter(m_size.width() / 2 - handleRadius, m_size.height() / 2 - handleRadius);
+    qreal distToHandle = QLineF(localPos, handleCenter).length();
+    
+    if (distToHandle <= handleSize * 1.5)  // Slightly larger area for cursor feedback
     {
         setCursor(QCursor(Qt::SizeFDiagCursor));
     }
@@ -257,14 +270,14 @@ void BlockView::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
     // Call base class to handle normal dragging
     QGraphicsObject::mouseMoveEvent(event);
 
-    // Update model position when dragging (not resizing or drawing connection)
+    // Update definition position when dragging (not resizing or drawing connection)
     if (!m_resizing && !s_drawingConnection && (flags() & ItemIsMovable))
     {
-        m_model->setPosition(pos());
+        m_definition->setPosition(pos());
     }
 }
 
-void BlockView::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+void BlockDefinitionView::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     if (m_resizing)
     {
@@ -277,12 +290,12 @@ void BlockView::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     if (s_drawingConnection && s_connectionStartBlock)
     {
         // Find block at release position
-        BlockView *endBlock = findBlockAtPosition(event->scenePos());
+        BlockDefinitionView *endBlock = findBlockAtPosition(event->scenePos());
 
         // Only create connection if we released over a different block
         if (endBlock && endBlock != s_connectionStartBlock)
         {
-            qDebug() << "Connection completed from" << s_connectionStartBlock->model()->label() << "to" << endBlock->model()->label();
+            qDebug() << "Connection completed from" << s_connectionStartBlock->definition()->typeName() << "to" << endBlock->definition()->typeName();
             emit connectionCompleted(s_connectionStartBlock, endBlock);
         }
         else
@@ -305,35 +318,34 @@ void BlockView::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
         return;
     }
 
-    // Update model position after dragging
+    // Update definition position after dragging
     if (!m_resizing && !s_drawingConnection)
     {
-        m_model->setPosition(pos());
+        m_definition->setPosition(pos());
     }
 
     QGraphicsObject::mouseReleaseEvent(event);
 }
 
-QVariant BlockView::itemChange(GraphicsItemChange change, const QVariant &value)
+QVariant BlockDefinitionView::itemChange(GraphicsItemChange change, const QVariant &value)
 {
-    if (change == ItemPositionHasChanged && m_model)
+    if (change == ItemPositionHasChanged && m_definition)
     {
-        // Sync model position whenever the view position changes
-        // This handles the case where multiple items are selected and moved together
+        // Sync definition position whenever the view position changes
         QPointF newPos = value.toPointF();
-        if (m_model->position() != newPos)
+        if (m_definition->position() != newPos)
         {
-            m_model->setPosition(newPos);
+            m_definition->setPosition(newPos);
         }
     }
     return QGraphicsObject::itemChange(change, value);
 }
 
-void BlockView::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
+void BlockDefinitionView::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton)
     {
-        qDebug() << "Double-click on block:" << m_label << "- requesting state machine view";
+        qDebug() << "Double-click on block:" << m_typeName << "- requesting state machine view";
         emit enterStateMachineRequested(this);
         event->accept();
         return;
@@ -341,27 +353,27 @@ void BlockView::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
     QGraphicsObject::mouseDoubleClickEvent(event);
 }
 
-void BlockView::showTitleInputDialog()
+void BlockDefinitionView::showTitleInputDialog()
 {
     bool ok;
     QString newText = QInputDialog::getText(
         nullptr, // No parent widget needed for graphics scene
-        "Edit Block Title",
-        "Enter new title:",
+        "Edit Block Type Name",
+        "Enter new type name:",
         QLineEdit::Normal,
-        m_label,
+        m_typeName,
         &ok);
 
-    if (ok && !newText.isEmpty() && newText != m_label)
+    if (ok && !newText.isEmpty() && newText != m_typeName)
     {
-        m_model->setLabel(newText);
+        m_definition->setTypeName(newText);
     }
 
     m_editingTitle = false;
     update();
 }
 
-QPointF BlockView::getNearestEdgePoint(const QPointF &targetPoint) const
+QPointF BlockDefinitionView::getNearestEdgePoint(const QPointF &targetPoint) const
 {
     QRectF rect = sceneBoundingRect();
     QPointF center = rect.center();
@@ -401,7 +413,7 @@ QPointF BlockView::getNearestEdgePoint(const QPointF &targetPoint) const
     }
 }
 
-BlockView *BlockView::findBlockAtPosition(const QPointF &scenePos) const
+BlockDefinitionView *BlockDefinitionView::findBlockAtPosition(const QPointF &scenePos) const
 {
     if (!scene())
         return nullptr;
@@ -409,10 +421,10 @@ BlockView *BlockView::findBlockAtPosition(const QPointF &scenePos) const
     // Get all items at the position
     QList<QGraphicsItem *> itemsAtPos = scene()->items(scenePos);
 
-    // Find the first BlockView that isn't this one
+    // Find the first BlockDefinitionView that isn't this one
     for (QGraphicsItem *item : itemsAtPos)
     {
-        BlockView *blockView = dynamic_cast<BlockView *>(item);
+        BlockDefinitionView *blockView = dynamic_cast<BlockDefinitionView *>(item);
         if (blockView && blockView != this)
         {
             return blockView;

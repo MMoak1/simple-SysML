@@ -49,3 +49,10 @@ void StateModel::setSize(const QSizeF &size)
         emit sizeChanged(m_size);
     }
 }
+
+StateModel *StateModel::clone() const
+{
+    StateModel *newState = new StateModel(m_label, m_stateType, m_position, m_size);
+    newState->setId(m_id); // Preserve ID so transitions can link correctly
+    return newState;
+}

@@ -41,8 +41,16 @@ qt_add_executable(Helloworld
     src/controllers/menucontroller.cpp
     headers/models/connectionmodel.h
     src/models/connectionmodel.cpp
+    # Semantic Refactor Models
+    headers/models/blockdefinition.h
+    src/models/blockdefinition.cpp
+    headers/models/partproperty.h
+    src/models/partproperty.cpp
     headers/views/connectionview.h
     src/views/connectionview.cpp
+    # Semantic Refactor Views
+    headers/views/blockdefinitionview.h
+    src/views/blockdefinitionview.cpp
     headers/views/temporaryconnectionline.h
     src/views/temporaryconnectionline.cpp
     headers/controllers/connectioncontroller.h

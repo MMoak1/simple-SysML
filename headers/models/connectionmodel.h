@@ -31,10 +31,18 @@ public:
 
     bool isValid() const { return !m_startBlockId.isEmpty() && !m_endBlockId.isEmpty(); }
 
+    // Label and multiplicity for named hierarchies
+    QString label() const { return m_label; }
+    void setLabel(const QString &label);
+    
+    QString multiplicity() const { return m_multiplicity; }
+    void setMultiplicity(const QString &multiplicity);
+
 signals:
     void connectionChanged();
     void startBlockChanged();
     void endBlockChanged();
+    void labelChanged(const QString &label);
 
 private:
     void updateConnection();
@@ -48,6 +56,10 @@ private:
     BlockModel *m_endBlock = nullptr;
     QPointF m_startEdgePoint;
     QPointF m_endEdgePoint;
+    
+    // Label and multiplicity for named hierarchies
+    QString m_label;
+    QString m_multiplicity;
 };
 
 #endif // CONNECTIONMODEL_H

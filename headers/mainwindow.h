@@ -13,13 +13,15 @@
 #include "views/dropgraphicsview.h"
 #include "views/startmenu.h"
 #include "views/hierarchytreeview.h"
-#include "models/blockmodel.h"
+#include "models/blockdefinition.h"
 #include "controllers/dropcontroller.h"
 #include "controllers/menucontroller.h"
 #include "controllers/connectioncontroller.h"
 #include "controllers/hierarchycontroller.h"
 #include "controllers/diagramviewcontroller.h"
 #include "controllers/statemachinecontroller.h"
+
+class BlockDefinitionView;
 
 class MainWindow : public QMainWindow
 {
@@ -33,17 +35,18 @@ private slots:
     void newFile();
     void openFile();
     void saveFile();
-    void onEnterStateMachine(BlockView *blockView);
+    void onEnterStateMachine(BlockDefinitionView *blockView);
     void onNavigateBack();
     void onViewChanged();
     void onDropPerformed(const QString &itemType, const QPointF &position);
+    void onBlockDefinitionDropped(const QString &definitionId, const QPointF &position);
     void deleteSelectedItems();
 
 private:
     void setupToolInterface();
     void setupStateMachineInterface();
     void switchToBDDView();
-    void switchToStateMachineView(BlockModel *block);
+    void switchToStateMachineView(BlockDefinition *definition);
 
     // BDD (Block Definition Diagram) components
     QGraphicsScene *scene;

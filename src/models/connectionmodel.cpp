@@ -34,7 +34,8 @@ void ConnectionModel::setStartBlock(BlockModel *block)
         // Disconnect previous block
         if (m_startBlock)
         {
-            disconnect(m_startBlock, &BlockModel::positionChanged, this, &ConnectionModel::connectionChanged);
+            disconnect(m_startBlock, &BlockModel::positionChanged, this, &ConnectionModel::updateEdgePoints);
+            disconnect(m_startBlock, &BlockModel::sizeChanged, this, &ConnectionModel::updateEdgePoints);
         }
 
         m_startBlock = block;
@@ -59,7 +60,8 @@ void ConnectionModel::setEndBlock(BlockModel *block)
         // Disconnect previous block
         if (m_endBlock)
         {
-            disconnect(m_endBlock, &BlockModel::positionChanged, this, &ConnectionModel::connectionChanged);
+            disconnect(m_endBlock, &BlockModel::positionChanged, this, &ConnectionModel::updateEdgePoints);
+            disconnect(m_endBlock, &BlockModel::sizeChanged, this, &ConnectionModel::updateEdgePoints);
         }
 
         m_endBlock = block;
@@ -97,6 +99,25 @@ QPointF ConnectionModel::endPoint() const
         return QPointF(pos.x() + size.width() / 2, pos.y() + size.height() / 2);
     }
     return QPointF(0, 0);
+}
+
+void ConnectionModel::setLabel(const QString &label)
+{
+    if (m_label != label)
+    {
+        m_label = label;
+        emit labelChanged(label);
+        emit connectionChanged();  // Trigger visual update
+    }
+}
+
+void ConnectionModel::setMultiplicity(const QString &multiplicity)
+{
+    if (m_multiplicity != multiplicity)
+    {
+        m_multiplicity = multiplicity;
+        emit connectionChanged();  // Trigger visual update
+    }
 }
 
 void ConnectionModel::updateConnection()

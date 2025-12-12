@@ -7,17 +7,23 @@
 #include <QAction>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QInputDialog>
+#include <QLineEdit>
 #include "../headers/io/modelserializer.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QToolBar>
 #include <QDebug>
+#include <QPointer>
 #include "views/startmenu.h"
 #include "models/statemachinemodel.h"
 #include "../headers/models/statemodel.h"
 #include "../headers/views/stateview.h"
 #include "../headers/views/connectionview.h"
 #include "../headers/views/transitionview.h"
+#include "../headers/views/blockdefinitionview.h"
+#include "../headers/models/blockdefinition.h"
+#include "../headers/models/partproperty.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -107,6 +113,7 @@ void MainWindow::setupToolInterface()
 
     // Connect drop signal to MainWindow for routing based on current view
     connect(dropGraphicsView, &DropGraphicsView::dropPerformed, this, &MainWindow::onDropPerformed);
+    connect(dropGraphicsView, &DropGraphicsView::blockDefinitionDropped, this, &MainWindow::onBlockDefinitionDropped);
 
     // Connect hierarchy controller to drop controller
     connect(dropController, &DropController::blockCreated,
@@ -121,9 +128,9 @@ void MainWindow::setupToolInterface()
             hierarchyController, &HierarchyController::onConnectionDeleted);
 
     // Connect block creation to state machine entry signal
-    connect(dropController, &DropController::blockCreated, this, [this](BlockModel *model, BlockView *view) {
+    connect(dropController, &DropController::blockCreated, this, [this](BlockDefinition *definition, BlockDefinitionView *view) {
         // Connect each new block view's double-click to enter state machine
-        connect(view, &BlockView::enterStateMachineRequested, this, &MainWindow::onEnterStateMachine);
+        connect(view, &BlockDefinitionView::enterStateMachineRequested, this, &MainWindow::onEnterStateMachine);
     });
 
     // Create navigation bar
@@ -232,6 +239,7 @@ void MainWindow::openFile()
         scene->clear();
     }
     if (m_stateMachineScene) {
+        // State Machine scene should be cleared, but controllers manage models.
         m_stateMachineScene->clear();
     }
     if (dropController) {
@@ -249,23 +257,24 @@ void MainWindow::openFile()
     }
     
     // Load from file
-    QList<BlockModel*> blocks;
-    QList<ConnectionModel*> connections;
+    QList<BlockDefinition*> definitions;
     
-    if (ModelSerializer::loadFromFile(filePath, blocks, connections)) {
-        // Add loaded blocks
-        for (BlockModel *block : blocks) {
-            dropController->addBlock(block);
+    if (ModelSerializer::loadFromFile(filePath, definitions)) {
+        // Add loaded blocks (this creates views)
+        for (BlockDefinition *def : definitions) {
+            dropController->addBlock(def);
         }
         
-        // Add loaded connections
-        for (ConnectionModel *conn : connections) {
-            connectionController->addConnection(conn);
+        // Add bindings for parts (Create ConnectionViews)
+        for (BlockDefinition *def : definitions) {
+            for (PartProperty *part : def->partProperties()) {
+                connectionController->addConnection(part);
+            }
         }
         
-        qDebug() << "Loaded" << blocks.size() << "blocks and" << connections.size() << "connections from" << filePath;
+        qDebug() << "Loaded" << definitions.size() << "block definitions from" << filePath;
         QMessageBox::information(this, tr("Success"), 
-            tr("Model loaded successfully!\n%1 blocks, %2 connections").arg(blocks.size()).arg(connections.size()));
+            tr("Model loaded successfully!\n%1 definitions").arg(definitions.size()));
     } else {
         QMessageBox::warning(this, tr("Error"), tr("Failed to load model from file."));
     }
@@ -285,30 +294,29 @@ void MainWindow::saveFile()
         filePath += ".json";
     }
     
-    // Get blocks and connections from controllers
-    QList<BlockModel*> blocks = dropController->blocks();
-    QList<ConnectionModel*> connections = connectionController->connections();
+    // Get definitions from controller
+    QList<BlockDefinition*> definitions = dropController->definitions();
     
-    if (ModelSerializer::saveToFile(filePath, blocks, connections)) {
-        qDebug() << "Saved" << blocks.size() << "blocks and" << connections.size() << "connections to" << filePath;
+    if (ModelSerializer::saveToFile(filePath, definitions)) {
+        qDebug() << "Saved" << definitions.size() << "definitions to" << filePath;
         QMessageBox::information(this, tr("Success"), 
-            tr("Model saved successfully!\n%1 blocks, %2 connections").arg(blocks.size()).arg(connections.size()));
+            tr("Model saved successfully!\n%1 definitions").arg(definitions.size()));
     } else {
         QMessageBox::warning(this, tr("Error"), tr("Failed to save model to file."));
     }
 }
 
-void MainWindow::onEnterStateMachine(BlockView *blockView)
+void MainWindow::onEnterStateMachine(BlockDefinitionView *blockView)
 {
-    if (!blockView || !blockView->model())
+    if (!blockView || !blockView->definition())
         return;
 
-    BlockModel *block = blockView->model();
-    qDebug() << "MainWindow: Entering state machine for block:" << block->label();
+    BlockDefinition *definition = blockView->definition();
+    qDebug() << "MainWindow: Entering state machine for block:" << definition->typeName();
     
     // Navigate to state machine view
-    m_diagramViewController->enterStateMachine(block);
-    switchToStateMachineView(block);
+    m_diagramViewController->enterStateMachine(definition); 
+    switchToStateMachineView(definition);
 }
 
 void MainWindow::onNavigateBack()
@@ -345,12 +353,12 @@ void MainWindow::switchToBDDView()
     onViewChanged();
 }
 
-void MainWindow::switchToStateMachineView(BlockModel *block)
+void MainWindow::switchToStateMachineView(BlockDefinition *definition)
 {
-    qDebug() << "Switching to State Machine view for:" << block->label();
+    qDebug() << "Switching to State Machine view for:" << definition->typeName();
     
     // Get or create the state machine for this block
-    StateMachineModel *stateMachine = block->getOrCreateStateMachine();
+    StateMachineModel *stateMachine = definition->getOrCreateStateMachine();
     
     // Set up the state machine controller with this state machine
     m_stateMachineController->setStateMachine(stateMachine);
@@ -359,7 +367,6 @@ void MainWindow::switchToStateMachineView(BlockModel *block)
     dropGraphicsView->setScene(m_stateMachineScene);
     
     // Hide regular block menu (state machine has different elements)
-    // For now, we'll keep it visible but could replace with state menu later
     blockMenuView->setVisible(true);
     
     // Update UI
@@ -377,9 +384,39 @@ void MainWindow::onDropPerformed(const QString &itemType, const QPointF &positio
     }
     else
     {
-        // In BDD view - create blocks
+        // In BDD view - create blocks with a name prompt
         qDebug() << "MainWindow: Routing drop to DropController";
-        dropController->handleDrop(itemType, position);
+        
+        bool ok;
+        QString blockName = QInputDialog::getText(this, 
+            tr("New Block"),
+            tr("Enter block name:"),
+            QLineEdit::Normal,
+            QString(),  // Empty default so user must enter a name
+            &ok);
+        
+        if (ok && !blockName.trimmed().isEmpty())
+        {
+            dropController->handleDrop(itemType, position, blockName.trimmed());
+        }
+        else
+        {
+            qDebug() << "MainWindow: Block creation cancelled - no name provided";
+        }
+    }
+}
+
+void MainWindow::onBlockDefinitionDropped(const QString &definitionId, const QPointF &position)
+{
+    // Route drop to DropController only if in BDD view
+    if (m_diagramViewController->currentViewType() == DiagramContext::Type::BDD)
+    {
+        qDebug() << "MainWindow: Routing definition drop to DropController";
+        dropController->handleDefinitionDrop(definitionId, position);
+    }
+    else
+    {
+        qDebug() << "MainWindow: Ignoring block definition drop in non-BDD view";
     }
 }
 
@@ -408,40 +445,84 @@ void MainWindow::deleteSelectedItems()
     
     qDebug() << "MainWindow: Deleting" << selected.size() << "selected items";
     
-    // Process each selected item
+    QList<QPointer<ConnectionView>> connectionsToDelete;
+    QList<QPointer<TransitionView>> transitionsToDelete;
+    QList<QPointer<BlockDefinitionView>> definitionsToDelete;
+    QList<QPointer<StateView>> statesToDelete;
+    
+    // Separate items by type
     for (QGraphicsItem* item : selected)
     {
-        // Check item type and route to appropriate controller
-        if (BlockView* blockView = dynamic_cast<BlockView*>(item))
+        if (BlockDefinitionView* blockView = dynamic_cast<BlockDefinitionView*>(item))
         {
-            BlockModel* block = blockView->model();
-            qDebug() << "MainWindow: Deleting block:" << block->label();
+            definitionsToDelete.append(QPointer<BlockDefinitionView>(blockView));
+        }
+        else if (StateView* stateView = dynamic_cast<StateView*>(item))
+        {
+            statesToDelete.append(QPointer<StateView>(stateView));
+        }
+        else if (ConnectionView* connView = dynamic_cast<ConnectionView*>(item))
+        {
+            connectionsToDelete.append(QPointer<ConnectionView>(connView));
+        }
+        else if (TransitionView* transView = dynamic_cast<TransitionView*>(item))
+        {
+            transitionsToDelete.append(QPointer<TransitionView>(transView));
+        }
+    }
+    
+    // Delete connections first (part properties)
+    for (const QPointer<ConnectionView>& connView : connectionsToDelete)
+    {
+        if (connView && connView->partProperty()) // Using partProperty() helper? 
+        // Wait, ConnectionView supports legacy model and partProperty. 
+        // Need to check which one it has.
+        {
+            if (connView->partProperty()) {
+                qDebug() << "MainWindow: Deleting connection (part)";
+                connectionController->deleteConnection(connView->partProperty());
+            }
+            // Legacy Model support? Removed for now or handled elsewhere?
+        }
+    }
+    
+    // Delete transitions
+    for (const QPointer<TransitionView>& transView : transitionsToDelete)
+    {
+        if (transView && transView->model())
+        {
+            qDebug() << "MainWindow: Deleting transition";
+            m_stateMachineController->deleteTransition(transView->model());
+        }
+    }
+    
+    // Delete blocks (definitions)
+    for (const QPointer<BlockDefinitionView>& blockView : definitionsToDelete)
+    {
+        if (blockView && blockView->definition())
+        {
+            BlockDefinition* definition = blockView->definition();
+            qDebug() << "MainWindow: Deleting block definition:" << definition->typeName();
             
-            // If this block has a state machine and it's currently being shown,
-            // clear the state machine controller reference first
-            if (block->hasStateMachine() && 
-                m_stateMachineController->currentStateMachine() == block->stateMachine())
+            // Clear state machine controller if needed
+            if (definition->hasStateMachine() && 
+                m_stateMachineController->currentStateMachine() == definition->stateMachine())
             {
                 qDebug() << "MainWindow: Clearing state machine controller before deletion";
                 m_stateMachineController->setStateMachine(nullptr);
             }
             
-            dropController->deleteBlock(block);
+            dropController->deleteBlock(definition);
         }
-        else if (StateView* stateView = dynamic_cast<StateView*>(item))
+    }
+    
+    // Delete states
+    for (const QPointer<StateView>& stateView : statesToDelete)
+    {
+        if (stateView && stateView->model())
         {
             qDebug() << "MainWindow: Deleting state:" << stateView->model()->label();
             m_stateMachineController->deleteState(stateView->model());
-        }
-        else if (ConnectionView* connView = dynamic_cast<ConnectionView*>(item))
-        {
-            qDebug() << "MainWindow: Deleting connection";
-            connectionController->deleteConnection(connView->model());
-        }
-        else if (TransitionView* transView = dynamic_cast<TransitionView*>(item))
-        {
-            qDebug() << "MainWindow: Deleting transition";
-            m_stateMachineController->deleteTransition(transView->model());
         }
     }
 }

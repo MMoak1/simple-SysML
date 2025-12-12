@@ -18,9 +18,12 @@ protected:
     void dragEnterEvent(QDragEnterEvent *event) override;
     void dragMoveEvent(QDragMoveEvent *event) override;
     void dropEvent(QDropEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
 
 signals:
     void dropPerformed(const QString &text, const QPointF &position);
+    void blockDefinitionDropped(const QString &definitionId, const QPointF &position);
 
 private:
     QGraphicsScene *m_scene;

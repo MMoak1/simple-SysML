@@ -1,7 +1,7 @@
-#include "../headers/controllers/dropcontroller.h"
+#include "../../headers/controllers/dropcontroller.h"
 #include <QGraphicsScene>
-#include "views/blockview.h"
-#include "controllers/connectioncontroller.h"
+#include "../../headers/views/blockdefinitionview.h"
+#include "../../headers/controllers/connectioncontroller.h"
 
 DropController::DropController(QGraphicsScene *scene, DropGraphicsView *view, ConnectionController *connectionController, QObject *parent)
     : QObject(parent), m_scene(scene), m_view(view), m_connectionController(connectionController)
@@ -10,28 +10,70 @@ DropController::DropController(QGraphicsScene *scene, DropGraphicsView *view, Co
 
 void DropController::handleDrop(const QString &blockType, const QPointF &position)
 {
-    BlockModel *model = createBlockModel(blockType);
-    if (model)
+    BlockDefinition *definition = createBlockDefinition(blockType);
+    if (definition)
     {
-        model->setPosition(position);
-        addBlock(model);
+        definition->setPosition(position);
+        addBlock(definition);
     }
 }
 
-void DropController::addBlock(BlockModel *model)
+void DropController::handleDrop(const QString &blockType, const QPointF &position, const QString &customName)
 {
-    if (!model)
+    BlockDefinition *definition = createBlockDefinition(blockType);
+    if (definition)
+    {
+        definition->setTypeName(customName);
+        definition->setPosition(position);
+        addBlock(definition);
+    }
+}
+
+void DropController::handleDefinitionDrop(const QString &definitionId, const QPointF &position)
+{
+    // Find the source definition by ID
+    BlockDefinition *sourceDef = nullptr;
+    for (BlockDefinition *def : m_definitions)
+    {
+        if (def->id() == definitionId)
+        {
+            sourceDef = def;
+            break;
+        }
+    }
+
+    if (!sourceDef)
+    {
+        qDebug() << "DropController: Could not find source definition with ID:" << definitionId;
+        return;
+    }
+
+    // Clone it
+    BlockDefinition *newDef = sourceDef->clone();
+    
+    // Set new position
+    newDef->setPosition(position);
+    
+    // Add to project
+    addBlock(newDef);
+    
+    qDebug() << "DropController: Created instance copy of" << sourceDef->typeName();
+}
+
+void DropController::addBlock(BlockDefinition *definition)
+{
+    if (!definition)
         return;
 
-    // Track the block
-    m_blocks.append(model);
+    // Track the definition
+    m_definitions.append(definition);
 
-    // Create view for the block
-    BlockView *view = new BlockView(model, nullptr);
+    // Create view for the definition
+    BlockDefinitionView *view = new BlockDefinitionView(definition, nullptr);
     m_scene->addItem(view);
     
-    // Track the view-model association
-    m_blockViews[model] = view;
+    // Track the view-definition association
+    m_definitionViews[definition] = view;
 
     // Register the new block with the connection controller
     if (m_connectionController)
@@ -40,58 +82,54 @@ void DropController::addBlock(BlockModel *model)
     }
 
     // Emit signal for hierarchy controller
-    emit blockCreated(model, view);
+    emit blockCreated(definition, view);
 }
 
-void DropController::deleteBlock(BlockModel *block)
+void DropController::deleteBlock(BlockDefinition *definition)
 {
-    if (!block)
+    if (!definition)
         return;
 
-    // Get the associated view
-    BlockView *view = m_blockViews.take(block);
-    
-    // Delete all connections involving this block first (cascading delete)
+    // Step 1: Remove all connections involving this block FIRST (before any deletions)
+    // This properly handles cascade deletes for:
+    //   - Parts owned by this block (removes views only, BlockDefinition destructor deletes PartProperties)
+    //   - Parts where this block is the type (fully removes those connections from their owners)
     if (m_connectionController)
     {
-        m_connectionController->deleteConnectionsForBlock(block);
-        
-        // Unregister view from connection controller
-        if (view)
-        {
-            m_connectionController->unregisterBlockView(view);
-        }
+        m_connectionController->deleteConnectionsForBlock(definition);
     }
     
-    // Remove from scene
+    // Step 2: Remove from our tracking
+    m_definitions.removeOne(definition);
+    BlockDefinitionView *view = m_definitionViews.take(definition);
+    
+    // Step 3: Remove view from scene and defer deletion
     if (view)
     {
         m_scene->removeItem(view);
-        delete view;
+        view->deleteLater();  // SAFE: defers to event loop
     }
     
-    // Remove from blocks list
-    m_blocks.removeOne(block);
+    // Step 4: Emit signal for hierarchy controller (block is still valid here)
+    emit blockDeleted(definition);
     
-    // Emit signal for hierarchy controller
-    emit blockDeleted(block);
-    
-    // Delete the model
-    delete block;
+    // Step 5: Finally delete the definition using deleteLater
+    // This ensures all signal handlers complete before destruction
+    definition->deleteLater();
 }
 
-BlockView* DropController::getViewForBlock(BlockModel *block) const
+BlockDefinitionView* DropController::getViewForDefinition(BlockDefinition *definition) const
 {
-    return m_blockViews.value(block, nullptr);
+    return m_definitionViews.value(definition, nullptr);
 }
 
 void DropController::clear()
 {
-    // Clear tracked blocks (scene->clear() will delete the views)
-    m_blocks.clear();
+    // Clear tracked definitions (scene->clear() will delete the views)
+    m_definitions.clear();
 }
 
-BlockModel *DropController::createBlockModel(const QString &blockType)
+BlockDefinition *DropController::createBlockDefinition(const QString &blockType)
 {
     QColor color = getColorForType(blockType);
     if (!color.isValid())
@@ -99,7 +137,7 @@ BlockModel *DropController::createBlockModel(const QString &blockType)
         return nullptr;
     }
 
-    return new BlockModel(color, blockType, QPointF(0, 0));
+    return new BlockDefinition(blockType, color, QPointF(0, 0));
 }
 
 QColor DropController::getColorForType(const QString &blockType)

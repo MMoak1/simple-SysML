@@ -6,8 +6,8 @@
 #include <QString>
 #include <QList>
 #include <QMap>
-#include "../models/blockmodel.h"
-#include "../views/blockview.h"
+#include "../models/blockdefinition.h"
+#include "../views/blockdefinitionview.h"
 
 class QGraphicsScene;
 class DropGraphicsView;
@@ -21,25 +21,27 @@ public:
     explicit DropController(QGraphicsScene *scene, DropGraphicsView *view, ConnectionController *connectionController, QObject *parent = nullptr);
 
     void handleDrop(const QString &blockType, const QPointF &position);
-    void addBlock(BlockModel *model);
-    void deleteBlock(BlockModel *block);
+    void handleDrop(const QString &blockType, const QPointF &position, const QString &customName);
+    void handleDefinitionDrop(const QString &definitionId, const QPointF &position);
+    void addBlock(BlockDefinition *definition);
+    void deleteBlock(BlockDefinition *block);
     void clear();
     
-    QList<BlockModel*> blocks() const { return m_blocks; }
-    BlockView* getViewForBlock(BlockModel *block) const;
+    QList<BlockDefinition*> definitions() const { return m_definitions; }
+    BlockDefinitionView* getViewForDefinition(BlockDefinition *definition) const;
 
 signals:
-    void blockCreated(BlockModel *model, BlockView *view);
-    void blockDeleted(BlockModel *model);
+    void blockCreated(BlockDefinition *definition, BlockDefinitionView *view);
+    void blockDeleted(BlockDefinition *definition);
 
 private:
     QGraphicsScene *m_scene;
     DropGraphicsView *m_view;
     ConnectionController *m_connectionController;
-    QList<BlockModel*> m_blocks;
-    QMap<BlockModel*, BlockView*> m_blockViews;
+    QList<BlockDefinition*> m_definitions;
+    QMap<BlockDefinition*, BlockDefinitionView*> m_definitionViews;
 
-    BlockModel *createBlockModel(const QString &blockType);
+    BlockDefinition *createBlockDefinition(const QString &blockType);
     QColor getColorForType(const QString &blockType);
 };
 

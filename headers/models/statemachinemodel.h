@@ -14,8 +14,12 @@ class StateMachineModel : public QObject
     Q_OBJECT
 
 public:
+    explicit StateMachineModel(QObject *parent = nullptr);
     explicit StateMachineModel(BlockModel *parentBlock, QObject *parent = nullptr);
     ~StateMachineModel();
+
+    // Clone method for instance creation
+    StateMachineModel *clone() const;
 
     // Parent block reference
     BlockModel *parentBlock() const { return m_parentBlock; }

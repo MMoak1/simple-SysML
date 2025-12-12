@@ -3,6 +3,12 @@
 #include "../../headers/models/statemodel.h"
 #include "../../headers/models/transitionmodel.h"
 
+StateMachineModel::StateMachineModel(QObject *parent)
+    : QObject(parent),
+      m_parentBlock(nullptr)
+{
+}
+
 StateMachineModel::StateMachineModel(BlockModel *parentBlock, QObject *parent)
     : QObject(parent),
       m_parentBlock(parentBlock)
@@ -12,6 +18,32 @@ StateMachineModel::StateMachineModel(BlockModel *parentBlock, QObject *parent)
 StateMachineModel::~StateMachineModel()
 {
     clear();
+}
+
+StateMachineModel *StateMachineModel::clone() const
+{
+    StateMachineModel *newSM = new StateMachineModel();
+    
+    // 1. Clone states
+    QList<StateModel *> newStates;
+    for (StateModel *state : m_states)
+    {
+        StateModel *newState = state->clone();
+        newSM->addState(newState);
+        newStates.append(newState);
+    }
+    
+    // 2. Clone transitions
+    for (TransitionModel *transition : m_transitions)
+    {
+        TransitionModel *newTransition = transition->clone(newStates);
+        if (newTransition)
+        {
+            newSM->addTransition(newTransition);
+        }
+    }
+    
+    return newSM;
 }
 
 void StateMachineModel::addState(StateModel *state)

@@ -1,5 +1,5 @@
 #include "../../headers/controllers/diagramviewcontroller.h"
-#include "../../headers/models/blockmodel.h"
+#include "../../headers/models/blockdefinition.h"
 #include <QDebug>
 
 DiagramViewController::DiagramViewController(QObject *parent)
@@ -9,24 +9,24 @@ DiagramViewController::DiagramViewController(QObject *parent)
     DiagramContext bddContext;
     bddContext.type = DiagramContext::Type::BDD;
     bddContext.title = "Block Definition Diagram";
-    bddContext.ownerBlock = nullptr;
+    bddContext.ownerDefinition = nullptr;
     m_navigationStack.push(bddContext);
 }
 
-void DiagramViewController::enterStateMachine(BlockModel *block)
+void DiagramViewController::enterStateMachine(BlockDefinition *definition)
 {
-    if (!block)
+    if (!definition)
         return;
     
     DiagramContext smContext;
     smContext.type = DiagramContext::Type::StateMachine;
-    smContext.title = QString("State Machine: %1").arg(block->label());
-    smContext.ownerBlock = block;
+    smContext.title = QString("State Machine: %1").arg(definition->typeName());
+    smContext.ownerDefinition = definition;
     
     pushContext(smContext);
     
-    qDebug() << "Entered state machine for block:" << block->label();
-    emit enteringStateMachine(block);
+    qDebug() << "Entered state machine for block definition:" << definition->typeName();
+    emit enteringStateMachine(definition);
 }
 
 void DiagramViewController::goBack()
@@ -70,12 +70,13 @@ DiagramContext::Type DiagramViewController::currentViewType() const
     return currentContext().type;
 }
 
-BlockModel *DiagramViewController::currentStateMachineOwner() const
+BlockDefinition *DiagramViewController::currentStateMachineOwner() const
 {
     DiagramContext ctx = currentContext();
     if (ctx.type == DiagramContext::Type::StateMachine)
     {
-        return ctx.ownerBlock;
+        // QPointer will be null if block was deleted
+        return ctx.ownerDefinition.data();
     }
     return nullptr;
 }
